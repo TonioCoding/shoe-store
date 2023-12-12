@@ -6,7 +6,6 @@ import {
   createUser,
   logoutUser,
   getUserInfo,
-  updatedUser,
   updateUserProfile,
 } from "..//controllers/userController.js";
 
