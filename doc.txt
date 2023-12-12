@@ -1,0 +1,2 @@
+1.fully configure backend, client, and api
+2.design app based on refrence websites(Nike and Footlocker)
