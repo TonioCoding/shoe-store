@@ -10,7 +10,7 @@ import {
 } from "..//controllers/userController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
-import { register } from "module";
+
 
 router.post("/auth", authUser);
 router.post("/", createUser);
