@@ -67,7 +67,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 // desc     Logout user
-// route    POST /api/users/logout
+// route    POST /api/users/profile
 // access   Public
 const getUserInfo = asyncHandler(async (req, res) => {
   const user = {
