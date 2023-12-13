@@ -1,9 +1,9 @@
-import './App.css'
+
 
 function App() {
  
   return (
-    <p>app</p>
+    <p className='text-red-700'>app</p>
   )
 }
 
