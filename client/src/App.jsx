@@ -3,7 +3,7 @@
 function App() {
  
   return (
-    <p className='text-gray font-rt '>app</p>
+    <p className='text-maincolor font-lt'>app</p>
   )
 }
 
