@@ -1,2 +1,10 @@
 1.fully configure backend, client, and api
 2.design app based on refrence websites(Nike and Footlocker)
+
+
+
+
+
+DEC 13, 2023
+-add proxy to frontend
+-check backend
