@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar.jsx";
 //import { PrivateRoute } from "./components/PrivateRoute.js";
 import HomePage from "./pages/HomePage.jsx";
 
