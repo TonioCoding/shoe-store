@@ -1,10 +1,5 @@
-
-
 function App() {
- 
-  return (
-    <p className='text-maincolor font-lt'>app</p>
-  )
+  return <div className=""></div>;
 }
 
-export default App
+export default App;
