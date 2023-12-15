@@ -2,8 +2,10 @@
 
 const HomePage = () => {
   return (
-    <div className="flex justify-center"><p>hello</p></div>
-  )
-}
+    <div className="flex justify-center">
+      Home page
+    </div>
+  );
+};
 
 export default HomePage;
