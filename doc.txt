@@ -8,3 +8,6 @@
 DEC 13, 2023
 -add proxy to frontend
 -check backend
+
+DEC 15, 2023 
+-get to work
