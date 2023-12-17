@@ -11,3 +11,7 @@ DEC 13, 2023
 
 DEC 15, 2023 
 -get to work
+
+DEC 16, 2023
+-slow and steady wins
+-just keep working on each aspect of the app one at a time until everything looks and functions how i want it to
