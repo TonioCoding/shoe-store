@@ -15,3 +15,7 @@ DEC 15, 2023
 DEC 16, 2023
 -slow and steady wins
 -just keep working on each aspect of the app one at a time until everything looks and functions how i want it to
+
+DEC 17, 2023
+-add a nav icon list under the hr line in the nav bar(to the right of the screen)
+-add a nav ul list under the hr line in the nav bar(to the left of the screen)

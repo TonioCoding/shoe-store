@@ -27,7 +27,7 @@ const NavBar = () => {
             href="#"
             className="mr-4 cursor-pointer py-1.5 font-medium"
           >
-            Material Tailwind
+            Shoe Store
           </Typography>
           <NavSearchBar />
           <div className="flex items-center gap-4">
@@ -86,6 +86,7 @@ const NavBar = () => {
             </Button>
           </div>
         </MobileNav>
+        <hr className="h-px my-8 bg-gray-600 border-0 dark:bg-gray-700"/>
       </Navbar>
     </div>
   );
