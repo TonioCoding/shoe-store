@@ -1,6 +1,6 @@
 import { Input } from "@material-tailwind/react";
  
-const InputDefault = () => {
+const NavSearchBar = () => {
   return (
     <div className="w-72">
       <Input label="Search" />
@@ -8,4 +8,4 @@ const InputDefault = () => {
   );
 }
 
-export default InputDefault;
+export default NavSearchBar;
