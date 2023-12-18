@@ -25,7 +25,7 @@ const NavBar = () => {
           <Typography
             as="a"
             href="#"
-            className="mr-4 cursor-pointer py-1.5 font-medium"
+            className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl"
           >
             Shoe Store
           </Typography>
