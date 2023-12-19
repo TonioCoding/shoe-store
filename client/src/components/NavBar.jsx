@@ -109,7 +109,7 @@ const NavBar = () => {
           </div>
         </div>
         <Collapse open={openNav}>
-          <div className="inline-flex items-center gap-x-1 mt-3 m;-3">
+          <div className="inline-flex items-center gap-x-1 mt-3 m-3">
             <Button
               fullWidth
               variant="gradient"
