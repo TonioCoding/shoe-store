@@ -2,7 +2,7 @@ import { Input } from "@material-tailwind/react";
 
 const NavSearchBar = () => {
   return (
-    <div className="w-72 flex justify-center">
+    <div className="flex justify-center">
       <Input
         label="Search"
         color="black"

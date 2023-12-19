@@ -39,7 +39,7 @@ const NavBar = () => {
 
   const wordList = (
     <div className="inline-flex">
-      <ul className="text-black font-lt justify-between text-xl">
+      <ul className="text-black font-lt justify-between text-lg">
         <span className="mr-3 hover:underline">Options</span>
         <span className="mr-3 hover:underline">Account</span>
         <span className="mr-3 hover:underline">Options</span>
