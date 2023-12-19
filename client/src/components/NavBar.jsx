@@ -1,11 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import {
   Navbar,
-  MobileNav,
+  Collapse,
   Typography,
   Button,
   IconButton,
 } from "@material-tailwind/react";
+import {
+  HiOutlineHome,
+  HiOutlineCog,
+  HiShoppingCart,
+  HiUserCircle,
+} from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
 
 const NavBar = () => {
@@ -19,14 +26,16 @@ const NavBar = () => {
   }, []);
 
   const iconList = (
-    <i></i>
-    <i></i>
-    <i></i>
-    <i></i>
-  )
+    <div className="flex z-11">
+      <HiOutlineCog />
+      <HiOutlineHome />
+      <HiShoppingCart />
+      <HiUserCircle />
+    </div>
+  );
 
   return (
-    <div className=" max-h-[768px]">
+    <div className="">
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
@@ -86,14 +95,19 @@ const NavBar = () => {
             </IconButton>
           </div>
         </div>
-        <MobileNav open={openNav}>
+        <Collapse open={openNav}>
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="gradient" size="sm" className="">
+            <Button
+              fullWidth
+              variant="gradient"
+              size="sm"
+              className="inline-block"
+            >
               <span>Sign in</span>
             </Button>
           </div>
-        </MobileNav>
-        <hr className="h-px my-8 bg-gray-600 border-0 dark:bg-gray-700" />
+        </Collapse>
+        {<hr className="h-px my-8 bg-gray-600 border-0 dark:bg-gray-700" />}
       </Navbar>
     </div>
   );
