@@ -14,6 +14,7 @@ import {
   HiUserCircle,
 } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
+import { IconContext } from "react-icons";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -26,12 +27,14 @@ const NavBar = () => {
   }, []);
 
   const iconList = (
-    <div className="flex z-11">
-      <HiOutlineCog />
-      <HiOutlineHome />
-      <HiShoppingCart />
-      <HiUserCircle />
-    </div>
+    <IconContext.Provider value={{size: "2em"}}>
+      <div className="inline-flex z-9 justify-between">
+        <HiOutlineCog className="text-black mr-3" />
+        <HiOutlineHome className="text-black mr-3" />
+        <HiShoppingCart className="text-black mr-3" />
+        <HiUserCircle className="text-black mr-3" />
+      </div>
+    </IconContext.Provider>
   );
 
   return (
@@ -41,7 +44,7 @@ const NavBar = () => {
           <Typography
             as="a"
             href="#"
-            className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl"
+            className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black"
           >
             Shoe Store
           </Typography>
@@ -107,7 +110,8 @@ const NavBar = () => {
             </Button>
           </div>
         </Collapse>
-        {<hr className="h-px my-8 bg-gray-600 border-0 dark:bg-gray-700" />}
+        {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}
+        {iconList}
       </Navbar>
     </div>
   );
