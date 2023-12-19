@@ -18,6 +18,13 @@ const NavBar = () => {
     );
   }, []);
 
+  const iconList = (
+    <i></i>
+    <i></i>
+    <i></i>
+    <i></i>
+  )
+
   return (
     <div className=" max-h-[768px]">
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
@@ -86,7 +93,7 @@ const NavBar = () => {
             </Button>
           </div>
         </MobileNav>
-        <hr className="h-px my-8 bg-gray-600 border-0 dark:bg-gray-700"/>
+        <hr className="h-px my-8 bg-gray-600 border-0 dark:bg-gray-700" />
       </Navbar>
     </div>
   );
