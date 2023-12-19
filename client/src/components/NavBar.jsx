@@ -31,7 +31,6 @@ const NavBar = () => {
       <div className="inline-flex z-9 justify-between">
         <HiOutlineCog className="text-black mr-3" />
         <HiOutlineHome className="text-black mr-3" />
-        <HiShoppingCart className="text-black mr-3" />
         <HiUserCircle className="text-black mr-3" />
       </div>
     </IconContext.Provider>
@@ -43,6 +42,9 @@ const NavBar = () => {
         <span className="mr-3 hover:underline">Options</span>
         <span className="mr-3 hover:underline">Account</span>
       </ul>
+      <IconContext.Provider value={{ size: "1.5em" }}>
+        <HiShoppingCart className="text-black mr-3" />
+      </IconContext.Provider>
     </div>
   );
 
