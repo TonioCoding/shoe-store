@@ -1,4 +1,5 @@
 import { Input } from "@material-tailwind/react";
+import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const NavSearchBar = () => {
   return (
@@ -13,6 +14,7 @@ const NavSearchBar = () => {
           borderRightColor: "black",
         }}
       />
+      <FaMagnifyingGlass className="m-2.5"/>
     </div>
   );
 };

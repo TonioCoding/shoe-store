@@ -37,7 +37,7 @@ const NavBar = () => {
   );
 
   const wordList = (
-    <div className="inline-flex">
+    <div className="inline-flex justify-between">
       <ul className="text-black font-lt justify-between text-lg">
         <span className="mr-3 hover:underline">Options</span>
         <span className="mr-3 hover:underline">Account</span>
@@ -67,7 +67,7 @@ const NavBar = () => {
                 size="sm"
                 className="hidden lg:inline-block"
               >
-                <span>Sign in</span>
+                <span className="font-lt">Sign in</span>
               </Button>
             </div>
             <IconButton
@@ -117,7 +117,7 @@ const NavBar = () => {
               size="sm"
               className="inline-block"
             >
-              <span>Sign in</span>
+              <span className="font-rt">Sign in</span>
             </Button>
           </div>
         </Collapse>
