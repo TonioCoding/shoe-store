@@ -1,11 +1,16 @@
-import LogoSlider from "./BrandLogoSlider"
+import LogoSlider from "./BrandLogoSlider";
 
 const BrandsSection = () => {
   return (
-    <section className="flex justify-center m-10">
-        <LogoSlider/>
-    </section>
-  )
-}
+    <main>
+      <section className="flex justify-center m-10">
+        <LogoSlider />
+      </section>
+      <h2 className="font-lt text-2xl text-center">DISCOVER WITH BELOVED BRANDS</h2>
+      <h1 className="font-rt text-xl text-center mt-3 font-normal">Find your desired sneakers from immortalized shoe brands.</h1>
+      <section></section>
+    </main>
+  );
+};
 
-export default BrandsSection
+export default BrandsSection;
