@@ -20,3 +20,6 @@ DEC 17, 2023
 -add a nav icon list under the hr line in the nav bar(to the right of the screen)
 -add a nav ul list under the hr line in the nav bar(to the left of the screen)
 -use footlocker product card as a refrence when creating product modle
+
+DEC 21, 2023
+-add clickable divs under the slider to represent each brand 
