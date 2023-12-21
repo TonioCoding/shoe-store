@@ -2,7 +2,7 @@ import LogoSlider from "./BrandLogoSlider"
 
 const BrandsSection = () => {
   return (
-    <section>
+    <section className="flex justify-center m-10">
         <LogoSlider/>
     </section>
   )
