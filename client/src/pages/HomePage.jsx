@@ -1,10 +1,8 @@
-
+import BrandsSection from "../components/homepage/BrandsSection";
 
 const HomePage = () => {
   return (
-    <div className="flex justify-center">
-    
-    </div>
+    <main></main>
   );
 };
 
