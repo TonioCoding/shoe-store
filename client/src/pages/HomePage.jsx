@@ -2,7 +2,9 @@ import BrandsSection from "../components/homepage/BrandsSection";
 
 const HomePage = () => {
   return (
-    <main></main>
+    <main>
+      <BrandsSection/>
+    </main>
   );
 };
 
