@@ -24,3 +24,7 @@ DEC 17, 2023
 DEC 21, 2023
 -add clickable divs under the slider to represent each brand 
 -noticing sligt alignment errors with elements on the homepage(FIX)
+
+DEC 22, 2023
+-configuring homepage(sets foundation for project)
+-learning and applying resposive web design concepts for better user experience
