@@ -5,16 +5,16 @@ const NavSearchBar = () => {
   return (
     <div className="flex justify-center">
       <Input
-        label="Search"
+        placeholder="Search"
         color="black"
         style={{
           borderBlockColor: "black",
           borderLeftColor: "black",
           borderRightColor: "black",
-          width: "45vw"
+          width: "45vw",
         }}
       />
-      <FaMagnifyingGlass className="m-2.5"/>
+      <FaMagnifyingGlass className="m-2.5" />
     </div>
   );
 };
