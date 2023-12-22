@@ -34,34 +34,34 @@ const NavBar = () => {
   }, []);
 
   const iconList = (
-    <IconContext.Provider value={{ size: "5%" }}>
-      <div className="flex w-fit-min">
-        <HiOutlineCog className="text-black mr-3" />
-        <HiOutlineHome className="text-black mr-3" />
-        <HiUserCircle className="text-black mr-3" />
+    <IconContext.Provider value={{ size: "4vh" }}>
+      <div className="flex justify-between">
+        <HiOutlineCog className="text-black m-1" />
+        <HiOutlineHome className="text-black m-1" />
+        <HiUserCircle className="text-black m-1" />
       </div>
     </IconContext.Provider>
   );
 
   const wordList = (
-    <div className="inline-flex">
+    <div className="flex">
       <ul className="text-black font-lt justify-between text-md">
-        <span className="mr-3 hover:underline">Options</span>
-        <span className="mr-3 hover:underline">Account</span>
+        <span className="m-1 hover:underline">Options</span>
+        <span className="m-1 hover:underline">Account</span>
       </ul>
-      <IconContext.Provider value={{ size: "5%" }}>
-        <HiShoppingCart className="text-black mr-3" />
+      <IconContext.Provider value={{ size: "3vh" }}>
+        <HiShoppingCart className="text-black m-1" />
       </IconContext.Provider>
     </div>
   );
 
   const brandIconList = (
-    <IconContext.Provider value={{ size: "1.5em" }}>
-      <div className="inline-flex justify-between">
-        <SiAdidas className="text-black mr-3" />
-        <SiJordan className="text-black mr-3" />
-        <SiNewbalance className="text-black mr-3" />
-        <SiNike className="text-black mr-3" />
+    <IconContext.Provider value={{ size: "4vh" }}>
+      <div className="flex justify-between">
+        <SiAdidas className="text-black m-5" />
+        <SiJordan className="text-black m-5" />
+        <SiNewbalance className="text-black m-5" />
+        <SiNike className="text-black m-5" />
       </div>
     </IconContext.Provider>
   );
@@ -140,10 +140,10 @@ const NavBar = () => {
           </div>
         </Collapse>
         {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}
-        <div className="flex justify-between">
-          <div>{iconList}</div>
-          <div>{brandIconList}</div>
-          <div className="justify-end">{wordList}</div>
+        <div className="flex justify-between sm-flex-wrap">
+          {iconList}
+          {brandIconList}
+          {wordList}
         </div>
       </Navbar>
     </div>
