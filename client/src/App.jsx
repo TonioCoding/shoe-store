@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import Test from "./pages/Test";
+import "./App.css"
 //import { PrivateRoute } from "./components/PrivateRoute.js";
 
 const App = () => {
