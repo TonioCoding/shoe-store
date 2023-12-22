@@ -62,6 +62,7 @@ const NavBar = () => {
         <SiJordan className="text-black m-5" />
         <SiNewbalance className="text-black m-5" />
         <SiNike className="text-black m-5" />
+        <SiReebok className="text-black m-5" />
       </div>
     </IconContext.Provider>
   );

@@ -8,7 +8,6 @@ const NavSearchBar = () => {
         label="Search"
         color="black"
         style={{
-          WebkitBorderBeforeColor: "black",
           borderBlockColor: "black",
           borderLeftColor: "black",
           borderRightColor: "black",
