@@ -12,6 +12,7 @@ const NavSearchBar = () => {
           borderBlockColor: "black",
           borderLeftColor: "black",
           borderRightColor: "black",
+          width: "45vw"
         }}
       />
       <FaMagnifyingGlass className="m-2.5"/>

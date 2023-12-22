@@ -57,7 +57,7 @@ const NavBar = () => {
 
   const brandIconList = (
     <IconContext.Provider value={{ size: "4vh" }}>
-      <div className="flex justify-between rounded-lg bg-gray-300 border-2 border-black">
+      <div className="flex justify-between rounded-lg bg-gray-100 border-2 border-gray-500">
         <SiAdidas className="text-black m-5" />
         <SiJordan className="text-black m-5" />
         <SiNewbalance className="text-black m-5" />
