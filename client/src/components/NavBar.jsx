@@ -15,6 +15,13 @@ import {
 } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
 import { IconContext } from "react-icons";
+import {
+  SiJordan,
+  SiAdidas,
+  SiNike,
+  SiReebok,
+  SiNewbalance,
+} from "react-icons/si";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -38,7 +45,7 @@ const NavBar = () => {
 
   const wordList = (
     <div className="inline-flex justify-between">
-      <ul className="text-black font-lt justify-between text-lg">
+      <ul className="text-black font-lt justify-between text-md">
         <span className="mr-3 hover:underline">Options</span>
         <span className="mr-3 hover:underline">Account</span>
       </ul>
@@ -46,6 +53,17 @@ const NavBar = () => {
         <HiShoppingCart className="text-black mr-3" />
       </IconContext.Provider>
     </div>
+  );
+
+  const brandIconList = (
+    <IconContext.Provider value={{size: "1.5em"}}>
+      <div className="inline-flex justify-between">
+        <SiAdidas className="text-black mr-3" />
+        <SiJordan className="text-black mr-3" />
+        <SiNewbalance className="text-black mr-3" />
+        <SiNike className="text-black mr-3" />
+      </div>
+    </IconContext.Provider>
   );
 
   return (
@@ -124,6 +142,7 @@ const NavBar = () => {
         {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}
         <div className="flex justify-between">
           <div>{iconList}</div>
+          <div>{brandIconList}</div>
           <div className="justify-end">{wordList}</div>
         </div>
       </Navbar>
