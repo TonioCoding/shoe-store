@@ -34,8 +34,8 @@ const NavBar = () => {
   }, []);
 
   const iconList = (
-    <IconContext.Provider value={{ size: "1.5em" }}>
-      <div className="inline-flex z-9 justify-between">
+    <IconContext.Provider value={{ size: "5%" }}>
+      <div className="flex w-fit-min">
         <HiOutlineCog className="text-black mr-3" />
         <HiOutlineHome className="text-black mr-3" />
         <HiUserCircle className="text-black mr-3" />
@@ -44,19 +44,19 @@ const NavBar = () => {
   );
 
   const wordList = (
-    <div className="inline-flex justify-between">
+    <div className="inline-flex">
       <ul className="text-black font-lt justify-between text-md">
         <span className="mr-3 hover:underline">Options</span>
         <span className="mr-3 hover:underline">Account</span>
       </ul>
-      <IconContext.Provider value={{ size: "1.5em" }}>
+      <IconContext.Provider value={{ size: "5%" }}>
         <HiShoppingCart className="text-black mr-3" />
       </IconContext.Provider>
     </div>
   );
 
   const brandIconList = (
-    <IconContext.Provider value={{size: "1.5em"}}>
+    <IconContext.Provider value={{ size: "1.5em" }}>
       <div className="inline-flex justify-between">
         <SiAdidas className="text-black mr-3" />
         <SiJordan className="text-black mr-3" />
