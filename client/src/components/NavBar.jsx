@@ -36,21 +36,21 @@ const NavBar = () => {
   const iconList = (
     <IconContext.Provider value={{ size: "4vh" }}>
       <div className="flex justify-between">
-        <HiOutlineCog className="text-black m-2" />
-        <HiOutlineHome className="text-black m-2" />
-        <HiUserCircle className="text-black m-2" />
+        <HiOutlineCog className="text-black m-2 cursor-pointer" />
+        <HiOutlineHome className="text-black m-2 cursor-pointer" />
+        <HiUserCircle className="text-black m-2 cursor-pointer" />
       </div>
     </IconContext.Provider>
   );
 
   const wordList = (
     <div className="flex">
-      <ul className="text-black font-lt justify-between text-md">
+      <ul className="text-black font-lt justify-between text-md cursor-pointer">
         <span className="m-1 hover:underline">Options</span>
         <span className="m-1 hover:underline">Account</span>
       </ul>
       <IconContext.Provider value={{ size: "3vh" }}>
-        <HiShoppingCart className="text-black m-1" />
+        <HiShoppingCart className="text-black m-1 cursor-pointer" />
       </IconContext.Provider>
     </div>
   );
@@ -58,11 +58,11 @@ const NavBar = () => {
   const brandIconList = (
     <IconContext.Provider value={{ size: "4vh" }}>
       <div className="flex justify-between rounded-lg bg-gray-100 border-2 border-gray-500">
-        <SiAdidas className="text-black m-5" />
-        <SiJordan className="text-black m-5" />
-        <SiNewbalance className="text-black m-5" />
-        <SiNike className="text-black m-5" />
-        <SiReebok className="text-black m-5" />
+        <SiAdidas className="text-black m-5 cursor-pointer" />
+        <SiJordan className="text-black m-5 cursor-pointer" />
+        <SiNewbalance className="text-black m-5 cursor-pointer" />
+        <SiNike className="text-black m-5 cursor-pointer" />
+        <SiReebok className="text-black m-5 cursor-pointer" />
       </div>
     </IconContext.Provider>
   );

@@ -28,3 +28,4 @@ DEC 21, 2023
 DEC 22, 2023
 -configuring homepage(sets foundation for project)
 -learning and applying resposive web design concepts for better user experience
+-nav icons need to be wraped in Link element once pages are ready to be created
