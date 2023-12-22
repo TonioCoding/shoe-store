@@ -46,8 +46,8 @@ const NavBar = () => {
   const wordList = (
     <div className="flex">
       <ul className="text-black font-lt justify-between text-md cursor-pointer">
-        <span className="m-1 hover:underline">Options</span>
-        <span className="m-1 hover:underline">Account</span>
+        <span className="m-3 hover:underline">Options</span>
+        <span className="m-3 hover:underline">Account</span>
       </ul>
       <IconContext.Provider value={{ size: "3vh" }}>
         <HiShoppingCart className="text-black m-1 cursor-pointer" />
