@@ -36,9 +36,9 @@ const NavBar = () => {
   const iconList = (
     <IconContext.Provider value={{ size: "4vh" }}>
       <div className="flex justify-between">
-        <HiOutlineCog className="text-black m-1" />
-        <HiOutlineHome className="text-black m-1" />
-        <HiUserCircle className="text-black m-1" />
+        <HiOutlineCog className="text-black m-2" />
+        <HiOutlineHome className="text-black m-2" />
+        <HiUserCircle className="text-black m-2" />
       </div>
     </IconContext.Provider>
   );
@@ -57,7 +57,7 @@ const NavBar = () => {
 
   const brandIconList = (
     <IconContext.Provider value={{ size: "4vh" }}>
-      <div className="flex justify-between">
+      <div className="flex justify-between rounded-lg bg-gray-300 border-2 border-black">
         <SiAdidas className="text-black m-5" />
         <SiJordan className="text-black m-5" />
         <SiNewbalance className="text-black m-5" />
