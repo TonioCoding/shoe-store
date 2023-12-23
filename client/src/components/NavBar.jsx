@@ -141,7 +141,7 @@ const NavBar = () => {
           </div>
         </Collapse>
         {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}
-        <div className="flex justify-between">
+        <div className="flex justify-between w-full">
           {iconList}
           {brandIconList}
           {wordList}
