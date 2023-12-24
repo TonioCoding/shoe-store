@@ -56,7 +56,7 @@ const NavBar = () => {
   );
 
   const brandIconList = (
-    <IconContext.Provider value={{ size: "4vh" }}>
+    <IconContext.Provider value={{ size: "4vw" }}>
       <div className="flex justify-between rounded-lg bg-gray-100 border-2 border-gray-500">
         <SiAdidas className="text-black m-5 cursor-pointer" />
         <SiJordan className="text-black m-5 cursor-pointer" />
@@ -141,10 +141,10 @@ const NavBar = () => {
           </div>
         </Collapse>
         {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}
-        <div className="flex justify-between w-full">
-          {iconList}
+        <div className="flex justify-center w-full md:hidden">
+          {/*iconList*/}
           {brandIconList}
-          {wordList}
+          {/*wordList*/}
         </div>
       </Navbar>
     </div>
