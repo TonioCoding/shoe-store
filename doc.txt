@@ -29,3 +29,6 @@ DEC 22, 2023
 -configuring homepage(sets foundation for project)
 -learning and applying resposive web design concepts for better user experience
 -nav icons need to be wraped in Link element once pages are ready to be created
+
+DEC 23,2023
+-media queries didn't have the logic i thought (min-width and max-width)
