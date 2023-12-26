@@ -32,3 +32,6 @@ DEC 22, 2023
 
 DEC 23,2023
 -media queries didn't have the logic i thought (min-width and max-width)
+
+DEC 25, 2023
+-Read on w3
