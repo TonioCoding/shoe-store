@@ -6,6 +6,8 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
+import ButtonRounded from "./RoundedButton";
+
 const HomeCard = (props) => {
   return (
     <Card className="w-full m-10">
@@ -16,6 +18,7 @@ const HomeCard = (props) => {
         <Typography variant="h4" color="black" className="mb-2 font-lt">
           {props.brandName}
         </Typography>
+        <ButtonRounded text="Shop now!" className="text-center" />
       </CardBody>
     </Card>
   );

@@ -4,7 +4,7 @@ const BrandsSection = () => {
   return (
     <div>
       <div className="flex justify-center m-6 max-w-full">
-        <LogoSlider />
+        <LogoSlider/>
       </div>
       <h2 className="font-lt text-2xl text-center max-w-full">
         DISCOVER WITH BELOVED BRANDS
