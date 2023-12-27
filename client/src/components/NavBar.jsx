@@ -36,7 +36,7 @@ const NavBar = () => {
   const iconList = (
     <IconContext.Provider value={{ size: "4vh" }}>
       <div className="flex justify-between">
-        <HiOutlineCog className="text-black m-2 cursor-pointer shadow-lg" />
+        <HiOutlineCog className="text-black m-2 cursor-pointer" />
         <HiOutlineHome className="text-black m-2 cursor-pointer" />
         <HiUserCircle className="text-black m-2 cursor-pointer" />
       </div>
