@@ -3,7 +3,7 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 
 const NavSearchBar = () => {
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center w-[50%] sm:hidden">
       <Input
         placeholder="Search"
         color="black"
@@ -11,7 +11,7 @@ const NavSearchBar = () => {
           borderBlockColor: "black",
           borderLeftColor: "black",
           borderRightColor: "black",
-          width: "45vw",
+          width: "100%",
         }}
       />
       <FaMagnifyingGlass className="m-2.5" />
