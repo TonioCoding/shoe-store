@@ -40,3 +40,6 @@ DEC 27, 2023
 -Back to grind
 -learning and applying css and html concepts, once the UI is configured, finishing the project should be faster
 -had concurrently script
+
+DEC 28, 2023
+-add shadows to elements
