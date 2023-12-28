@@ -34,35 +34,32 @@ const NavBar = () => {
   }, []);
 
   const iconList = (
-    <IconContext.Provider value={{ size: "4vh" }}>
+    <IconContext.Provider value={{ size: "3vw" }}>
       <div className="flex justify-between">
-        <HiOutlineCog className="text-black m-2 cursor-pointer" />
-        <HiOutlineHome className="text-black m-2 cursor-pointer" />
-        <HiUserCircle className="text-black m-2 cursor-pointer" />
+        <HiOutlineCog className="text-black m-2 cursor-pointer lg:w-[2vw]" />
+        <HiOutlineHome className="text-black m-2 cursor-pointer lg:w-[2vw]" />
+        <HiUserCircle className="text-black m-2 cursor-pointer lg:w-[2vw]" />
       </div>
     </IconContext.Provider>
   );
 
   const wordList = (
     <div className="flex">
-      <ul className="text-black font-lt justify-between text-md cursor-pointer">
-        <span className="m-3 hover:underline">Options</span>
-        <span className="m-3 hover:underline">Account</span>
+      <ul className="text-black font-lt text-md cursor-pointer">
+        <span className="m-3 hover:underline lg:w-[2vw]">Options</span>
+        <span className="m-3 hover:underline lg:w-[2vw]">Account</span>
       </ul>
-      <IconContext.Provider value={{ size: "3vh" }}>
-        <HiShoppingCart className="text-black m-1 cursor-pointer" />
-      </IconContext.Provider>
     </div>
   );
 
   const brandIconList = (
-    <IconContext.Provider value={{ size: "2vw" }}>
+    <IconContext.Provider value={{ size: "3vw" }}>
       <div className="flex justify-between rounded-lg bg-gray-100 border-2 border-gray-500">
-        <SiAdidas className="text-black m-5 cursor-pointer" />
-        <SiJordan className="text-black m-5 cursor-pointer" />
-        <SiNewbalance className="text-black m-5 cursor-pointer" />
-        <SiNike className="text-black m-5 cursor-pointer" />
-        <SiReebok className="text-black m-5 cursor-pointer" />
+        <SiAdidas className="text-black m-5 cursor-pointer lg:w-[2vw]" />
+        <SiJordan className="text-black m-5 cursor-pointer lg:w-[2vw]" />
+        <SiNewbalance className="text-black m-5 cursor-pointer lg:w-[2vw]" />
+        <SiNike className="text-black m-5 cursor-pointer lg:w-[2vw]" />
+        <SiReebok className="text-black m-5 cursor-pointer lg:w-[2vw]" />
       </div>
     </IconContext.Provider>
   );
@@ -84,10 +81,13 @@ const NavBar = () => {
               <Button
                 variant="gradient"
                 size="sm"
-                className="hidden lg:inline-block"
+                className="hidden lg:inline-block mr-5"
               >
                 <span className="font-lt">Sign in</span>
               </Button>
+              <IconContext.Provider value={{ size: "3vw" }}>
+                <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw]" />
+              </IconContext.Provider>
             </div>
             <IconButton
               variant="text"
