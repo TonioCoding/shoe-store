@@ -7,12 +7,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import {
-  HiOutlineHome,
-  HiOutlineCog,
-  HiShoppingCart,
-  HiUserCircle,
-} from "react-icons/hi";
+import { HiOutlineHome, HiShoppingCart, HiUserCircle } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
 import { IconContext } from "react-icons";
 import {
@@ -22,6 +17,10 @@ import {
   SiReebok,
   SiNewbalance,
 } from "react-icons/si";
+import { CiSettings, CiHome, CiUser } from "react-icons/ci";
+import { IoIosSettings } from "react-icons/io";
+import { IoHomeSharp } from "react-icons/io5";
+import { FaUser } from "react-icons/fa";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -36,9 +35,9 @@ const NavBar = () => {
   const iconList = (
     <IconContext.Provider value={{ size: "3vw" }}>
       <div className="flex justify-between">
-        <HiOutlineCog className="text-black m-2 cursor-pointer lg:w-[2vw]" />
-        <HiOutlineHome className="text-black m-2 cursor-pointer lg:w-[2vw]" />
-        <HiUserCircle className="text-black m-2 cursor-pointer lg:w-[2vw]" />
+        <IoIosSettings className="text-black cursor-pointer lg:w-[1.5vw] mx-2" />
+        <IoHomeSharp className="text-black cursor-pointer lg:w-[1.5vw] mx-2 mr-3" />
+        <FaUser className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
       </div>
     </IconContext.Provider>
   );
@@ -136,7 +135,7 @@ const NavBar = () => {
               variant="gradient"
               size="sm"
               className="inline-block"
-              color='red'
+              color="red"
             >
               <span className="font-rt">Sign in</span>
             </Button>
