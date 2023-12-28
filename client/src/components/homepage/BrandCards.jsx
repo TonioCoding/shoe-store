@@ -2,7 +2,7 @@ import HomeCard from "../HomePageCard";
 
 const BrandCards = () => {
   return (
-    <div className=" flex justify-center md:flex-wrap">
+    <div className=" flex justify-center md:flex-wrap ">
       <HomeCard
         src="https://static.vecteezy.com/system/resources/previews/010/994/239/original/adidas-logo-black-symbol-clothes-design-icon-abstract-football-illustration-with-white-background-free-vector.jpg"
         brandName="Adidas"

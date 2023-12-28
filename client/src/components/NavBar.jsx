@@ -82,11 +82,12 @@ const NavBar = () => {
                 variant="gradient"
                 size="sm"
                 className="hidden lg:inline-block mr-5"
+                color="red"
               >
                 <span className="font-lt">Sign in</span>
               </Button>
               <IconContext.Provider value={{ size: "3vw" }}>
-                <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw]" />
+                <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible" />
               </IconContext.Provider>
             </div>
             <IconButton
@@ -135,6 +136,7 @@ const NavBar = () => {
               variant="gradient"
               size="sm"
               className="inline-block"
+              color='red'
             >
               <span className="font-rt">Sign in</span>
             </Button>
