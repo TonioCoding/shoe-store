@@ -13,6 +13,9 @@ export default withMT({
         offwhite: "#d4d4d4",
         main: "#3730a3",
       },
+      backgroundImage:{
+        'long-cards': ["url('https://i.pinimg.com/originals/60/fe/6e/60fe6e7adc09d72bbf8290160f2b2b5b.jpg')"]
+      }
     },
     screens: {
       xs: {'max': "320px"},
