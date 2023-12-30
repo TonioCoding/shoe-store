@@ -14,7 +14,7 @@ const NavSearchBar = () => {
           width: "100%",
         }}
       />
-      <FaMagnifyingGlass className="m-2.5" />
+      <FaMagnifyingGlass className="m-2.5 cursor-pointer" />
     </div>
   );
 };

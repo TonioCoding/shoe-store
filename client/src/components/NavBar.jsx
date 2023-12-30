@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import {
@@ -7,7 +8,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-import { HiOutlineHome, HiShoppingCart, HiUserCircle } from "react-icons/hi";
+import { HiShoppingCart } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
 import { IconContext } from "react-icons";
 import {
@@ -17,12 +18,13 @@ import {
   SiReebok,
   SiNewbalance,
 } from "react-icons/si";
-import { CiSettings, CiHome, CiUser } from "react-icons/ci";
 import { IoIosSettings } from "react-icons/io";
 import { IoHomeSharp } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
+import { GiCancel } from "react-icons/gi";
+import InfoNavSlider from "./InfoNavSlider";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -53,18 +55,22 @@ const NavBar = () => {
 
   const brandIconList = (
     <IconContext.Provider value={{ size: "3vw" }}>
-      <div className="flex justify-between rounded-lg bg-gray-100 border-2 border-gray-500">
-        <SiAdidas className="text-black m-5 cursor-pointer lg:w-[2vw]" />
-        <SiJordan className="text-black m-5 cursor-pointer lg:w-[2vw]" />
-        <SiNewbalance className="text-black m-5 cursor-pointer lg:w-[2vw]" />
-        <SiNike className="text-black m-5 cursor-pointer lg:w-[2vw]" />
-        <SiReebok className="text-black m-5 cursor-pointer lg:w-[2vw]" />
+      <div className="flex justify-between">
+        <SiAdidas className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiJordan className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiNewbalance className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiNike className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiReebok className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
       </div>
     </IconContext.Provider>
   );
 
   return (
     <div className="">
+      <div className="bg-black w-full ">
+        <h1 className="text-center text-white pt-2 font-lt">Welcome!</h1>
+        <GiCancel color="" className="float-right" />
+      </div>
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
@@ -148,6 +154,7 @@ const NavBar = () => {
           {wordList}
         </div>
       </Navbar>
+      {props.application}
     </div>
   );
 };
