@@ -22,7 +22,7 @@ const Footer = () => {
     <footer className="relative w-full">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <Typography variant="h5" className="mb-6">
+          <Typography variant="h5" className="mb-6 font-lt">
             Shoe Store
           </Typography>
           <div className="grid grid-cols-3 justify-between gap-4">
@@ -30,8 +30,8 @@ const Footer = () => {
               <ul key={title}>
                 <Typography
                   variant="small"
-                  color="blue-gray"
-                  className="mb-3 font-medium opacity-40"
+                  color="black"
+                  className="mb-3 font-lt opacity-65"
                 >
                   {title}
                 </Typography>
@@ -41,7 +41,7 @@ const Footer = () => {
                       as="a"
                       href="#"
                       color="gray"
-                      className="py-1.5 font-normal transition-colors hover:text-blue-gray-900"
+                      className="py-1.5 font-rt transition-colors hover:text-blue-gray-900"
                     >
                       {link}
                     </Typography>
@@ -54,10 +54,10 @@ const Footer = () => {
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
           <Typography
             variant="small"
-            className="mb-4 text-center font-normal text-blue-gray-900 md:mb-0"
+            className="mb-4 text-center font-lt text-blue-gray-900 md:mb-0"
           >
             &copy; {currentYear}{" "}
-            <a href="https://material-tailwind.com/">Material Tailwind</a>. All
+            <a href="https://material-tailwind.com/">Shoe Store</a>. All
             Rights Reserved.
           </Typography>
           <div className="flex gap-4 text-blue-gray-900 sm:justify-center">
