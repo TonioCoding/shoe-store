@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import {
   Card,
@@ -7,6 +8,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { FaRegSnowflake } from "react-icons/fa";
 
 const SaleCard = (props) => {
   return (
@@ -15,13 +17,15 @@ const SaleCard = (props) => {
         <Typography variant="h5" color="black" className="mb-2 font-lt">
           {props.heading}
         </Typography>
-        <Typography>
-          {props.text}
-        </Typography>
+        <Typography>{props.text}</Typography>
       </CardBody>
       <CardFooter className="pt-0">
         <Link className="inline-block">
-          <Button size="sm" variant="text" className="flex items-center gap-2 text-white bg-black rounded-md">
+          <Button
+            size="sm"
+            variant="text"
+            className="flex items-center gap-2 text-white bg-black rounded-md"
+          >
             Shop
             <svg
               xmlns="http://www.w3.org/2000/svg"
