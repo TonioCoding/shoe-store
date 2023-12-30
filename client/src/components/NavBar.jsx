@@ -23,8 +23,10 @@ import { IoHomeSharp } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import InfoNavSlider from "./InfoNavSlider";
+import App from "../App";
+import LogoSlider from "./homepage/BrandLogoSlider";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
 
   React.useEffect(() => {
@@ -67,7 +69,7 @@ const NavBar = (props) => {
 
   return (
     <div className="">
-      <div className="bg-black w-full ">
+      <div className="bg-black w-full shadow-xl">
         <h1 className="text-center text-white pt-2 font-lt">Welcome!</h1>
         <GiCancel color="" className="float-right" />
       </div>
@@ -154,7 +156,6 @@ const NavBar = (props) => {
           {wordList}
         </div>
       </Navbar>
-      {props.application}
     </div>
   );
 };
