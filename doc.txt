@@ -43,3 +43,6 @@ DEC 27, 2023
 
 DEC 28, 2023
 -add shadows to elements
+
+DEC 28, 2023
+-work on homepage
