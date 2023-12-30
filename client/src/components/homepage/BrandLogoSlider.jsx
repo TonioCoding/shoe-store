@@ -3,7 +3,7 @@ import { Carousel } from "@material-tailwind/react";
 const LogoSlider = () => {
   return (
     <div
-      className="flex justify-center max-w-full lg:w-[50%]"
+      className="flex justify-center max-w-full lg:w-[50%] shadow-lg shadow-blue-gray-900/50 rounded-xl"
       id="brand-slider"
     >
       <Carousel
