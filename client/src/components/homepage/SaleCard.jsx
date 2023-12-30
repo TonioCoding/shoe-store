@@ -12,7 +12,7 @@ const SaleCard = (props) => {
   return (
     <Card className="mt-6 w-96">
       <CardBody>
-        <Typography variant="h5" color="blue-gray" className="mb-2">
+        <Typography variant="h5" color="black" className="mb-2 font-lt">
           {props.heading}
         </Typography>
         <Typography>
@@ -21,8 +21,8 @@ const SaleCard = (props) => {
       </CardBody>
       <CardFooter className="pt-0">
         <Link className="inline-block">
-          <Button size="sm" variant="text" className="flex items-center gap-2">
-            Learn More
+          <Button size="sm" variant="text" className="flex items-center gap-2 text-white bg-black rounded-md">
+            Shop
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
