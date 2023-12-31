@@ -17,7 +17,7 @@ const SaleCard = (props) => {
         <Typography variant="h5" color="black" className="mb-2 font-lt">
           {props.heading}
         </Typography>
-        <Typography>{props.text}</Typography>
+        <Typography color="black" className="font-rt">{props.text}</Typography>
       </CardBody>
       <CardFooter className="pt-0">
         <Link className="inline-block">
