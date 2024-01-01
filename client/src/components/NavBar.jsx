@@ -76,7 +76,8 @@ const NavBar = () => {
   return (
     <div className="max-w-full">
       <div className="bg-black w-full shadow-xl">
-        <h1 className="text-center text-white py-2 font-lt">Welcome!</h1>
+        <h1 className="text-center text-white pt-1 font-lt">Welcome!</h1>
+        <p className="text-center text-white font-rt py-2">Winter sale, 45% off</p>
         {/*<GiCancel color="white" className="ml-[50" />*/}
       </div>
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
@@ -162,7 +163,7 @@ const NavBar = () => {
           {wordList}
         </div>
       </Navbar>
-      <div className="flex justify-between mb-10 w-full overflow-hidden">
+      <div className="flex justify-between mb-5 w-full overflow-hidden shadow-2xl">
         <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
         <div className="bg-black">b</div>
         <ImageWithShadow ImgUrl="https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:good%2Cw_1200%2Cx_3237%2Cy_3988/MjAyOTUxNTIzMzUxNjY3NzI0/edwards-adidas.jpg" />
@@ -170,7 +171,7 @@ const NavBar = () => {
         <ImageWithShadow ImgUrl="https://static.ebayinc.com/static/assets/Uploads/Stories/Articles/_resampled/ScaleWidthWyIxMDI0Il0/melo2.jpg" />
       </div>
       <div className=" flex flex-col justify-center mb-30 text-">
-        <h1 className="text-center font-lt text-3xl m-3">
+        <h1 className="text-center font-lt text-3xl m-3 mt-10">
           Winter Basketball Shoe Sale
         </h1>
         <p className="text-center font-rt text-md">
