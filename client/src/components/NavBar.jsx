@@ -71,7 +71,7 @@ const NavBar = () => {
     <div className="">
       <div className="bg-black w-full shadow-xl">
         <h1 className="text-center text-white py-2 font-lt">Welcome!</h1>
-        <GiCancel color="" className="float-right" />
+        {/*<GiCancel color="white" className="ml-[50" />*/}
       </div>
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
