@@ -1,4 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { Typography } from "@material-tailwind/react";
+import {
+  FaCcVisa,
+  FaCcPaypal,
+  FaCcMastercard,
+  FaCcDiscover,
+  FaCcApplePay,
+  FaGooglePay,
+} from "react-icons/fa6";
+import { SiAmericanexpress } from "react-icons/si";
 
 const LINKS = [
   {
