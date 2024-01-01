@@ -28,6 +28,7 @@ import LogoSlider from "./homepage/BrandLogoSlider";
 import ImageWithShadow from "../components/Image";
 import ButtonRounded from "./RoundedButton";
 import LearnMoreButton from "./LearnMoreButton";
+import { GoHeartFill } from "react-icons/go";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -45,6 +46,7 @@ const NavBar = () => {
         <IoIosSettings className="text-black cursor-pointer lg:w-[1.5vw] mx-2" />
         <IoHomeSharp className="text-black cursor-pointer lg:w-[1.5vw] mx-2 mr-3" />
         <FaUser className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
+        <GoHeartFill className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
       </div>
     </IconContext.Provider>
   );
@@ -52,8 +54,8 @@ const NavBar = () => {
   const wordList = (
     <div className="flex">
       <ul className="text-black font-lt text-md cursor-pointer">
-        <span className="m-3 hover:underline lg:w-[2vw]">Options</span>
-        <span className="m-3 hover:underline lg:w-[2vw]">Account</span>
+        <span className="m-3 hover:underline lg:w-[2vw]">Membership</span>
+        <span className="m-3 hover:underline lg:w-[2vw]"></span>
       </ul>
     </div>
   );
