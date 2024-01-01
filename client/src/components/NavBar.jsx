@@ -160,7 +160,7 @@ const NavBar = () => {
           {wordList}
         </div>
       </Navbar>
-      <div className="flex justify-between mb-10 w-full">
+      <div className="flex justify-between mb-10 w-full overflow-hidden">
         <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
         <div className="bg-black">b</div>
         <ImageWithShadow ImgUrl="https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:good%2Cw_1200%2Cx_3237%2Cy_3988/MjAyOTUxNTIzMzUxNjY3NzI0/edwards-adidas.jpg" />
