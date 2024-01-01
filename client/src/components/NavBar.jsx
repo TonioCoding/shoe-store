@@ -26,6 +26,8 @@ import { GiCancel } from "react-icons/gi";
 import InfoNavSlider from "./InfoNavSlider";
 import LogoSlider from "./homepage/BrandLogoSlider";
 import ImageWithShadow from "../components/Image";
+import ButtonRounded from "./RoundedButton";
+import LearnMoreButton from "./LearnMoreButton";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -70,7 +72,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="">
+    <div className="max-w-full">
       <div className="bg-black w-full shadow-xl">
         <h1 className="text-center text-white py-2 font-lt">Welcome!</h1>
         {/*<GiCancel color="white" className="ml-[50" />*/}
@@ -158,7 +160,7 @@ const NavBar = () => {
           {wordList}
         </div>
       </Navbar>
-      <div className="flex justify-between mb-10">
+      <div className="flex justify-between mb-10 w-full">
         <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
         <div className="bg-black">b</div>
         <ImageWithShadow ImgUrl="https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:good%2Cw_1200%2Cx_3237%2Cy_3988/MjAyOTUxNTIzMzUxNjY3NzI0/edwards-adidas.jpg" />
@@ -166,10 +168,13 @@ const NavBar = () => {
         <ImageWithShadow ImgUrl="https://static.ebayinc.com/static/assets/Uploads/Stories/Articles/_resampled/ScaleWidthWyIxMDI0Il0/melo2.jpg" />
       </div>
       <div className="mb-30">
-        <h1 className="text-center font-lt text-3xl m-3">Winter Basketball Shoe Sale</h1>
+        <h1 className="text-center font-lt text-3xl m-3">
+          Winter Basketball Shoe Sale
+        </h1>
         <p className="text-center font-rt text-md">
           45% markdown on Basketball sneakers
         </p>
+        <LearnMoreButton text="Learn More"/>
       </div>
     </div>
   );

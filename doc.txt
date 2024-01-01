@@ -49,3 +49,6 @@ DEC 28, 2023
 
 DEC 31,2023 
 -study day
+
+Jan 1.2024
+-remove anchors and use Links instead
