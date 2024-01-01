@@ -9,10 +9,10 @@ const HomePage = () => {
       <hr className="border-black my-20 h-px" />
       <BrandsSection />
       <div className="max-w-full mt-20">
-        <h2 className="text-center font-lt max-w-full text-2xl">
+        <hr className="border-black my-5" />
+        <h2 className="text-center font-lt max-w-full text-2xl mb-10">
           TRENDING BRANDS
         </h2>
-        <hr className="border-black my-5" />
       </div>
       <BrandCards />
       <hr className="border-black my-5 mb-20" />
