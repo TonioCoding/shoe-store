@@ -17,14 +17,15 @@ import {
   SiNike,
   SiReebok,
   SiNewbalance,
+  SiPuma,
 } from "react-icons/si";
 import { IoIosSettings } from "react-icons/io";
 import { IoHomeSharp } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
 import InfoNavSlider from "./InfoNavSlider";
-import App from "../App";
 import LogoSlider from "./homepage/BrandLogoSlider";
+import ImageWithShadow from "../components/Image";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = React.useState(false);
@@ -63,6 +64,7 @@ const NavBar = () => {
         <SiNewbalance className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
         <SiNike className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
         <SiReebok className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiPuma className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
       </div>
     </IconContext.Provider>
   );
@@ -156,6 +158,19 @@ const NavBar = () => {
           {wordList}
         </div>
       </Navbar>
+      <div className="flex justify-between mb-10">
+        <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
+        <div className="bg-black">b</div>
+        <ImageWithShadow ImgUrl="https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:good%2Cw_1200%2Cx_3237%2Cy_3988/MjAyOTUxNTIzMzUxNjY3NzI0/edwards-adidas.jpg" />
+        <div className="bg-black">b</div>
+        <ImageWithShadow ImgUrl="https://static.ebayinc.com/static/assets/Uploads/Stories/Articles/_resampled/ScaleWidthWyIxMDI0Il0/melo2.jpg" />
+      </div>
+      <div className="mb-30">
+        <h1 className="text-center font-lt text-3xl m-3">Winter Basketball Shoe Sale</h1>
+        <p className="text-center font-rt text-md">
+          45% markdown on Basketball sneakers
+        </p>
+      </div>
     </div>
   );
 };

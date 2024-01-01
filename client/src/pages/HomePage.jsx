@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 const HomePage = () => {
   return (
     <main>
+      <hr className="border-black my-20 h-px" />
       <BrandsSection />
       <div className="max-w-full mt-20">
         <h2 className="text-center font-lt max-w-full text-2xl">
@@ -18,7 +19,7 @@ const HomePage = () => {
       <h2 className="text-center font-lt max-w-full text-2xl mb-10">
         Featured
       </h2>
-      <MultiLongCards/>
+      <MultiLongCards />
       <hr className="border-black my-20 h-px" />
       {/*FOOTER MARK*/}
       <Footer />
