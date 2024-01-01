@@ -1,7 +1,7 @@
 import express, {urlencoded} from "express";
 import connectToDatabase from "./config/databaseConnection.js";
 import dotenv from "dotenv";
-dotenv.config({ path: "../.env" });
+dotenv.config();
 import cookieParser from "cookie-parser";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
 import userRoutes from "./routes/userRoutes.js"
