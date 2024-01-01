@@ -19,10 +19,10 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   return (
-    <footer className="relative w-full">
+    <footer className="relative w-full bg-[#0a0a0a] text-white">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <Typography variant="h5" className="mb-6 font-lt">
+          <Typography variant="h5" className="my-6 font-lt">
             Shoe Store
           </Typography>
           <div className="grid grid-cols-3 justify-between gap-4">
@@ -30,7 +30,7 @@ const Footer = () => {
               <ul key={title}>
                 <Typography
                   variant="small"
-                  color="black"
+                  color="white"
                   className="mb-3 font-lt opacity-65"
                 >
                   {title}
@@ -40,7 +40,7 @@ const Footer = () => {
                     <Typography
                       as="a"
                       href="#"
-                      color="black"
+                      color="white"
                       className="py-1.5 font-rt transition-colors hover:text-blue-gray-900"
                     >
                       {link}
@@ -54,13 +54,13 @@ const Footer = () => {
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
           <Typography
             variant="small"
-            className="mb-4 text-center font-lt text-black md:mb-0"
+            className="mb-4 text-center font-lt text-white md:mb-0"
           >
             &copy; {currentYear}{" "}
             <a href="https://material-tailwind.com/">Shoe Store</a>. All Rights
             Reserved.
           </Typography>
-          <div className="flex gap-4 text-black sm:justify-center">
+          <div className="flex gap-4 text-white sm:justify-center">
             <Typography
               as="a"
               href="#"
