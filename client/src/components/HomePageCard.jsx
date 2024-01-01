@@ -18,7 +18,7 @@ const HomeCard = (props) => {
         <Typography variant="h4" color="black" className="mb-2 font-lt">
           {props.brandName}
         </Typography>
-        <ButtonRounded text="Shop now!" className="text-center" />
+        <ButtonRounded text="Shop now!" className="text-center"/>
       </CardBody>
     </Card>
   );

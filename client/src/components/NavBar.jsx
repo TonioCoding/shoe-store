@@ -167,14 +167,16 @@ const NavBar = () => {
         <div className="bg-black">b</div>
         <ImageWithShadow ImgUrl="https://static.ebayinc.com/static/assets/Uploads/Stories/Articles/_resampled/ScaleWidthWyIxMDI0Il0/melo2.jpg" />
       </div>
-      <div className="mb-30">
+      <div className=" flex flex-col justify-center mb-30 text-">
         <h1 className="text-center font-lt text-3xl m-3">
           Winter Basketball Shoe Sale
         </h1>
         <p className="text-center font-rt text-md">
           45% markdown on Basketball sneakers
         </p>
-        <LearnMoreButton text="Learn More"/>
+        <div className="flex justify-center mt-10">
+          <LearnMoreButton text="View Shoes" />
+        </div>
       </div>
     </div>
   );
