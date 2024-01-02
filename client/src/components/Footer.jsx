@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Typography } from "@material-tailwind/react";
+import { IconContext } from "react-icons";
 import {
   FaCcVisa,
   FaCcPaypal,
@@ -59,6 +60,17 @@ const Footer = () => {
                 ))}
               </ul>
             ))}
+          </div>
+          <h1 className="font-lt mt-5"> Payment Methods</h1>
+          <div className="grid grid-cols-3 justify-between gap-4 mt-10">
+            <IconContext.Provider value={{ size: "3vw" }}>
+              <FaCcVisa />
+              <FaCcPaypal />
+              <FaCcMastercard />
+              <FaCcDiscover />
+              <FaCcApplePay />
+              <FaGooglePay />
+            </IconContext.Provider>
           </div>
         </div>
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
