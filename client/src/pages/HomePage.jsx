@@ -20,7 +20,6 @@ const HomePage = () => {
         Featured
       </h2>
       <MultiLongCards />
-      <hr className="border-black my-20 h-px" />
       {/*FOOTER MARK*/}
       <Footer />
     </main>
