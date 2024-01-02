@@ -25,6 +25,7 @@ export default withMT({
       md: {'max': "768px"},
       hp1: {'max' : "1432px"},
       b1: {'max' : "1323px"},
+      is1:{'max' : "1474px"},
       lg: "1024px",
       xl: "1280px",
     },
