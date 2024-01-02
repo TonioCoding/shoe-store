@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Typography } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import {
   FaCcVisa,
@@ -36,13 +37,13 @@ const Footer = () => {
           <Typography variant="h5" className="my-6 font-lt">
             Shoe Store
           </Typography>
-          <div className="grid grid-cols-3 justify-between gap-4">
+          <div className="grid grid-cols-3 justify-between gap-4 sm:grid-cols-1">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography
                   variant="small"
                   color="white"
-                  className="mb-3 font-lt opacity-65"
+                  className="mb-3 font-lt opacity-65 mt-5"
                 >
                   {title}
                 </Typography>
@@ -63,7 +64,7 @@ const Footer = () => {
           </div>
           <h1 className="font-lt mt-5"> Payment Methods</h1>
           <div className="grid grid-cols-3 justify-between gap-4 mt-10">
-            <IconContext.Provider value={{ size: "3vw" }}>
+            <IconContext.Provider value={{ size: "4vw" }}>
               <FaCcVisa />
               <FaCcPaypal />
               <FaCcMastercard />
@@ -78,16 +79,10 @@ const Footer = () => {
             variant="small"
             className="mb-4 text-center font-lt text-white md:mb-0"
           >
-            &copy; {currentYear}{" "}
-            <a href="https://material-tailwind.com/">Shoe Store</a>. All Rights
-            Reserved.
+            &copy; {currentYear} <Link>Shoe Store</Link>. All Rights Reserved.
           </Typography>
           <div className="flex gap-4 text-white sm:justify-center">
-            <Typography
-              as="a"
-              href="#"
-              className="opacity-80 transition-opacity hover:opacity-100"
-            >
+            <Typography className="opacity-80 transition-opacity hover:opacity-100">
               <svg
                 className="h-5 w-5"
                 fill="currentColor"
@@ -101,11 +96,7 @@ const Footer = () => {
                 />
               </svg>
             </Typography>
-            <Typography
-              as="a"
-              href="#"
-              className="opacity-80 transition-opacity hover:opacity-100"
-            >
+            <Typography className="opacity-80 transition-opacity hover:opacity-100">
               <svg
                 className="h-5 w-5"
                 fill="currentColor"
@@ -119,11 +110,7 @@ const Footer = () => {
                 />
               </svg>
             </Typography>
-            <Typography
-              as="a"
-              href="#"
-              className="opacity-80 transition-opacity hover:opacity-100"
-            >
+            <Typography className="opacity-80 transition-opacity hover:opacity-100">
               <svg
                 className="h-5 w-5"
                 fill="currentColor"
