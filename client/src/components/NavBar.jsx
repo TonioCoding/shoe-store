@@ -163,11 +163,11 @@ const NavBar = () => {
           {wordList}
         </div>
       </Navbar>
-      <div className="flex justify-between mb-5 w-full overflow-hidden shadow-2xl">
+      <div className="flex justify-between mb-5 w-full overflow-x-clip shadow-2xl hp1:flex-wrap">
         <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
-        <div className="bg-black">b</div>
+        <div className="bg-black hp1:hidden ">b</div>
         <ImageWithShadow ImgUrl="https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:good%2Cw_1200%2Cx_3237%2Cy_3988/MjAyOTUxNTIzMzUxNjY3NzI0/edwards-adidas.jpg" />
-        <div className="bg-black">b</div>
+        <div className="bg-black hp1:hidden">b</div>
         <ImageWithShadow ImgUrl="https://static.ebayinc.com/static/assets/Uploads/Stories/Articles/_resampled/ScaleWidthWyIxMDI0Il0/melo2.jpg" />
       </div>
       <div className=" flex flex-col justify-center mb-30 text-">

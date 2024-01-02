@@ -23,6 +23,8 @@ export default withMT({
       xs: {'max': "320px"},
       sm: {'max': "640px"},
       md: {'max': "768px"},
+      hp1: {'max' : "1432px"},
+      b1: {'max' : "1323px"},
       lg: "1024px",
       xl: "1280px",
     },
