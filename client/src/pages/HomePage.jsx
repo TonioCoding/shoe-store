@@ -10,9 +10,7 @@ const HomePage = () => {
       <BrandsSection />
       <div className="max-w-full mt-20">
         <hr className="border-black my-5" />
-        <h2 className="text-center font-lt max-w-full text-2xl mb-10">
-          TRENDING BRANDS
-        </h2>
+       
       </div>
       <BrandCards />
       <hr className="border-black my-5 mb-20" />
