@@ -1,9 +1,16 @@
+/* eslint-disable react/prop-types */
 
-
-const FeaturedCard = () => {
+const FeaturedCard = (props) => {
   return (
-    <div className="w-[33%]"><img src="" alt="" className="object-cover"/></div>
-  )
-}
+    <div className="w-[33%]">
+      <img
+        src={props.imgUrl}
+        alt="card-img"
+        className="object-cover border-gray-400 border-2"
+        width={"400px"}
+      />
+    </div>
+  );
+};
 
-export default FeaturedCard
+export default FeaturedCard;
