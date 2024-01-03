@@ -1,5 +1,5 @@
-import BrandsSection from "../components/homepage/BrandsSection";
-import BrandCards from "../components/homepage/BrandCards";
+import BrandsSection from "../components/homepage/Categories&SaleSection";
+import BrandCards from "../components/homepage/BrandCardsSection";
 import MultiLongCards from "../components/homepage/MultiLongCards";
 import Footer from "../components/Footer";
 
