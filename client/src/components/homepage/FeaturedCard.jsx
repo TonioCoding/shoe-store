@@ -3,12 +3,11 @@
 const FeaturedCard = (props) => {
   return (
     <div className="cursor-pointer">
-      <div className="w-[400px] inline-block">
+      <div className="w-full inline-block">
         <img
           src={props.imgUrl}
           alt="card-img"
-          className="object-cover border-gray-400 border-2"
-          width={"100%"}
+          className=" w-full object-scale-down object-center border-gray-400 border-2"
         />
       </div>
       <h1 className="font-lt text-center text-2xl my-3">{props.heading}</h1>
