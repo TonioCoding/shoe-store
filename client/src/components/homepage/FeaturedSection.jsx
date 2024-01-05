@@ -2,7 +2,7 @@ import FeaturedCard from "./FeaturedCard";
 
 const FeaturedSection = () => {
   return (
-    <div>
+    <div className="w-full">
       <h2 className="text-center font-lt max-w-full text-2xl mb-10">
         Featured
       </h2>

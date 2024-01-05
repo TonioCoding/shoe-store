@@ -12,7 +12,7 @@ import { FaRegSnowflake } from "react-icons/fa";
 
 const SaleCard = (props) => {
   return (
-    <Card className="mt-6 w-96 cursor-pointer">
+    <Card className="mt-6 w-full cursor-pointer">
       <CardBody>
         <Typography variant="h5" color="black" className="mb-2 font-lt">
           {props.heading}
