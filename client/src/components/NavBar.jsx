@@ -63,12 +63,12 @@ const NavBar = () => {
   const brandIconList = (
     <IconContext.Provider value={{ size: "3vw" }}>
       <div className="flex justify-between">
-        <SiAdidas className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiJordan className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiNewbalance className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiNike className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiReebok className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiPuma className="text-black m-5 cursor-pointer lg:w-[2vw] transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiAdidas className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiJordan className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiNewbalance className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiNike className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiReebok className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <SiPuma className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
       </div>
     </IconContext.Provider>
   );
@@ -161,7 +161,7 @@ const NavBar = () => {
           </div>
         </Collapse>
         {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}
-        <div className="flex justify-between w-full md:hidden">
+        <div className="justify-between w-full hidden">
           {iconList}
           {brandIconList}
           {wordList}
