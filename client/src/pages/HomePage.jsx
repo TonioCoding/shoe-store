@@ -10,7 +10,7 @@ const HomePage = () => {
       <BrandsSection />
       <hr className="border-black my-5" />
       <BrandCards />
-      <hr className="border-black my-5 mb-20" />
+      <hr className="border-black my-5 mb-10" />
      <FeaturedSection/>
       {/*FOOTER MARK*/}
       <Footer />

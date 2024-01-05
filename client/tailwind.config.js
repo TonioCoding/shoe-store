@@ -20,15 +20,15 @@ export default withMT({
       }
     },
     screens: {
-      "xs": {'max': "320px"},
-      "sm": {'max': "640px"},
-      "md": {'max': "768px"},
+      "xs":"320px",
+      "sm": "640px",
+      "md": "768px",
       hp1: {'max' : "1432px"},
       b1: {'max' : "1323px"},
       is1:{'max' : "1525px"},
       bs1:{'max' : "1075px"},
       "lg": "1024px",
-      xl: "1280px",
+      "xl": "1280px",
       "2xl": "1536px"
     },
   },

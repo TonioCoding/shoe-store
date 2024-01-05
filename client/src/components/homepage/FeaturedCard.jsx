@@ -10,8 +10,8 @@ const FeaturedCard = (props) => {
           className=" w-full object-scale-down object-center border-gray-400 border-2"
         />
       </div>
-      <h1 className="font-lt text-center text-2xl my-3">{props.heading}</h1>
-      <p className="font-rt text-center">{props.text}</p>
+      <h1 className="font-lt text-center text-xl my-1">{props.heading}</h1>
+      <p className="font-rt text-center mb-10 text-sm">{props.text}</p>
     </div>
   );
 };
