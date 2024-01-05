@@ -2,7 +2,7 @@
 
 const FeaturedCard = (props) => {
   return (
-    <div>
+    <div className="cursor-pointer">
       <div className="w-[400px] inline-block">
         <img
           src={props.imgUrl}
