@@ -87,15 +87,13 @@ const NavBar = () => {
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
           <Typography
-            as="a"
-            href="#"
             className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black"
           >
             Shoe Store
           </Typography>
-          <NavSearchBar />
+          {/*<NavSearchBar/>*/}
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-x-1">
+            <div className="flex justify-center gap-x-1 w-full">
               <Button
                 variant="gradient"
                 size="sm"
@@ -148,16 +146,17 @@ const NavBar = () => {
           </div>
         </div>
         <Collapse open={openNav}>
-          <div className="inline-flex items-center gap-x-1 mt-3 m-3">
+          <div className="flex flex-col items-center w-full">
             <Button
-              fullWidth
+              
               variant="gradient"
               size="sm"
-              className="inline-block"
+              className="inline-block my-5"
               color="red"
             >
               <span className="font-rt">Sign in</span>
             </Button>
+            <NavSearchBar/>
           </div>
         </Collapse>
         {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}
