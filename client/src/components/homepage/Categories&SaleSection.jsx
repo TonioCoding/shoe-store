@@ -13,12 +13,6 @@ const BrandsSection = () => {
           <SaleCard heading="Categories" text="Discover by various categories" />
         </div>
       </div>
-      <h2 className="font-lt text-2xl text-center max-w-full mt-20">
-        DISCOVER WITH BELOVED BRANDS
-      </h2>
-      <h1 className="font-rt text-xl text-center mt-3 font-normal max-w-full">
-        Find your desired sneakers from immortalized shoe brands.
-      </h1>
     </div>
   );
 };

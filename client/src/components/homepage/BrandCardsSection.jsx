@@ -3,7 +3,15 @@ import HomeCard from "../HomePageCard";
 const BrandCards = () => {
   return (
     <div className="w-full" id="section">
-      <h2 className="text-center font-lt max-w-full text-2xl my-5 mt-10">
+      <div className="mb-20">
+        <h2 className="font-lt text-2xl text-center max-w-full mt-20">
+          DISCOVER WITH BELOVED BRANDS
+        </h2>
+        <h1 className="font-rt text-xl text-center mt-3 font-normal max-w-full">
+          Find your desired sneakers from immortalized shoe brands.
+        </h1>
+      </div>
+      <h2 className="text-center font-lt max-w-full text-2xl my-5 mt-10 underline">
         TRENDING BRANDS
       </h2>
       <div className="flex flex-wrap justify-center">

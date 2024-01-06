@@ -86,18 +86,18 @@ const NavBar = () => {
       {/*END OF STRIP*/}
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography
-            className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black"
-          >
+          <Typography className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black">
             Shoe Store
           </Typography>
           {/*<NavSearchBar/>*/}
           <div className="flex items-center gap-4">
-            <div className="flex justify-center gap-x-1 w-full">
+            {/* Sign in button and Shopping cart container*/}
+            <div className="flex justify-center items-center gap-x-1 w-full">
               <Button
+        
                 variant="gradient"
                 size="sm"
-                className="hidden lg:inline-block mr-5"
+                className="hidden lg:inline-block mr-5 h-[10%]"
                 color="red"
               >
                 <span className="font-lt">Sign in</span>
@@ -106,6 +106,7 @@ const NavBar = () => {
                 <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible" />
               </IconContext.Provider>
             </div>
+            {/* Sign in button and Shopping cart container*/}
             <IconButton
               variant="text"
               className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden text-black"
@@ -148,7 +149,6 @@ const NavBar = () => {
         <Collapse open={openNav}>
           <div className="flex flex-col items-center w-full">
             <Button
-              
               variant="gradient"
               size="sm"
               className="inline-block my-5"
@@ -156,7 +156,7 @@ const NavBar = () => {
             >
               <span className="font-rt">Sign in</span>
             </Button>
-            <NavSearchBar/>
+            <NavSearchBar />
           </div>
         </Collapse>
         {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}

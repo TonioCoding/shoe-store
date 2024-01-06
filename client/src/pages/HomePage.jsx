@@ -8,7 +8,7 @@ const HomePage = () => {
     <main>
       <hr className="border-black my-20 h-px" />
       <BrandsSection />
-      <hr className="border-black my-5" />
+      <hr className="border-black my-5 mt-20" />
       <BrandCards />
       <hr className="border-black my-5 mb-10" />
      <FeaturedSection/>
