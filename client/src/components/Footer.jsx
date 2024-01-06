@@ -28,22 +28,23 @@ const LINKS = [
 ];
 
 const currentYear = new Date().getFullYear();
-
+const currentWidth = window.innerWidth;
+console.log(currentWidth)
 const Footer = () => {
   return (
     <footer className="relative w-full bg-[#0a0a0a] text-white">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <Typography variant="h5" className="my-6 font-lt">
+          <Typography variant="h5" className="my-6 font-lt text-2xl">
             Shoe Store
           </Typography>
-          <div className="grid grid-cols-3 justify-between gap-4 sm:grid-cols-1">
+          <div className="grid grid-cols-1 justify-between gap-4 items-center">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography
                   variant="small"
                   color="white"
-                  className="mb-3 font-lt opacity-65 mt-5"
+                  className="mb-3 font-lt opacity-65 mt-5 text-lg"
                 >
                   {title}
                 </Typography>
@@ -53,7 +54,7 @@ const Footer = () => {
                       as="a"
                       href="#"
                       color="white"
-                      className="py-1.5 font-rt transition-colors hover:text-blue-gray-900"
+                      className="py-2 font-rt transition-colors hover:text-blue-gray-900 text-sm"
                     >
                       {link}
                     </Typography>
@@ -62,7 +63,7 @@ const Footer = () => {
               </ul>
             ))}
           </div>
-          <h1 className="font-lt mt-5"> Payment Methods</h1>
+          <h1 className="font-lt mt-5 text-2xl"> Payment Methods</h1>
           <div className="grid grid-cols-3 justify-between gap-4 mt-10">
             <IconContext.Provider value={{ size: "4vw" }}>
               <FaCcVisa />
