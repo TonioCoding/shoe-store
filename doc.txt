@@ -52,3 +52,9 @@ DEC 31,2023
 
 Jan 1.2024
 -remove anchors and use Links instead
+
+Jan 6,2024
+-fixed footer 
+-change tab icon
+-fixed the white line on the imgage slider
+-fixed nav bar icon rwd
