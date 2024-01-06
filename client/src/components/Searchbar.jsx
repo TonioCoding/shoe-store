@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Input } from "@material-tailwind/react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
