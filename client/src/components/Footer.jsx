@@ -38,7 +38,7 @@ const Footer = () => {
           <Typography variant="h5" className="my-6 font-lt text-2xl">
             Shoe Store
           </Typography>
-          <div className="grid grid-cols-1 justify-between gap-4 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 justify-between gap-4 items-center">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography

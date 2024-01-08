@@ -14,7 +14,7 @@ const BrandCards = () => {
       <h2 className="text-center font-lt max-w-full text-2xl my-5 mt-10 underline">
         TRENDING BRANDS
       </h2>
-      <div className="flex flex-wrap justify-center">
+      <div className="flex flex-col items-center justify-center sm:flex-wrap">
         <HomeCard
           src="https://static.vecteezy.com/system/resources/previews/010/994/239/original/adidas-logo-black-symbol-clothes-design-icon-abstract-football-illustration-with-white-background-free-vector.jpg"
           brandName="Adidas"
