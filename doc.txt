@@ -58,3 +58,6 @@ Jan 6,2024
 -change tab icon
 -fixed the white line on the imgage slider
 -fixed nav bar icon rwd
+
+Jan 7,2024
+-fix footer on larger devices
