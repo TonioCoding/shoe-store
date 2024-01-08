@@ -11,6 +11,7 @@ import {
   FaGooglePay,
 } from "react-icons/fa6";
 import { SiAmericanexpress } from "react-icons/si";
+import { useState } from "react";
 
 const LINKS = [
   {
@@ -28,9 +29,10 @@ const LINKS = [
 ];
 
 const currentYear = new Date().getFullYear();
-const currentWidth = window.innerWidth;
-console.log(currentWidth)
+
 const Footer = () => {
+const [viewPortWidth, setViewPortWidth] = useState(window.innerWidth)
+
   return (
     <footer className="relative w-full bg-[#0a0a0a] text-white">
       <div className="mx-auto w-full max-w-7xl px-8">
