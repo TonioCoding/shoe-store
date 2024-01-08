@@ -31,7 +31,7 @@ const LINKS = [
 const currentYear = new Date().getFullYear();
 
 const Footer = () => {
-const [viewPortWidth, setViewPortWidth] = useState(window.innerWidth)
+  const [viewPortWidth, setViewPortWidth] = useState(window.innerWidth);
 
   return (
     <footer className="relative w-full bg-[#0a0a0a] text-white">
@@ -67,14 +67,25 @@ const [viewPortWidth, setViewPortWidth] = useState(window.innerWidth)
           </div>
           <h1 className="font-lt mt-5 text-2xl"> Payment Methods</h1>
           <div className="grid grid-cols-3 justify-between gap-4 mt-10">
-            <IconContext.Provider value={{ size: "4vw" }}>
-              <FaCcVisa />
-              <FaCcPaypal />
-              <FaCcMastercard />
-              <FaCcDiscover />
-              <FaCcApplePay />
-              <FaGooglePay />
-            </IconContext.Provider>
+            {viewPortWidth <= 640 ? (
+              <IconContext.Provider value={{ size: "6vw" }}>
+                <FaCcVisa />
+                <FaCcPaypal />
+                <FaCcMastercard />
+                <FaCcDiscover />
+                <FaCcApplePay />
+                <FaGooglePay />
+              </IconContext.Provider>
+            ) : (
+              <IconContext.Provider value={{ size: "4vw" }}>
+                <FaCcVisa />
+                <FaCcPaypal />
+                <FaCcMastercard />
+                <FaCcDiscover />
+                <FaCcApplePay />
+                <FaGooglePay />
+              </IconContext.Provider>
+            )}
           </div>
         </div>
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
