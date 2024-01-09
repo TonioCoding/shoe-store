@@ -149,18 +149,34 @@ const NavBar = () => {
           </div>
         </div>
         <Collapse open={openNav}>
-          <div className="flex flex-col items-center w-full">
+          <div className="flex items-center justify-center w-full">
             <Button
               variant="gradient"
               size="sm"
-              className="inline-block my-5"
+              className="inline-block my-3 mx-3"
               color="red"
             >
               <span className="font-rt">Sign in</span>
             </Button>
+            <Button
+              variant="gradient"
+              size="sm"
+              className="inline-block my-3 mx-3"
+              color="green"
+            >
+              <span className="font-rt">Shop</span>
+            </Button>
+            <Button
+              variant="gradient"
+              size="sm"
+              className="inline-block my-3 mx-3"
+              color="black"
+            >
+              <span className="font-rt">Options</span>
+            </Button>
           </div>
         </Collapse>
-        {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}
+        {<hr className="h-px my-5 bg-black border-0 dark:bg-gray-700" />}
         <div className="hidden lg:flex justify-between w-full">
           {iconList}
           {brandIconList}
