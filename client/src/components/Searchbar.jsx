@@ -12,7 +12,7 @@ const NavSearchBar = () => {
           borderBlockColor: "black",
           borderLeftColor: "black",
           borderRightColor: "black",
-          width: "115%",
+          width: "100%",
         }}
       />
       {
