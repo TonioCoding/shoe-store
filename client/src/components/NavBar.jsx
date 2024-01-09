@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   Collapse,
@@ -31,9 +31,9 @@ import LearnMoreButton from "./LearnMoreButton";
 import { GoHeartFill } from "react-icons/go";
 
 const NavBar = () => {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -89,9 +89,9 @@ const NavBar = () => {
           <Typography className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black">
             Shoe Store
           </Typography>
-          <div className="hidden lg:flex items-center">
-              <NavSearchBar />
-            </div>
+          <div className="hidden sm:flex items-center">
+            <NavSearchBar />
+          </div>
           {/*<NavSearchBar/>*/}
           <div className="flex items-center gap-4">
             {/* Sign in button and Shopping cart container*/}
