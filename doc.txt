@@ -61,3 +61,6 @@ Jan 6,2024
 
 Jan 7,2024
 -fix footer on larger devices
+
+Jan 9,2024
+-remove elements that are using custom breakpoints and replace them with the standard breakpoints
