@@ -32,10 +32,13 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   const [viewPortWidth, setViewPortWidth] = useState(window.innerWidth);
-  const footerIconSize = viewPortWidth <= 640 ? "4vw" : "7vw";
-  console.log(footerIconSize)
+  const footerIconSize = viewPortWidth <= 640 ? "7vw" : "4vw";
+  console.log(footerIconSize);
+  useEffect(() => {
+    setViewPortWidth(window.innerWidth);
 
-  const getviewPortWidth = async () => {setViewPortWidth(window.innerWidth)}
+    return () => {};
+  }, [viewPortWidth]);
 
   return (
     <footer className="relative w-full bg-[#0a0a0a] text-white">
