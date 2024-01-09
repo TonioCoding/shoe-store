@@ -42,7 +42,7 @@ const NavBar = () => {
 
   const iconList = (
     <IconContext.Provider value={{ size: "3vw" }}>
-      <div className="flex justify-between">
+      <div className="flex justify-between ">
         <IoIosSettings className="text-black cursor-pointer lg:w-[1.5vw] mx-2" />
         <IoHomeSharp className="text-black cursor-pointer lg:w-[1.5vw] mx-2 mr-3" />
         <FaUser className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
@@ -61,7 +61,7 @@ const NavBar = () => {
   );
 
   const brandIconList = (
-    <IconContext.Provider value={{ size: "3vw" }}>
+    <IconContext.Provider value={{ size: "2vw" }}>
       <div className="flex justify-between">
         <SiAdidas className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
         <SiJordan className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
@@ -89,12 +89,14 @@ const NavBar = () => {
           <Typography className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black">
             Shoe Store
           </Typography>
+          <div className="hidden lg:flex items-center">
+              <NavSearchBar />
+            </div>
           {/*<NavSearchBar/>*/}
           <div className="flex items-center gap-4">
             {/* Sign in button and Shopping cart container*/}
             <div className="flex justify-center items-center gap-x-1 w-full">
               <Button
-        
                 variant="gradient"
                 size="sm"
                 className="hidden lg:inline-block mr-5 h-[10%]"
@@ -156,11 +158,10 @@ const NavBar = () => {
             >
               <span className="font-rt">Sign in</span>
             </Button>
-            <NavSearchBar />
           </div>
         </Collapse>
         {<hr className="h-px my-8 bg-black border-0 dark:bg-gray-700" />}
-        <div className="justify-between w-full hidden">
+        <div className="hidden lg:flex justify-between w-full">
           {iconList}
           {brandIconList}
           {wordList}

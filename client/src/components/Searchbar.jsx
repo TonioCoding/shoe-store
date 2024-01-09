@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Input } from "@material-tailwind/react";
-//import { FaMagnifyidngGlass } from "react-icons/fa6";
-
+import { FaMagnifyingGlass } from "react-icons/fa6";
 const NavSearchBar = () => {
   return (
     <div className="flex justify-center w-full">
@@ -15,7 +14,7 @@ const NavSearchBar = () => {
           width: "100%",
         }}
       />
-      {/*<FaMagnifyingGlass className="m-2.5 cursor-pointer" />*/}
+      {<FaMagnifyingGlass color="black" className="w-[5%] cursor-pointer items-center flex justify-center h-10 mx-2" />}
     </div>
   );
 };
