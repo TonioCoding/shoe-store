@@ -3,7 +3,7 @@
 const FeaturedCard = (props) => {
   return (
     <div className="cursor-pointer flex flex-col justify-center items-center my-7">
-      <div className="w-[50vw] lg:w-[30vw] nline-flex items-center justify-center">
+      <div className="w-[50vw] lg:w-[30vw] inline-flex items-center justify-center">
         <img
           src={props.imgUrl}
           alt="card-img"
