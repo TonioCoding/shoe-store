@@ -26,7 +26,7 @@ export default withMT({
       /*
       hp1: {'max' : "1432px"},
       b1: {'max' : "1323px"},
-      is1:{'max' : "1525px"},
+      
       bs1:{'max' : "1075px"},
       */
       "lg": "1024px",
