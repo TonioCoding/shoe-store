@@ -28,16 +28,16 @@ const App = () => {
           <Route path="/adidas-page" element={<AdidasPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/jordan-page" element={<JordanPage />} />
-          <Route path="/" element={<NewBalancePage />} />
-          <Route path="/" element={<ReebokPage />} />
-          <Route path="/" element={<Settings />} />
-          <Route path="/" element={<Membership />} />
-          <Route path="/" element={<NikePage />} />
-          <Route path="/" element={<PumaPage />} />
+          <Route path="/newbalance-page" element={<NewBalancePage />} />
+          <Route path="/reebok-page" element={<ReebokPage />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/membership" element={<Membership />} />
+          <Route path="/nike-page" element={<NikePage />} />
+          <Route path="/puma-page" element={<PumaPage />} />
           <Route path="/test" element={<Test />} />
           <Route path="" element={<PrivateRoute />}>
             <Route path="/account" element={<Account />} />
-            <Route path="/" element={<SavedShoes />} />
+            <Route path="/saved-shoes" element={<SavedShoes />} />
           </Route>
         </Routes>
       </BrowserRouter>
