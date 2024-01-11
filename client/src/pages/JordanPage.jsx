@@ -1,9 +1,5 @@
-
-
 const JordanPage = () => {
-  return (
-    <div>JordanPage</div>
-  )
-}
+  return <div>JordanPage</div>;
+};
 
-export default JordanPage
+export default JordanPage;

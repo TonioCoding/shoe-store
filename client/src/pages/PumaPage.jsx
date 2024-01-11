@@ -1,9 +1,5 @@
-
-
 const PumaPage = () => {
-  return (
-    <div>PumaPage</div>
-  )
-}
+  return <div>PumaPage</div>;
+};
 
-export default PumaPage
+export default PumaPage;

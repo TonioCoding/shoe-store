@@ -1,9 +1,5 @@
-
-
 const ReebokPage = () => {
-  return (
-    <div>ReebokPage</div>
-  )
-}
+  return <div>ReebokPage</div>;
+};
 
-export default ReebokPage
+export default ReebokPage;

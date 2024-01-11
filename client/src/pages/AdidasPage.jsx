@@ -1,9 +1,5 @@
-
-
 const AdidasPage = () => {
-  return (
-    <div>AdidasPage</div>
-  )
-}
+  return <div>AdidasPage</div>;
+};
 
-export default AdidasPage
+export default AdidasPage;

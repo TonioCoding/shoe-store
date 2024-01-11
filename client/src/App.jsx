@@ -5,17 +5,17 @@ import HomePage from "./pages/HomePage.jsx";
 import Test from "./pages/Test";
 import "./App.css";
 import { PrivateRoute } from "./components/PrivateRoute.jsx";
-import Account from "./pages/Account.jsx";
+import Account from "./pages/AccountPage.jsx";
 import AdidasPage from "./pages/AdidasPage.jsx";
-import Cart from "./pages/Cart.jsx";
+import Cart from "./pages/CartPage.jsx";
 import JordanPage from "./pages/JordanPage.jsx";
-import Membership from "./pages/Membership.jsx";
+import Membership from "./pages/MembershipPage.jsx";
 import NewBalancePage from "./pages/NewBalancePage.jsx";
 import NikePage from "./pages/NikePage.jsx";
 import PumaPage from "./pages/PumaPage.jsx";
 import ReebokPage from "./pages/ReebokPage.jsx";
-import SavedShoes from "./pages/SavedShoes.jsx";
-import Settings from "./pages/Settings.jsx";
+import SavedShoes from "./pages/SavedShoesPage.jsx";
+import Settings from "./pages/SettingsPage.jsx";
 //import { PrivateRoute } from "./components/PrivateRoute.js";
 
 const App = () => {
