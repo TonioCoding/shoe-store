@@ -1,14 +1,15 @@
+import MembershipCard from "./MembershipCard";
+
 const MembershipSection = () => {
-  return <div>
-    <ul className="d">
-      <li><img src="" alt="" /></li>
-      <li><img src="" alt="" /></li>
-      <li><img src="" alt="" /></li>
-      <li><img src="" alt="" /></li>
-      <li><img src="" alt="" /></li>
-      <li><img src="" alt="" /></li>
-    </ul>
-  </div>;
+  return (
+  <div className="membership-slider">
+    <MembershipCard imgUrl=""/>
+    <MembershipCard imgUrl=""/>
+    <MembershipCard imgUrl=""/>
+    <MembershipCard imgUrl=""/>
+    <MembershipCard imgUrl=""/>
+  </div>
+  );
 };
 
 export default MembershipSection;

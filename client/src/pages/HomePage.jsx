@@ -1,6 +1,7 @@
 import ExploreSection from "../components/homepage/ExploreSection";
 import BrandCardsSection from "../components/homepage/BrandCardsSection";
 import FeaturedSection from "../components/homepage/FeaturedSection";
+import MembershipSection from "../components/homepage/MembershipSection";
 import Footer from "../components/Footer";
 
 const HomePage = () => {
@@ -12,6 +13,8 @@ const HomePage = () => {
       <BrandCardsSection />
       <hr className="my-20" />
       <FeaturedSection />
+      <hr className="my-20" />
+      <MembershipSection />
       <hr className="my-20" />
       {/*FOOTER MARK*/}
       <Footer />

@@ -12,6 +12,13 @@ body {
   
 }
 
+.membership-slider {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+}
+
 hr {
   border-color: black;
 }
