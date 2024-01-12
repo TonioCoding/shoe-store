@@ -6,13 +6,13 @@ import Footer from "../components/Footer";
 const HomePage = () => {
   return (
     <main>
-      <hr className="border-black my-20 h-px" />
+      <hr />
       <ExploreSection />
-      <hr className="border-black my-5 mt-20" />
+      <hr />
       <BrandCardsSection />
-      <hr className="border-black my-5 mb-10" />
+      <hr />
       <FeaturedSection />
-      <hr className="border-black my-5 mb-10" />
+      <hr />
       {/*FOOTER MARK*/}
       <Footer />
     </main>

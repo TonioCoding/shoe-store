@@ -3,7 +3,7 @@ import SaleCard from "./SaleCard";
 
 const ExploreSection = () => {
   return (
-    <div>
+    <div className="w-full">
       <h1 className="font-lt text-3xl text-center mb-20">EXPLORE</h1>
       <div className="flex justify-around max-w-full m-5 flex-wrap lg:flex">
         <LogoSlider />

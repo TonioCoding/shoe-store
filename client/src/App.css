@@ -11,3 +11,9 @@ body {
 margin-left: 3px;
 margin-right: 3px;
 }
+
+hr {
+    border-color: black;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
