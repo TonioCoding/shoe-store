@@ -1,7 +1,7 @@
 import LogoSlider from "./BrandLogoSlider";
 import SaleCard from "./SaleCard";
 
-const BrandsSection = () => {
+const ExploreSection = () => {
   return (
     <div>
       <div className="flex justify-around max-w-full m-5 flex-wrap lg:flex">
@@ -17,4 +17,4 @@ const BrandsSection = () => {
   );
 };
 
-export default BrandsSection;
+export default ExploreSection;

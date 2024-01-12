@@ -1,8 +1,8 @@
 import HomeCard from "../HomePageCard";
 
-const BrandCards = () => {
+const BrandCardsSection = () => {
   return (
-    <div className="w-full" id="section">
+    <div className="w-full">
       <div className="mb-20">
         <h2 className="font-lt text-2xl text-center max-w-full mt-20">
           DISCOVER WITH BELOVED BRANDS
@@ -32,4 +32,4 @@ const BrandCards = () => {
   );
 };
 
-export default BrandCards;
+export default BrandCardsSection;
