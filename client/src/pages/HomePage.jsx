@@ -6,13 +6,13 @@ import Footer from "../components/Footer";
 const HomePage = () => {
   return (
     <main>
-      <hr />
+      <hr className="my-20" />
       <ExploreSection />
-      <hr />
+      <hr className="my-20" />
       <BrandCardsSection />
-      <hr />
+      <hr className="my-20" />
       <FeaturedSection />
-      <hr />
+      <hr className="my-20" />
       {/*FOOTER MARK*/}
       <Footer />
     </main>
