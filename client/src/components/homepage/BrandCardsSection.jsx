@@ -2,7 +2,7 @@ import HomeCard from "../HomePageCard";
 
 const BrandCards = () => {
   return (
-    <div className="w-full background" id="section">
+    <div className="w-full" id="section">
       <div className="mb-20">
         <h2 className="font-lt text-2xl text-center max-w-full mt-20">
           DISCOVER WITH BELOVED BRANDS
