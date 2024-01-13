@@ -70,3 +70,8 @@ concept:
 any page to display shoes to shop, will reuse the ShoppingDisplay component with given props to determine what filters, shoes, etc., 
 to display for that specific sub category
 -utilize custom class to help style multiple elements that require the same styling to save time
+
+Jan 13,2024
+homepage foundation is complete, now...
+-make micro changes to enhance
+-start working on other pages
