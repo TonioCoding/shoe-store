@@ -7,11 +7,6 @@ body {
   margin: 5px;
 }
 
-.section {
-  
-  
-}
-
 .membership-slider {
   width: 100%;
   overflow-x: auto;
@@ -28,13 +23,19 @@ hr {
   font-family: Oswald, sans-serif;
   background-color: black;
   color: #f5f5f5;
-  width: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
   cursor: pointer;
   margin-left: 1rem;
   margin-right: 1rem;
+  padding: 8px;
+  margin: 10px;
 }
 
 .redirect-button:hover {
   box-shadow: 5px 5px red;
   transition-duration: 1.2s;
+  margin-left: 12px;
+  margin-right: 12px;
+  padding: 10px;
 }
