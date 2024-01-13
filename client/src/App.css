@@ -19,10 +19,6 @@ body {
   display: flex;
 }
 
-.membership-slider::-webkit-scrollbar {
-  
-}
-
 hr {
   border-color: black;
 }
