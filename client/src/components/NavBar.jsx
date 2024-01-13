@@ -180,7 +180,7 @@ const NavBar = () => {
         </div>
       </Navbar>
       {/*CONTENT SECTION OF BOTTOM OF NAVBAR*/}
-      <div>
+      { window.location.href === "http://localhost:3000/" ? (<div>
         <div className="flex justify-center items-center mb-5 w-full overflow-x-clip shadow-2xl flex-col lg:flex-row bg-[#f5f5f5]">
           <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
           <ImageWithShadow ImgUrl="https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cg_xy_center%2Cq_auto:good%2Cw_1200%2Cx_3237%2Cy_3988/MjAyOTUxNTIzMzUxNjY3NzI0/edwards-adidas.jpg" />
@@ -197,7 +197,7 @@ const NavBar = () => {
             <LearnMoreButton text="View Shoes" />
           </div>
         </div>
-      </div>
+      </div>) : null }
       {/*END OF CONTENT*/}
     </div>
   );
