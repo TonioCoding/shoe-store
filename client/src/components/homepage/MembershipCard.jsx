@@ -10,6 +10,7 @@ const MembershipCard = (props) => {
           className="object-cover object-center border-gray-700 border-2"
         />
       </div>
+      <h1 className="text-center font-lt text-2xl">{props.title}</h1>
     </div>
   );
 };
