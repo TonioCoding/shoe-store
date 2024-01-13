@@ -10,7 +10,7 @@ import ButtonRounded from "./RoundedButton";
 
 const HomeCard = (props) => {
   return (
-    <Card className="w-[45vw] m-5 lg:w-[25vw]">
+    <Card className="w-[55vw] m-5 lg:w-[25vw]">
       <CardHeader floated={false} className="lg:h-[35vh] flex items-center justify-center">
         <img src={props.src} alt="picture" className=""/>
       </CardHeader>

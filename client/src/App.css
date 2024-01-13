@@ -22,3 +22,19 @@ body {
 hr {
   border-color: black;
 }
+
+.redirect-button {
+  display: inline-block;
+  font-family: Oswald, sans-serif;
+  background-color: black;
+  color: #f5f5f5;
+  width: 100%;
+  cursor: pointer;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.redirect-button:hover {
+  box-shadow: 5px 5px red;
+  transition-duration: 1.2s;
+}
