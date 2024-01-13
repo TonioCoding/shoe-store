@@ -13,26 +13,31 @@ const MembershipSection = () => {
         <MembershipCard
           imgUrl="https://cdn.govexec.com/media/img/cd/2023/11/17/11172023USPS/open-graph.jpg"
           title="Free Shipping"
+          text="Zero shipping fees on any order"
         />
         <MembershipCard
           imgUrl="https://preview.thenewsmarket.com/Previews/ADID/StillAssets/320x320/649840_v2.jpg"
           title="Early Access to shoes"
+          text="Gain access eariler to the latest shoes"
         />
         <MembershipCard
           imgUrl="https://www.xpresstags.com/img/lg/L/Circular-Sale-Price-Label-Sticker-LB-1795.gif"
           title="Membership Sales"
+          text="Exclusive sales to members only"
         />
         <MembershipCard
           imgUrl="https://www.hrosm.com/wp-content/uploads/2021/11/text-head.png"
           title="Membership Rewards"
+          text="Experience rewards as a loyal member"
         />
         <MembershipCard
           imgUrl="https://cdn.nextgov.com/media/img/cd/2020/12/09/NGshopping20201209/open-graph.jpg"
           title="Membership Exclusive Products"
+          text="Exclusive products to members only"
         />
       </div>
       <div className="flex justify-center mt-10">
-        <ButtonRounded text="Become a member!" />
+        <ButtonRounded text="Sign Up!" />
       </div>
     </div>
   );

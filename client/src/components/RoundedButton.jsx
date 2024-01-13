@@ -2,7 +2,7 @@
 import { Button } from "@material-tailwind/react";
 
 const ButtonRounded = (props) => {
-  return <Button className="hidden sm:inline-block text-center text-xs rounded-full w-[50%] bg-black" color="black">{props.text}</Button>;
+  return <Button className="text-center text-xs rounded-full inline-block bg-black" color="black">{props.text}</Button>;
 };
 
 export default ButtonRounded;

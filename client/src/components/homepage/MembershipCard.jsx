@@ -2,7 +2,7 @@
 
 const MembershipCard = (props) => {
   return (
-    <div className="mx-10 mb-10 ">
+    <div className="mx-5 mb-10 ">
       <div className="w-[35vw] h-[70vh] cursor-pointer flex justify-center items-center ">
         <img
           src={props.imgUrl}
@@ -10,7 +10,8 @@ const MembershipCard = (props) => {
           className="object-cover object-center border-gray-700 border-2"
         />
       </div>
-      <h1 className="text-center font-lt text-2xl">{props.title}</h1>
+      <h1 className="text-center font-lt text-2xl mb-3">{props.title}</h1>
+      <p className="text-center font-rt text-sm">{props.text}</p>
     </div>
   );
 };
