@@ -30,11 +30,11 @@ hr {
   margin-right: 1rem;
   padding: 8px;
   margin: 10px;
+  transition: 1.2s ease-in-out;
 }
 
 .redirect-button:hover {
   box-shadow: 5px 5px red;
-  transition-duration: 1.2s;
   margin-left: 12px;
   margin-right: 12px;
   padding: 10px;
