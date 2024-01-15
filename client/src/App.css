@@ -46,11 +46,11 @@ hr {
   text-align: center;
   color: white;
   background-color: black;
-  border-radius: 9999px;
+  border-radius: 5555px;
   border-color: rgb(197, 25, 25);
   border-width: 2px;
   transition: border-radius 2s  ease-in-out,
-  box-shadow 1.2s  ease-in-out,
+  box-shadow 1s  ease-in-out,
   border-width 1s  ease-in-out;
 }
 
