@@ -39,3 +39,6 @@ hr {
   margin-right: 12px;
   padding: 10px;
 }
+#card {
+  cursor: pointer;
+ }
