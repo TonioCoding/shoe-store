@@ -1,15 +1,17 @@
 /* eslint-disable no-unused-vars */
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  currentUrl: window.location.href,
+  currentUrl: async () => {
+    return await window.location.href;
+  },
 };
 
 const locationSlice = createSlice({
   name: "location",
   initialState,
   reducers: {
-    setCurrentUrl: (state, action) => {
-      state.currentUrl = action.payload;
+    setCurrentUrl: (state) => {
+      state.currentUrl !== window.location.href ? location.reload() : null;
     },
     resetCurrentUrl: (state) => {
       state.currentUrl = "";
