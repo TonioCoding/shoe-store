@@ -16,6 +16,9 @@ import PumaPage from "./pages/PumaPage.jsx";
 import ReebokPage from "./pages/ReebokPage.jsx";
 import SavedShoes from "./pages/SavedShoesPage.jsx";
 import Settings from "./pages/SettingsPage.jsx";
+import BrandsPage from "./pages/BrandsPage.jsx";
+import SalesPage from "./pages/SalesPage.jsx";
+import SportsPage from "./pages/SportsPage.jsx";
 //import { PrivateRoute } from "./components/PrivateRoute.js";
 
 const App = () => {
@@ -26,12 +29,15 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/adidas-page" element={<AdidasPage />} />
+          <Route path="/brands-page" element={<BrandsPage />} />
+          <Route path="/sales-page" element={<SalesPage />} />
+          <Route path="/sports-page" element={<SportsPage/>} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/jordan-page" element={<JordanPage />} />
           <Route path="/newbalance-page" element={<NewBalancePage />} />
           <Route path="/reebok-page" element={<ReebokPage />} />
           <Route path="/settings" element={<Settings />} />
-          <Route path="/membership" element={<Membership />} />
+          <Route path="/membership-page" element={<Membership />} />
           <Route path="/nike-page" element={<NikePage />} />
           <Route path="/puma-page" element={<PumaPage />} />
           <Route path="/test" element={<Test />} />

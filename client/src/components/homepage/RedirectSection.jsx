@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
 const RedirectSection = () => {
   return (
@@ -12,10 +12,18 @@ const RedirectSection = () => {
         </p>
       </div>
       <div className="flex flex-col justify-around items-center sm:flex-row">
-        <button className="redirect-button-2 font-lt">BRANDS</button>
-        <button className="redirect-button-2 font-lt">SALES</button>
-        <button className="redirect-button-2 font-lt">MEMBERSHIP</button>
-        <button className="redirect-button-2 font-lt">SPORTS</button>
+        <Link to={'/brands-page'}>
+          <button className="redirect-button-2 font-lt">BRANDS</button>
+        </Link>
+        <Link to={'/sales-page'}>
+          <button className="redirect-button-2 font-lt">SALES</button>
+        </Link>
+        <Link to={"/membership-page"}>
+          <button className="redirect-button-2 font-lt">MEMBERSHIP</button>
+        </Link>
+        <Link to={"/sports-page"}>
+          <button className="redirect-button-2 font-lt">SPORTS</button>
+        </Link>
       </div>
     </div>
   );

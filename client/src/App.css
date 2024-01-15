@@ -47,7 +47,7 @@ hr {
   color: white;
   background-color: black;
   border-radius: 9999px;
-  border-color: red;
+  border-color: rgb(197, 25, 25);
   border-width: 2px;
   transition: border-radius 2s  ease-in-out,
   box-shadow 1.2s  ease-in-out,
