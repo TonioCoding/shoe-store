@@ -7,7 +7,6 @@ import {
   Typography,
   Button,
   IconButton,
-  input,
 } from "@material-tailwind/react";
 import { HiShoppingCart } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
@@ -30,8 +29,19 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
-  const [currentPage, setCurrentPage] = useState("");
-  
+  const [currentPage, setCurrentPage] = useState(window.location.pathname);
+
+  const getPage =  () => {
+    const currentPath = window.location.pathname;
+    console.log(currentPath)
+    return currentPath;
+  };
+
+  useEffect(() => {
+    getPage();
+    return () => {console.log(currentPage)}
+  }, [currentPage]);
+
   useEffect(() => {
     window.addEventListener(
       "resize",
@@ -185,7 +195,7 @@ const NavBar = () => {
         </div>
       </Navbar>
       {/*CONTENT SECTION OF BOTTOM OF NAVBAR*/}
-      {currentPage === "http://localhost:3000/" ? (
+      {getPage() === "/" ? (
         <div>
           <div className="flex justify-center items-center mb-5 w-full overflow-x-clip shadow-2xl flex-col lg:flex-row bg-[#f5f5f5]">
             <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
