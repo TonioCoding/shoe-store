@@ -33,7 +33,7 @@ import { setCurrentUrl } from "../redux/location/locationSlice";
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState("");
-  const { currentUrl } = useSelector((state) => state.persistedReducer.location ) 
+  
 
   const dispatch = useDispatch();
 
