@@ -27,16 +27,11 @@ import ImageWithShadow from "../components/Image";
 import LearnMoreButton from "./LearnMoreButton";
 import { GoHeartFill } from "react-icons/go";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux"
-import { setCurrentUrl } from "../redux/location/locationSlice";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState("");
   
-
-  const dispatch = useDispatch();
-
   useEffect(() => {
     window.addEventListener(
       "resize",
