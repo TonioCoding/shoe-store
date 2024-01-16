@@ -31,15 +31,24 @@ const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState(window.location.pathname);
 
-  const getPage =  () => {
+  const getPage = () => {
     const currentPath = window.location.pathname;
-    console.log(currentPath)
     return currentPath;
   };
 
+  const comparePath = () => {
+    return window.location.pathname;
+  };
+
   useEffect(() => {
-    getPage();
-    return () => {console.log(currentPage)}
+    console.log(currentPage);
+    localStorage.setItem("currentPath", currentPage);
+
+    localStorage.getItem("currentPath") !== comparePath()
+      ? setCurrentPage(comparePath())
+      : null;
+
+    return () => console.log(currentPage);
   }, [currentPage]);
 
   useEffect(() => {
