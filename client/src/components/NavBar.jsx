@@ -59,7 +59,6 @@ const NavBar = () => {
     <div className="flex">
       <ul className="text-black font-lt text-md cursor-pointer">
         <span className="m-3 hover:underline lg:w-[2vw]">Membership</span>
-        <span className="m-3 hover:underline lg:w-[2vw]"></span>
       </ul>
     </div>
   );
