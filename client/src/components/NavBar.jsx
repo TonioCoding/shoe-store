@@ -40,7 +40,14 @@ const NavBar = () => {
     return window.location.pathname;
   };
 
-  useEffect(() => {
+console.log(window.document.querySelector('div').nodeType)
+
+  useEffect(() => { 
+    const div = document.querySelector('div')
+    div.onC
+    console.log(location.pathname)
+    // window.addEventListener('popstate' , () => setCurrentPage(window.location.pathname))
+    window.addEventListener('search', () => console.log(location.pathname))
     console.log(currentPage);
     localStorage.setItem("currentPath", currentPage);
 
