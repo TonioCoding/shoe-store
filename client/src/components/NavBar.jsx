@@ -43,12 +43,11 @@ const NavBar = () => {
 console.log(window.document.querySelector('div').nodeType)
 
   useEffect(() => { 
-    const div = document.querySelector('div')
-    div.onC
-    console.log(location.pathname)
+    // The commented code below is an html to add a event listen when the url changes
     // window.addEventListener('popstate' , () => setCurrentPage(window.location.pathname))
-    window.addEventListener('search', () => console.log(location.pathname))
+
     console.log(currentPage);
+    
     localStorage.setItem("currentPath", currentPage);
 
     localStorage.getItem("currentPath") !== comparePath()
