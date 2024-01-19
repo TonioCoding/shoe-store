@@ -34,7 +34,7 @@ const NavBar = () => {
 
   useEffect(() => {
     setCurrentPage(pathname);
-  }, [pathname, currentPage]);
+  }, [pathname]);
 
   useEffect(() => {
     window.addEventListener(
