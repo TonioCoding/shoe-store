@@ -25,37 +25,16 @@ import { FaUser } from "react-icons/fa";
 import ImageWithShadow from "../components/Image";
 import LearnMoreButton from "./LearnMoreButton";
 import { GoHeartFill } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
-  const [currentPage, setCurrentPage] = useState(window.location.pathname);
+  const [currentPage, setCurrentPage] = useState(useLocation().pathname);
+  const pathname = useLocation().pathname;
 
-  const getPage = () => {
-    const currentPath = window.location.pathname;
-    return currentPath;
-  };
-
-  const comparePath = () => {
-    return window.location.pathname;
-  };
-
-console.log(window.document.querySelector('div').nodeType)
-
-  useEffect(() => { 
-    // The commented code below is an html to add a event listen when the url changes
-    // window.addEventListener('popstate' , () => setCurrentPage(window.location.pathname))
-
-    console.log(currentPage);
-    
-    localStorage.setItem("currentPath", currentPage);
-
-    localStorage.getItem("currentPath") !== comparePath()
-      ? setCurrentPage(comparePath())
-      : null;
-
-    return () => console.log(currentPage);
-  }, [currentPage]);
+  useEffect(() => {
+    setCurrentPage(pathname);
+  }, [pathname, currentPage]);
 
   useEffect(() => {
     window.addEventListener(
@@ -210,7 +189,7 @@ console.log(window.document.querySelector('div').nodeType)
         </div>
       </Navbar>
       {/*CONTENT SECTION OF BOTTOM OF NAVBAR*/}
-      {getPage() === "/" ? (
+      {currentPage === "/" ? (
         <div>
           <div className="flex justify-center items-center mb-5 w-full overflow-x-clip shadow-2xl flex-col lg:flex-row bg-[#f5f5f5]">
             <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
