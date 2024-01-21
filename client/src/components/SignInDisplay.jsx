@@ -35,7 +35,8 @@ const SignInDisplay = (props) => {
           <Button>Sign In</Button>
           <Button type="submit"id='close-btn'onClick={ () => {
             //location.reload();
-            setOpen(false)
+        
+            
           }}>Close</Button>
         </DialogBody>
       </Dialog>) : null}
