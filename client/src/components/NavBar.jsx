@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Navbar,
   Collapse,
@@ -26,11 +26,19 @@ import ImageWithShadow from "../components/Image";
 import LearnMoreButton from "./LearnMoreButton";
 import { GoHeartFill } from "react-icons/go";
 import { Link, useLocation } from "react-router-dom";
+import SignInDisplay from "./SignInDisplay";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState(useLocation().pathname);
+  const [showSignin, setSignin] = useState(false)
   const pathname = useLocation().pathname;
+  const handleClick = () => {
+    setSignin(true);
+  }
+  const handleExit = () =>{
+    setSignin(false)
+  }
 
   useEffect(() => {
     setCurrentPage(pathname);
@@ -77,6 +85,7 @@ const NavBar = () => {
 
   return (
     <div className="max-w-full">
+      { showSignin === true ? <SignInDisplay state={showSignin}/> : null}
       {/*BLACK STRIP*/}
       <div className="bg-black w-full shadow-xl">
         <h1 className="text-center text-white pt-1 font-lt">Welcome!</h1>
@@ -106,6 +115,7 @@ const NavBar = () => {
                 size="sm"
                 className="hidden lg:inline-block mr-5 h-[10%]"
                 color="red"
+                onClick={handleClick}
               >
                 <span className="font-lt">Sign in</span>
               </Button>
@@ -160,6 +170,7 @@ const NavBar = () => {
               size="sm"
               className="inline-block my-3 mx-3"
               color="red"
+              onClick={handleClick}
             >
               <span className="font-rt">Sign in</span>
             </Button>

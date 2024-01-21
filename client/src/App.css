@@ -48,9 +48,8 @@ hr {
   border-radius: 5555px;
   border-color: rgb(197, 25, 25);
   border-width: 2px;
-  transition: border-radius 2s  ease-in-out,
-  box-shadow 1s  ease-in-out,
-  border-width 1s  ease-in-out;
+  transition: border-radius 2s ease-in-out, box-shadow 1s ease-in-out,
+    border-width 1s ease-in-out;
 }
 
 .redirect-button-2:hover {
@@ -60,4 +59,16 @@ hr {
 
 #card {
   cursor: pointer;
- }
+}
+
+#sign-in, #sign-up {
+  display: inline-block;
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 50%;
+  text-align: center;
+  top: 50%;
+}
