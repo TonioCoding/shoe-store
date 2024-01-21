@@ -31,14 +31,27 @@ import SignInDisplay from "./SignInDisplay";
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState(useLocation().pathname);
-  const [showSignin, setSignin] = useState(false)
+  const [showSignin, setSignin] = useState(false);
   const pathname = useLocation().pathname;
+
+  function disableScroll() {
+    let scrollTop = window.scrollY || document.documentElement.scrollTop;
+    let scrollLeft = window.scrollX || document.documentElement.scrollLeft;
+  
+    window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+    if (showSignin === true) {
+      disableScroll();
+    }
+  }
+
   const handleClick = () => {
     setSignin(true);
-  }
-  const handleExit = () =>{
-    setSignin(false)
-  }
+  };
+  const handleExit = () => {
+    setSignin(false);
+  };
 
   useEffect(() => {
     setCurrentPage(pathname);
@@ -85,7 +98,12 @@ const NavBar = () => {
 
   return (
     <div className="max-w-full">
-      { showSignin === true ? <SignInDisplay state={showSignin}/> : null}
+      {showSignin === true ? (
+        <SignInDisplay
+          state={showSignin}
+          button={<Button  onClick={handleExit}>Close</Button>}
+        />
+      ) : null}
       {/*BLACK STRIP*/}
       <div className="bg-black w-full shadow-xl">
         <h1 className="text-center text-white pt-1 font-lt">Welcome!</h1>
