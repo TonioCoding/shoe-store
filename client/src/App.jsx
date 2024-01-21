@@ -2,7 +2,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar.jsx";
 import HomePage from "./pages/HomePage.jsx";
-import Test from "./pages/Test";
+import Test from "./test/Test.jsx";
 import "./App.css";
 import { PrivateRoute } from "./components/PrivateRoute.jsx";
 import Account from "./pages/AccountPage.jsx";
