@@ -8,9 +8,9 @@ const SignUpDisplay = (props) => {
         {state === true ? (<Dialog open={open}>
         <DialogHeader>Sign In</DialogHeader>
         <DialogBody>
-          <Input type="text" placeholder="Name" />
-          <Input type="email" placeholder="Email" />
-          <Input type="text" placeholder="*****" />
+          <Input type="text" placeholder="Name" className="sign-in-input"/>
+          <Input type="email" placeholder="Email" className="sign-in-input"/>
+          <Input type="text" placeholder="*****" className="sign-in-input"/>
           <Button>Sign In</Button>
           <Button type="submit"id='close-btn'onClick={ () => {
             //location.reload();

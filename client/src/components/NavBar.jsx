@@ -101,7 +101,8 @@ const NavBar = () => {
       {showSignin === true ? (
         <SignInDisplay
           state={showSignin}
-          button={<Button  onClick={handleExit}>Close</Button>}
+          buttonClose={<Button  onClick={handleExit} className="sign-in-btn" color="red">Close</Button>}
+          buttonSubmit={<Button onClick={handleExit} className="sign-in-btn" color="green">Sign in</Button>}
         />
       ) : null}
       {/*BLACK STRIP*/}
