@@ -25,7 +25,7 @@ const SignInDisplay = (props) => {
   const [open, setOpen] = useState(true)
 
   return (
-    <div id="sign-in" className="bg-black z-30 rounded-lg ">
+    <div id="sign-in" className="bg-black z-30 rounded-lg">
         {state === true ? (<Dialog open={open}>
         <DialogHeader>Sign In</DialogHeader>
         <DialogBody>
