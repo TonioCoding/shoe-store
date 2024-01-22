@@ -37,7 +37,7 @@ const NavBar = () => {
   function disableScroll() {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
     let scrollLeft = window.scrollX || document.documentElement.scrollLeft;
-  
+
     window.onscroll = function () {
       window.scrollTo(scrollLeft, scrollTop);
     };
@@ -101,8 +101,16 @@ const NavBar = () => {
       {showSignin === true ? (
         <SignInDisplay
           state={showSignin}
-          buttonClose={<Button  onClick={handleExit} className="sign-in-btn" color="red">Close</Button>}
-          buttonSubmit={<Button onClick={handleExit} className="sign-in-btn" color="green">Sign in</Button>}
+          buttonClose={
+            <Button onClick={handleExit} className="sign-in-btn" color="red">
+              Close
+            </Button>
+          }
+          buttonSubmit={
+            <Button onClick={handleExit} className="sign-in-btn" color="green">
+              Sign in
+            </Button>
+          }
         />
       ) : null}
       {/*BLACK STRIP*/}
@@ -132,7 +140,7 @@ const NavBar = () => {
               <Button
                 variant="gradient"
                 size="sm"
-                className="hidden lg:inline-block mr-5 h-[10%]"
+                className="lg:inline-block mr-5 h-[10%]"
                 color="red"
                 onClick={handleClick}
               >

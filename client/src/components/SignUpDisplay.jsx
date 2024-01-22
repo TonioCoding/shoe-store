@@ -12,7 +12,7 @@ const SignUpDisplay = (props) => {
           <Input type="email" placeholder="Email" className="sign-in-input"/>
           <Input type="text" placeholder="*****" className="sign-in-input"/>
           <Button>Sign In</Button>
-          <Button type="submit"id='close-btn'onClick={ () => {
+          <Button type="submit" id='close-btn' onClick={ () => {
             //location.reload();
         
             

@@ -13,12 +13,32 @@ const SignInDisplay = (props) => {
   return (
     <div id="sign-in" className="bg-black z-30 rounded-lg">
       {state === true ? (
-        <Dialog open={open}>
+        <Dialog open={true}>
           <DialogHeader>Sign In</DialogHeader>
-          <DialogBody className="flex flex-row justify-between">
-            <Input type="text" placeholder="Name" className="sign-in-input" label="Name"/>
-            <Input type="email" placeholder="*****@***.com" className="sign-in-input" label="Email"/>
-            <Input type="Password" placeholder="*****" className="sign-in-input" label="Password"/>
+          <DialogBody>
+              <form className="flex flex-col">
+                <Input
+                  type="text"
+                  placeholder="Name"
+                  className="sign-in-input"
+                  label="Name"
+                  autoComplete="false"
+                />
+                <Input
+                  type="email"
+                  placeholder="*****@***.com"
+                  className="sign-in-input"
+                  label="Email"
+                  autoComplete="false"
+                />
+                <Input
+                  type="Password"
+                  placeholder="*****"
+                  className="sign-in-input"
+                  label="Password"
+                  autoComplete="false"
+                />
+              </form>
           </DialogBody>
           {buttonSubmit ? buttonSubmit : null}
           {buttonClose ? buttonClose : null}
