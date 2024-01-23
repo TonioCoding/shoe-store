@@ -241,6 +241,14 @@ const NavBar = () => {
             >
               <span className="font-rt">Options</span>
             </Button>
+            <Button
+              variant="gradient"
+              size="sm"
+              className="inline-block my-3 mx-3"
+              color="blue"
+            >
+              <span className="font-rt">Cart</span>
+            </Button>
           </div>
         </Collapse>
         {<hr className="h-px my-5 bg-black border-0 dark:bg-gray-700" />}
