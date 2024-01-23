@@ -67,31 +67,53 @@ const NavBar = () => {
   const iconList = (
     <IconContext.Provider value={{ size: "3vw" }}>
       <div className="flex justify-between ">
-        <IoIosSettings className="text-black cursor-pointer lg:w-[1.5vw] mx-2" />
-        <IoHomeSharp className="text-black cursor-pointer lg:w-[1.5vw] mx-2 mr-3" />
-        <FaUser className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
-        <GoHeartFill className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
+        <Link to={"/settings"}>
+          <IoIosSettings className="text-black cursor-pointer lg:w-[1.5vw] mx-2" />
+        </Link>
+        <Link to={"/"}>
+          <IoHomeSharp className="text-black cursor-pointer lg:w-[1.5vw] mx-2 mr-3" />
+        </Link>
+        <Link to={"/account"}>
+          <FaUser className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
+        </Link>
+        <Link to={"/saved shoes"}>
+          <GoHeartFill className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
+        </Link>
       </div>
     </IconContext.Provider>
   );
 
   const wordList = (
     <div className="flex">
-      <ul className="text-black font-lt text-md cursor-pointer">
-        <span className="m-3 hover:underline lg:w-[2vw]">Membership</span>
-      </ul>
+      <Link to={"/membership-page"}>
+        <span className="m-3 hover:underline lg:w-[2vw] text-black font-lt text-md cursor-pointer">
+          Membership
+        </span>
+      </Link>
     </div>
   );
 
   const brandIconList = (
     <IconContext.Provider value={{ size: "2vw" }}>
       <div className="flex justify-between">
-        <SiAdidas className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiJordan className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiNewbalance className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiNike className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiReebok className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
-        <SiPuma className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        <Link to={"/adidas-page"}>
+          <SiAdidas className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        </Link>
+        <Link to={"/jordan-page"}>
+          <SiJordan className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        </Link>
+        <Link to={"newbalance-page"}>
+          <SiNewbalance className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        </Link>
+        <Link to={"/nike-page"}>
+          <SiNike className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        </Link>
+        <Link to={"reebok-page"}>
+          <SiReebok className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        </Link>
+        <Link to={"/puma-page"}>
+          <SiPuma className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+        </Link>
       </div>
     </IconContext.Provider>
   );
