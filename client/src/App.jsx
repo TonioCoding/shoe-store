@@ -19,7 +19,6 @@ import Settings from "./pages/SettingsPage.jsx";
 import BrandsPage from "./pages/BrandsPage.jsx";
 import SalesPage from "./pages/SalesPage.jsx";
 import SportsPage from "./pages/SportsPage.jsx";
-//import { PrivateRoute } from "./components/PrivateRoute.js";
 
 const App = () => {
   return (
