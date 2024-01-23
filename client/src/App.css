@@ -73,10 +73,6 @@ hr {
   top: 50%;
 }
 
-.sign-in-btn {
-  margin: 5px;
-}
-
-.sign-in-input {
-  
+.sign-in-btn , .sign-in-input{
+margin: 10px;
 }

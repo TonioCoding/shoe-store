@@ -14,32 +14,34 @@ const SignInDisplay = (props) => {
     <div id="sign-in" className="bg-black z-30 rounded-lg">
       {state === true ? (
         <Dialog open={true}>
-          <DialogHeader>Sign In</DialogHeader>
+          <DialogHeader className="font-lt">Sign In</DialogHeader>
           <DialogBody>
-              <form className="flex flex-col">
+            <form className="flex flex-col">
+              <div className="sign-in-input">
                 <Input
                   type="text"
                   placeholder="Name"
-                  className="sign-in-input"
                   label="Name"
                   autoComplete="false"
-                  style={{paddingTop: '5px',paddingBottom: '5px'}}
                 />
+              </div>
+              <div className="sign-in-input">
                 <Input
                   type="email"
                   placeholder="*****@***.com"
-                  className="sign-in-input"
                   label="Email"
                   autoComplete="false"
                 />
+              </div>
+              <div className="sign-in-input">
                 <Input
                   type="Password"
                   placeholder="*****"
-                  className="sign-in-input"
                   label="Password"
                   autoComplete="false"
                 />
-              </form>
+              </div>
+            </form>
           </DialogBody>
           {buttonSubmit ? buttonSubmit : null}
           {buttonClose ? buttonClose : null}
