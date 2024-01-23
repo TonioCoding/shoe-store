@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   Collapse,
@@ -137,15 +137,17 @@ const NavBar = () => {
           <div className="flex items-center gap-4">
             {/* Sign in button and Shopping cart container*/}
             <div className="flex justify-center items-center gap-x-1 w-full">
-              <Button
-                variant="gradient"
-                size="sm"
-                className="lg:inline-block mr-5 h-[10%]"
-                color="red"
-                onClick={handleClick}
-              >
-                <span className="font-lt">Sign in</span>
-              </Button>
+              {openNav === false ? (
+                <Button
+                  variant="gradient"
+                  size="sm"
+                  className="lg:inline-block mr-5 h-[10%]"
+                  color="red"
+                  onClick={handleClick}
+                >
+                  <span className="font-lt">Sign in</span>
+                </Button>
+              ) : null}
               <IconContext.Provider value={{ size: "3vw" }}>
                 <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible" />
               </IconContext.Provider>
@@ -195,7 +197,7 @@ const NavBar = () => {
             <Button
               variant="gradient"
               size="sm"
-              className="inline-block my-3 mx-3"
+              className="hidden inline-block my-3 mx-3"
               color="red"
               onClick={handleClick}
             >

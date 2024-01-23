@@ -23,6 +23,7 @@ const SignInDisplay = (props) => {
                   className="sign-in-input"
                   label="Name"
                   autoComplete="false"
+                  style={{paddingTop: '5px',paddingBottom: '5px'}}
                 />
                 <Input
                   type="email"
