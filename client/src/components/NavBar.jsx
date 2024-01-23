@@ -76,7 +76,7 @@ const NavBar = () => {
         <Link to={"/account"}>
           <FaUser className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
         </Link>
-        <Link to={"/saved shoes"}>
+        <Link to={"/saved-shoes"}>
           <GoHeartFill className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
         </Link>
       </div>
@@ -171,7 +171,9 @@ const NavBar = () => {
                 </Button>
               ) : null}
               <IconContext.Provider value={{ size: "3vw" }}>
-                <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible" />
+                <Link to={"/cart"}>
+                  <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible" />
+                </Link>
               </IconContext.Provider>
             </div>
             {/* Sign in button and Shopping cart container*/}
