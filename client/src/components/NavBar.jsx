@@ -221,7 +221,7 @@ const NavBar = () => {
             <Button
               variant="gradient"
               size="sm"
-              className="hidden inline-block my-3 mx-3"
+              className="inline-block my-3 mx-3"
               color="red"
               onClick={handleClick}
             >
