@@ -28,6 +28,7 @@ import { GoHeartFill } from "react-icons/go";
 import { Link, useLocation } from "react-router-dom";
 import SignInDisplay from "./SignInDisplay";
 
+
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState(useLocation().pathname);
