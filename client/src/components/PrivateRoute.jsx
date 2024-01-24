@@ -3,15 +3,10 @@ import { useSelector } from "react-redux";
 
 export const PrivateRoute = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
-  
-  if (!userInfo && window.location.href === "http://localhost:3000/profile"){
-    //console.log('Login required to view profile)
-  
-    const currentUrl = window.location.href;
-    console.log(currentUrl);
+
+  if (!userInfo) {
+    console.log(`Login required to view "${window.location.pathname}"`);
   }
-  
-  return userInfo ? <Outlet /> : <Navigate to={"/sign-in"} replace />;
+
+  return userInfo ? <Outlet /> : <Navigate to={"/"} replace />;
 };
-
-
