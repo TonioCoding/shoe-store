@@ -17,9 +17,7 @@ const SignUpDisplay = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit  = () => {
-
-  }
+  const handleSubmit = () => {};
 
   return (
     <div id="sign-up" className="bg-black z-30 rounded-lg">
@@ -70,7 +68,11 @@ const SignUpDisplay = (props) => {
           <div className="flex justify-center">
             {signinButton ? signinButton : null}
             {closeButton ? closeButton : null}
-            <Button color="green" className="sign-in-btn" onClick={handleSubmit}>
+            <Button
+              color="green"
+              className="sign-in-btn"
+              onClick={handleSubmit}
+            >
               Create Account
             </Button>
           </div>

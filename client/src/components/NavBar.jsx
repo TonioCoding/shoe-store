@@ -139,8 +139,24 @@ const NavBar = () => {
       {showSignup === true ? (
         <SignUpDisplay
           state={showSignup}
-          buttonClose={<Button  color="red" onClick={signupHandleExit} className="sign-in-btn">Close</Button>}
-          buttonSignin={<Button color="blue" onClick={signupHandleSwitch} className="sign-in-btn">Sign In</Button>}
+          buttonClose={
+            <Button
+              color="red"
+              onClick={signupHandleExit}
+              className="sign-in-btn"
+            >
+              Close
+            </Button>
+          }
+          buttonSignin={
+            <Button
+              color="blue"
+              onClick={signupHandleSwitch}
+              className="sign-in-btn"
+            >
+              Sign In
+            </Button>
+          }
         />
       ) : null}
       {showSignin === true ? (
