@@ -33,6 +33,7 @@ const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState(useLocation().pathname);
   const [showSignin, setSignin] = useState(false);
+  const [showSignup, setSignup] = useState(false)
   const pathname = useLocation().pathname;
 
   function disableScroll() {
@@ -132,6 +133,11 @@ const NavBar = () => {
           buttonSubmit={
             <Button onClick={handleExit} className="sign-in-btn" color="green">
               Sign in
+            </Button>
+          }
+          buttonSignup={
+            <Button onClick={handleExit} className="sign-in-btn" color="orange">
+              Sign up
             </Button>
           }
         />
