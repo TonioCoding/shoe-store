@@ -13,18 +13,23 @@ const SignInDisplay = (props) => {
   return (
     <div id="sign-in" className="bg-black z-30 rounded-lg">
       {state === true ? (
-        <Dialog open={true}>
-          <DialogHeader className="font-lt text-center justify-center">
-            Sign In
+        <Dialog open={state} className="bg-gray-400 bg-opacity-75">
+          <DialogHeader className="font-lt text-center justify-center text-black">
+            Sign In,
           </DialogHeader>
           <DialogBody>
             <form className="flex flex-col justify-center items-center">
-              <div className="sign-in-input">
+              <div className="sign-in-input" autoFocus>
                 <Input
                   type="text"
                   placeholder="Name"
                   label="Name"
-                  autoComplete="off"
+                  autoSave="off"
+                  autoComplete="new-password"
+                  color="black"
+                  style={{ borderColor: "black" }}
+                  autoFocus={false}
+                  onMouseEnter=''
                 />
               </div>
               <div className="sign-in-input">
@@ -32,7 +37,11 @@ const SignInDisplay = (props) => {
                   type="email"
                   placeholder="*****@***.com"
                   label="Email"
-                  autoComplete="off"
+                  autoSave="off"
+                  autoComplete="new-password"
+                  color="black"
+                  style={{ borderColor: "black" }}
+                  autoFocus={false}
                 />
               </div>
               <div className="sign-in-input">
@@ -40,7 +49,10 @@ const SignInDisplay = (props) => {
                   type="Password"
                   placeholder="*****"
                   label="Password"
-                  autoComplete="off"
+                  autoComplete="new-password"
+                  color="black"
+                  style={{ borderColor: "black" }}
+                  autoFocus={false}
                 />
               </div>
             </form>
