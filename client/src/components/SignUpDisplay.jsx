@@ -22,7 +22,7 @@ const SignUpDisplay = (props) => {
   }
 
   return (
-    <div id="sign-in" className="bg-black z-30 rounded-lg">
+    <div id="sign-up" className="bg-black z-30 rounded-lg">
       {state === true ? (
         <Dialog open={state} className="bg-gray-400 bg-opacity-75">
           <DialogHeader className="font-lt text-center justify-center text-black">
