@@ -20,18 +20,6 @@ const SignInDisplay = (props) => {
           </DialogHeader>
           <DialogBody>
             <form className="flex flex-col justify-center items-center">
-              <div className="sign-in-input" autoFocus>
-                <Input
-                  type="text"
-                  placeholder="Name"
-                  label="Name"
-                  autoSave="off"
-                  autoComplete="new-password"
-                  color="black"
-                  style={{ borderColor: "black" }}
-                  autoFocus={false}
-                />
-              </div>
               <div className="sign-in-input">
                 <Input
                   type="email"
@@ -58,9 +46,9 @@ const SignInDisplay = (props) => {
             </form>
           </DialogBody>
           <div className="flex justify-center">
-            {buttonSubmit ? buttonSubmit : null}
-            {buttonClose ? buttonClose : null}
             {buttonSignup ? buttonSignup : null}
+            {buttonClose ? buttonClose : null}
+            {buttonSubmit ? buttonSubmit : null}
           </div>
         </Dialog>
       ) : null}

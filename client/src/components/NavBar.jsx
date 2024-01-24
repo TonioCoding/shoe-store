@@ -27,13 +27,13 @@ import LearnMoreButton from "./LearnMoreButton";
 import { GoHeartFill } from "react-icons/go";
 import { Link, useLocation } from "react-router-dom";
 import SignInDisplay from "./SignInDisplay";
-
+import SignUpDisplay from "./SignUpDisplay";
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState(useLocation().pathname);
   const [showSignin, setSignin] = useState(false);
-  const [showSignup, setSignup] = useState(false)
+  const [showSignup, setSignup] = useState(false);
   const pathname = useLocation().pathname;
 
   function disableScroll() {
@@ -48,11 +48,25 @@ const NavBar = () => {
     }
   }
 
-  const handleClick = () => {
+  const signinHandleClick = () => {
     setSignin(true);
+    setSignup(false);
   };
-  const handleExit = () => {
+  const signinHandleExit = () => {
     setSignin(false);
+  };
+
+  const signupHandleClick = () => {
+    setSignup(true);
+    setSignin(false);
+  };
+  const signupHandleExit = () => {
+    setSignup(false);
+  };
+
+  const signupHandleSwitch = () => {
+    setSignup(false);
+    setSignin(true);
   };
 
   useEffect(() => {
@@ -122,21 +136,40 @@ const NavBar = () => {
 
   return (
     <div className="max-w-full">
+      {showSignup === true ? (
+        <SignUpDisplay
+          state={showSignup}
+          buttonClose={<Button  color="red" onClick={signupHandleExit} className="sign-in-btn">Close</Button>}
+          buttonSignin={<Button color="blue" onClick={signupHandleSwitch} className="sign-in-btn">Sign In</Button>}
+        />
+      ) : null}
       {showSignin === true ? (
         <SignInDisplay
           state={showSignin}
           buttonClose={
-            <Button onClick={handleExit} className="sign-in-btn" color="red">
+            <Button
+              onClick={signinHandleExit}
+              className="sign-in-btn"
+              color="red"
+            >
               Close
             </Button>
           }
           buttonSubmit={
-            <Button onClick={handleExit} className="sign-in-btn" color="green">
+            <Button
+              onClick={signinHandleExit}
+              className="sign-in-btn"
+              color="green"
+            >
               Sign in
             </Button>
           }
           buttonSignup={
-            <Button onClick={handleExit} className="sign-in-btn" color="orange">
+            <Button
+              onClick={signupHandleClick}
+              className="sign-in-btn"
+              color="orange"
+            >
               Sign up
             </Button>
           }
@@ -172,7 +205,7 @@ const NavBar = () => {
                   size="sm"
                   className="lg:inline-block mr-5 h-[10%]"
                   color="red"
-                  onClick={handleClick}
+                  onClick={signinHandleClick}
                 >
                   <span className="font-lt">Sign in</span>
                 </Button>
@@ -230,7 +263,7 @@ const NavBar = () => {
               size="sm"
               className="inline-block my-3 mx-3"
               color="red"
-              onClick={handleClick}
+              onClick={signinHandleClick}
             >
               <span className="font-rt">Sign in</span>
             </Button>
