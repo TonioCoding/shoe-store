@@ -143,7 +143,7 @@ const NavBar = () => {
             <Button
               color="red"
               onClick={signupHandleExit}
-              className="sign-in-btn"
+              className="sign-in-btn font-lt"
             >
               Close
             </Button>
@@ -152,7 +152,7 @@ const NavBar = () => {
             <Button
               color="blue"
               onClick={signupHandleSwitch}
-              className="sign-in-btn"
+              className="sign-in-btn font-lt"
             >
               Sign In
             </Button>
@@ -165,7 +165,7 @@ const NavBar = () => {
           buttonClose={
             <Button
               onClick={signinHandleExit}
-              className="sign-in-btn"
+              className="sign-in-btn font-lt"
               color="red"
             >
               Close
@@ -174,7 +174,7 @@ const NavBar = () => {
           buttonSubmit={
             <Button
               onClick={signinHandleExit}
-              className="sign-in-btn"
+              className="sign-in-btn font-lt"
               color="green"
             >
               Sign in
@@ -183,7 +183,7 @@ const NavBar = () => {
           buttonSignup={
             <Button
               onClick={signupHandleClick}
-              className="sign-in-btn"
+              className="sign-in-btn font-lt"
               color="orange"
             >
               Sign up

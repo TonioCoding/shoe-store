@@ -24,7 +24,7 @@ const SignUpDisplay = (props) => {
       {state === true ? (
         <Dialog open={state} className="bg-gray-400 bg-opacity-75">
           <DialogHeader className="font-lt text-center justify-center text-black">
-            Sign Up & Become a Member
+            Sign Up & Become a Member!
           </DialogHeader>
           <DialogBody>
             <form className="flex flex-col justify-center items-center">
@@ -70,7 +70,7 @@ const SignUpDisplay = (props) => {
             {closeButton ? closeButton : null}
             <Button
               color="green"
-              className="sign-in-btn"
+              className="sign-in-btn font-lt"
               onClick={handleSubmit}
             >
               Create Account
