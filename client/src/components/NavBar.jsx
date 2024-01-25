@@ -197,7 +197,6 @@ const NavBar = () => {
         <p className="text-center text-white font-rt py-2">
           Winter sale, 45% off
         </p>
-        {/*<GiCancel color="white" className="ml-[50" />*/}
       </div>
       {/*END OF STRIP*/}
       <Navbar className="sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
