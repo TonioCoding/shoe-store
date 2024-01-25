@@ -24,8 +24,9 @@ const SignUpDisplay = (props) => {
       {state === true ? (
         <Dialog open={state} className="bg-gray-400 bg-opacity-75">
           <DialogHeader className="font-lt text-center justify-center text-black">
-            Sign Up & Become a Member!
+            Become a Member!
           </DialogHeader>
+          <p className="font-rt text-center text-black text-md">Sign up</p>
           <DialogBody>
             <form className="flex flex-col justify-center items-center">
               <div className="sign-in-input" autoFocus>
