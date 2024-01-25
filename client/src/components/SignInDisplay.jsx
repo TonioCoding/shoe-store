@@ -14,11 +14,9 @@ const SignInDisplay = (props) => {
   const buttonSubmit = props.buttonSubmit;
   const buttonSignup = props.buttonSignup;
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("")
+  const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {
-    
-  }
+  const handleSubmit = () => {};
 
   return (
     <div id="sign-in" className="bg-black z-30 rounded-lg">
@@ -27,6 +25,7 @@ const SignInDisplay = (props) => {
           <DialogHeader className="font-lt text-center justify-center text-black">
             Sign In
           </DialogHeader>
+          <p className="font-rt text-center text-md text-black">Login into your account</p>
           <DialogBody>
             <form className="flex flex-col justify-center items-center">
               <div className="sign-in-input">
@@ -54,10 +53,12 @@ const SignInDisplay = (props) => {
               </div>
             </form>
           </DialogBody>
+          <div onClick={handleSubmit} className="flex justify-center">
+            {buttonSubmit ? buttonSubmit : null}
+          </div>
           <div className="flex justify-center">
             {buttonSignup ? buttonSignup : null}
             {buttonClose ? buttonClose : null}
-            <div onClick={handleSubmit}>{buttonSubmit ? buttonSubmit : null}</div>
           </div>
         </Dialog>
       ) : null}

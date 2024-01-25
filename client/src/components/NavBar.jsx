@@ -177,7 +177,7 @@ const NavBar = () => {
               className="sign-in-btn font-lt"
               color="green"
             >
-              Sign in
+              Login
             </Button>
           }
           buttonSignup={
