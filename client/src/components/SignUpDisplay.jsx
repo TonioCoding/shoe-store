@@ -67,8 +67,6 @@ const SignUpDisplay = (props) => {
             </form>
           </DialogBody>
           <div className="flex justify-center">
-            {signinButton ? signinButton : null}
-            {closeButton ? closeButton : null}
             <Button
               color="green"
               className="sign-in-btn font-lt"
@@ -76,6 +74,10 @@ const SignUpDisplay = (props) => {
             >
               Create Account
             </Button>
+          </div>
+          <div className="flex justify-center">
+            {signinButton ? signinButton : null}
+            {closeButton ? closeButton : null}
           </div>
         </Dialog>
       ) : null}
