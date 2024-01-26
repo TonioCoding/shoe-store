@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import authReducer from "../redux/auth/authSlice.js";
 import { thunk } from "redux-thunk";
+import { apiSlice } from "./api/apiSlice.js";
 
 const persistConfig = {
   key: "root",
@@ -18,7 +19,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: {
     persistedReducer,
-    // eventually add api reducer here
+    [apiSlice.reducerPath] : apiSlice.reducer
   },
   devTools: true,
   // eslint-disable-next-line no-unused-vars
