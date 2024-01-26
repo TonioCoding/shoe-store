@@ -7,6 +7,7 @@ import {
   Typography,
   Button,
   IconButton,
+  Radio
 } from "@material-tailwind/react";
 import { HiShoppingCart } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
@@ -28,6 +29,7 @@ import { GoHeartFill } from "react-icons/go";
 import { Link, useLocation } from "react-router-dom";
 import SignInDisplay from "./SignInDisplay";
 import SignUpDisplay from "./SignUpDisplay";
+import { useSelector} from 'react-redux'
 
 const NavBar = () => {
   const [openNav, setOpenNav] = useState(false);
@@ -35,6 +37,8 @@ const NavBar = () => {
   const [showSignin, setSignin] = useState(false);
   const [showSignup, setSignup] = useState(false);
   const pathname = useLocation().pathname;
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth)
+  
 
   function disableScroll() {
     let scrollTop = window.scrollY || document.documentElement.scrollTop;
@@ -214,6 +218,7 @@ const NavBar = () => {
           <div className="flex items-center gap-4">
             {/* Sign in button and Shopping cart container*/}
             <div className="flex justify-center items-center gap-x-1 w-full">
+              { userInfo ? (<Radio name="color" color="green"/>) : null}
               {openNav === false ? (
                 <Button
                   variant="gradient"

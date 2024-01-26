@@ -8,6 +8,12 @@ import {
   Input,
 } from "@material-tailwind/react";
 import { useRef, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useLoginMutation } from "../redux/user/userApiSlice";
+import { useSelector} from 'react-redux'
+
+
 const SignInDisplay = (props) => {
   const state = props.state;
   const buttonClose = props.buttonClose;
@@ -15,10 +21,29 @@ const SignInDisplay = (props) => {
   const buttonSignup = props.buttonSignup;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [register, {isLoading}] = useLoginMutation();
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
 
-  const emailInput = useRef(null);
 
-  const handleSubmit = () => {};
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if(userInfo){
+      console.log('error')
+    } else if ( email === "" || password === ""){
+      console.log('enter required credentials')
+    } else {
+      try {
+        console.log('sucess')
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    
+  };
 
   return (
     <div id="sign-in" className="bg-black z-30 rounded-lg">
@@ -37,7 +62,6 @@ const SignInDisplay = (props) => {
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
-                  ref={emailInput}
                   type="email"
                   placeholder="*****@***.com"
                   label="Email"
@@ -50,6 +74,9 @@ const SignInDisplay = (props) => {
               </div>
               <div className="sign-in-input">
                 <Input
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   type="Password"
                   placeholder="*****"
                   label="Password"
@@ -61,7 +88,7 @@ const SignInDisplay = (props) => {
               </div>
             </form>
           </DialogBody>
-          <div onClick={handleSubmit} className="flex justify-center">
+          <div onClick={handleLogin} className="flex justify-center">
             {buttonSubmit ? buttonSubmit : null}
           </div>
           <div className="flex justify-center">
