@@ -7,7 +7,7 @@ import {
   DialogHeader,
   Input,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 const SignInDisplay = (props) => {
   const state = props.state;
   const buttonClose = props.buttonClose;
@@ -16,20 +16,25 @@ const SignInDisplay = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const emailInput = useRef(null);
+
   const handleSubmit = () => {};
 
   return (
     <div id="sign-in" className="bg-black z-30 rounded-lg">
       {state === true ? (
-        <Dialog open={state} className="bg-gray-400 bg-opacity-75">
+        <Dialog open={state} className="bg-gray-400 bg-opacity-75" >
           <DialogHeader className="font-lt text-center justify-center text-black">
             Sign In
           </DialogHeader>
-          <p className="font-rt text-center text-md text-black">Login into your account</p>
+          <p className="font-rt text-center text-md text-black">
+            Login into your account
+          </p>
           <DialogBody>
             <form className="flex flex-col justify-center items-center">
               <div className="sign-in-input">
                 <Input
+                  ref={emailInput}
                   type="email"
                   placeholder="*****@***.com"
                   label="Email"
