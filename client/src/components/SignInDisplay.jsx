@@ -23,7 +23,7 @@ const SignInDisplay = (props) => {
   return (
     <div id="sign-in" className="bg-black z-30 rounded-lg">
       {state === true ? (
-        <Dialog open={state} className="bg-gray-400 bg-opacity-75" >
+        <Dialog open={state} className="bg-gray-400 bg-opacity-75">
           <DialogHeader className="font-lt text-center justify-center text-black">
             Sign In
           </DialogHeader>
@@ -34,6 +34,9 @@ const SignInDisplay = (props) => {
             <form className="flex flex-col justify-center items-center">
               <div className="sign-in-input">
                 <Input
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   ref={emailInput}
                   type="email"
                   placeholder="*****@***.com"
