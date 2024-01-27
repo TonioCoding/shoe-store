@@ -19,6 +19,7 @@ import Settings from "./pages/SettingsPage.jsx";
 import BrandsPage from "./pages/BrandsPage.jsx";
 import SalesPage from "./pages/SalesPage.jsx";
 import SportsPage from "./pages/SportsPage.jsx";
+import { Bounce, ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
@@ -30,7 +31,7 @@ const App = () => {
           <Route path="/adidas-page" element={<AdidasPage />} />
           <Route path="/brands-page" element={<BrandsPage />} />
           <Route path="/sales-page" element={<SalesPage />} />
-          <Route path="/sports-page" element={<SportsPage/>} />
+          <Route path="/sports-page" element={<SportsPage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/jordan-page" element={<JordanPage />} />
           <Route path="/newbalance-page" element={<NewBalancePage />} />
@@ -45,9 +46,21 @@ const App = () => {
             <Route path="/saved-shoes" element={<SavedShoes />} />
           </Route>
         </Routes>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          transition={Bounce}
+        />
       </BrowserRouter>
-    </div>
-  );
+    </div> );
 };
 
 export default App;

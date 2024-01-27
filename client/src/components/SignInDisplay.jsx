@@ -7,12 +7,13 @@ import {
   DialogHeader,
   Input,
 } from "@material-tailwind/react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../redux/user/userApiSlice";
-import { useSelector} from 'react-redux'
-
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { setCredentials } from "../redux/auth/authSlice";
 
 const SignInDisplay = (props) => {
   const state = props.state;
@@ -21,28 +22,30 @@ const SignInDisplay = (props) => {
   const buttonSignup = props.buttonSignup;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [register, {isLoading}] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
-
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  console.log(userInfo);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
 
-    if(userInfo){
-      console.log('error')
-    } else if ( email === "" || password === ""){
-      console.log('enter required credentials')
+    if (userInfo) {
+      toast.error("Log out first");
+    } else if (email === "" || password === "") {
+      toast.warning("enter required credentials");
     } else {
       try {
-        console.log('sucess')
+        const res = await login({ email, password }).unwrap();
+        dispatch(setCredentials({ res }));
+        toast.success("User logged in!");
       } catch (error) {
-        console.log(error)
+        toast.error(error);
       }
     }
-    
   };
 
   return (
