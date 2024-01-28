@@ -20,6 +20,7 @@ import BrandsPage from "./pages/BrandsPage.jsx";
 import SalesPage from "./pages/SalesPage.jsx";
 import SportsPage from "./pages/SportsPage.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.min.css'
 
 const App = () => {
   return (
@@ -47,7 +48,7 @@ const App = () => {
           </Route>
         </Routes>
         <ToastContainer
-          position="top-right"
+          position="top-center"
           autoClose={5000}
           hideProgressBar={false}
           newestOnTop={false}
@@ -58,9 +59,10 @@ const App = () => {
           pauseOnHover
           theme="light"
           transition={Bounce}
-        />
+        ></ToastContainer>
       </BrowserRouter>
-    </div> );
+    </div>
+  );
 };
 
 export default App;

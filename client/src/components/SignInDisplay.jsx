@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import {
-  Button,
   Dialog,
   DialogBody,
   DialogHeader,
@@ -12,8 +11,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../redux/user/userApiSlice";
 import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
 import { setCredentials } from "../redux/auth/authSlice";
+import { toast } from "react-toastify";
 
 const SignInDisplay = (props) => {
   const state = props.state;
@@ -24,6 +23,7 @@ const SignInDisplay = (props) => {
   const [password, setPassword] = useState("");
   const [login, { isLoading }] = useLoginMutation();
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
+  
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
