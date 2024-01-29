@@ -236,7 +236,16 @@ const NavBar = () => {
             <div className="flex justify-center items-center gap-x-1 w-full">
               <div className="flex align-middle">
                 {userInfo ? (
-                  <Radio name="color" color="green" defaultChecked onClick={handleLogout} className=""/>
+                  <div className="tooltip">
+                    <Radio
+                      name="color"
+                      color="green"
+                      defaultChecked
+                      onClick={handleLogout}
+                      className=""
+                    />
+                    <span className="tooltiptext">Click to logout</span>
+                  </div>
                 ) : null}
               </div>
               {openNav === false ? (
