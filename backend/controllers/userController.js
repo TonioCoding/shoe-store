@@ -66,9 +66,9 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "User logged out" });
 });
 
-// desc     Logout user
-// route    POST /api/users/profile
-// access   Public
+// desc     Get user
+// route    POST /api/users/get
+// access   Private
 const getUserInfo = asyncHandler(async (req, res) => {
   const user = {
     _id: req.user._id,
