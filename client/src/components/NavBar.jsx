@@ -242,7 +242,6 @@ const NavBar = () => {
                       color="green"
                       defaultChecked
                       onClick={handleLogout}
-                      className=""
                     />
                     <span className="tooltiptext">Click to logout</span>
                   </div>
