@@ -21,6 +21,11 @@ const userSchema = mongoose.Schema(
       required: false,
       default: "user",
     },
+    avatarUrl: {
+      type: String,
+      required: false,
+      default: "",
+    },
   },
   {
     timestamps: true,
