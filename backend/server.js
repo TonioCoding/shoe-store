@@ -1,10 +1,11 @@
-import express, {urlencoded} from "express";
+import express, { urlencoded } from "express";
 import connectToDatabase from "./config/databaseConnection.js";
 import dotenv from "dotenv";
 dotenv.config();
 import cookieParser from "cookie-parser";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
-import userRoutes from "./routes/userRoutes.js"
+import userRoutes from "./routes/userRoutes.js";
+import orderRoutes from "./routes/orderRoutes.js";
 
 // Init app and port
 const app = express();
@@ -22,6 +23,7 @@ app.get("/", (req, res) => {
 
 // Routes binding
 app.use("/api/v1/users", userRoutes);
+app.use("api/v1/order", orderRoutes);
 
 // Middleware binding
 app.use(notFound);
@@ -34,5 +36,3 @@ app.listen(port, () => {
 
 // Database connection
 connectToDatabase();
-
-
