@@ -26,6 +26,10 @@ const userSchema = mongoose.Schema(
       required: false,
       default: "",
     },
+    orderIds: {
+      type: Array,
+      required: false,
+    },
   },
   {
     timestamps: true,
