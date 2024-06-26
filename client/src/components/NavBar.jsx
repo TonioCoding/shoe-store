@@ -100,6 +100,15 @@ const NavBar = () => {
     );
   }, []);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      const navbarHeight = document.getElementById("nav-bar").offsetHeight;
+      document.body.style.paddingTop = `${navbarHeight}px`;
+    });
+
+    return () => {};
+  }, []);
+
   const iconList = (
     <IconContext.Provider value={{ size: "3vw" }}>
       <div className="flex justify-between ">
@@ -219,7 +228,10 @@ const NavBar = () => {
         </p>
       </div> */}
       {/*END OF STRIP*/}
-      <Navbar className="fixed top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4">
+      <Navbar
+        id="nav-bar"
+        className="fixed top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4"
+      >
         <div className="flex items-center justify-between text-blue-gray-900 basis-0">
           <Link to={"/"}>
             <Typography className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black">
