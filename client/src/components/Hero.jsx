@@ -4,7 +4,7 @@ import LearnMoreButton from "./LearnMoreButton";
 const Hero = () => {
   return (
     <section className="w-full">
-      <div className="flex justify-center items-center mb-5 w-full overflow-x-clip shadow-2xl flex-col lg:flex-row bg-[#f5f5f5]">
+      <div className="flex justify-center items-center mb-5 max-w-full overflow-x-clip shadow-2xl flex-col lg:flex-row bg-[#f5f5f5] flex-shrink-1">
         <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
         <ImageWithShadow ImgUrl="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2023/09/28/16959382869511.jpg" />
         <ImageWithShadow ImgUrl="https://static.ebayinc.com/static/assets/Uploads/Stories/Articles/_resampled/ScaleWidthWyIxMDI0Il0/melo2.jpg" />
