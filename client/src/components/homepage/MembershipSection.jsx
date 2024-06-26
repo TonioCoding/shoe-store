@@ -2,7 +2,7 @@ import MembershipCard from "./MembershipCard";
 import ButtonRounded from "../RoundedButton";
 const MembershipSection = () => {
   return (
-    <div className="w-full">
+    <section className="w-full">
       <div className="mb-10">
         <h1 className="text-center font-lt text-3xl mb-5">Membership</h1>
         <p className="text-center font-rt text-lg">
@@ -39,7 +39,7 @@ const MembershipSection = () => {
       <div className="flex justify-center mt-10">
         <ButtonRounded text="Sign Up!" />
       </div>
-    </div>
+    </section>
   );
 };
 

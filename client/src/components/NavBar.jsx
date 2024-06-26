@@ -155,7 +155,7 @@ const NavBar = () => {
   );
 
   return (
-    <div className="max-w-full">
+    <header className="max-w-full sticky">
       {showSignup === true ? (
         <SignUpDisplay
           state={showSignup}
@@ -348,8 +348,9 @@ const NavBar = () => {
           {wordList}
         </div>
       </Navbar>
+      
       {/*CONTENT SECTION OF BOTTOM OF NAVBAR*/}
-      {currentPage === "/" ? (
+      {/* {currentPage === "/" ? (
         <div>
           <div className="flex justify-center items-center mb-5 w-full overflow-x-clip shadow-2xl flex-col lg:flex-row bg-[#f5f5f5]">
             <ImageWithShadow ImgUrl="https://stuffgy.com/cdn/shop/articles/kyrie7collage_1024x.jpg?v=1605625907" />
@@ -368,9 +369,9 @@ const NavBar = () => {
             </div>
           </div>
         </div>
-      ) : null}
+      ) : null} */}
       {/*END OF CONTENT*/}
-    </div>
+    </header>
   );
 };
 

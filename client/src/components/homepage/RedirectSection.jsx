@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const RedirectSection = () => {
   return (
-    <div className="w-full mb-10">
+    <section className="w-full mb-10">
       <div className="mb-7">
         <h1 className="text-center font-lt text-2xl mb-5 underline">
           GET STARTED
@@ -25,7 +25,7 @@ const RedirectSection = () => {
           <button className="redirect-button-2 font-lt">SPORTS</button>
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 

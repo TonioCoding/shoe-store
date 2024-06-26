@@ -2,7 +2,7 @@ import HomeCard from "../HomePageCard";
 
 const BrandCardsSection = () => {
   return (
-    <div className="w-full">
+    <section className="w-full">
       <div className="mb-20">
         <h2 className="font-lt text-2xl text-center max-w-full mt-20">
           DISCOVER WITH BELOVED BRANDS
@@ -28,7 +28,7 @@ const BrandCardsSection = () => {
           brandName="Jordan"
         />
       </div>
-    </div>
+    </section>
   );
 };
 
