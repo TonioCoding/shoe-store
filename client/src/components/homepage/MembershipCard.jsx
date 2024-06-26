@@ -7,7 +7,7 @@ const MembershipCard = (props) => {
         <img
           src={props.imgUrl}
           alt="img"
-          className="object-cover object-center border-gray-700 border-2"
+          className="object-cover object-center border-gray-900 border-2"
         />
       </div>
       <h1 className="text-center font-lt text-2xl mb-3">{props.title}</h1>

@@ -24,7 +24,7 @@ const SaleCard = (props) => {
           <Button
             size="sm"
             variant="text"
-            className="flex items-center gap-2 text-white bg-black rounded-md"
+            className="flex items-center gap-2 text-white bg-black rounded-md btn-hover" 
           >
             Shop
             <svg

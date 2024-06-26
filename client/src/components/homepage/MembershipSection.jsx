@@ -37,7 +37,7 @@ const MembershipSection = () => {
         />
       </div>
       <div className="flex justify-center mt-10">
-        <ButtonRounded text="Sign Up!" />
+        <ButtonRounded text="Sign Up!"/>
       </div>
     </section>
   );
