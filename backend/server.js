@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 
 // Routes binding
 app.use("/api/v1/users", userRoutes);
-app.use("api/v1/order", orderRoutes);
+app.use("/api/v1/order", orderRoutes);
 
 // Middleware binding
 app.use(notFound);
