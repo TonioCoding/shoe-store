@@ -16,15 +16,15 @@ const BrandCardsSection = () => {
       </h2>
       <div className="flex flex-col items-center justify-center sm:flex-wrap lg:flex-row w-full">
         <HomeCard
-          src="https://static.vecteezy.com/system/resources/previews/010/994/239/original/adidas-logo-black-symbol-clothes-design-icon-abstract-football-illustration-with-white-background-free-vector.jpg"
+          src="../src/assets/imgs/home-imgs/adidaslogo.jpg"
           brandName="Adidas"
         />
         <HomeCard
-          src="https://s3.amazonaws.com/cdn.designcrowd.com/blog/40-Famous-Shoe-Logos/Nike.png"
+          src="../src/assets/imgs/home-imgs/nikelog.png"
           brandName="Nike"
         />
         <HomeCard
-          src="https://cdn.inspireuplift.com/uploads/images/seller_products/1692242920_logo-06.png"
+          src="../src/assets/imgs/home-imgs/air-jordan-logo.png"
           brandName="Jordan"
         />
       </div>
