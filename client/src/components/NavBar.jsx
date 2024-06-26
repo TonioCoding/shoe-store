@@ -220,14 +220,6 @@ const NavBar = () => {
           }
         />
       ) : null}
-      {/*BLACK STRIP*/}
-      {/* <div className="bg-black w-full shadow-xl">
-        <h1 className="text-center text-white pt-1 font-lt">Welcome!</h1>
-        <p className="text-center text-white font-rt py-2">
-          Winter sale, 45% off
-        </p>
-      </div> */}
-      {/*END OF STRIP*/}
       <Navbar
         id="nav-bar"
         className="fixed top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4"

@@ -20,7 +20,6 @@ const HomePage = () => {
       <MembershipSection />
       <hr className="my-10" />
       <RedirectSection />
-      {/*FOOTER MARK*/}
       <Footer />
     </main>
   );
