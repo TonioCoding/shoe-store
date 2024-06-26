@@ -2,9 +2,9 @@
 const ImageWithShadow = (props) => {
   return (
     <img
-      className="h-96 w-full object-cover object-center shadow-lg shadow-blue-gray-900/50  border-black border-b-8"
+      className="max-w-full h-auto lg:h-[20rem] object-contain object-center shadow-lg shadow-blue-gray-900/50  border-black border-b-8"
       src={props.ImgUrl}
-      alt="nature image"
+      alt="hero-img"
     />
   );
 };
