@@ -25,7 +25,7 @@ const SaleCard = (props) => {
         <Link className="inline-block">
           <Button
             size="sm"
-            className="flex items-center gap-2 text-white bg-black rounded-md btn-hover transition-all ease-in duration-500"
+            className="flex items-center gap-2 text-white bg-black rounded-md btn-hover transition-all ease-in duration-500 border-2 focus:border-black hover:border-black"
           >
             Shop
             <svg

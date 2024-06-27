@@ -73,12 +73,12 @@ const Footer = () => {
           <h1 className="font-lt mt-5 text-2xl"> Payment Methods</h1>
           <div className="grid grid-cols-3 justify-between gap-4 mt-10">
             <IconContext.Provider value={{ size: footerIconSize }}>
-              <FaCcVisa />
-              <FaCcPaypal />
-              <FaCcMastercard />
-              <FaCcDiscover />
-              <FaCcApplePay />
-              <SiAmericanexpress />
+              <FaCcVisa className="footer-icon" />
+              <FaCcPaypal className="footer-icon" />
+              <FaCcMastercard className="footer-icon" />
+              <FaCcDiscover className="footer-icon" />
+              <FaCcApplePay className="footer-icon" />
+              <SiAmericanexpress className="footer-icon" />
             </IconContext.Provider>
           </div>
         </div>

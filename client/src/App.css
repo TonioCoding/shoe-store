@@ -75,6 +75,8 @@ hr {
 }
 
 .redirect-button-2:hover {
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
   color: white;
 }
 
@@ -148,5 +150,10 @@ hr {
   transition-duration: 0.5s;
   transition-timing-function: ease-in;
 }
+
 .navbar-icon:hover {
+}
+
+.footer-icon {
+  cursor: pointer;
 }
