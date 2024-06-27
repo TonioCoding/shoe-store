@@ -17,14 +17,15 @@ const SaleCard = (props) => {
         <Typography variant="h5" color="black" className="mb-2 font-lt">
           {props.heading}
         </Typography>
-        <Typography color="black" className="font-rt">{props.text}</Typography>
+        <Typography color="black" className="font-rt">
+          {props.text}
+        </Typography>
       </CardBody>
       <CardFooter className="pt-0">
         <Link className="inline-block">
           <Button
             size="sm"
-            variant="text"
-            className="flex items-center gap-2 text-white bg-black rounded-md btn-hover" 
+            className="flex items-center gap-2 text-white bg-black rounded-md btn-hover transition-all ease-in duration-500"
           >
             Shop
             <svg
