@@ -107,3 +107,7 @@ margin: 10px;
 .btn-hover:hover {
   background-color:#9e9e9e;
 }
+
+.sign-in-input *::placeholder {
+  color: black;
+}

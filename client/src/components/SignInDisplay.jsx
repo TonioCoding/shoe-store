@@ -28,8 +28,6 @@ const SignInDisplay = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  console.log(userInfo);
-
   const handleLogin = async (e) => {
     e.preventDefault();
 
