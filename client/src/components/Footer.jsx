@@ -61,7 +61,7 @@ const Footer = () => {
                       as="a"
                       href="#"
                       color="white"
-                      className="py-2 font-rt transition-colors hover:text-blue-gray-900 text-sm"
+                      className="py-2 font-rt transition-colors hover:text-gray-800 text-sm"
                     >
                       {link}
                     </Typography>

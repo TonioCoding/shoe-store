@@ -157,3 +157,7 @@ hr {
 .footer-icon {
   cursor: pointer;
 }
+
+#nav-bar-input::placeholder {
+  color: rgb(79, 78, 78);
+}
