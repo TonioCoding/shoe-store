@@ -14,7 +14,7 @@ const BrandCardsSection = () => {
       <h2 className="text-center font-lt max-w-full text-2xl my-5 mt-10 underline">
         TRENDING BRANDS
       </h2>
-      <div className="flex flex-col items-center justify-center sm:flex-wrap lg:flex-row w-full">
+      <div className="flex flex-col items-center justify-center sm:flex-wrap lg:flex-row w-full gap-x-10">
         <HomeCard
           src="../src/assets/imgs/home-imgs/adidaslogo.jpg"
           brandName="Adidas"
