@@ -111,23 +111,23 @@ const NavBar = () => {
 
   const iconList = (
     <IconContext.Provider value={{ size: "3vw" }}>
-      <div className="flex justify-between ">
+      <div className="flex justify-between">
         <Link to={"/settings"}>
           <IoIosSettings
             id="settings-icon"
-            className="text-black cursor-pointer lg:w-[1.5vw] mx-2"
+            className="text-black cursor-pointer lg:w-[1.5vw] mx-2 navbar-icon"
           />
         </Link>
         <Link to={"/"}>
-          <IoHomeSharp className="text-black cursor-pointer lg:w-[1.5vw] mx-2 mr-3" />
+          <IoHomeSharp className="text-black cursor-pointer lg:w-[1.5vw] mx-2 mr-3 navbar-icon" />
         </Link>
         <Link to={"/account"}>
-          <FaUser className="text-black cursor-pointer lg:w-[1.3vw] mx-2" />
+          <FaUser className="text-black cursor-pointer lg:w-[1.3vw] mx-2 navbar-icon" />
         </Link>
         <Link to={"/saved-shoes"}>
           <GoHeartFill
             id="saved-shoes-icon"
-            className="text-black cursor-pointer lg:w-[1.3vw] mx-2"
+            className="text-black cursor-pointer lg:w-[1.3vw] mx-2 navbar-icon"
           />
         </Link>
       </div>

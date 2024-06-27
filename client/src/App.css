@@ -142,3 +142,11 @@ hr {
 #saved-shoes-icon:hover {
   color: red;
 }
+
+.navbar-icon {
+  transition: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+}
+.navbar-icon:hover {
+}
