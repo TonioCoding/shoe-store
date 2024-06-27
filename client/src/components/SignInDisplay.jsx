@@ -64,7 +64,7 @@ const SignInDisplay = (props) => {
                     setEmail(e.target.value);
                   }}
                   type="email"
-                  placeholder="*****@***.com"
+                  placeholder="*****@*****.com"
                   label="Email"
                   autoSave="off"
                   autoComplete="new-password"

@@ -17,7 +17,7 @@ const SignUpDisplay = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = () => {};
+  const handleSignup = () => {};
 
   return (
     <div id="sign-up" className="bg-black z-30 rounded-lg">
@@ -44,7 +44,7 @@ const SignUpDisplay = (props) => {
               <div className="sign-in-input">
                 <Input
                   type="email"
-                  placeholder="*****@***.com"
+                  placeholder="*****@*****.com"
                   label="Email"
                   autoSave="off"
                   autoComplete="new-password"
@@ -70,7 +70,7 @@ const SignUpDisplay = (props) => {
             <Button
               color="green"
               className="sign-in-btn font-lt"
-              onClick={handleSubmit}
+              onClick={handleSignup}
             >
               Create Account
             </Button>
