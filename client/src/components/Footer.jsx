@@ -8,7 +8,6 @@ import {
   FaCcMastercard,
   FaCcDiscover,
   FaCcApplePay,
-  FaGooglePay,
 } from "react-icons/fa6";
 import { SiAmericanexpress } from "react-icons/si";
 import { useEffect, useState } from "react";
@@ -79,7 +78,7 @@ const Footer = () => {
               <FaCcMastercard />
               <FaCcDiscover />
               <FaCcApplePay />
-              <FaGooglePay />
+              <SiAmericanexpress />
             </IconContext.Provider>
           </div>
         </div>
