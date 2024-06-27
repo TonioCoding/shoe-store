@@ -233,7 +233,7 @@ const NavBar = () => {
       ) : null}
       <Navbar
         id="nav-bar"
-        className="fixed top-0 z-10 max-h-[24vh] max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 shadow-3xl bg-gray-100 border-b-2 border-b-gray-800"
+        className="fixed top-0 z-10 max-h-fit max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 shadow-3xl bg-gray-100 border-b-2 border-b-gray-800"
       >
         <div className="flex items-center justify-between text-blue-gray-900 basis-0 flex-grow">
           <Link to={"/"} className="hover:drop-shadow-md">
@@ -262,9 +262,10 @@ const NavBar = () => {
               </div>
               {openNav === false ? (
                 <Button
+                  id="navbar-sign-in-btn"
                   variant="gradient"
                   size="sm"
-                  className="lg:inline-block mr-5 h-[10%]"
+                  className="hidden xs:inline-block mr-5 h-[10%]"
                   color="red"
                   onClick={signinHandleClick}
                 >
@@ -320,20 +321,20 @@ const NavBar = () => {
           </div>
         </div>
         <Collapse open={openNav}>
-          <div className="flex items-center justify-center w-full">
+          <Button
+            variant="gradient"
+            size="sm"
+            className="inline-block ml-3"
+            color="red"
+            onClick={signinHandleClick}
+          >
+            <span className="font-rt">Sign in</span>
+          </Button>
+          <div className="flex flex-col sm:flex-row max-w-full gap-y-5 mt-[.5rem] sm:justify-center sm:gap-x-5">
             <Button
               variant="gradient"
               size="sm"
-              className="inline-block my-3 mx-3"
-              color="red"
-              onClick={signinHandleClick}
-            >
-              <span className="font-rt">Sign in</span>
-            </Button>
-            <Button
-              variant="gradient"
-              size="sm"
-              className="inline-block my-3 mx-3"
+              className="inline-block collapse-btn"
               color="green"
             >
               <span className="font-rt">Shop</span>
@@ -341,7 +342,7 @@ const NavBar = () => {
             <Button
               variant="gradient"
               size="sm"
-              className="inline-block my-3 mx-3"
+              className="inline-block collapse-btn"
               color="black"
             >
               <span className="font-rt">Options</span>
@@ -349,7 +350,7 @@ const NavBar = () => {
             <Button
               variant="gradient"
               size="sm"
-              className="inline-block my-3 mx-3"
+              className="inline-block collapse-btn"
               color="blue"
             >
               <span className="font-rt">Cart</span>

@@ -75,9 +75,10 @@ hr {
 }
 
 .redirect-button-2:hover {
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
-  color: white;
+  /* text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000; */
+
+  color: rgb(135, 135, 135);
 }
 
 #card {
@@ -164,12 +165,32 @@ hr {
   color: rgb(79, 78, 78);
 }
 
-.brand-icon{
+.brand-icon {
   transition: all;
   transition-duration: 0.5s;
   transition-timing-function: ease-in;
 }
 
-.brand-icon:hover{
+.brand-icon:hover {
   color: gray;
+}
+
+.collapse-btn {
+  max-width: 45%;
+}
+
+@media (max-width: 640px) {
+  .collapse-btn {
+    margin-left: 25%;
+  }
+}
+
+#navbar-sign-in-btn {
+  visibility: hidden;
+}
+
+@media (min-width: 430px) {
+  #navbar-sign-in-btn {
+    visibility: visible;
+  }
 }
