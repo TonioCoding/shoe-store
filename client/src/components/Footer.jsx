@@ -90,7 +90,7 @@ const Footer = () => {
             &copy; {currentYear} <Link>Shoe Store</Link>. All Rights Reserved.
           </Typography>
           <div className="flex gap-4 text-white sm:justify-center">
-            <Typography className="opacity-80 transition-opacity hover:opacity-100">
+            <Typography className="cursor-pointer opacity-80 transition-opacity hover:opacity-100">
               <svg
                 className="h-5 w-5"
                 fill="currentColor"
@@ -104,7 +104,7 @@ const Footer = () => {
                 />
               </svg>
             </Typography>
-            <Typography className="opacity-80 transition-opacity hover:opacity-100">
+            <Typography className="cursor-pointer opacity-80 transition-opacity hover:opacity-100">
               <svg
                 className="h-5 w-5"
                 fill="currentColor"
@@ -118,7 +118,7 @@ const Footer = () => {
                 />
               </svg>
             </Typography>
-            <Typography className="opacity-80 transition-opacity hover:opacity-100">
+            <Typography className="cursor-pointer opacity-80 transition-opacity hover:opacity-100">
               <svg
                 className="h-5 w-5"
                 fill="currentColor"
