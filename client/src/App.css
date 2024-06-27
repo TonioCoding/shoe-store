@@ -1,6 +1,6 @@
 * {
   padding: 0;
-  margin: o;
+  margin: 0;
   box-sizing: border-box;
 }
 
@@ -146,12 +146,14 @@ hr {
 }
 
 .navbar-icon {
+  box-sizing: border-box;
   transition: all;
   transition-duration: 0.5s;
   transition-timing-function: ease-in;
 }
 
 .navbar-icon:hover {
+  padding: 3px;
 }
 
 .footer-icon {
@@ -160,4 +162,14 @@ hr {
 
 #nav-bar-input::placeholder {
   color: rgb(79, 78, 78);
+}
+
+.brand-icon{
+  transition: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+}
+
+.brand-icon:hover{
+  color: gray;
 }

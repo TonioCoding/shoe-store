@@ -110,8 +110,13 @@ const NavBar = () => {
   }, []);
 
   const iconList = (
-    <IconContext.Provider value={{ size: "3vw" }}>
-      <div className="flex justify-between">
+    <IconContext.Provider
+      value={{
+        size: "auto",
+        className: "nav-bar-icon",
+      }}
+    >
+      <div className="flex justify-between items-center">
         <Link to={"/settings"}>
           <IoIosSettings
             id="settings-icon"
@@ -135,7 +140,7 @@ const NavBar = () => {
   );
 
   const wordList = (
-    <div className="flex">
+    <div className="flex items-center">
       <Link to={"/membership-page"}>
         <span className="m-3 hover:underline lg:w-[2vw] text-black font-lt text-md cursor-pointer">
           Membership
@@ -145,25 +150,25 @@ const NavBar = () => {
   );
 
   const brandIconList = (
-    <IconContext.Provider value={{ size: "2vw" }}>
+    <IconContext.Provider value={{ size: "2vw", className: "brand-icon" }}>
       <div className="flex justify-between">
         <Link to={"/adidas-page"}>
-          <SiAdidas className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+          <SiAdidas className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/jordan-page"}>
-          <SiJordan className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+          <SiJordan className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"newbalance-page"}>
-          <SiNewbalance className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+          <SiNewbalance className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/nike-page"}>
-          <SiNike className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+          <SiNike className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"reebok-page"}>
-          <SiReebok className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+          <SiReebok className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/puma-page"}>
-          <SiPuma className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out hover:w-[3.1vw]" />
+          <SiPuma className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
       </div>
     </IconContext.Provider>
@@ -228,18 +233,17 @@ const NavBar = () => {
       ) : null}
       <Navbar
         id="nav-bar"
-        className="fixed top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4"
+        className="fixed top-0 z-10 max-h-[24vh] max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 shadow-3xl bg-gray-100 border-b-2 border-b-gray-800"
       >
-        <div className="flex items-center justify-between text-blue-gray-900 basis-0">
-          <Link to={"/"}>
-            <Typography className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black">
+        <div className="flex items-center justify-between text-blue-gray-900 basis-0 flex-grow">
+          <Link to={"/"} className="hover:drop-shadow-md">
+            <Typography className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black p-3">
               Shoe Store
             </Typography>
           </Link>
           <div className="hidden sm:flex items-center">
             <NavSearchBar />
           </div>
-          {/*<NavSearchBar/>*/}
           <div className="flex items-center gap-4">
             {/* Sign in button and Shopping cart container*/}
             <div className="flex justify-center items-center gap-x-1 w-full">
@@ -267,9 +271,11 @@ const NavBar = () => {
                   <span className="font-lt">Sign in</span>
                 </Button>
               ) : null}
-              <IconContext.Provider value={{ size: "3vw" }}>
+              <IconContext.Provider
+                value={{ size: "3vw", className: "navbar-icon" }}
+              >
                 <Link to={"/cart"}>
-                  <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible" />
+                  <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible hover:text-green-500" />
                 </Link>
               </IconContext.Provider>
             </div>
