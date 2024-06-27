@@ -265,7 +265,7 @@ const NavBar = () => {
                   id="navbar-sign-in-btn"
                   variant="gradient"
                   size="sm"
-                  className="hidden xs:inline-block mr-5 h-[10%]"
+                  className="hidden xs:inline-block mr-5 h-[10%] transition-all ease-in"
                   color="red"
                   onClick={signinHandleClick}
                 >

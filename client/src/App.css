@@ -56,10 +56,11 @@ hr {
 
 .redirect-button-2 {
   background: linear-gradient(rgb(88, 87, 87) -30%, white, black 215%);
-  min-width: 15vw;
+  min-width: 21vw;
   display: inline-block;
   padding: 35px;
   text-align: center;
+  font-size: 15px;
   color: black;
   background-color: black;
   border-color: rgb(197, 25, 25);
