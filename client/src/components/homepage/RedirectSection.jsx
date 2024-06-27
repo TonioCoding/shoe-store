@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const RedirectSection = () => {
   return (
     <section className="w-full mb-10">
-      <div className="mb-7">
+      <div className="mb-[8vh]">
         <h1 className="text-center font-lt text-2xl mb-5 underline">
           GET STARTED
         </h1>

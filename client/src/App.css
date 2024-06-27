@@ -42,42 +42,62 @@ hr {
   padding: 10px;
 }
 
+@keyframes redirect-button-2-animation {
+  from {
+    border-color: rgb(203, 77, 77);
+  }
+  50% {
+    border-color: rgb(219, 216, 161);
+  }
+  to {
+    border-color: rgb(220, 236, 204);
+  }
+}
+
 .redirect-button-2 {
+  background: linear-gradient(rgb(88, 87, 87) -30%, white, black 215%);
+  min-width: 15vw;
   display: inline-block;
-  padding: 15px;
+  padding: 35px;
   text-align: center;
-  color: white;
+  color: black;
   background-color: black;
-  border-radius: 5555px;
   border-color: rgb(197, 25, 25);
-  border-width: 2px;
-  transition: border-radius 2s ease-in-out, box-shadow 1s ease-in-out,
-    border-width 1s ease-in-out;
+  border-width: 3px;
+  transition: all;
+  transition-duration: 2s;
+  animation-name: redirect-button-2-animation;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-fill-mode: backwards;
+  animation-direction: alternate;
 }
 
 .redirect-button-2:hover {
-  border-radius: 2px;
-  box-shadow: 3px 3px black;
+  color: white;
 }
 
 #card {
   cursor: pointer;
 }
 
-#sign-in, #sign-up {
+#sign-in,
+#sign-up {
   display: inline-block;
   position: absolute;
-  left: 0; 
-  right: 0; 
-  margin-left: auto; 
-  margin-right: auto; 
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   width: 50%;
   text-align: center;
   top: 50%;
 }
 
-.sign-in-btn , .sign-in-input{
-margin: 10px;
+.sign-in-btn,
+.sign-in-input {
+  margin: 10px;
 }
 
 .sign-in-btn {
@@ -105,9 +125,19 @@ margin: 10px;
 }
 
 .btn-hover:hover {
-  background-color:#9e9e9e;
+  background-color: #9e9e9e;
 }
 
 .sign-in-input *::placeholder {
   color: black;
+}
+
+#saved-shoes-icon {
+  transition: all;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
+}
+
+#saved-shoes-icon:hover {
+  color: red;
 }
