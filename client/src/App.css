@@ -125,7 +125,8 @@ hr {
 }
 
 .btn-hover:hover {
-  background-color: #9e9e9e;
+  background-color: #ffffff;
+  color: black;
 }
 
 .sign-in-input *::placeholder {
