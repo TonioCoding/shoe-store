@@ -112,7 +112,6 @@ const NavBar = () => {
   const iconList = (
     <IconContext.Provider
       value={{
-        size: "auto",
         className: "nav-bar-icon",
       }}
     >

@@ -162,6 +162,11 @@ hr {
   cursor: pointer;
 }
 
+#nav-bar-input:focus {
+  border-top: 1px;
+  border-width: 1px;
+}
+
 #nav-bar-input::placeholder {
   color: rgb(79, 78, 78);
 }
@@ -194,4 +199,20 @@ hr {
   #navbar-sign-in-btn {
     visibility: visible;
   }
+}
+
+.arrow-btn {
+  cursor: pointer;
+  border-radius: 50%;
+  color: black;
+  background-color: rgb(221, 219, 219);
+  padding: 3px;
+  transition: all;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+.arrow-btn:hover {
+  color: white;
+  background-color: gray;
 }

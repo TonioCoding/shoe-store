@@ -1,5 +1,9 @@
 import MembershipCard from "./MembershipCard";
 import ButtonRounded from "../RoundedButton";
+import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward } from "react-icons/io";
+import { IconContext } from "react-icons";
+
 const MembershipSection = () => {
   return (
     <section className="w-full">
@@ -36,8 +40,19 @@ const MembershipSection = () => {
           text="Exclusive products to members only"
         />
       </div>
+      <IconContext.Provider
+        value={{
+          size: "2vw",
+          className: "arrow-btn",
+        }}
+      >
+        <div className="flex justify-between my-5 mx-3">
+          <IoIosArrowBack />
+          <IoIosArrowForward />
+        </div>
+      </IconContext.Provider>
       <div className="flex justify-center mt-10">
-        <ButtonRounded text="Sign Up!"/>
+        <ButtonRounded text="Sign Up!" />
       </div>
     </section>
   );

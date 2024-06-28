@@ -6,13 +6,10 @@ const NavSearchBar = () => {
   return (
     <div className="flex justify-center w-full">
       <Input
-      id="nav-bar-input"
+        id="nav-bar-input"
         placeholder="Search"
-        color="black"
         style={{
-          borderBlockColor: "black",
-          borderLeftColor: "black",
-          borderRightColor: "black",
+          borderColor: "black",
           width: "100%",
         }}
       />
