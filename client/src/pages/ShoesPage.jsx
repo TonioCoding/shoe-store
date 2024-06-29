@@ -7,15 +7,9 @@ import { toast } from "react-toastify";
 const ShoePage = ({ brand }) => {
   const [shoeData, setShoeData] = useState(null);
   console.log(shoeData);
-  console.log(brand)
+  console.log(brand);
 
   useEffect(() => {
-    function capitalizeFirstLetter(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-    const endpointParam = capitalizeFirstLetter(brand);
-    console.log(endpointParam)
-
     async function retrieveShoes() {
       if (shoeData === null) {
         try {
