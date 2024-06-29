@@ -21,8 +21,14 @@ import SalesPage from "./pages/SalesPage.jsx";
 import SportsPage from "./pages/SportsPage.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
+import ShoePage from "./pages/ShoePage.jsx";
 
 const App = () => {
+  window.onload = () => {
+    const navbarHeight = document.getElementById("nav-bar").offsetHeight;
+    document.body.style.paddingTop = `${navbarHeight}px`;
+  };
+  
   return (
     <BrowserRouter>
       <NavBar />
@@ -33,13 +39,17 @@ const App = () => {
         <Route path="/sales-page" element={<SalesPage />} />
         <Route path="/sports-page" element={<SportsPage />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/jordan-page" element={<JordanPage />} />
+        {/* <Route path="/jordan-page" element={<JordanPage />} />
         <Route path="/newbalance-page" element={<NewBalancePage />} />
         <Route path="/reebok-page" element={<ReebokPage />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/membership-page" element={<Membership />} />
         <Route path="/nike-page" element={<NikePage />} />
-        <Route path="/puma-page" element={<PumaPage />} />
+        <Route path="/puma-page" element={<PumaPage />} /> */}
+        <Route
+          path={`/shoes/nike|jordan|puma|newbalance|adidas|reebok`}
+          element={<ShoePage />}
+        />
         <Route path="/test" element={<Test />} />
         <Route path="" element={<PrivateRoute />}>
           <Route path="/account" element={<Account />} />

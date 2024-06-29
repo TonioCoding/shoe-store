@@ -152,22 +152,22 @@ const NavBar = () => {
   const brandIconList = (
     <IconContext.Provider value={{ size: "2vw", className: "brand-icon" }}>
       <div className="flex justify-between">
-        <Link to={"/adidas-page"}>
+        <Link to={"/shoes"}>
           <SiAdidas className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
-        <Link to={"/jordan-page"}>
+        <Link to={"/shoes"}>
           <SiJordan className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
-        <Link to={"newbalance-page"}>
+        <Link to={"/shoes"}>
           <SiNewbalance className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
-        <Link to={"/nike-page"}>
+        <Link to={"/shoes"}>
           <SiNike className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
-        <Link to={"reebok-page"}>
+        <Link to={"/shoes"}>
           <SiReebok className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
-        <Link to={"/puma-page"}>
+        <Link to={"/shoes"}>
           <SiPuma className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
       </div>
