@@ -1,19 +1,12 @@
 /* eslint-disable no-unused-vars */
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import NavBar from "./components/NavBar.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import Test from "./test/Test.jsx";
 import "./App.css";
 import { PrivateRoute } from "./components/PrivateRoute.jsx";
 import Account from "./pages/AccountPage.jsx";
-import AdidasPage from "./pages/AdidasPage.jsx";
 import Cart from "./pages/CartPage.jsx";
-import JordanPage from "./pages/JordanPage.jsx";
-import Membership from "./pages/MembershipPage.jsx";
-import NewBalancePage from "./pages/NewBalancePage.jsx";
-import NikePage from "./pages/NikePage.jsx";
-import PumaPage from "./pages/PumaPage.jsx";
-import ReebokPage from "./pages/ReebokPage.jsx";
 import SavedShoes from "./pages/SavedShoesPage.jsx";
 import Settings from "./pages/SettingsPage.jsx";
 import BrandsPage from "./pages/BrandsPage.jsx";
@@ -24,12 +17,18 @@ import "react-toastify/dist/ReactToastify.min.css";
 import ShoePage from "./pages/ShoePage.jsx";
 import SettingsPage from "./pages/SettingsPage.jsx";
 import MembershipPage from "./pages/MembershipPage.jsx";
+import { useEffect} from "react";
 
 const App = () => {
   window.onload = () => {
     const navbarHeight = document.getElementById("nav-bar").offsetHeight;
     document.body.style.paddingTop = `${navbarHeight}px`;
   };
+
+  useEffect(() => {
+    const navbarHeight = document.getElementById("nav-bar").offsetHeight;
+    document.body.style.paddingTop = `${navbarHeight}px`;
+  }, []);
 
   return (
     <BrowserRouter>

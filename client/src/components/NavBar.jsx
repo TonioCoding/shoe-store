@@ -43,6 +43,11 @@ const NavBar = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const [logoutUser, { isLoading }] = useLogoutMutation();
 
+  if (currentPage !== useLocation().pathname) {
+    const navbarHeight = document.getElementById("nav-bar").offsetHeight;
+    document.body.style.paddingTop = `${navbarHeight}px`;
+  }
+
   const dispatch = useDispatch();
 
   const handleLogout = async (e) => {
