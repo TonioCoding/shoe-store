@@ -15,7 +15,7 @@ body {
   overflow-x: auto;
   overflow-y: hidden;
   display: flex;
-  scroll-behavior:smooth;
+  scroll-behavior: smooth;
 }
 
 hr {
@@ -161,6 +161,13 @@ hr {
 
 .footer-icon {
   cursor: pointer;
+  transition: all;
+  transition-duration: .5s;
+  transition-timing-function: ease-in;
+}
+
+.footer-icon:hover {
+  color: rgb(172, 165, 165);
 }
 
 #nav-bar-input:focus {
