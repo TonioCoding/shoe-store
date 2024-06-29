@@ -5,6 +5,16 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IconContext } from "react-icons";
 
 const MembershipSection = () => {
+  function scrollLeft() {
+    const membershipSlider = document.getElementById("membership-slider");
+    membershipSlider.scrollBy(-300, 0);
+  }
+
+  function scrollRight() {
+    const membershipSlider = document.getElementById("membership-slider");
+    membershipSlider.scrollBy(300, 0);
+  }
+
   return (
     <section className="w-full">
       <div className="mb-10">
@@ -13,7 +23,7 @@ const MembershipSection = () => {
           Discover your benefits as a member
         </p>
       </div>
-      <div className="membership-slider">
+      <div id="membership-slider">
         <MembershipCard
           imgUrl="../src/assets/imgs/home-imgs/membership-img-1.jpg"
           title="Free Shipping"
@@ -47,8 +57,8 @@ const MembershipSection = () => {
         }}
       >
         <div className="flex my-5 ml-3 gap-x-5">
-          <IoIosArrowBack />
-          <IoIosArrowForward />
+          <IoIosArrowBack onClick={scrollLeft} />
+          <IoIosArrowForward onClick={scrollRight} />
         </div>
       </IconContext.Provider>
       <div className="flex justify-center mt-5 relative bottom-5">
