@@ -112,6 +112,7 @@ const NavBar = () => {
   const iconList = (
     <IconContext.Provider
       value={{
+        size: "2vw",
         className: "nav-bar-icon",
       }}
     >
@@ -152,22 +153,22 @@ const NavBar = () => {
     <IconContext.Provider value={{ size: "2vw", className: "brand-icon" }}>
       <div className="flex justify-between">
         <Link to={"/adidas-page"}>
-          <SiAdidas className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiAdidas className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/jordan-page"}>
-          <SiJordan className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiJordan className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"newbalance-page"}>
-          <SiNewbalance className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiNewbalance className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/nike-page"}>
-          <SiNike className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiNike className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"reebok-page"}>
-          <SiReebok className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiReebok className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/puma-page"}>
-          <SiPuma className="text-black m-5 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiPuma className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
       </div>
     </IconContext.Provider>
@@ -236,8 +237,11 @@ const NavBar = () => {
       >
         <div className="flex items-center justify-between text-blue-gray-900 basis-0 flex-grow">
           <Link to={"/"} className="hover:drop-shadow-md">
-            <Typography className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black p-3">
-              Shoe Store
+            <Typography
+              id="page-title"
+              className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black p-3"
+            >
+              <span>S</span>hoe Store
             </Typography>
           </Link>
           <div className="hidden sm:flex items-center">

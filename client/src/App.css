@@ -217,3 +217,13 @@ hr {
   color: white;
   background-color: gray;
 }
+
+#page-title span {
+  transition: all;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
+}
+
+#page-title:hover span {
+  color: red;
+}
