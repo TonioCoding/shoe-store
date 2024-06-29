@@ -28,7 +28,7 @@ const App = () => {
     const navbarHeight = document.getElementById("nav-bar").offsetHeight;
     document.body.style.paddingTop = `${navbarHeight}px`;
   };
-  
+
   return (
     <BrowserRouter>
       <NavBar />
@@ -47,7 +47,7 @@ const App = () => {
         <Route path="/nike-page" element={<NikePage />} />
         <Route path="/puma-page" element={<PumaPage />} /> */}
         <Route
-          path={`/shoes/nike|jordan|puma|newbalance|adidas|reebok`}
+          path={"/shoes"}
           element={<ShoePage />}
         />
         <Route path="/test" element={<Test />} />
