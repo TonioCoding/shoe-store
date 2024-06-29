@@ -333,7 +333,7 @@ const NavBar = () => {
           >
             <span className="font-rt">Sign in</span>
           </Button>
-          <div className="flex flex-col sm:flex-row max-w-full gap-y-5 mt-[.5rem] sm:justify-center sm:gap-x-5">
+          <div className="flex flex-col sm:flex-row max-w-full gap-y-5 my-[.5rem] sm:justify-center sm:gap-x-5">
             <Button
               variant="gradient"
               size="sm"
