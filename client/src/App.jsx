@@ -22,6 +22,8 @@ import SportsPage from "./pages/SportsPage.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import ShoePage from "./pages/ShoePage.jsx";
+import SettingsPage from "./pages/SettingsPage.jsx";
+import MembershipPage from "./pages/MembershipPage.jsx";
 
 const App = () => {
   window.onload = () => {
@@ -34,22 +36,22 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/adidas-page" element={<AdidasPage />} />
+        <Route path="/settings" element={<SettingsPage />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/sports-page" element={<SportsPage />} />
         <Route path="/brands-page" element={<BrandsPage />} />
         <Route path="/sales-page" element={<SalesPage />} />
-        <Route path="/sports-page" element={<SportsPage />} />
-        <Route path="/cart" element={<Cart />} />
-        {/* <Route path="/jordan-page" element={<JordanPage />} />
-        <Route path="/newbalance-page" element={<NewBalancePage />} />
-        <Route path="/reebok-page" element={<ReebokPage />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/membership-page" element={<Membership />} />
-        <Route path="/nike-page" element={<NikePage />} />
-        <Route path="/puma-page" element={<PumaPage />} /> */}
+        <Route path="/membership-page" element={<MembershipPage />} />
+        <Route path="/adidas-page" element={<ShoePage brand="adidas" />} />
+        <Route path="/jordan-page" element={<ShoePage brand="jordan" />} />
         <Route
-          path={"/shoes"}
-          element={<ShoePage />}
+          path="/newbalance-page"
+          element={<ShoePage brand="newbalance" />}
         />
+        <Route path="/reebok-page" element={<ShoePage brand="reebok" />} />
+        <Route path="/nike-page" element={<ShoePage brand="nike" />} />
+        <Route path="/puma-page" element={<ShoePage brand="puma" />} />
+        <Route path={"/shoes"} element={<ShoePage />} />
         <Route path="/test" element={<Test />} />
         <Route path="" element={<PrivateRoute />}>
           <Route path="/account" element={<Account />} />
