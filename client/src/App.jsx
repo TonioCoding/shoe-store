@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import Test from "./test/Test.jsx";
@@ -14,10 +14,10 @@ import SalesPage from "./pages/SalesPage.jsx";
 import SportsPage from "./pages/SportsPage.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import ShoePage from "./pages/ShoePage.jsx";
+import ShoePage from "./pages/ShoesPage.jsx";
 import SettingsPage from "./pages/SettingsPage.jsx";
 import MembershipPage from "./pages/MembershipPage.jsx";
-import { useEffect} from "react";
+import { useEffect } from "react";
 
 const App = () => {
   window.onload = () => {
@@ -41,15 +41,15 @@ const App = () => {
         <Route path="/brands-page" element={<BrandsPage />} />
         <Route path="/sales-page" element={<SalesPage />} />
         <Route path="/membership-page" element={<MembershipPage />} />
-        <Route path="/adidas-page" element={<ShoePage brand="adidas" />} />
-        <Route path="/jordan-page" element={<ShoePage brand="jordan" />} />
+        <Route path="/adidas-page" element={<ShoePage brand="Adidas" />} />
+        <Route path="/jordan-page" element={<ShoePage brand="Jordan" />} />
         <Route
           path="/newbalance-page"
-          element={<ShoePage brand="newbalance" />}
+          element={<ShoePage brand="New balance" />}
         />
-        <Route path="/reebok-page" element={<ShoePage brand="reebok" />} />
-        <Route path="/nike-page" element={<ShoePage brand="nike" />} />
-        <Route path="/puma-page" element={<ShoePage brand="puma" />} />
+        <Route path="/reebok-page" element={<ShoePage brand="Reebok" />} />
+        <Route path="/nike-page" element={<ShoePage brand="Nike" />} />
+        <Route path="/puma-page" element={<ShoePage brand="Puma" />} />
         <Route path={"/shoes"} element={<ShoePage />} />
         <Route path="/test" element={<Test />} />
         <Route path="" element={<PrivateRoute />}>
