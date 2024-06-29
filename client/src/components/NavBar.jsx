@@ -232,7 +232,7 @@ const NavBar = () => {
       ) : null}
       <Navbar
         id="nav-bar"
-        className="fixed top-0 z-10 max-h-fit max-w-full rounded-none px-4 py-2 lg:px-8 lg:py-4 shadow-3xl bg-gray-100 border-b-2 border-b-gray-800"
+        className="fixed top-0 z-10 max-h-fit max-w-full rounded-none px-4 py-2 lg:px-8 shadow-3xl bg-gray-100 border-b-2 border-b-gray-800"
       >
         <div className="flex items-center justify-between text-blue-gray-900 basis-0 flex-grow">
           <Link to={"/"} className="hover:drop-shadow-md">
@@ -356,7 +356,7 @@ const NavBar = () => {
             </Button>
           </div>
         </Collapse>
-        {<hr className="h-px my-5 bg-black border-0 dark:bg-gray-700" />}
+        {<hr className="h-px my-1 bg-black border-0 dark:bg-gray-700" />}
         <div className="hidden lg:flex justify-between w-full">
           {iconList}
           {brandIconList}

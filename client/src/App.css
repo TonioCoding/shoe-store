@@ -213,6 +213,7 @@ hr {
 }
 
 .arrow-btn:hover {
+  opacity: 20%;
   color: white;
   background-color: gray;
 }

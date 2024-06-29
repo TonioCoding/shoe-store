@@ -42,16 +42,16 @@ const MembershipSection = () => {
       </div>
       <IconContext.Provider
         value={{
-          size: "2vw",
+          size: "2.2rem",
           className: "arrow-btn",
         }}
       >
-        <div className="flex justify-between my-5 mx-3">
+        <div className="flex my-5 ml-3 gap-x-5">
           <IoIosArrowBack />
           <IoIosArrowForward />
         </div>
       </IconContext.Provider>
-      <div className="flex justify-center mt-10">
+      <div className="flex justify-center mt-5 relative bottom-5">
         <ButtonRounded text="Sign Up!" />
       </div>
     </section>
