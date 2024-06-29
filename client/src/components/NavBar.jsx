@@ -246,7 +246,7 @@ const NavBar = () => {
               id="page-title"
               className="mr-4 cursor-pointer py-1.5 font-medium font-lt text-2xl text-black p-3"
             >
-              <span>S</span>hoe Store
+              <span>S</span>hoe S<span>t</span>or<span>e</span>
             </Typography>
           </Link>
           <div className="hidden sm:flex items-center">
