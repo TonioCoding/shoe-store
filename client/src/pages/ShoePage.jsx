@@ -2,8 +2,8 @@ import ShoeCard from "../components/ShoeCard";
 
 const ShoePage = () => {
   return (
-    <main>
-      <section>
+    <main className="bg-white h-[100vh]">
+      <section className="pt-7 px-5">
         <ShoeCard />
       </section>
     </main>
