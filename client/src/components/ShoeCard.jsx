@@ -9,7 +9,7 @@ const ShoeCard = (props) => {
   const shoeName = props.name;
   const shoeImgUrls = props.imgUrls;
   const shoeModel = props.model;
-  const shoeSizesNotInStock = props.sizesNotInStock;
+  // const shoeSizesNotInStock = props.sizesNotInStock;
   const shoeOnSale = props.onSale;
 
   return (
