@@ -57,8 +57,8 @@ const ShoePage = ({ brand }) => {
 
   return (
     <main className="bg-white h-full">
-      <section className="pt-4 px-5">
-        <div className="flex flex-col items-start my-5 gap-y-1">
+      <section className="px-5">
+        <div className="flex flex-col items-start gap-y-1 py-5">
           <Typography className="font-rt text-sm">
             {brand} &#47; Shoes &#40;90&#41;
           </Typography>
