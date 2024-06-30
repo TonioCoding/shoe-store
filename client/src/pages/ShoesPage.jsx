@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
 import { Typography } from "@material-tailwind/react";
@@ -55,15 +56,22 @@ const ShoePage = ({ brand }) => {
   }, [currentBrand]);
 
   return (
-    <main className="bg-white h-[100vh]">
+    <main className="bg-white h-full">
       <section className="pt-4 px-5">
-        <Typography className="font-lt pb-3">
-          {brand} &#47; Shoes &#40;90&#41;
-        </Typography>
-        <div className="flex justify-center gap-x-6">
-          <ShoeCard />
-          <ShoeCard />
-          <ShoeCard />
+        <div className="flex flex-col items-start my-5 gap-y-1">
+          <Typography className="font-rt text-sm">
+            {brand} &#47; Shoes &#40;90&#41;
+          </Typography>
+          <Typography className="font-lt text-2xl">
+            {brand} Adult Shoes &#40;90&#41;
+          </Typography>
+        </div>
+        <div className="gap-x-5 flex flex-wrap place-content-center">
+          {shoeData
+            ? shoeData.map(({ _id }) => {
+                return <ShoeCard key={_id} />;
+              })
+            : null}
         </div>
       </section>
     </main>
