@@ -68,9 +68,33 @@ const ShoePage = ({ brand }) => {
         </div>
         <div className="gap-x-5 flex flex-wrap place-content-center">
           {shoeData
-            ? shoeData.map(({ _id }) => {
-                return <ShoeCard key={_id} />;
-              })
+            ? shoeData.map(
+                ({
+                  _id,
+                  name,
+                  model,
+                  price,
+                  onSale,
+                  imgUrls,
+                  brand,
+                  sizesNotInStock,
+                  colors,
+                }) => {
+                  return (
+                    <ShoeCard
+                      key={_id}
+                      name={name}
+                      price={price}
+                      imgUrls={imgUrls}
+                      model={model}
+                      brand={brand}
+                      sizesNotInStock={sizesNotInStock}
+                      onSale={onSale}
+                      colors={colors}
+                    />
+                  );
+                }
+              )
             : null}
         </div>
       </section>
