@@ -45,7 +45,7 @@ const App = () => {
         <Route path="/jordan-page" element={<ShoePage brand="Jordan" />} />
         <Route
           path="/newbalance-page"
-          element={<ShoePage brand="New balance" />}
+          element={<ShoePage brand="New Balance" />}
         />
         <Route path="/reebok-page" element={<ShoePage brand="Reebok" />} />
         <Route path="/nike-page" element={<ShoePage brand="Nike" />} />

@@ -9,46 +9,42 @@ import { PropTypes } from "prop-types";
 const ShoePage = ({ brand }) => {
   const [shoeData, setShoeData] = useState(null);
   const [currentBrand, setCurrentBrand] = useState(brand);
-  console.log(shoeData);
-  console.log(brand);
-  console.log(currentBrand);
+
+  function determineFetchUrlBasedOnBrand(brand) {
+    switch (brand) {
+      case "Nike":
+        return "http://localhost:9000/api/v1/shoe/get-shoes/Nike";
+      case "Jordan":
+        return "http://localhost:9000/api/v1/shoe/get-shoes/Jordan";
+      case "New Balance":
+        return "http://localhost:9000/api/v1/shoe/get-shoes/New%20Balance";
+      case "Adidas":
+        return "http://localhost:9000/api/v1/shoe/get-shoes/Adidas";
+      case "Puma":
+        return "http://localhost:9000/api/v1/shoe/get-shoes/Puma";
+      case "Reebok":
+        return "http://localhost:9000/api/v1/shoe/get-shoes/Reebok";
+    }
+  }
+
+  useEffect(() => {
+    setCurrentBrand(brand);
+  }, [brand]);
 
   useEffect(() => {
     async function retrieveShoes() {
-      let fetchUrl = "";
-      switch (currentBrand) {
-        case "Nike":
-          fetchUrl = "http://localhost:9000/api/v1/shoe/get-shoes/Nike";
-          break;
-        case "Jordan":
-          fetchUrl = "http://localhost:9000/api/v1/shoe/get-shoes/Jordan";
-          break;
-        case "New Balance":
-          fetchUrl = "http://localhost:9000/api/v1/shoe/get-shoes/NewBalance";
-          break;
-        case "Adidas":
-          fetchUrl = "http://localhost:9000/api/v1/shoe/get-shoes/Adidas";
-          break;
-        case "Puma":
-          fetchUrl = "http://localhost:9000/api/v1/shoe/get-shoes/Puma";
-          break;
-        case "Reebok":
-          fetchUrl = "http://localhost:9000/api/v1/shoe/get-shoes/Reebok";
-          break;
-      }
+      let fetchUrl = determineFetchUrlBasedOnBrand(currentBrand);
 
       if (currentBrand) {
         try {
-          const req = fetch(fetchUrl, {
+          const req = await fetch(fetchUrl, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",
             },
           });
 
-          const res = await req.json();
-          console.log(res);
-          setShoeData(res);
+          const res = await req.json().then((data) => setShoeData(data));
         } catch (error) {
           toast.error(error);
         }
@@ -56,7 +52,8 @@ const ShoePage = ({ brand }) => {
     }
 
     retrieveShoes();
-  }, [shoeData, currentBrand]);
+  }, [currentBrand]);
+
   return (
     <main className="bg-white h-[100vh]">
       <section className="pt-4 px-5">
