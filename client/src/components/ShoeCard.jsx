@@ -2,6 +2,7 @@ import { Typography } from "@material-tailwind/react";
 import { PiCurrencyDollar } from "react-icons/pi";
 import { FaTags } from "react-icons/fa";
 import { PropTypes } from "prop-types";
+import { colorNameList } from "color-name-list";
 
 const ShoeCard = (props) => {
   const shoeColors = props.colors;
@@ -11,6 +12,15 @@ const ShoeCard = (props) => {
   const shoeModel = props.model;
   // const shoeSizesNotInStock = props.sizesNotInStock;
   const shoeOnSale = props.onSale;
+
+  function stringColorToHexCode(string) {
+    let desiredColor = colorNameList.find((stringName) =>
+      stringName.name.includes(string)
+    );
+    return desiredColor.hex.replace(/['"]+/g, "");
+  }
+
+  console.log(stringColorToHexCode("white"));
 
   return (
     <div className="w-[30%] cursor-pointer my-3 mb-[5rem]">
@@ -28,11 +38,20 @@ const ShoeCard = (props) => {
         <Typography className="font-lt text-[1.25rem] text-wrap">
           {shoeModel} {shoeName}
         </Typography>
-        {shoeColors
-          ? shoeColors.map((value) => {
-              return <Typography key={value}>{value}</Typography>;
-            })
-          : null}
+        <div className="flex gap-x-2">
+          {shoeColors
+            ? shoeColors.map((value) => {
+                return (
+                  <canvas
+                    key={value}
+                    className="bg-black rounded-[50%]"
+                    width={"17vw"}
+                    height={"17vh"}
+                  />
+                );
+              })
+            : null}
+        </div>
         <Typography className="font-rt flex items-center text-md">
           <PiCurrencyDollar />
           {shoePrice}
