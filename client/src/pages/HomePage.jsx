@@ -3,7 +3,6 @@ import BrandCardsSection from "../components/homepage/BrandCardsSection";
 import FeaturedSection from "../components/homepage/FeaturedSection";
 import MembershipSection from "../components/homepage/MembershipSection";
 import RedirectSection from "../components/homepage/RedirectSection";
-import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 
 const HomePage = () => {
@@ -20,7 +19,6 @@ const HomePage = () => {
       <MembershipSection />
       <hr className="my-10" />
       <RedirectSection />
-      <Footer />
     </main>
   );
 };

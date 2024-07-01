@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Typography } from "@material-tailwind/react";
 import { PiCurrencyDollar } from "react-icons/pi";
 import { FaTags } from "react-icons/fa";
@@ -10,17 +11,8 @@ const ShoeCard = (props) => {
   const shoeName = props.name;
   const shoeImgUrls = props.imgUrls;
   const shoeModel = props.model;
-  // const shoeSizesNotInStock = props.sizesNotInStock;
+  const shoeSizesNotInStock = props.sizesNotInStock;
   const shoeOnSale = props.onSale;
-
-  function stringColorToHexCode(string) {
-    let desiredColor = colorNameList.find((stringName) =>
-      stringName.name.includes(string)
-    );
-    return desiredColor.hex.replace(/['"]+/g, "");
-  }
-
-  console.log(stringColorToHexCode("white"));
 
   return (
     <div className="w-[30%] cursor-pointer my-3 mb-[5rem]">
@@ -44,7 +36,7 @@ const ShoeCard = (props) => {
                 return (
                   <canvas
                     key={value}
-                    className="bg-black rounded-[50%]"
+                    className={`bg-[#404664] rounded-[50%]`}
                     width={"17vw"}
                     height={"17vh"}
                   />
@@ -64,7 +56,7 @@ const ShoeCard = (props) => {
 ShoeCard.propTypes = {
   colors: PropTypes.array,
   price: PropTypes.number,
-  onSale: PropTypes.boolean,
+  onSale: PropTypes.bool,
   sizesNotInStock: PropTypes.array,
   name: PropTypes.string,
   model: PropTypes.string,

@@ -18,6 +18,7 @@ import ShoePage from "./pages/ShoesPage.jsx";
 import SettingsPage from "./pages/SettingsPage.jsx";
 import MembershipPage from "./pages/MembershipPage.jsx";
 import { useEffect } from "react";
+import Footer from "./components/Footer.jsx";
 
 const App = () => {
   window.onload = () => {
@@ -57,6 +58,7 @@ const App = () => {
           <Route path="/saved-shoes" element={<SavedShoes />} />
         </Route>
       </Routes>
+      <Footer />
       <ToastContainer
         position="top-center"
         autoClose={5000}
