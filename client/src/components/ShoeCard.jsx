@@ -13,6 +13,26 @@ const ShoeCard = (props) => {
   const shoeModel = props.model;
   const shoeSizesNotInStock = props.sizesNotInStock;
   const shoeOnSale = props.onSale;
+  let shoeColorHexCodes = [];
+
+  function shoesColorsToHexCode(arr) {
+    let hexCodes = [];
+    for (let string of arr) {
+      let detectedColors = [];
+      let subStrings = string.split(" ");
+      for (let string of subStrings) {
+        let foundedColor = colorNameList.find((color) =>
+          color.name.includes(string)
+        );
+
+        if (foundedColor) detectedColors.push(foundedColor.hex);
+      }
+      hexCodes.push(detectedColors[0]);
+    }
+    return hexCodes;
+  }
+  
+  shoeColorHexCodes = shoesColorsToHexCode(shoeColors);
 
   return (
     <div className="w-[30%] cursor-pointer my-3 mb-[5rem]">
@@ -31,15 +51,18 @@ const ShoeCard = (props) => {
           {shoeModel} {shoeName}
         </Typography>
         <div className="flex gap-x-2">
-          {shoeColors
-            ? shoeColors.map((value) => {
+          {shoeColorHexCodes
+            ? shoeColorHexCodes.map((value) => {
                 return (
-                  <canvas
-                    key={value}
-                    className={`bg-[#404664] rounded-[50%]`}
-                    width={"17vw"}
-                    height={"17vh"}
-                  />
+                  <>
+                    <canvas
+                      key={value}
+                      style={{ backgroundColor: `${value}` }}
+                      className="rounded-[50%]"
+                      width={"17vw"}
+                      height={"17vh"}
+                    />
+                  </>
                 );
               })
             : null}
