@@ -31,7 +31,7 @@ const ShoeCard = (props) => {
     }
     return hexCodes;
   }
-  
+
   shoeColorHexCodes = shoesColorsToHexCode(shoeColors);
 
   return (
@@ -58,9 +58,9 @@ const ShoeCard = (props) => {
                     <canvas
                       key={value}
                       style={{ backgroundColor: `${value}` }}
-                      className="rounded-[50%]"
-                      width={"17vw"}
-                      height={"17vh"}
+                      className="rounded-[50%] border-2 border-gray-700"
+                      width={"13vw"}
+                      height={"13vh"}
                     />
                   </>
                 );

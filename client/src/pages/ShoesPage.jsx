@@ -6,6 +6,9 @@ import ShoeCard from "../components/ShoeCard";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { PropTypes } from "prop-types";
+import { TbAdjustmentsHorizontal } from "react-icons/tb";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { IconContext } from "react-icons/lib";
 
 const ShoePage = ({ brand }) => {
   const [shoeData, setShoeData] = useState(null);
@@ -58,13 +61,31 @@ const ShoePage = ({ brand }) => {
   return (
     <main className="bg-white h-full">
       <section className="px-5">
-        <div className="flex flex-col items-start gap-y-1 py-5">
-          <Typography className="font-rt text-sm">
-            {brand} &#47; Shoes &#40;90&#41;
-          </Typography>
-          <Typography className="font-lt text-2xl">
-            {brand} Adult Shoes &#40;90&#41;
-          </Typography>
+        <div className="flex items-center justify-between mx-10">
+          <div className="flex flex-col items-start gap-y-1 py-5">
+            <Typography className="font-rt text-sm">
+              {brand} &#47; Shoes &#40;90&#41;
+            </Typography>
+            <Typography className="font-lt text-2xl">
+              {brand} Adult Shoes &#40;90&#41;
+            </Typography>
+          </div>
+          <div className="flex items-center gap-x-10">
+            <IconContext.Provider value={{ size: "3vh" }}>
+              <div className="flex items-center gap-x-2 cursor-pointer">
+                <Typography className="font-rt text-lg">
+                  Shoe Filters
+                </Typography>
+                <TbAdjustmentsHorizontal />
+              </div>
+            </IconContext.Provider>
+            <IconContext.Provider value={{ size: "3vh" }}>
+              <div className="flex items-center gap-x-2 cursor-pointer">
+                <Typography className="font-rt text-lg">Sort By</Typography>
+                <MdKeyboardArrowDown />
+              </div>
+            </IconContext.Provider>
+          </div>
         </div>
         <div className="gap-x-5 flex flex-wrap place-content-center">
           {shoeData
