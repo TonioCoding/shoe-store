@@ -64,7 +64,7 @@ const ShoePage = ({ brand }) => {
         <div className="flex items-center justify-between mx-10">
           <div className="flex flex-col items-start gap-y-1 py-5">
             <Typography className="font-rt text-sm">
-              {brand} &#47; Shoes &#40;90&#41;
+              {brand} &#47; Shoes
             </Typography>
             <Typography className="font-lt text-2xl">
               {brand} Adult Shoes &#40;90&#41;
