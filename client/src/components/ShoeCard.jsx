@@ -20,14 +20,35 @@ const ShoeCard = (props) => {
     for (let string of arr) {
       let detectedColors = [];
       let subStrings = string.split(" ");
-      for (let string of subStrings) {
-        let foundedColor = colorNameList.find((color) =>
-          color.name.includes(string)
-        );
+      let matchedColor = colorNameList.find((color) => color.name === string);
 
-        if (foundedColor) detectedColors.push(foundedColor.hex);
+      if (matchedColor) {
+        detectedColors.push(matchedColor.hex);
+      } else {
+        for (let string of subStrings) {
+          let matchedColor = colorNameList.find((color) =>
+            color.name.includes(string)
+          );
+          if (matchedColor) {
+            let foundColorSplit;
+            typeof matchedColor === "string"
+              ? (foundColorSplit = matchedColor.split(" "))
+              : null;
+            if (foundColorSplit) {
+              for (let foundString of foundColorSplit) {
+                if (
+                  foundString == string &&
+                  string.length === foundString.length
+                ) {
+                  detectedColors.push(matchedColor.hex);
+                }
+              }
+            }
+          }
+        }
       }
-      hexCodes.push(detectedColors[0]);
+
+      hexCodes.push(...detectedColors);
     }
     return hexCodes;
   }
@@ -40,7 +61,7 @@ const ShoeCard = (props) => {
         src={shoeImgUrls[0]}
         className="object-scale-down border-2 border-gray-400 min-h-fit"
       />
-      <div className="mx-4 my-4 flex flex-col items-start gap-y-4">
+      <div className="mx-4 my-4 flex flex-col items-start gap-y-3">
         {shoeOnSale === true ? (
           <Typography className="text-green-500 font-rt text-[1.1rem] flex items-center gap-x-1">
             Sale
@@ -50,22 +71,25 @@ const ShoeCard = (props) => {
         <Typography className="font-lt text-[1.25rem] text-wrap">
           {shoeModel} {shoeName}
         </Typography>
-        <div className="flex gap-x-2">
-          {shoeColorHexCodes
-            ? shoeColorHexCodes.map((value) => {
-                return (
-                  <>
-                    <canvas
-                      key={value}
-                      style={{ backgroundColor: `${value}` }}
-                      className="rounded-[50%] border-2 border-gray-700"
-                      width={"13vw"}
-                      height={"13vh"}
-                    />
-                  </>
-                );
-              })
-            : null}
+        <div className="flex flex-col gap-y-3">
+          <div className="flex gap-x-2">
+            {shoeColorHexCodes.length > 0
+              ? shoeColorHexCodes.map((value) => {
+                  return (
+                    <>
+                      {/* <p className="">{value}</p> */}
+                      <canvas
+                        key={value}
+                        style={{ backgroundColor: `${value}` }}
+                        className="rounded-[50%] border-2 border-gray-700"
+                        width={"13vw"}
+                        height={"13vh"}
+                      />
+                    </>
+                  );
+                })
+              : null}
+          </div>
         </div>
         <Typography className="font-rt flex items-center text-md">
           <PiCurrencyDollar />
