@@ -82,7 +82,22 @@ const ShoePage = ({ brand }) => {
     }
 
     if (state === false) {
-      filtersContainer.style.display = "none";
+      filtersContainer.animate(
+        [
+          {
+            transform: "translate(10px)",
+            display: "flex",
+          },
+          {
+            transform: "translate(-100px)",
+            display: "none",
+          },
+        ],
+        {
+          duration: 700,
+          fill: "forwards",
+        }
+      );
     }
   }
 
