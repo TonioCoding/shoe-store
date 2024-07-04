@@ -61,17 +61,36 @@ const ShoePage = ({ brand }) => {
 
   function showFiltersContainer(state) {
     let filtersContainer = document.getElementById("filters-container");
+    let shoePageMainSectionContainer = document.getElementById(
+      "shoe-page-main-section"
+    );
 
     if (state === true) {
+      shoePageMainSectionContainer.animate(
+        [
+          {
+            width: "100%",
+          },
+          {
+            marginLeft: "5%",
+            width: "85%",
+          },
+        ],
+        {
+          duration: 700,
+          fill: "forwards",
+        }
+      );
+
       filtersContainer.animate(
         [
           {
-            transform: "translate(-100px)",
             display: "none",
+            width: "0%",
           },
           {
-            transform: "translate(10px)",
-            display: "flex",
+            display: "inline-block",
+            width: "20%",
           },
         ],
         {
@@ -82,15 +101,32 @@ const ShoePage = ({ brand }) => {
     }
 
     if (state === false) {
+      shoePageMainSectionContainer.animate(
+        [
+          {
+            marginLeft: "5%",
+            width: "85%",
+          },
+          {
+            marginLeft: "0%",
+            width: "100%",
+          },
+        ],
+        {
+          duration: 700,
+          fill: "forwards",
+        }
+      );
+
       filtersContainer.animate(
         [
           {
-            transform: "translate(10px)",
-            display: "flex",
+            display: "inline-block",
+            width: "20%",
           },
           {
-            transform: "translate(-100px)",
             display: "none",
+            width: "0%",
           },
         ],
         {
@@ -140,10 +176,10 @@ const ShoePage = ({ brand }) => {
           </IconContext.Provider>
         </div>
       </div>
-      <div className="px-5 flex" id="shoe-page-main-section">
+      <div className="px-5 flex justify-center" id="shoe-page-main-section">
         <div
           id="filters-container"
-          className="flex flex-col transition-all duration-700 ease-in"
+          className="flex flex-col transition-all duration-700 ease-in bg-gray-500"
         >
           <Button color="black" className="h-fit w-full">
             Hello
@@ -161,7 +197,7 @@ const ShoePage = ({ brand }) => {
             Hello
           </Button>
         </div>
-        <div className="gap-x-5 flex flex-wrap place-content-center">
+        <div className="gap-x-5 flex flex-wrap justify-center pl-10 w-full">
           {shoeData
             ? shoeData.map(
                 ({
