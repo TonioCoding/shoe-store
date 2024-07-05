@@ -9,6 +9,7 @@ import { PropTypes } from "prop-types";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { IconContext } from "react-icons/lib";
+import ReusableAccordion from "../components/ReusableAccordion";
 
 const ShoePage = ({ brand }) => {
   const [shoeData, setShoeData] = useState(null);
@@ -227,21 +228,7 @@ const ShoePage = ({ brand }) => {
           id="filters-container"
           className="flex flex-col transition-all duration-700 ease-in bg-gray-500 h-fit"
         >
-          <Button color="black" className="h-fit w-full">
-            Hello
-          </Button>
-          <Button color="black" className="h-fit w-full">
-            Hello
-          </Button>
-          <Button color="black" className="h-fit w-full">
-            Hello
-          </Button>
-          <Button color="black" className="h-fit w-full">
-            Hello
-          </Button>
-          <Button color="black" className="h-fit w-full">
-            Hello
-          </Button>
+          <ReusableAccordion value="Brand" values={brands} />
         </div>
         <div className="gap-x-5 flex flex-wrap justify-center pl-10 w-full">
           {shoeData
