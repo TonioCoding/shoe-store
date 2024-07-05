@@ -17,13 +17,63 @@ import "react-toastify/dist/ReactToastify.min.css";
 import ShoePage from "./pages/ShoesPage.jsx";
 import SettingsPage from "./pages/SettingsPage.jsx";
 import MembershipPage from "./pages/MembershipPage.jsx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Footer from "./components/Footer.jsx";
 
 const App = () => {
+  const [stateUpdate, setStateUpdate] = useState(0);
+  const [showNavBarStatus, setShowNavBarStatus] = useState(true);
   window.onload = () => {
     const navbarHeight = document.getElementById("nav-bar").offsetHeight;
     document.body.style.paddingTop = `${navbarHeight}px`;
+  };
+
+  window.onscroll = function (e) {
+    if (this.oldScroll > this.scrollY) {
+      //add animation scroll up
+      const navBar = document.getElementById("nav-bar");
+
+      navBar.animate(
+        [
+          {
+            height: "0%",
+          },
+          {
+            height: "fit-content",
+          },
+        ],
+        {
+          duration: 600,
+          fill: "forwards",
+        }
+      );
+
+      setStateUpdate(stateUpdate + 1);
+    } else {
+      //add animation scroll down
+      const navBar = document.getElementById("nav-bar");
+
+      navBar.animate(
+        [
+          {
+            height: "100%",
+          },
+          {
+            height: "0%",
+          },
+        ],
+        {
+          duration: 500,
+          fill: "both",
+        }
+      );
+    }
+
+    {
+      const navbarHeight = document.getElementById("nav-bar").offsetHeight;
+      document.body.style.paddingTop = `${navbarHeight}px`;
+    }
+    this.oldScroll = this.scrollY;
   };
 
   useEffect(() => {
