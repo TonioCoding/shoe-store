@@ -20,7 +20,7 @@ const ReusableAccordion = (props) => {
       <AccordionHeader onClick={() => handleOpen(1)}>
         <IconContext.Provider value={{ size: "1vw", color: "black" }}>
           <div className="flex items-center justify-between w-full">
-            <Typography className="font-lt text-black">
+            <Typography className="font-lt text-black text-lg">
               {headerValue}
             </Typography>
             <IoIosArrowDown />
@@ -35,7 +35,7 @@ const ReusableAccordion = (props) => {
                   return (
                     <div className="flex gap-x-2" key={index}>
                       <input type="checkbox" />
-                      <Typography className="font-rt text-black">
+                      <Typography className="font-rt text-black text-[1.1vw]">
                         {value}
                       </Typography>
                     </div>
