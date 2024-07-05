@@ -15,6 +15,52 @@ const ShoePage = ({ brand }) => {
   const [currentBrand, setCurrentBrand] = useState(brand);
   const [showShoeFilters, setShowShoeFilters] = useState(false);
 
+  const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
+  const genders = ["Male", "Female", "Unisex"];
+  const typesOfShoes = [
+    "Basketball",
+    "Soccer",
+    "Tenis",
+    "Lifestyle",
+    "Running",
+    "Baseball",
+    "Golf",
+  ];
+  const priceRanges = ["$0-25", "$25-50", "$50-100", "$100-125", "$125-150"];
+  const sizes = [
+    "6",
+    "6.5",
+    "7",
+    "7.5",
+    "8",
+    "8.5",
+    "9",
+    "9.5",
+    "10",
+    "10.5",
+    "11",
+    "11.5",
+    "12",
+    "12.5",
+    "13",
+    "13.5",
+    "14",
+  ];
+  const colors = [
+    "Red",
+    "Blue",
+    "Black",
+    "Yellow",
+    "Grey",
+    "Pink",
+    "Green",
+    "Orange",
+    "White",
+    "Purple",
+    "Brown",
+    "Multi-Color",
+  ];
+
   function determineFetchUrlBasedOnBrand(brand) {
     switch (brand) {
       case "Nike":
@@ -179,7 +225,7 @@ const ShoePage = ({ brand }) => {
       <div className="px-5 flex justify-center" id="shoe-page-main-section">
         <div
           id="filters-container"
-          className="flex flex-col transition-all duration-700 ease-in bg-gray-500"
+          className="flex flex-col transition-all duration-700 ease-in bg-gray-500 h-fit"
         >
           <Button color="black" className="h-fit w-full">
             Hello
