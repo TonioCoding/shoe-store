@@ -27,7 +27,13 @@ const ShoePage = ({ brand }) => {
     "Baseball",
     "Golf",
   ];
-  const priceRanges = ["$0-25", "$25-50", "$50-100", "$100-125", "$125-150"];
+  const priceRanges = [
+    "$0 - 25",
+    "$25 - 50",
+    "$50 - 100",
+    "$100 - 125",
+    "$125 - 150",
+  ];
   const sizes = [
     "6",
     "6.5",

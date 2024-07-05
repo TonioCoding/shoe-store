@@ -6,6 +6,8 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { PropTypes } from "prop-types";
+import { IoIosArrowDown } from "react-icons/io";
+import { IconContext } from "react-icons/lib";
 
 const ReusableAccordion = (props) => {
   const [open, setOpen] = useState(0);
@@ -16,7 +18,14 @@ const ReusableAccordion = (props) => {
   return (
     <Accordion open={open === 1}>
       <AccordionHeader onClick={() => handleOpen(1)}>
-        <Typography className="font-lt">{headerValue}</Typography>
+        <IconContext.Provider value={{ size: "1vw", color: "black" }}>
+          <div className="flex items-center justify-between w-full">
+            <Typography className="font-lt text-black">
+              {headerValue}
+            </Typography>
+            <IoIosArrowDown />
+          </div>
+        </IconContext.Provider>
       </AccordionHeader>
       <AccordionBody>
         <div className="flex flex-col gap-y-5">
@@ -26,7 +35,9 @@ const ReusableAccordion = (props) => {
                   return (
                     <div className="flex gap-x-2" key={index}>
                       <input type="checkbox" />
-                      <Typography className="font-rt">{value}</Typography>
+                      <Typography className="font-rt text-black">
+                        {value}
+                      </Typography>
                     </div>
                   );
                 })
