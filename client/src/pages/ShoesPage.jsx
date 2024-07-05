@@ -226,9 +226,14 @@ const ShoePage = ({ brand }) => {
       <div className="px-5 flex justify-center" id="shoe-page-main-section">
         <div
           id="filters-container"
-          className="flex flex-col transition-all duration-700 ease-in bg-gray-500 h-fit"
+          className="flex flex-col transition-all duration-700 ease-in h-fit"
         >
           <ReusableAccordion value="Brand" values={brands} />
+          <ReusableAccordion value="Types" values={typesOfShoes} />
+          <ReusableAccordion value="Sizes" values={sizes} />
+          <ReusableAccordion value="Colors" values={colors} />
+          <ReusableAccordion value="Gender" values={genders} />
+          <ReusableAccordion value="Shop By Prices" values={priceRanges} />
         </div>
         <div className="gap-x-5 flex flex-wrap justify-center pl-10 w-full">
           {shoeData
