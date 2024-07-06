@@ -16,7 +16,7 @@ const ShoePage = ({ brand }) => {
   const [shoeData, setShoeData] = useState(null);
   const [currentBrand, setCurrentBrand] = useState(brand);
   const [showShoeFilters, setShowShoeFilters] = useState(false);
-  const [showSortBy, setShowSortBy] = useState(false);
+  const [showSortBy, setShowSortBy] = useState(null);
 
   console.log(showSortBy);
 
@@ -185,6 +185,48 @@ const ShoePage = ({ brand }) => {
   }
 
   useEffect(() => {
+    function animateSortByIcon() {
+      const sortByIcon = document.getElementById("sort-by-icon");
+
+      if (showSortBy === true) {
+        sortByIcon.animate(
+          [
+            {
+              transform: "rotateZ(0deg)",
+            },
+            {
+              transform: "rotateZ(180deg)",
+            },
+          ],
+          {
+            duration: 300,
+            iterations: 1,
+            fill: "forwards",
+          }
+        );
+      } else if (showSortBy === false) {
+        sortByIcon.animate(
+          [
+            {
+              transform: "rotateZ(180deg)",
+            },
+            {
+              transform: "rotateZ(0deg)",
+            },
+          ],
+          {
+            duration: 300,
+            iterations: 1,
+            fill: "forwards",
+          }
+        );
+      }
+    }
+
+    animateSortByIcon();
+  }, [showSortBy]);
+
+  useEffect(() => {
     showFiltersContainer(showShoeFilters);
   }, [showShoeFilters]);
 
@@ -242,7 +284,7 @@ const ShoePage = ({ brand }) => {
               onClick={setShowSortByState}
             >
               <Typography className="font-rt text-lg">Sort By</Typography>
-              <MdKeyboardArrowDown />
+              <MdKeyboardArrowDown id="sort-by-icon" />
             </div>
           </IconContext.Provider>
         </div>
