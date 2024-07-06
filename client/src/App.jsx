@@ -29,49 +29,55 @@ const App = () => {
     document.body.style.paddingTop = `${navbarHeight}px`;
   };
 
-  window.onscroll = function (e) {
+  window.onscroll = function () {
     if (this.oldScroll > this.scrollY) {
-      //add animation scroll up
-      const navBar = document.getElementById("nav-bar");
+      if (showNavBarStatus === false) {
+        const navBar = document.getElementById("nav-bar");
 
-      navBar.animate(
-        [
-          {},
+        navBar.animate(
+          [
+            {
+              height: "0vh",
+            },
+            {
+              height: "18vh",
+            },
+          ],
           {
-            height: "fit-content",
-          },
-        ],
-        {
-          duration: 600,
-          fill: "forwards",
-          iterations: 1,
-        }
-      );
-
-      setShowNavBarStatus(true);
-    } else {
-      //add animation scroll down
-      const navBar = document.getElementById("nav-bar");
-      navBar.animate(
-        [
-          {},
+            duration: 100,
+            fill: "forwards",
+            iterations: 1,
+          }
+        );
+        setShowNavBarStatus(true);
+      }
+    } else if (this.oldScroll < this.scrollY) {
+      if (showNavBarStatus === true) {
+        const navBar = document.getElementById("nav-bar");
+        navBar.animate(
+          [
+            {
+              height: "18vh",
+            },
+            {
+              height: "0vh",
+            },
+          ],
           {
-            height: "0%",
-          },
-        ],
-        {
-          duration: 500,
-          fill: "both",
-        }
-      );
-
-      setShowNavBarStatus(false);
+            duration: 100,
+            fill: "forwards",
+            iterations: 1,
+          }
+        );
+        setShowNavBarStatus(false);
+      }
     }
 
     {
       const navbarHeight = document.getElementById("nav-bar").offsetHeight;
       document.body.style.paddingTop = `${navbarHeight}px`;
     }
+
     this.oldScroll = this.scrollY;
   };
 
