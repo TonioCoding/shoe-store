@@ -68,7 +68,7 @@ const ShoeCard = (props) => {
             <FaTags className="text-sm" />
           </Typography>
         ) : null}
-        <Typography className="font-lt text-[1.25rem] text-wrap">
+        <Typography className="font-lt text-[1.05rem] text-wrap">
           {shoeModel} {shoeName}
         </Typography>
         <div className="flex flex-col gap-y-3">
@@ -88,7 +88,7 @@ const ShoeCard = (props) => {
               : null}
           </div>
         </div>
-        <Typography className="font-rt flex items-center text-md">
+        <Typography className="font-rt flex items-center text-[1.2rem]">
           <PiCurrencyDollar />
           {shoePrice}
         </Typography>

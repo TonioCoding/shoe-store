@@ -18,8 +18,12 @@ const ShoePage = ({ brand }) => {
   const [showShoeFilters, setShowShoeFilters] = useState(false);
   const [showSortBy, setShowSortBy] = useState(false);
 
+  console.log(showSortBy);
+
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
+
   const genders = ["Male", "Female", "Unisex"];
+
   const typesOfShoes = [
     "Basketball",
     "Soccer",
@@ -29,6 +33,7 @@ const ShoePage = ({ brand }) => {
     "Baseball",
     "Golf",
   ];
+
   const priceRanges = [
     "$0 - 25",
     "$25 - 50",
@@ -36,6 +41,7 @@ const ShoePage = ({ brand }) => {
     "$100 - 125",
     "$125 - 150",
   ];
+
   const sizes = [
     "6",
     "6.5",
@@ -55,6 +61,7 @@ const ShoePage = ({ brand }) => {
     "13.5",
     "14",
   ];
+
   const colors = [
     "Red",
     "Blue",
@@ -69,6 +76,8 @@ const ShoePage = ({ brand }) => {
     "Brown",
     "Multi-Color",
   ];
+
+  const shoeHeights = ["Low Top", "Mid Top", "High Top"];
 
   function determineFetchUrlBasedOnBrand(brand) {
     switch (brand) {
@@ -86,33 +95,6 @@ const ShoePage = ({ brand }) => {
         return "http://localhost:9000/api/v1/shoe/get-shoes/Reebok";
     }
   }
-
-  useEffect(() => {
-    setCurrentBrand(brand);
-  }, [brand]);
-
-  useEffect(() => {
-    async function retrieveShoes() {
-      let fetchUrl = determineFetchUrlBasedOnBrand(currentBrand);
-
-      if (currentBrand) {
-        try {
-          const req = await fetch(fetchUrl, {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-
-          const res = await req.json().then((data) => setShoeData(data));
-        } catch (error) {
-          toast.error(error);
-        }
-      }
-    }
-
-    retrieveShoes();
-  }, [currentBrand]);
 
   function showFiltersContainer(state) {
     let filtersContainer = document.getElementById("filters-container");
@@ -198,9 +180,40 @@ const ShoePage = ({ brand }) => {
       : setShowShoeFilters(false);
   }
 
+  function setShowSortByState() {
+    showSortBy === false ? setShowSortBy(true) : setShowSortBy(false);
+  }
+
   useEffect(() => {
     showFiltersContainer(showShoeFilters);
   }, [showShoeFilters]);
+
+  useEffect(() => {
+    setCurrentBrand(brand);
+  }, [brand]);
+
+  useEffect(() => {
+    async function retrieveShoes() {
+      let fetchUrl = determineFetchUrlBasedOnBrand(currentBrand);
+
+      if (currentBrand) {
+        try {
+          const req = await fetch(fetchUrl, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+
+          const res = await req.json().then((data) => setShoeData(data));
+        } catch (error) {
+          toast.error(error);
+        }
+      }
+    }
+
+    retrieveShoes();
+  }, [currentBrand]);
 
   return (
     <main className="bg-white h-full">
@@ -224,7 +237,10 @@ const ShoePage = ({ brand }) => {
             </div>
           </IconContext.Provider>
           <IconContext.Provider value={{ size: "3vh" }}>
-            <div className="flex items-center gap-x-2 cursor-pointer">
+            <div
+              className="flex items-center gap-x-2 cursor-pointer"
+              onClick={setShowSortByState}
+            >
               <Typography className="font-rt text-lg">Sort By</Typography>
               <MdKeyboardArrowDown />
             </div>
@@ -242,6 +258,7 @@ const ShoePage = ({ brand }) => {
           <ReusableAccordion value="Colors" values={colors} />
           <ReusableAccordion value="Gender" values={genders} />
           <ReusableAccordion value="Shop By Prices" values={priceRanges} />
+          <ReusableAccordion value="Shoe Height" values={shoeHeights} />
         </div>
         <div className="gap-x-5 flex flex-wrap justify-center pl-10 w-full">
           {shoeData
