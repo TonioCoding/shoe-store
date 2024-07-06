@@ -44,7 +44,7 @@ const App = () => {
             },
           ],
           {
-            duration: 100,
+            duration: 150,
             fill: "forwards",
             iterations: 1,
           }
@@ -64,7 +64,7 @@ const App = () => {
             },
           ],
           {
-            duration: 100,
+            duration: 150,
             fill: "forwards",
             iterations: 1,
           }
