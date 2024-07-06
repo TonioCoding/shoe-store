@@ -23,6 +23,7 @@ import Footer from "./components/Footer.jsx";
 const App = () => {
   const [stateUpdate, setStateUpdate] = useState(0);
   const [showNavBarStatus, setShowNavBarStatus] = useState(true);
+
   window.onload = () => {
     const navbarHeight = document.getElementById("nav-bar").offsetHeight;
     document.body.style.paddingTop = `${navbarHeight}px`;
@@ -35,9 +36,7 @@ const App = () => {
 
       navBar.animate(
         [
-          {
-            height: "0%",
-          },
+          {},
           {
             height: "fit-content",
           },
@@ -45,19 +44,17 @@ const App = () => {
         {
           duration: 600,
           fill: "forwards",
+          iterations: 1,
         }
       );
 
-      setStateUpdate(stateUpdate + 1);
+      setShowNavBarStatus(true);
     } else {
       //add animation scroll down
       const navBar = document.getElementById("nav-bar");
-
       navBar.animate(
         [
-          {
-            height: "100%",
-          },
+          {},
           {
             height: "0%",
           },
@@ -67,6 +64,8 @@ const App = () => {
           fill: "both",
         }
       );
+
+      setShowNavBarStatus(false);
     }
 
     {
