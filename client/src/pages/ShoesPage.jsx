@@ -79,6 +79,13 @@ const ShoePage = ({ brand }) => {
 
   const shoeHeights = ["Low Top", "Mid Top", "High Top"];
 
+  const sortByOptions = [
+    "Featured",
+    "Newest",
+    "Price: High - Low",
+    "Price: Low - High",
+  ];
+
   function determineFetchUrlBasedOnBrand(brand) {
     switch (brand) {
       case "Nike":
@@ -187,6 +194,7 @@ const ShoePage = ({ brand }) => {
   useEffect(() => {
     function animateSortByIcon() {
       const sortByIcon = document.getElementById("sort-by-icon");
+      let sortByContainer = document.getElementById("sort-by-container");
 
       if (showSortBy === true) {
         sortByIcon.animate(
@@ -285,6 +293,16 @@ const ShoePage = ({ brand }) => {
             >
               <Typography className="font-rt text-lg">Sort By</Typography>
               <MdKeyboardArrowDown id="sort-by-icon" />
+              {showSortBy === true ? (
+                <div
+                  id="sort-by-container"
+                  className="absolute mt-10 bg-white font-rt text-sm rounded-xl flex flex-col right-1 gap-y-2"
+                >
+                  {sortByOptions.map((value, index) => {
+                    return <Typography key={index}>{value}</Typography>;
+                  })}
+                </div>
+              ) : null}
             </div>
           </IconContext.Provider>
         </div>
