@@ -296,7 +296,7 @@ const ShoePage = ({ brand }) => {
               {showSortBy === true ? (
                 <div
                   id="sort-by-container"
-                  className="absolute mt-10 bg-white font-rt text-sm rounded-xl flex flex-col right-1 gap-y-2"
+                  className="absolute mt-10 bg-white font-rt text-sm rounded-xl flex flex-col top-[25%] gap-y-2 w-[20%] right-10 p-5"
                 >
                   {sortByOptions.map((value, index) => {
                     return <Typography key={index}>{value}</Typography>;
