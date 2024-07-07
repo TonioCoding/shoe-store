@@ -191,7 +191,6 @@ const ShoePage = ({ brand }) => {
   useEffect(() => {
     function animateSortByIcon() {
       const sortByIcon = document.getElementById("sort-by-icon");
-      let sortByContainer = document.getElementById("sort-by-container");
 
       if (showSortBy === true) {
         sortByIcon.animate(
@@ -265,7 +264,7 @@ const ShoePage = ({ brand }) => {
   return (
     <main className="bg-white h-full">
       <div
-        className="flex items-center justify-between mx-10"
+        className="flex items-center justify-between mx-10 max-w-full"
         id="shoe-page-header"
       >
         <div className="flex flex-col items-start gap-y-1 py-5">
