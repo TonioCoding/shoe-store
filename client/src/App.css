@@ -167,9 +167,6 @@ hr {
   color: rgb(172, 165, 165);
 }
 
-#nav-bar {
-}
-
 #nav-bar-input:focus {
   border-top: 1px;
   border-width: 1px;
@@ -236,5 +233,5 @@ hr {
   color: red;
 }
 
-#shoe-page-main-section {
-}
+/* #shoe-page-main-section {
+} */
