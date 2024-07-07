@@ -40,6 +40,7 @@ const App = () => {
               height: "0vh",
             },
             {
+              display: "inline-block",
               height: "18vh",
             },
           ],
@@ -60,6 +61,7 @@ const App = () => {
               height: "18vh",
             },
             {
+              display: "none",
               height: "0vh",
             },
           ],
