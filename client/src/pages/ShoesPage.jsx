@@ -18,48 +18,6 @@ const ShoePage = ({ brand }) => {
   const [showSortBy, setShowSortBy] = useState(false);
   const isFirstRender = useRef(true);
 
-  /* window.onscroll(function () {
-    const shoePageHeader = document.getElementById("shoe-page-header");
-    const navBar = document.getElementById("nav-bar");
-    const shoePageMainSection = document.getElementById(
-      "shoe-page-main-section"
-    );
-
-    if (this.oldScroll > this.scrollY) {
-      shoePageHeader.animate([{}, {}], {
-        duration: 150,
-        fill: "forwards",
-        iterations: 1,
-      });
-    }
-
-    if (this.oldScroll < this.scrollY) {
-      shoePageMainSection.style.backgroundColor = "red";
-
-      shoePageHeader.style.position = "fixed";
-      shoePageHeader.style.top = "0px";
-
-      shoePageHeader.animate(
-        [
-          {
-            position: "static",
-          },
-          {
-            position: "fixed",
-            top: "0px",
-          },
-        ],
-        {
-          duration: 150,
-          fill: "forwards",
-          iterations: 1,
-        }
-      );
-    }
-
-    this.oldScroll = this.scrollY;
-  }) */
-
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
 
   const genders = ["Male", "Female", "Unisex"];
