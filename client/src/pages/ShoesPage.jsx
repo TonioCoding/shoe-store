@@ -113,7 +113,7 @@ const ShoePage = ({ brand }) => {
             width: "100%",
           },
           {
-            marginLeft: "5%",
+            marginLeft: "15%",
             width: "85%",
           },
         ],
@@ -317,7 +317,7 @@ const ShoePage = ({ brand }) => {
       <div className="px-5 flex justify-center" id="shoe-page-main-section">
         <div
           id="filters-container"
-          className="flex flex-col transition-all duration-700 ease-in h-fit"
+          className="flex flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5 w-[10rem]"
         >
           <ReusableAccordion value="Brand" values={brands} />
           <ReusableAccordion value="Types" values={typesOfShoes} />
@@ -327,7 +327,7 @@ const ShoePage = ({ brand }) => {
           <ReusableAccordion value="Shop By Prices" values={priceRanges} />
           <ReusableAccordion value="Shoe Height" values={shoeHeights} />
         </div>
-        <div className="gap-x-5 flex flex-wrap justify-center pl-10 w-full">
+        <div className="gap-x-5 flex flex-wrap justify-center pl-10 w-full ">
           {shoeData
             ? shoeData.map(
                 ({
