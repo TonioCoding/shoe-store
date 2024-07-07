@@ -8,7 +8,6 @@ import { toast } from "react-toastify";
 import { PropTypes } from "prop-types";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { MdKeyboardArrowUp } from "react-icons/md";
 import { IconContext } from "react-icons/lib";
 import ReusableAccordion from "../components/ReusableAccordion";
 
