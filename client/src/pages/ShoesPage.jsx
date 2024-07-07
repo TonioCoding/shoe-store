@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 import { Button, Typography } from "@material-tailwind/react";
 import ShoeCard from "../components/ShoeCard";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { PropTypes } from "prop-types";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
@@ -14,8 +14,9 @@ import ReusableAccordion from "../components/ReusableAccordion";
 const ShoePage = ({ brand }) => {
   const [shoeData, setShoeData] = useState(null);
   const [currentBrand, setCurrentBrand] = useState(brand);
-  const [showShoeFilters, setShowShoeFilters] = useState(false);
+  const [showShoeFilters, setShowShoeFilters] = useState(null);
   const [showSortBy, setShowSortBy] = useState(false);
+  const isFirstRender = useRef(true);
 
   /* window.onscroll(function () {
     const shoePageHeader = document.getElementById("shoe-page-header");
@@ -142,88 +143,12 @@ const ShoePage = ({ brand }) => {
     }
   }
 
-  function showFiltersContainer(state) {
-    let filtersContainer = document.getElementById("filters-container");
-    let shoePageMainSectionContainer = document.getElementById(
-      "shoe-page-main-section"
-    );
-
-    if (state === true) {
-      shoePageMainSectionContainer.animate(
-        [
-          {
-            width: "100%",
-          },
-          {
-            marginLeft: "15%",
-            width: "85%",
-          },
-        ],
-        {
-          duration: 700,
-          fill: "forwards",
-        }
-      );
-
-      filtersContainer.animate(
-        [
-          {
-            display: "none",
-            width: "0%",
-          },
-          {
-            display: "inline-block",
-            width: "20%",
-          },
-        ],
-        {
-          duration: 700,
-          fill: "forwards",
-        }
-      );
-    }
-
-    if (state === false) {
-      shoePageMainSectionContainer.animate(
-        [
-          {
-            marginLeft: "5%",
-            width: "85%",
-          },
-          {
-            marginLeft: "0%",
-            width: "100%",
-          },
-        ],
-        {
-          duration: 700,
-          fill: "forwards",
-        }
-      );
-
-      filtersContainer.animate(
-        [
-          {
-            display: "inline-block",
-            width: "20%",
-          },
-          {
-            display: "none",
-            width: "0%",
-          },
-        ],
-        {
-          duration: 700,
-          fill: "forwards",
-        }
-      );
-    }
-  }
-
   function setShowFiltersContainerState() {
-    showShoeFilters === false
-      ? setShowShoeFilters(true)
-      : setShowShoeFilters(false);
+    if (showShoeFilters === null) setShowShoeFilters(true);
+
+    showShoeFilters === true
+      ? setShowShoeFilters(false)
+      : setShowShoeFilters(true);
   }
 
   function setShowSortByState() {
@@ -278,6 +203,87 @@ const ShoePage = ({ brand }) => {
   }, [showSortBy]);
 
   useEffect(() => {
+    function showFiltersContainer(state) {
+      let filtersContainer = document.getElementById("filters-container");
+      let shoePageMainSectionContainer = document.getElementById(
+        "shoe-page-main-section"
+      );
+
+      if (isFirstRender.current === false) {
+        if (state === true) {
+          shoePageMainSectionContainer.animate(
+            [
+              {
+                width: "100%",
+              },
+              {
+                marginLeft: "15%",
+                width: "85%",
+              },
+            ],
+            {
+              duration: 700,
+              fill: "forwards",
+            }
+          );
+
+          filtersContainer.animate(
+            [
+              {
+                display: "none",
+                width: "0%",
+              },
+              {
+                display: "inline-block",
+                width: "20%",
+              },
+            ],
+            {
+              duration: 700,
+              fill: "forwards",
+            }
+          );
+        }
+
+        if (state === false) {
+          shoePageMainSectionContainer.animate(
+            [
+              {
+                marginLeft: "15%",
+                width: "85%",
+              },
+              {
+                marginLeft: "0%",
+                width: "100%",
+              },
+            ],
+            {
+              duration: 700,
+              fill: "forwards",
+            }
+          );
+
+          filtersContainer.animate(
+            [
+              {
+                display: "inline-block",
+                width: "20%",
+              },
+              {
+                display: "none",
+                width: "0%",
+              },
+            ],
+            {
+              duration: 700,
+              fill: "forwards",
+            }
+          );
+        }
+      } else if (isFirstRender.current === true) {
+        isFirstRender.current = false;
+      }
+    }
     showFiltersContainer(showShoeFilters);
   }, [showShoeFilters]);
 
@@ -367,7 +373,7 @@ const ShoePage = ({ brand }) => {
       <div className="px-5 flex justify-center" id="shoe-page-main-section">
         <div
           id="filters-container"
-          className="flex flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5 w-[10rem]"
+          className=" hidden flex flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5 w-[10rem]"
         >
           <ReusableAccordion value="Brand" values={brands} />
           <ReusableAccordion value="Types" values={typesOfShoes} />
@@ -377,6 +383,7 @@ const ShoePage = ({ brand }) => {
           <ReusableAccordion value="Shop By Prices" values={priceRanges} />
           <ReusableAccordion value="Shoe Height" values={shoeHeights} />
         </div>
+
         <div className="gap-x-5 flex flex-wrap justify-center pl-10 w-full ">
           {shoeData
             ? shoeData.map(
