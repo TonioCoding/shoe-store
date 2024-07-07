@@ -279,7 +279,10 @@ const ShoePage = ({ brand }) => {
           <IconContext.Provider value={{ size: "3vh" }}>
             <div
               className="flex items-center gap-x-2 cursor-pointer"
-              onClick={setShowFiltersContainerState}
+              onClick={() => {
+                showShoeFilters === null ? setShowShoeFilters(true) : null;
+                setShowFiltersContainerState();
+              }}
             >
               <Typography className="font-rt text-lg">Shoe Filters</Typography>
               <TbAdjustmentsHorizontal />
