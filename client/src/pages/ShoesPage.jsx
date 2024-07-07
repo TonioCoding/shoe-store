@@ -296,10 +296,17 @@ const ShoePage = ({ brand }) => {
               {showSortBy === true ? (
                 <div
                   id="sort-by-container"
-                  className="absolute mt-10 bg-white font-rt text-sm rounded-xl flex flex-col top-[25%] gap-y-2 w-[20%] right-10 p-5"
+                  className="absolute mt-10 bg-white font-rt text-sm rounded-xl flex flex-col top-[25%] gap-y-2 w-[15%] right-10 p-5"
                 >
                   {sortByOptions.map((value, index) => {
-                    return <Typography key={index}>{value}</Typography>;
+                    return (
+                      <Typography
+                        key={index}
+                        className="text-black font-rt hover:text-gray-500 transition-all ease-in"
+                      >
+                        {value}
+                      </Typography>
+                    );
                   })}
                 </div>
               ) : null}
