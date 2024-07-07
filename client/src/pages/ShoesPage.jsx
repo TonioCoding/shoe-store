@@ -15,7 +15,7 @@ const ShoePage = ({ brand }) => {
   const [shoeData, setShoeData] = useState(null);
   const [currentBrand, setCurrentBrand] = useState(brand);
   const [showShoeFilters, setShowShoeFilters] = useState(false);
-  const [showSortBy, setShowSortBy] = useState(null);
+  const [showSortBy, setShowSortBy] = useState(false);
 
   /* window.onscroll(function () {
     const shoePageHeader = document.getElementById("shoe-page-header");
@@ -233,8 +233,9 @@ const ShoePage = ({ brand }) => {
   useEffect(() => {
     function animateSortByIcon() {
       const sortByIcon = document.getElementById("sort-by-icon");
+      let currentIconDirectionUp = false;
 
-      if (showSortBy === true) {
+      if (showSortBy === true && currentIconDirectionUp !== true) {
         sortByIcon.animate(
           [
             {
@@ -250,6 +251,8 @@ const ShoePage = ({ brand }) => {
             fill: "forwards",
           }
         );
+
+        currentIconDirectionUp = false;
       } else if (showSortBy === false) {
         sortByIcon.animate(
           [
@@ -266,6 +269,8 @@ const ShoePage = ({ brand }) => {
             fill: "forwards",
           }
         );
+
+        currentIconDirectionUp = true;
       }
     }
 
@@ -321,10 +326,7 @@ const ShoePage = ({ brand }) => {
           <IconContext.Provider value={{ size: "3vh" }}>
             <div
               className="flex items-center gap-x-2 cursor-pointer"
-              onClick={() => {
-                showShoeFilters === null ? setShowShoeFilters(true) : null;
-                setShowFiltersContainerState();
-              }}
+              onClick={setShowFiltersContainerState}
             >
               <Typography className="font-rt text-lg">Shoe Filters</Typography>
               <TbAdjustmentsHorizontal />
@@ -333,7 +335,11 @@ const ShoePage = ({ brand }) => {
           <IconContext.Provider value={{ size: "3vh" }}>
             <div
               className="flex items-center gap-x-2 cursor-pointer"
-              onClick={setShowSortByState}
+              onClick={(e) => {
+                e.preventDefault();
+                setShowSortBy(true);
+                setShowSortByState();
+              }}
             >
               <Typography className="font-rt text-lg">Sort By</Typography>
               <MdKeyboardArrowDown id="sort-by-icon" />
