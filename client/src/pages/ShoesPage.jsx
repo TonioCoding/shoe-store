@@ -331,7 +331,7 @@ const ShoePage = ({ brand }) => {
       <div className="px-5 flex justify-center" id="shoe-page-main-section">
         <div
           id="filters-container"
-          className=" hidden flex flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5 w-[10rem]"
+          className="hidden flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5 w-[10rem]"
         >
           <ReusableAccordion value="Brand" values={brands} />
           <ReusableAccordion value="Types" values={typesOfShoes} />
