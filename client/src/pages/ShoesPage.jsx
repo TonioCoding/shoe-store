@@ -18,6 +18,40 @@ const ShoePage = ({ brand }) => {
   const [showShoeFilters, setShowShoeFilters] = useState(false);
   const [showSortBy, setShowSortBy] = useState(null);
 
+  /* window.onscroll = function () {
+    const shoePageHeader = document.getElementById("shoe-page-header");
+    if (this.oldScroll > this.scrollY) {
+      shoePageHeader.animate([{}, {}], {
+        duration: 200,
+        iterations: 1,
+        fill: "forwards",
+      });
+    }
+
+    if (this.oldScroll < this.scrollY) {
+      shoePageHeader.animate(
+        [
+          {},
+          {
+            display: "fixed",
+          },
+        ],
+        {
+          duration: 200,
+          iterations: 1,
+          fill: "forwards",
+        }
+      );
+    }
+
+    {
+      const navbarHeight = document.getElementById("nav-bar").offsetHeight;
+      document.body.style.paddingTop = `${navbarHeight}px`;
+    }
+
+    this.oldScroll = this.scrollY;
+  } */
+
   console.log(showSortBy);
 
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
@@ -267,7 +301,10 @@ const ShoePage = ({ brand }) => {
 
   return (
     <main className="bg-white h-full">
-      <div className="flex items-center justify-between mx-10">
+      <div
+        className="flex items-center justify-between mx-10"
+        id="shoe-page-header"
+      >
         <div className="flex flex-col items-start gap-y-1 py-5">
           <Typography className="font-rt text-sm">
             {brand} &#47; Shoes

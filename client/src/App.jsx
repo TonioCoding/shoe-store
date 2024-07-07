@@ -30,10 +30,10 @@ const App = () => {
   };
 
   window.onscroll = function () {
+    const navBar = document.getElementById("nav-bar");
+
     if (this.oldScroll > this.scrollY) {
       if (showNavBarStatus === false) {
-        const navBar = document.getElementById("nav-bar");
-
         navBar.animate(
           [
             {
@@ -54,7 +54,6 @@ const App = () => {
       }
     } else if (this.oldScroll < this.scrollY) {
       if (showNavBarStatus === true) {
-        const navBar = document.getElementById("nav-bar");
         navBar.animate(
           [
             {
