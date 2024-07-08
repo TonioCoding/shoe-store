@@ -270,7 +270,7 @@ const ShoePage = ({ brand }) => {
   return (
     <main className="bg-white h-full">
       <div
-        className="flex items-center justify-between mx-10 max-w-full sticky top-1"
+        className="flex items-center justify-between mx-10 max-w-full sticky top-0 bg-white border-b-2 border-gray-300"
         id="shoe-page-header"
       >
         <div className="flex flex-col items-start gap-y-1 py-5">
@@ -319,7 +319,10 @@ const ShoePage = ({ brand }) => {
           </IconContext.Provider>
         </div>
       </div>
-      <div className="px-5 flex justify-center" id="shoe-page-main-section">
+      <div
+        className="px-5 flex justify-center mt-10"
+        id="shoe-page-main-section"
+      >
         <div
           id="filters-container"
           className={
