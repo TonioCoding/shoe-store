@@ -39,7 +39,7 @@ const Footer = () => {
   }, [viewPortWidth]);
 
   return (
-    <footer className="relative w-full bg-[#0a0a0a] text-white">
+    <footer className="relative w-full bg-[#0a0a0a] text-white" id="footer">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
           <Typography variant="h5" className="my-6 font-lt text-2xl">
