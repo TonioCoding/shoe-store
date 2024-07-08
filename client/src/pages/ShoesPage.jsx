@@ -337,7 +337,7 @@ const ShoePage = ({ brand }) => {
           <ReusableAccordion value="Shoe Height" values={shoeHeights} />
         </div>
 
-        <div className="gap-x-5 flex flex-wrap justify-center pl-10 w-full ">
+        <div className="gap-x-5 flex flex-wrap justify-center w-full">
           {shoeData
             ? shoeData.map(
                 ({
