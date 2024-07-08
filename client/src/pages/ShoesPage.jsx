@@ -285,14 +285,14 @@ const ShoePage = ({ brand }) => {
         </div>
       </div>
       <div
-        className="px-5 flex justify-center mt-10"
+        className="px-5 flex justify-center py-10"
         id="shoe-page-main-section"
       >
         <div
           id="filters-container"
           className={
             showShoeFilters === null || false
-              ? "hidden flex-col transition-all duration-700 ease-in h-fit left-1 ml-5 top-[50%] z-10"
+              ? "hidden flex-col transition-all duration-700 ease-in h-fit left-1 ml-5 top-[25%] z-10"
               : "flex-col transition-all duration-700 ease-in h-fit left-1 ml-5 top-[25%] z-10"
           }
         >
