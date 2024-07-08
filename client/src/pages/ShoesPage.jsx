@@ -170,12 +170,12 @@ const ShoePage = ({ brand }) => {
                 width: "100%",
               },
               {
-                marginLeft: "15%",
-                width: "85%",
+                marginLeft: "20%",
+                width: "80%",
               },
             ],
             {
-              duration: 700,
+              duration: 200,
               fill: "forwards",
             }
           );
@@ -192,7 +192,7 @@ const ShoePage = ({ brand }) => {
               },
             ],
             {
-              duration: 700,
+              duration: 200,
               fill: "forwards",
             }
           );
@@ -202,8 +202,8 @@ const ShoePage = ({ brand }) => {
           shoePageMainSectionContainer.animate(
             [
               {
-                marginLeft: "15%",
-                width: "85%",
+                marginLeft: "20%",
+                width: "80%",
               },
               {
                 marginLeft: "0%",
@@ -211,7 +211,7 @@ const ShoePage = ({ brand }) => {
               },
             ],
             {
-              duration: 700,
+              duration: 200,
               fill: "forwards",
             }
           );
@@ -228,7 +228,7 @@ const ShoePage = ({ brand }) => {
               },
             ],
             {
-              duration: 700,
+              duration: 200,
               fill: "forwards",
             }
           );
@@ -324,8 +324,8 @@ const ShoePage = ({ brand }) => {
           id="filters-container"
           className={
             showShoeFilters === null || false
-              ? "hidden flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5 w-[10rem]"
-              : "flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5 w-[10rem]"
+              ? "hidden flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5"
+              : "flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5"
           }
         >
           <ReusableAccordion value="Brand" values={brands} />
