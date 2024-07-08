@@ -15,10 +15,8 @@ const ShoePage = ({ brand }) => {
   const [shoeData, setShoeData] = useState(null);
   const [currentBrand, setCurrentBrand] = useState(brand);
   const [showShoeFilters, setShowShoeFilters] = useState(null);
-  const [showSortBy, setShowSortBy] = useState(false);
+  const [showSortBy, setShowSortBy] = useState(null);
   const isFirstRender = useRef(true);
-  const isFirstRender2 = useRef(true);
-  console.log(isFirstRender2.current);
 
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
 
@@ -112,57 +110,49 @@ const ShoePage = ({ brand }) => {
   }
 
   function setShowSortByState() {
-    showSortBy === false ? setShowSortBy(true) : setShowSortBy(false);
+    showSortBy === null ? setShowSortBy(true) : setShowSortBy(false);
+    showSortBy === true ? setShowSortBy(false) : setShowSortBy(true);
   }
 
   useEffect(() => {
-    function animateSortByIcon() {
+    function animateSortByIcon(state) {
       const sortByIcon = document.getElementById("sort-by-icon");
-      let currentIconDirectionUp = false;
-      if (isFirstRender2.current === false) {
-        if (showSortBy === true && currentIconDirectionUp !== true) {
-          sortByIcon.animate(
-            [
-              {
-                transform: "rotateZ(0deg)",
-              },
-              {
-                transform: "rotateZ(180deg)",
-              },
-            ],
+      if (state === true) {
+        sortByIcon.animate(
+          [
             {
-              duration: 300,
-              iterations: 1,
-              fill: "forwards",
-            }
-          );
-
-          currentIconDirectionUp = true;
-        } else if (showSortBy === false && currentIconDirectionUp === true) {
-          sortByIcon.animate(
-            [
-              {
-                transform: "rotateZ(180deg)",
-              },
-              {
-                transform: "rotateZ(0deg)",
-              },
-            ],
+              transform: "rotateZ(0deg)",
+            },
             {
-              duration: 300,
-              iterations: 1,
-              fill: "forwards",
-            }
-          );
-
-          currentIconDirectionUp = false;
-        }
-      } else {
-        isFirstRender2.current = false;
+              transform: "rotateZ(180deg)",
+            },
+          ],
+          {
+            duration: 300,
+            iterations: 1,
+            fill: "forwards",
+          }
+        );
+      } else if (state === false) {
+        sortByIcon.animate(
+          [
+            {
+              transform: "rotateZ(180deg)",
+            },
+            {
+              transform: "rotateZ(0deg)",
+            },
+          ],
+          {
+            duration: 300,
+            iterations: 1,
+            fill: "forwards",
+          }
+        );
       }
     }
 
-    animateSortByIcon();
+    animateSortByIcon(showSortBy);
   }, [showSortBy]);
 
   useEffect(() => {
@@ -304,11 +294,7 @@ const ShoePage = ({ brand }) => {
           <IconContext.Provider value={{ size: "3vh" }}>
             <div
               className="flex items-center gap-x-2 cursor-pointer"
-              onClick={(e) => {
-                e.preventDefault();
-                setShowSortBy(true);
-                setShowSortByState();
-              }}
+              onClick={setShowSortByState}
             >
               <Typography className="font-rt text-lg">Sort By</Typography>
               <MdKeyboardArrowDown id="sort-by-icon" />
