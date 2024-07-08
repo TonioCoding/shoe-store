@@ -158,28 +158,9 @@ const ShoePage = ({ brand }) => {
   useEffect(() => {
     function showFiltersContainer(state) {
       let filtersContainer = document.getElementById("filters-container");
-      let shoePageMainSectionContainer = document.getElementById(
-        "shoe-page-main-section"
-      );
 
       if (isFirstRender.current === false) {
         if (state === true) {
-          shoePageMainSectionContainer.animate(
-            [
-              {
-                width: "100%",
-              },
-              {
-                marginLeft: "20%",
-                width: "80%",
-              },
-            ],
-            {
-              duration: 200,
-              fill: "forwards",
-            }
-          );
-
           filtersContainer.animate(
             [
               {
@@ -189,6 +170,7 @@ const ShoePage = ({ brand }) => {
               {
                 display: "inline-block",
                 width: "20%",
+                position: "sticky",
               },
             ],
             {
@@ -199,23 +181,6 @@ const ShoePage = ({ brand }) => {
         }
 
         if (state === false) {
-          shoePageMainSectionContainer.animate(
-            [
-              {
-                marginLeft: "20%",
-                width: "80%",
-              },
-              {
-                marginLeft: "0%",
-                width: "100%",
-              },
-            ],
-            {
-              duration: 200,
-              fill: "forwards",
-            }
-          );
-
           filtersContainer.animate(
             [
               {
@@ -270,7 +235,7 @@ const ShoePage = ({ brand }) => {
   return (
     <main className="bg-white h-full">
       <div
-        className="flex items-center justify-between mx-10 max-w-full sticky top-0 bg-white border-b-2 border-gray-300"
+        className="flex items-center justify-between mx-10 max-w-full sticky top-0 bg-white border-b-2 border-gray-300 z-20"
         id="shoe-page-header"
       >
         <div className="flex flex-col items-start gap-y-1 py-5">
@@ -327,8 +292,8 @@ const ShoePage = ({ brand }) => {
           id="filters-container"
           className={
             showShoeFilters === null || false
-              ? "hidden flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5"
-              : "flex-col transition-all duration-700 ease-in h-fit fixed left-1 ml-5"
+              ? "hidden flex-col transition-all duration-700 ease-in h-fit left-1 ml-5 top-[50%] z-10"
+              : "flex-col transition-all duration-700 ease-in h-fit left-1 ml-5 top-[25%] z-10"
           }
         >
           <ReusableAccordion value="Brand" values={brands} />
