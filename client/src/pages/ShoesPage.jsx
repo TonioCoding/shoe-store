@@ -114,6 +114,49 @@ const ShoePage = ({ brand }) => {
     showSortBy === true ? setShowSortBy(false) : setShowSortBy(true);
   }
 
+  function animateShoePageHeader() {
+    const navbarHeight = document.getElementById("nav-bar").offsetHeight;
+    const shoePageHeader = document.getElementById("shoe-page-header");
+    let B = document.body; //IE 'quirks'
+    let D = document.documentElement; //IE with doctype
+    D = D.clientHeight ? D : B;
+
+    if (navbarHeight === 0) {
+      shoePageHeader.animate(
+        [
+          {},
+          {
+            position: "fixed",
+          },
+        ],
+        {
+          duration: 300,
+          iterations: 1,
+          fill: "forwards",
+        }
+      );
+    }
+    if (navbarHeight > 0 && D.scrollTop === 0) {
+      shoePageHeader.animate(
+        [
+          {
+            position: "fixed",
+          },
+          {
+            position: "static",
+          },
+        ],
+        {
+          duration: 300,
+          iterations: 1,
+          fill: "forwards",
+        }
+      );
+    }
+  }
+
+  window.addEventListener("scroll", animateShoePageHeader);
+
   useEffect(() => {
     function animateSortByIcon(state) {
       const sortByIcon = document.getElementById("sort-by-icon");
