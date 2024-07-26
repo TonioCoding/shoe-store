@@ -1,7 +1,7 @@
 import asyncHandler from "express-async-handler";
 import Order from "../models/orderModel.js";
 
-const paymentMethod = [
+const paymentMethods = [
   "PayPal",
   "Visa",
   "MasterCard",
@@ -27,6 +27,11 @@ const createOrder = asyncHandler(async (req, res, next) => {
   if (!paymentMethod) {
     res.status(400);
     throw new Error("No payment method detected");
+  }
+
+  if (!paymentMethods.includes(paymentMethod)) {
+    res.status(400);
+    throw new Error("Invalid payment method");
   }
 
   const order = await Order.create({
