@@ -1,6 +1,15 @@
 import asyncHandler from "express-async-handler";
 import Order from "../models/orderModel.js";
 
+const paymentMethod = [
+  "PayPal",
+  "Visa",
+  "MasterCard",
+  "Discover",
+  "American Express",
+  "Apple Pay",
+];
+
 const createOrder = asyncHandler(async (req, res, next) => {
   const { accountId, orderItems, shippingAddress, paymentMethod } = req.body;
   if (!accountId) {
