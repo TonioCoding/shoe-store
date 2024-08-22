@@ -322,6 +322,7 @@ const ShoesPage = ({ brand }) => {
                   return (
                     <ShoeCard
                       key={_id}
+                      id={_id}
                       name={name}
                       price={price}
                       imgUrls={imgUrls}

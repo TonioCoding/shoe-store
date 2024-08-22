@@ -4,6 +4,7 @@ import { PiCurrencyDollar } from "react-icons/pi";
 import { FaTags } from "react-icons/fa";
 import { PropTypes } from "prop-types";
 import { colorNameList } from "color-name-list";
+import { useNavigate } from "react-router-dom";
 
 const ShoeCard = (props) => {
   const shoeColors = props.colors;
@@ -13,7 +14,9 @@ const ShoeCard = (props) => {
   const shoeModel = props.model;
   const shoeSizesNotInStock = props.sizesNotInStock;
   const shoeOnSale = props.onSale;
+  const shoeId = props.id;
   let shoeColorHexCodes = [];
+  const navigate = useNavigate();
 
   function shoesColorsToHexCode(arr) {
     let hexCodes = [];
@@ -56,7 +59,10 @@ const ShoeCard = (props) => {
   shoeColorHexCodes = shoesColorsToHexCode(shoeColors);
 
   return (
-    <div className="w-[30%] cursor-pointer my-3 mb-[5rem]">
+    <div
+      className="w-[30%] cursor-pointer my-3 mb-[5rem]"
+      onClick={() => navigate(`/shoe-page/?id=${shoeId}`)}
+    >
       <img
         src={shoeImgUrls[0]}
         className="object-scale-down border-2 border-gray-400 min-h-fit"
@@ -98,6 +104,7 @@ const ShoeCard = (props) => {
 };
 
 ShoeCard.propTypes = {
+  id: PropTypes.string,
   colors: PropTypes.array,
   price: PropTypes.number,
   onSale: PropTypes.bool,
