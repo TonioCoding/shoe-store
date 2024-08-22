@@ -11,7 +11,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { IconContext } from "react-icons/lib";
 import ReusableAccordion from "../components/ReusableAccordion";
 
-const ShoePage = ({ brand }) => {
+const ShoesPage = ({ brand }) => {
   const [shoeData, setShoeData] = useState(null);
   const [currentBrand, setCurrentBrand] = useState(brand);
   const [showShoeFilters, setShowShoeFilters] = useState(null);
@@ -341,8 +341,8 @@ const ShoePage = ({ brand }) => {
   );
 };
 
-ShoePage.propTypes = {
+ShoesPage.propTypes = {
   brand: PropTypes.string,
 };
 
-export default ShoePage;
+export default ShoesPage;

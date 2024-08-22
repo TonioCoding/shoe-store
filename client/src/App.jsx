@@ -13,10 +13,11 @@ import SalesPage from "./pages/SalesPage.jsx";
 import SportsPage from "./pages/SportsPage.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
-import ShoePage from "./pages/ShoesPage.jsx";
+import ShoesPage from "./pages/ShoesPage.jsx";
 import MembershipPage from "./pages/MembershipPage.jsx";
 import { useEffect, useState } from "react";
 import Footer from "./components/Footer.jsx";
+import ShoePage from "./pages/ShoePage.jsx";
 
 const App = () => {
   const [stateUpdate, setStateUpdate] = useState(0);
@@ -95,16 +96,17 @@ const App = () => {
         <Route path="/brands-page" element={<BrandsPage />} />
         <Route path="/sales-page" element={<SalesPage />} />
         <Route path="/membership-page" element={<MembershipPage />} />
-        <Route path="/adidas-page" element={<ShoePage brand="Adidas" />} />
-        <Route path="/jordan-page" element={<ShoePage brand="Jordan" />} />
+        <Route path="/shoe-page/:id" element={<ShoePage />} />
+        <Route path="/adidas-page" element={<ShoesPage brand="Adidas" />} />
+        <Route path="/jordan-page" element={<ShoesPage brand="Jordan" />} />
         <Route
           path="/newbalance-page"
-          element={<ShoePage brand="New Balance" />}
+          element={<ShoesPage brand="New Balance" />}
         />
-        <Route path="/reebok-page" element={<ShoePage brand="Reebok" />} />
-        <Route path="/nike-page" element={<ShoePage brand="Nike" />} />
-        <Route path="/puma-page" element={<ShoePage brand="Puma" />} />
-        <Route path={"/shoes"} element={<ShoePage />} />
+        <Route path="/reebok-page" element={<ShoesPage brand="Reebok" />} />
+        <Route path="/nike-page" element={<ShoesPage brand="Nike" />} />
+        <Route path="/puma-page" element={<ShoesPage brand="Puma" />} />
+        <Route path={"/shoes"} element={<ShoesPage />} />
         <Route path="/test" element={<Test />} />
         <Route path="" element={<PrivateRoute />}>
           <Route path="/account" element={<Account />} />
