@@ -20,7 +20,6 @@ import {
   SiNewbalance,
   SiPuma,
 } from "react-icons/si";
-import { IoIosSettings } from "react-icons/io";
 import { IoHomeSharp } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
 import ImageWithShadow from "../components/Image";
@@ -122,12 +121,6 @@ const NavBar = () => {
       }}
     >
       <div className="flex justify-between items-center">
-        <Link to={"/settings"}>
-          <IoIosSettings
-            id="settings-icon"
-            className="text-black cursor-pointer lg:w-[1.5vw] mx-2 navbar-icon"
-          />
-        </Link>
         <Link to={"/"}>
           <IoHomeSharp className="text-black cursor-pointer lg:w-[1.5vw] mx-2 mr-3 navbar-icon" />
         </Link>

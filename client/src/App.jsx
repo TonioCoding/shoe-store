@@ -8,14 +8,12 @@ import { PrivateRoute } from "./components/PrivateRoute.jsx";
 import Account from "./pages/AccountPage.jsx";
 import Cart from "./pages/CartPage.jsx";
 import SavedShoes from "./pages/SavedShoesPage.jsx";
-import Settings from "./pages/SettingsPage.jsx";
 import BrandsPage from "./pages/BrandsPage.jsx";
 import SalesPage from "./pages/SalesPage.jsx";
 import SportsPage from "./pages/SportsPage.jsx";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import ShoePage from "./pages/ShoesPage.jsx";
-import SettingsPage from "./pages/SettingsPage.jsx";
 import MembershipPage from "./pages/MembershipPage.jsx";
 import { useEffect, useState } from "react";
 import Footer from "./components/Footer.jsx";
@@ -92,7 +90,6 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/settings" element={<SettingsPage />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/sports-page" element={<SportsPage />} />
         <Route path="/brands-page" element={<BrandsPage />} />
