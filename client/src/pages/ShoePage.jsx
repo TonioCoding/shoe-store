@@ -4,7 +4,6 @@ const ShoePage = () => {
   const url = new URL(location.href);
   const urlId = url.searchParams.get("id");
   const [currentShoe, setCurrentShoe] = useState({});
-  console.log(currentShoe);
 
   useEffect(() => {
     fetch(`http://localhost:9000/api/v1/shoe/get-shoe/${urlId}`, {
@@ -18,7 +17,7 @@ const ShoePage = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  return <div>hello</div>;
+  return <div className="h-[100vh]">hello</div>;
 };
 
 export default ShoePage;
