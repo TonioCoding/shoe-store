@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { Typography } from "@material-tailwind/react";
+import { MdOutlineAttachMoney } from "react-icons/md";
 
 const ShoePage = () => {
   const url = new URL(location.href);
   const urlId = url.searchParams.get("id");
   const [currentShoe, setCurrentShoe] = useState(null);
   const [currentImage, setCurrentImage] = useState(null);
-  console.log(currentImage);
+  console.log(currentShoe);
   useEffect(() => {
     async function getShoe() {
       try {
@@ -54,7 +56,30 @@ const ShoePage = () => {
             className="w-[50%] object-cover border-2 border-gray-400 rounded-lg"
           />
         </div>
-        <div className="">hello</div>
+        <div className="flex flex-col gap-y-2">
+          <Typography>
+            {currentShoe !== null ? (
+              <Typography variant="h4" className="font-normal">
+                {currentShoe.brand} {currentShoe.model}
+              </Typography>
+            ) : null}
+          </Typography>
+          <Typography>
+            {currentShoe !== null ? (
+              <Typography variant="small" className="font-light">
+                {currentShoe.gender}&#39;s {currentShoe.typeOfShoe} Shoe
+              </Typography>
+            ) : null}
+          </Typography>
+          <Typography className="flex items-center mt-6">
+            <MdOutlineAttachMoney />
+            {currentShoe !== null ? currentShoe.price : null}
+          </Typography>
+          <div className="flex items-center justify-between gap-x-10">
+            <Typography>Select size</Typography>
+            <Typography>Size Guide</Typography>
+          </div>
+        </div>
       </div>
     </main>
   );
