@@ -72,7 +72,7 @@ const ShoePage = () => {
               </Typography>
             ) : null}
           </Typography>
-          <Typography className="flex items-center my-6">
+          <Typography className="flex items-center my-6 font-semibold text-lg">
             <MdOutlineAttachMoney />
             {currentShoe !== null ? currentShoe.price : null}
           </Typography>
