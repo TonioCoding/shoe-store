@@ -46,7 +46,7 @@ const ShoePage = () => {
                       onClick={() => setCurrentImage(img)}
                       key={index}
                       src={img}
-                      className="w-[5vw] border-2 border-gray-400 object-cover my-3 rounded-lg cursor-pointer hover:shadow-xl transition-all ease-in-out duration-300"
+                      className="w-[5vw] border-2 border-gray-400 object-cover mb-3 rounded-lg cursor-pointer hover:shadow-xl transition-all ease-in-out duration-300"
                     />
                   );
                 })
