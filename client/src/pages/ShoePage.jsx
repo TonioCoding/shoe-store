@@ -46,7 +46,7 @@ const ShoePage = () => {
                       onClick={() => setCurrentImage(img)}
                       key={index}
                       src={img}
-                      className="w-[5vw] border-2 border-gray-400 object-cover mb-3 rounded-lg cursor-pointer hover:shadow-xl transition-all ease-in-out duration-300"
+                      className="w-[5vw] border-2 border-gray-400 object-cover mb-3 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-500 transition-all ease-in-out duration-300"
                     />
                   );
                 })
@@ -72,12 +72,12 @@ const ShoePage = () => {
               </Typography>
             ) : null}
           </Typography>
-          <Typography className="flex items-center my-6 font-semibold text-lg">
+          <Typography className="flex items-center my-2 mb-0 font-semibold text-lg">
             <MdOutlineAttachMoney />
             {currentShoe !== null ? currentShoe.price : null}
           </Typography>
           <div className="flex flex-col w-fit self-center">
-            <div className="flex items-center justify-between gap-x-10 ">
+            <div className="flex items-center justify-between gap-x-10 my-3">
               <Typography
                 color="black"
                 variant="h6"
