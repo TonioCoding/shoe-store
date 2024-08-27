@@ -36,8 +36,8 @@ const ShoePage = () => {
 
   return (
     <main className="w-full h-full my-5">
-      <div className="flex justify-center">
-        <div className="flex gap-x-5 justify-center w-[60%]">
+      <div className="flex justify-center mr-[15%]">
+        <div className="flex gap-x-5 justify-end w-[60%]">
           <div className="flex-col overscroll-contain overflow-y-auto">
             {currentShoe !== null
               ? currentShoe.imgUrls.map((img, index) => {
@@ -54,10 +54,10 @@ const ShoePage = () => {
           </div>
           <img
             src={currentShoe !== null ? currentImage : null}
-            className="w-[45%] h-fit object-scale-down border-2 border-gray-400 rounded-lg"
+            className="w-[60%] h-fit object-scale-down border-2 border-gray-400 rounded-lg"
           />
         </div>
-        <div className="flex flex-col gap-y-2 w-fit overscroll-contain overflow-y-auto">
+        <div className="flex flex-col gap-y-2 w-fit overscroll-contain overflow-y-auto ml-5">
           <Typography>
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
