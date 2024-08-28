@@ -23,6 +23,10 @@ const App = () => {
   const [stateUpdate, setStateUpdate] = useState(0);
   const [showNavBarStatus, setShowNavBarStatus] = useState(true);
 
+  if (showNavBarStatus === true) {
+    document.body.style.paddingTop = "18vh";
+  }
+
   window.onload = () => {
     const navbarHeight = document.getElementById("nav-bar").offsetHeight;
     document.body.style.paddingTop = `${navbarHeight}px`;
