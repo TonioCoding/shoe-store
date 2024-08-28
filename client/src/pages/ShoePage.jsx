@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Button, Typography } from "@material-tailwind/react";
-import { MdOutlineAttachMoney } from "react-icons/md";
+import {
+  Accordion,
+  AccordionBody,
+  AccordionHeader,
+  Button,
+  Typography,
+} from "@material-tailwind/react";
+import { MdOutlineAttachMoney, MdStar } from "react-icons/md";
 import { TiHeartFullOutline } from "react-icons/ti";
 import SizeBadge from "../components/SizeBadge";
 import { IconContext } from "react-icons/lib";
@@ -11,7 +17,10 @@ const ShoePage = () => {
   const urlId = url.searchParams.get("id");
   const [currentShoe, setCurrentShoe] = useState(null);
   const [currentImage, setCurrentImage] = useState(null);
+  const [showReview, setShowReview] = useState(false);
+
   console.log(currentShoe);
+
   useEffect(() => {
     async function getShoe() {
       try {
@@ -145,6 +154,48 @@ const ShoePage = () => {
               amount of flash to make you shine&#46;
             </Typography>
           </div>
+          <Typography
+            className="mt-3 underline font-semibold hover:text-gray-600 cursor-pointer"
+            color="black"
+            variant="h6"
+          >
+            View Product details
+          </Typography>
+          <Accordion
+            open={showReview}
+            onClick={() => {
+              if (showReview === false) {
+                setShowReview(true);
+              } else {
+                setShowReview(false);
+              }
+            }}
+          >
+            <AccordionHeader>
+              <Typography variant="h5" color="black" className="font-normal">
+                Reviews &#40;12&#41;
+              </Typography>
+            </AccordionHeader>
+            <AccordionBody>
+              <div className="flex items-center gap-x-3 mb-3">
+                <div className="flex text-lg text-black">
+                  <MdStar />
+                  <MdStar />
+                  <MdStar />
+                  <MdStar />
+                  <MdStar />
+                </div>
+                <Typography className="text-lg text-black">5 Stars</Typography>
+              </div>
+              <Typography
+                className="underline font-normal hover:text-gray-600 cursor-pointer"
+                color="black"
+                variant="h6"
+              >
+                Write a review
+              </Typography>
+            </AccordionBody>
+          </Accordion>
         </div>
       </div>
     </main>
