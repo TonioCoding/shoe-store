@@ -59,7 +59,7 @@ const ShoePage = () => {
             className="w-[60%] h-fit object-scale-down border-2 border-gray-400 rounded-lg"
           />
         </div>
-        <div className="flex flex-col gap-y-2 w-fit h-[100vh] overscroll-contain overflow-y-auto ml-5 px-2 ">
+        <div className="flex flex-col gap-y-2 max-w-[30%] h-[100vh] overscroll-contain overflow-y-auto ml-5 px-2 ">
           <Typography>
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
@@ -128,6 +128,22 @@ const ShoePage = () => {
                 <TiHeartFullOutline className="txt-lg" />
               </Button>
             </IconContext.Provider>
+          </div>
+          <div className="flex flex-col">
+            <div className="flex flex-col gap-y-1 mt-4 mb-7">
+              <Typography className="font-semibold" variant="h6">
+                Shipping
+              </Typography>
+              <Typography className="font-normal" variant="h6">
+                You&#39;ll see our shipping options at checkout&#46;
+              </Typography>
+            </div>
+            <Typography className="inline-block">
+              The radiance lives on in the Nike Air Force 1 &#39;07&#44; the
+              b-ball OG that puts a fresh spin on what you know best&#58;
+              durably stitched overlays&#44; clean finishes and the perfect
+              amount of flash to make you shine&#46;
+            </Typography>
           </div>
         </div>
       </div>
