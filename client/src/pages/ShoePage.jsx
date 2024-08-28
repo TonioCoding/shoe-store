@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Typography } from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
 import { MdOutlineAttachMoney } from "react-icons/md";
+import { TiHeartFullOutline } from "react-icons/ti";
 import SizeBadge from "../components/SizeBadge";
+import { IconContext } from "react-icons/lib";
 
 const ShoePage = () => {
   const url = new URL(location.href);
@@ -35,7 +37,7 @@ const ShoePage = () => {
   }, []);
 
   return (
-    <main className="w-full h-full my-5">
+    <main className="w-full h-fit my-5">
       <div className="flex justify-center mr-[15%]">
         <div className="flex gap-x-5 justify-end w-[60%]">
           <div className="flex-col overscroll-contain overflow-y-auto">
@@ -57,7 +59,7 @@ const ShoePage = () => {
             className="w-[60%] h-fit object-scale-down border-2 border-gray-400 rounded-lg"
           />
         </div>
-        <div className="flex flex-col gap-y-2 w-fit overscroll-contain overflow-y-auto ml-5">
+        <div className="flex flex-col gap-y-2 w-fit h-[100vh] overscroll-contain overflow-y-auto ml-5 px-2 ">
           <Typography>
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
@@ -110,6 +112,22 @@ const ShoePage = () => {
               <SizeBadge size={13.5} />
               <SizeBadge size={14} />
             </div>
+          </div>
+          <div className="flex flex-col gap-y-3 mt-4">
+            <Button className="rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out">
+              <Typography className="text-[1.2em]">Add To Cart</Typography>
+            </Button>
+            <IconContext.Provider value={{ size: "1.5em" }}>
+              <Button
+                className="flex items-center justify-center gap-x-2 rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer transition-all duration-300 ease-in-out hover:border-black"
+                color="white"
+              >
+                <Typography className="text-[1.2em] text-black">
+                  Favorite
+                </Typography>
+                <TiHeartFullOutline className="txt-lg" />
+              </Button>
+            </IconContext.Provider>
           </div>
         </div>
       </div>
