@@ -64,7 +64,7 @@ const ShoePage = () => {
                 })
               : null}
           </div>
-          <div className="relative w-[60%]">
+          <div className="relative w-[60vh]">
             <img
               src={currentShoe !== null ? currentImage : null}
               className="w-full h-fit object-scale-down border-2 border-gray-400 rounded-lg"
@@ -207,6 +207,12 @@ const ShoePage = () => {
             </AccordionBody>
           </Accordion>
         </div>
+      </div>
+      <div className="flex flex-col">
+        <Typography variant="h4" className="font-thin ml-10">
+          You may also like
+        </Typography>
+        <div className="overscroll-contain overflow-x-auto"></div>
       </div>
     </main>
   );
