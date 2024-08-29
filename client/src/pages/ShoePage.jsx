@@ -9,6 +9,7 @@ import {
 } from "@material-tailwind/react";
 import { MdOutlineAttachMoney, MdStar } from "react-icons/md";
 import { TiHeartFullOutline } from "react-icons/ti";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import SizeBadge from "../components/SizeBadge";
 import { IconContext } from "react-icons/lib";
 
@@ -63,10 +64,16 @@ const ShoePage = () => {
                 })
               : null}
           </div>
-          <img
-            src={currentShoe !== null ? currentImage : null}
-            className="w-[60%] h-fit object-scale-down border-2 border-gray-400 rounded-lg"
-          />
+          <div className="relative w-[60%]">
+            <img
+              src={currentShoe !== null ? currentImage : null}
+              className="w-full h-fit object-scale-down border-2 border-gray-400 rounded-lg"
+            />
+            <div className="flex items-center gap-x-2 text-[2.4rem] absolute right-10 bottom-[12rem]">
+              <IoIosArrowBack className="text-black bg-gray-300 rounded-full p-2 cursor-pointer" />
+              <IoIosArrowForward className="text-black bg-gray-300 rounded-full p-2 cursor-pointer" />
+            </div>
+          </div>
         </div>
         <div className="flex flex-col gap-y-2 max-w-[35%] h-[100vh] overscroll-contain overflow-y-auto ml-5 px-2 ">
           <Typography>
