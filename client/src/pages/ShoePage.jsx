@@ -46,7 +46,7 @@ const ShoePage = () => {
   }, []);
 
   return (
-    <main className="w-full h-fit my-5">
+    <main className="w-full h-fit my-10 mt-28">
       <div className="flex justify-center mr-[15%]">
         <div className="flex gap-x-5 justify-end w-[60%]">
           <div className="flex-col overscroll-contain overflow-y-auto">
@@ -68,7 +68,7 @@ const ShoePage = () => {
             className="w-[60%] h-fit object-scale-down border-2 border-gray-400 rounded-lg"
           />
         </div>
-        <div className="flex flex-col gap-y-2 max-w-[30%] h-[100vh] overscroll-contain overflow-y-auto ml-5 px-2 ">
+        <div className="flex flex-col gap-y-2 max-w-[35%] h-[100vh] overscroll-contain overflow-y-auto ml-5 px-2 ">
           <Typography>
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
