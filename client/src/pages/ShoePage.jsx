@@ -64,12 +64,12 @@ const ShoePage = () => {
                 })
               : null}
           </div>
-          <div className="relative w-[60vh]">
+          <div className="relative w-[60vh] h-fit">
             <img
               src={currentShoe !== null ? currentImage : null}
               className="w-full h-fit object-scale-down border-2 border-gray-400 rounded-lg"
             />
-            <div className="flex items-center gap-x-2 text-[2.4rem] absolute right-10 bottom-[12rem]">
+            <div className="flex items-center gap-x-2 text-[2.4rem] absolute right-10 bottom-10">
               <IoIosArrowBack className="text-black bg-gray-300 rounded-full p-2 cursor-pointer" />
               <IoIosArrowForward className="text-black bg-gray-300 rounded-full p-2 cursor-pointer" />
             </div>
