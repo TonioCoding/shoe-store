@@ -137,7 +137,7 @@ const ShoePage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] lg:h-[100vh]  lg:overflow-y-auto lg:ml-5 mt-7 px-2 self-center">
+        <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] lg:h-[100vh] lg:overflow-y-auto lg:ml-5 lg:mt-0 mt-7 px-2 self-center">
           <Typography>
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
@@ -158,17 +158,13 @@ const ShoePage = () => {
           </Typography>
           <div className="flex flex-col w-full lg:w-fit self-center">
             <div className="flex items-center justify-between gap-x-10 my-3 mx-10 lg:mx-0">
-              <Typography
-                color="black"
-                variant="h6"
-                className="hover:cursor-pointer"
-              >
+              <Typography color="black" variant="h6">
                 Select size
               </Typography>
               <Typography
                 color="gray"
                 variant="h6"
-                className="hover:cursor-pointer"
+                className="hover:cursor-pointer hover:underline"
               >
                 Size Guide
               </Typography>
