@@ -19,6 +19,7 @@ const ShoePage = () => {
   const urlId = url.searchParams.get("id");
   const [currentShoe, setCurrentShoe] = useState(null);
   const [currentImage, setCurrentImage] = useState(null);
+  const [shoeImages, setShoeImages] = useState(null);
   const [showReview, setShowReview] = useState(false);
   const [recommendedShoes, setRecommendedShoes] = useState(null);
 
@@ -33,6 +34,24 @@ const ShoePage = () => {
   function scrollRight() {
     const recommendedShoesSlider = document.getElementById("recommended-shoes");
     recommendedShoesSlider.scrollBy(300, 0);
+  }
+
+  function previousImage() {
+    const currentIndex = shoeImages.indexOf(currentImage);
+    if (currentIndex === 0) {
+      setCurrentImage(shoeImages[shoeImages.length - 1]);
+    } else {
+      setCurrentImage(shoeImages[currentIndex - 1]);
+    }
+  }
+
+  function nextImage() {
+    const currentIndex = shoeImages.indexOf(currentImage);
+    if (currentIndex === shoeImages.length - 1) {
+      setCurrentImage(shoeImages[0]);
+    } else {
+      setCurrentImage(shoeImages[currentIndex + 1]);
+    }
   }
 
   console.log(currentShoe);
@@ -51,6 +70,7 @@ const ShoePage = () => {
           .then((data) => {
             setCurrentShoe(data);
             setCurrentImage(data.imgUrls[0]);
+            setShoeImages(data.imgUrls);
           })
           .catch((err) => console.log(err));
       } catch (error) {
@@ -132,8 +152,14 @@ const ShoePage = () => {
               className="w-full h-full object-scale-down border-2 border-gray-400 rounded-lg"
             />
             <div className="flex items-center gap-x-2 text-[2.4rem] absolute right-10 bottom-10">
-              <IoIosArrowBack className="text-black bg-gray-300 rounded-full p-2 cursor-pointer" />
-              <IoIosArrowForward className="text-black bg-gray-300 rounded-full p-2 cursor-pointer" />
+              <IoIosArrowBack
+                className="text-black bg-gray-300 rounded-full p-2 cursor-pointer"
+                onClick={previousImage}
+              />
+              <IoIosArrowForward
+                className="text-black bg-gray-300 rounded-full p-2 cursor-pointer"
+                onClick={nextImage}
+              />
             </div>
           </div>
         </div>
