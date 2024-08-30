@@ -75,7 +75,7 @@ const ShoePage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 max-w-[35%] h-[100vh] overscroll-contain overflow-y-auto ml-5 px-2 self-center">
+        <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] h-[100vh] lg:overscroll-contain lg:overflow-y-auto lg:ml-5 mt-7 px-2 self-center">
           <Typography>
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
@@ -94,7 +94,7 @@ const ShoePage = () => {
             <MdOutlineAttachMoney />
             {currentShoe !== null ? currentShoe.price : null}
           </Typography>
-          <div className="flex flex-col w-fit self-center">
+          <div className="flex flex-col w-full lg:w-fit self-center">
             <div className="flex items-center justify-between gap-x-10 my-3">
               <Typography
                 color="black"
@@ -111,7 +111,7 @@ const ShoePage = () => {
                 Size Guide
               </Typography>
             </div>
-            <div className="w-fit self-center grid grid-cols-2 place-items-center gap-x-4 gap-y-1">
+            <div className="w-fit self-center flex flex-wrap flex-row lg:grid grid-cols-2 place-items-center gap-x-4 gap-y-1">
               <SizeBadge size={7} />
               <SizeBadge size={7.5} />
               <SizeBadge size={8} />
