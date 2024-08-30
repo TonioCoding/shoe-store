@@ -23,6 +23,7 @@ const ShoePage = () => {
   const [recommendedShoes, setRecommendedShoes] = useState(null);
 
   const navigate = useNavigate();
+  document.body.scrollTop = 0;
 
   function scrollLeft() {
     const recommendedShoesSlider = document.getElementById("recommended-shoes");
