@@ -95,7 +95,7 @@ const ShoePage = () => {
             {currentShoe !== null ? currentShoe.price : null}
           </Typography>
           <div className="flex flex-col w-full lg:w-fit self-center">
-            <div className="flex items-center justify-between gap-x-10 my-3">
+            <div className="flex items-center justify-between gap-x-10 my-3 mx-10 lg:mx-0">
               <Typography
                 color="black"
                 variant="h6"
