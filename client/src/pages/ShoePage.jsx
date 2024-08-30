@@ -21,6 +21,16 @@ const ShoePage = () => {
   const [showReview, setShowReview] = useState(false);
   const [recommendedShoes, setRecommendedShoes] = useState(null);
 
+  function scrollLeft() {
+    const recommendedShoesSlider = document.getElementById("recommended-shoes");
+    recommendedShoesSlider.scrollBy(-300, 0);
+  }
+
+  function scrollRight() {
+    const recommendedShoesSlider = document.getElementById("recommended-shoes");
+    recommendedShoesSlider.scrollBy(300, 0);
+  }
+
   console.log(currentShoe);
   console.log(recommendedShoes);
 
@@ -261,7 +271,10 @@ const ShoePage = () => {
         <Typography variant="h4" className="font-thin ml-10">
           You may also like
         </Typography>
-        <div className="flex gap-x-3  overflow-x-auto my-4 mx-3">
+        <div
+          id="recommended-shoes"
+          className="flex gap-x-3 scroll-smooth overflow-x-auto my-4 mx-3"
+        >
           {recommendedShoes !== null
             ? recommendedShoes.map((shoe, index) => {
                 return (
@@ -273,6 +286,16 @@ const ShoePage = () => {
                 );
               })
             : null}
+        </div>
+        <div className="flex my-5 ml-5 gap-x-5 text-[2.4rem]">
+          <IoIosArrowBack
+            className="bg-gray-300 p-1 rounded-full cursor-pointer"
+            onClick={scrollLeft}
+          />
+          <IoIosArrowForward
+            className="bg-gray-300 p-1 rounded-full cursor-pointer"
+            onClick={scrollRight}
+          />
         </div>
       </div>
     </main>
