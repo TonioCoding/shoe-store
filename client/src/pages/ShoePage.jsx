@@ -54,8 +54,14 @@ const ShoePage = () => {
     }
   }
 
-  console.log(currentShoe);
-  console.log(recommendedShoes);
+  if (currentImage !== null) {
+    const shoeImage = document.getElementsByClassName("shoe-image");
+    for (let i = 0; i < shoeImage.length; i++) {
+      shoeImage[i].addEventListener("mouseover", (e) => {
+        setCurrentImage(e.target.src);
+      });
+    }
+  }
 
   useEffect(() => {
     async function getShoe() {
@@ -140,7 +146,7 @@ const ShoePage = () => {
                       onClick={() => setCurrentImage(img)}
                       key={index}
                       src={img}
-                      className="w-[5vw] border-2 border-gray-400 object-cover mb-3 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-500 transition-all ease-in-out duration-300"
+                      className="shoe-image w-[5vw] border-2 border-gray-400 object-cover mb-3 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-500 transition-all ease-in-out duration-300"
                     />
                   );
                 })
