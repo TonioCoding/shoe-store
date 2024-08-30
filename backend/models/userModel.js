@@ -30,6 +30,10 @@ const userSchema = mongoose.Schema(
       type: Array,
       required: false,
     },
+    favorites: {
+      type: Array,
+      required: false,
+    },
   },
   {
     timestamps: true,
