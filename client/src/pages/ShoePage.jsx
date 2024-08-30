@@ -123,7 +123,7 @@ const ShoePage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] lg:h-[100vh] lg:overscroll-contain lg:overflow-y-auto lg:ml-5 mt-7 px-2 self-center">
+        <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] lg:h-[100vh]  lg:overflow-y-auto lg:ml-5 mt-7 px-2 self-center">
           <Typography>
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
@@ -261,7 +261,19 @@ const ShoePage = () => {
         <Typography variant="h4" className="font-thin ml-10">
           You may also like
         </Typography>
-        <div className="overscroll-contain overflow-x-auto"></div>
+        <div className="flex gap-x-3  overflow-x-auto my-4 mx-3">
+          {recommendedShoes !== null
+            ? recommendedShoes.map((shoe, index) => {
+                return (
+                  <img
+                    key={index}
+                    src={shoe.imgUrls[0]}
+                    className="w-[25vw] object-scale-down border-2 border-gray-400 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-500 transition-all ease-in-out duration-300"
+                  />
+                );
+              })
+            : null}
+        </div>
       </div>
     </main>
   );
