@@ -48,7 +48,7 @@ const ShoePage = () => {
 
   return (
     <main className="w-full h-fit my-10 mt-28">
-      <div className="flex flex-col lg:flex-row justify-center lg:mr-[15%]">
+      <div className="flex flex-col lg:flex-row justify-center">
         <div className="flex flex-col lg:flex-row gap-x-5 lg:justify-end w-fit">
           <div className="hidden lg:flex flex-row lg:flex-col overscroll-contain overflow-y-auto gap-x-3">
             {currentShoe !== null
