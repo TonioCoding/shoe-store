@@ -19,8 +19,10 @@ const ShoePage = () => {
   const [currentShoe, setCurrentShoe] = useState(null);
   const [currentImage, setCurrentImage] = useState(null);
   const [showReview, setShowReview] = useState(false);
+  const [recommendedShoes, setRecommendedShoes] = useState(null);
 
   console.log(currentShoe);
+  console.log(recommendedShoes);
 
   useEffect(() => {
     async function getShoe() {
@@ -45,6 +47,52 @@ const ShoePage = () => {
     getShoe();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    function getRandomElements(arr) {
+      let foundElements = new Set();
+      let ans = [];
+      let ans2 = [];
+      let lengthOfArr = [...arr].length;
+
+      for (let i = 0; i < 9; i++) {
+        let randomlySelectedIndex = Math.floor(Math.random() * lengthOfArr);
+
+        if (foundElements.has(randomlySelectedIndex) === false) {
+          foundElements.add(randomlySelectedIndex);
+        } else {
+          continue;
+        }
+      }
+
+      ans = [...foundElements];
+
+      ans.forEach((index) => {
+        ans2.push(arr[index]);
+      });
+      return ans2;
+    }
+
+    async function recommendShoes() {
+      try {
+        fetch(`http://localhost:9000/api/v1/shoe/get-shoes/Nike`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setRecommendedShoes(getRandomElements(data));
+          })
+          .catch((err) => console.log(err));
+      } catch (error) {
+        toast.error(error);
+      }
+    }
+
+    recommendShoes();
+  }, [currentShoe]);
 
   return (
     <main className="w-full h-fit my-10 mt-28">
