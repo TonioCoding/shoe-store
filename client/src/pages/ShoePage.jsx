@@ -129,13 +129,13 @@ const ShoePage = () => {
               <SizeBadge size={14} />
             </div>
           </div>
-          <div className="flex flex-col gap-y-3 mt-4">
-            <Button className="rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out">
+          <div className="flex flex-col gap-y-3 mt-4 items-center">
+            <Button className="rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]">
               <Typography className="text-[1.2em]">Add To Cart</Typography>
             </Button>
             <IconContext.Provider value={{ size: "1.5em" }}>
               <Button
-                className="flex items-center justify-center gap-x-2 rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer transition-all duration-300 ease-in-out hover:border-black"
+                className="flex items-center justify-center gap-x-2 rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer transition-all duration-300 ease-in-out hover:border-black lg:min-w-fit w-[75%]"
                 color="white"
               >
                 <Typography className="text-[1.2em] text-black">
