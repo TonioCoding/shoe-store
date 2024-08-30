@@ -12,6 +12,7 @@ import { TiHeartFullOutline } from "react-icons/ti";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import SizeBadge from "../components/SizeBadge";
 import { IconContext } from "react-icons/lib";
+import { useNavigate } from "react-router-dom";
 
 const ShoePage = () => {
   const url = new URL(location.href);
@@ -20,6 +21,8 @@ const ShoePage = () => {
   const [currentImage, setCurrentImage] = useState(null);
   const [showReview, setShowReview] = useState(false);
   const [recommendedShoes, setRecommendedShoes] = useState(null);
+
+  const navigate = useNavigate();
 
   function scrollLeft() {
     const recommendedShoesSlider = document.getElementById("recommended-shoes");
@@ -280,6 +283,10 @@ const ShoePage = () => {
                 return (
                   <img
                     key={index}
+                    onClick={() => {
+                      navigate(`/shoe-page/?id=${shoe._id}`);
+                      window.location.reload();
+                    }}
                     src={shoe.imgUrls[0]}
                     className="w-[25vw] object-scale-down border-2 border-gray-400 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-500 transition-all ease-in-out duration-300"
                   />
