@@ -48,9 +48,9 @@ const ShoePage = () => {
 
   return (
     <main className="w-full h-fit my-10 mt-28">
-      <div className="flex justify-center mr-[15%]">
-        <div className="flex gap-x-5 justify-end w-[60%]">
-          <div className="flex-col overscroll-contain overflow-y-auto">
+      <div className="flex flex-col lg:flex-row justify-center lg:mr-[15%]">
+        <div className="flex flex-col lg:flex-row gap-x-5 justify-end w-[60%]">
+          <div className="flex flex-row lg:flex-col overscroll-contain overflow-y-auto gap-x-3">
             {currentShoe !== null
               ? currentShoe.imgUrls.map((img, index) => {
                   return (
@@ -75,7 +75,7 @@ const ShoePage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 max-w-[35%] h-[100vh] overscroll-contain overflow-y-auto ml-5 px-2 ">
+        <div className="flex flex-col gap-y-2 max-w-[35%] h-[100vh] overscroll-contain overflow-y-auto ml-5 px-2 self-center">
           <Typography>
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
