@@ -111,7 +111,7 @@ const ShoePage = () => {
                 Size Guide
               </Typography>
             </div>
-            <div className="w-fit self-center flex flex-wrap flex-row lg:grid grid-cols-2 place-items-center gap-x-4 gap-y-1">
+            <div className="w-fit self-center flex flex-wrap flex-row lg:grid grid-cols-2 place-items-center gap-x-4 gap-y-1 justify-center">
               <SizeBadge size={7} />
               <SizeBadge size={7.5} />
               <SizeBadge size={8} />
