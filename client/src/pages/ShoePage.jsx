@@ -169,6 +169,7 @@ const ShoePage = () => {
             View Product details
           </Typography>
           <Accordion
+            className="mb-10"
             open={showReview}
             onClick={() => {
               if (showReview === false) {
