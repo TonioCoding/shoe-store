@@ -75,7 +75,7 @@ const ShoePage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] h-[100vh] lg:overscroll-contain lg:overflow-y-auto lg:ml-5 mt-7 px-2 self-center">
+        <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] lg:h-[100vh] lg:overscroll-contain lg:overflow-y-auto lg:ml-5 mt-7 px-2 self-center">
           <Typography>
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
