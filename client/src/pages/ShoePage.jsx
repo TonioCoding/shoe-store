@@ -49,8 +49,8 @@ const ShoePage = () => {
   return (
     <main className="w-full h-fit my-10 mt-28">
       <div className="flex flex-col lg:flex-row justify-center lg:mr-[15%]">
-        <div className="flex flex-col lg:flex-row gap-x-5 justify-end w-[60%]">
-          <div className="flex flex-row lg:flex-col overscroll-contain overflow-y-auto gap-x-3">
+        <div className="flex flex-col lg:flex-row gap-x-5 lg:justify-end w-fit">
+          <div className="hidden lg:flex flex-row lg:flex-col overscroll-contain overflow-y-auto gap-x-3">
             {currentShoe !== null
               ? currentShoe.imgUrls.map((img, index) => {
                   return (
@@ -64,10 +64,10 @@ const ShoePage = () => {
                 })
               : null}
           </div>
-          <div className="relative w-[60vh] h-fit">
+          <div className="relative w-full lg:w-[60vh] h-fit">
             <img
               src={currentShoe !== null ? currentImage : null}
-              className="w-full h-fit object-scale-down border-2 border-gray-400 rounded-lg"
+              className="w-full h-full object-scale-down border-2 border-gray-400 rounded-lg"
             />
             <div className="flex items-center gap-x-2 text-[2.4rem] absolute right-10 bottom-10">
               <IoIosArrowBack className="text-black bg-gray-300 rounded-full p-2 cursor-pointer" />
