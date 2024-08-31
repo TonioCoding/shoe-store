@@ -322,7 +322,7 @@ const ShoePage = () => {
         </div>
       </div>
       <div className="flex flex-col">
-        <Typography variant="h4" className="font-thin ml-10">
+        <Typography variant="h4" className="font-thin ml-6">
           You may also like
         </Typography>
         <div
