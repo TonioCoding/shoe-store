@@ -31,7 +31,7 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   const [viewPortWidth, setViewPortWidth] = useState(window.innerWidth);
-  const footerIconSize = viewPortWidth <= 640 ? "7vw" : "4vw";
+  const footerIconSize = viewPortWidth <= 640 ? "10vw" : "4vw";
   useEffect(() => {
     setViewPortWidth(window.innerWidth);
 
