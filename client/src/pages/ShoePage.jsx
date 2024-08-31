@@ -155,7 +155,7 @@ const ShoePage = () => {
           <div className="relative w-full lg:w-[60vh] h-fit">
             <img
               src={currentShoe !== null ? currentImage : null}
-              className="w-full h-full object-scale-down border-2 border-gray-400 rounded-lg"
+              className="w-full h-full object-scale-down border-2 border-t-0 lg:border-t-2 border-gray-400 lg:rounded-lg"
             />
             <div className="flex items-center gap-x-2 text-[2.4rem] absolute right-10 bottom-10">
               <IoIosArrowBack
