@@ -3,6 +3,7 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import authReducer from "../redux/auth/authSlice.js";
 import cartReducer from "../redux/cart/cartSlice.js";
+import favoritesReducer from "../redux/favorites/favoritesSlice.js";
 import { thunk } from "redux-thunk";
 import { apiSlice } from "./api/apiSlice.js";
 
@@ -14,6 +15,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   auth: authReducer,
   cart: cartReducer,
+  favorites: favoritesReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
