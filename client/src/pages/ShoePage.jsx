@@ -22,6 +22,11 @@ const ShoePage = () => {
   const [shoeImages, setShoeImages] = useState(null);
   const [showReview, setShowReview] = useState(false);
   const [recommendedShoes, setRecommendedShoes] = useState(null);
+  const [shoeSize, setShoeSize] = useState(null);
+
+  function handleSize(size) {
+    setShoeSize(size);
+  }
 
   const navigate = useNavigate();
   document.body.scrollTop = 0;
@@ -224,21 +229,49 @@ const ShoePage = () => {
               </Typography>
             </div>
             <div className="w-fit self-center flex flex-wrap flex-row lg:grid grid-cols-2 place-items-center gap-x-4 gap-y-1 justify-center">
-              <SizeBadge size={7} />
-              <SizeBadge size={7.5} />
-              <SizeBadge size={8} />
-              <SizeBadge size={8.5} />
-              <SizeBadge size={9} />
-              <SizeBadge size={9.5} />
-              <SizeBadge size={10} />
-              <SizeBadge size={10.5} />
-              <SizeBadge size={11} />
-              <SizeBadge size={11.5} />
-              <SizeBadge size={12} />
-              <SizeBadge size={12.5} />
-              <SizeBadge size={13} />
-              <SizeBadge size={13.5} />
-              <SizeBadge size={14} />
+              <SizeBadge size={7} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={7.5}
+                currentSize={shoeSize}
+                change={handleSize}
+              />
+              <SizeBadge size={8} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={8.5}
+                currentSize={shoeSize}
+                change={handleSize}
+              />
+              <SizeBadge size={9} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={9.5}
+                currentSize={shoeSize}
+                change={handleSize}
+              />
+              <SizeBadge size={10} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={10.5}
+                currentSize={shoeSize}
+                change={handleSize}
+              />
+              <SizeBadge size={11} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={11.5}
+                currentSize={shoeSize}
+                change={handleSize}
+              />
+              <SizeBadge size={12} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={12.5}
+                currentSize={shoeSize}
+                change={handleSize}
+              />
+              <SizeBadge size={13} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={13.5}
+                currentSize={shoeSize}
+                change={handleSize}
+              />
+              <SizeBadge size={14} currentSize={shoeSize} change={handleSize} />
             </div>
           </div>
           <div className="flex flex-col gap-y-3 mt-4 items-center">
