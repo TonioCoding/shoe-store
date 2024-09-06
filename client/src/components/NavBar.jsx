@@ -231,7 +231,7 @@ const NavBar = () => {
       ) : null}
       <Navbar
         id="nav-bar"
-        className="fixed top-0 z-40 h-[18vh] max-w-full rounded-none px-4 py-2 lg:px-8 shadow-3xl bg-gray-100 border-b-2 border-b-gray-800 overflow-y-hidden inline-block"
+        className="fixed top-0 z-40 h-fit max-w-full rounded-none px-4 py-2 lg:px-8 shadow-3xl bg-gray-100 border-b-2 border-b-gray-800 overflow-y-hidden inline-block"
       >
         <div className="flex items-center justify-between text-blue-gray-900 basis-0 flex-grow">
           <Link to={"/"} className="hover:drop-shadow-md">
