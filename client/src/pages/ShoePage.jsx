@@ -13,6 +13,8 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import SizeBadge from "../components/SizeBadge";
 import { IconContext } from "react-icons/lib";
 import { useNavigate } from "react-router-dom";
+//import { useDispatch } from "react-redux";
+//import { addItemToCart} from "../redux/cart/cartSlice.js";
 
 const ShoePage = () => {
   const url = new URL(location.href);
@@ -23,6 +25,7 @@ const ShoePage = () => {
   const [showReview, setShowReview] = useState(false);
   const [recommendedShoes, setRecommendedShoes] = useState(null);
   const [shoeSize, setShoeSize] = useState(null);
+  //const dispatch = useDispatch();
 
   function handleSize(size) {
     setShoeSize(size);
@@ -275,7 +278,13 @@ const ShoePage = () => {
             </div>
           </div>
           <div className="flex flex-col gap-y-3 mt-4 items-center">
-            <Button className="rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]">
+            <Button
+              onClick={() => {
+                // if (currentShoe) dispatch(addItemToCart());
+                toast.success("Added Shoe to cart");
+              }}
+              className="rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]"
+            >
               <Typography className="text-[1.2em]">Add To Cart</Typography>
             </Button>
             <IconContext.Provider value={{ size: "1.5em" }}>
