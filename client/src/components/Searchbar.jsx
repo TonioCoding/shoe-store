@@ -5,14 +5,6 @@ import { FaMagnifyingGlass } from "react-icons/fa6";
 const NavSearchBar = () => {
   return (
     <div className="flex justify-center w-full">
-      {/* <Input
-        id="nav-bar-input"
-        placeholder="Search"
-        style={{
-          borderColor: "black",
-          width: "100%",
-        }}
-      /> */}
       <Input
         type="text"
         placeholder="Search"
