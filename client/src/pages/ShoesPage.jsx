@@ -296,7 +296,6 @@ const ShoesPage = ({ brand }) => {
               : "flex-col transition-all duration-700 ease-in h-fit left-1 ml-5 top-[25%] z-10"
           }
         >
-          <ReusableAccordion value="Brand" values={brands} />
           <ReusableAccordion value="Types" values={typesOfShoes} />
           <ReusableAccordion value="Sizes" values={sizes} />
           <ReusableAccordion value="Colors" values={colors} />
