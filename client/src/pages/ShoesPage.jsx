@@ -17,6 +17,7 @@ const ShoesPage = ({ brand }) => {
   const [showShoeFilters, setShowShoeFilters] = useState(null);
   const [showSortBy, setShowSortBy] = useState(null);
   const isFirstRender = useRef(true);
+  const [filters, setFilters] = useState({});
 
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
 
