@@ -167,15 +167,6 @@ hr {
   color: rgb(172, 165, 165);
 }
 
-#nav-bar-input:focus {
-  border-top: 1px;
-  border-width: 1px;
-}
-
-#nav-bar-input::placeholder {
-  color: rgb(79, 78, 78);
-}
-
 .brand-icon {
   transition: all;
   transition-duration: 0.5s;
@@ -236,6 +227,6 @@ hr {
 /* #shoe-page-main-section {
 } */
 
-#footer{
+#footer {
   position: sticky;
 }
