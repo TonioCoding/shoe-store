@@ -58,7 +58,7 @@ const ReusableAccordion = (props) => {
 ReusableAccordion.propTypes = {
   values: PropTypes.array,
   value: PropTypes.string,
-  addFilter: PropTypes.object,
+  addFilter: PropTypes.func,
 };
 
 export default ReusableAccordion;

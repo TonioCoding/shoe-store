@@ -16,9 +16,10 @@ const ShoesPage = ({ brand }) => {
   const [currentBrand, setCurrentBrand] = useState(brand);
   const [showShoeFilters, setShowShoeFilters] = useState(null);
   const [showSortBy, setShowSortBy] = useState(null);
+  const [sortBy, setSortBy] = useState(null);
   const isFirstRender = useRef(true);
   const [filters, setFilters] = useState(new Set());
-
+  
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
 
   const genders = ["Male", "Female", "Unisex"];
@@ -289,6 +290,7 @@ const ShoesPage = ({ brand }) => {
                     return (
                       <Typography
                         key={index}
+                        onClick={() => setSortBy(value)}
                         className="text-black font-rt hover:text-gray-500 transition-all ease-in"
                       >
                         {value}
