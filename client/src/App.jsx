@@ -15,65 +15,74 @@ import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import ShoesPage from "./pages/ShoesPage.jsx";
 import MembershipPage from "./pages/MembershipPage.jsx";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Footer from "./components/Footer.jsx";
 import ShoePage from "./pages/ShoePage.jsx";
 
 const App = () => {
   const [stateUpdate, setStateUpdate] = useState(0);
   const [showNavBarStatus, setShowNavBarStatus] = useState(true);
+  const navbarRef = useRef(null);
+  const navbarRefHeight = useRef(null);
 
-  if (showNavBarStatus === true) {
-    document.body.style.paddingTop = "18vh";
+  function setNavbarRef(element) {
+    navbarRef.current = element;
+  }
+
+  if (showNavBarStatus === true && navbarRef.current !== null) {
+    document.body.style.paddingTop = `${navbarRef.current.offsetHeight}px`;
   }
 
   window.onload = () => {
-    const navbarHeight = document.getElementById("nav-bar").offsetHeight;
-    document.body.style.paddingTop = `${navbarHeight}px`;
+    navbarRef.current = document.getElementById("nav-bar");
+    document.body.style.paddingTop = `${navbarRef.current.offsetHeight}px`;
+    navbarRefHeight.current = navbarRef.current.offsetHeight;
   };
 
   window.onscroll = function () {
     const navBar = document.getElementById("nav-bar");
-
-    if (this.oldScroll > this.scrollY) {
-      if (showNavBarStatus === false) {
-        navBar.animate(
-          [
+    if (navbarRef.current !== null) {
+      if (this.oldScroll > this.scrollY) {
+        if (showNavBarStatus === false) {
+          console.log(navbarRef.current.offsetHeight);
+          navBar.animate(
+            [
+              {
+                height: "0vh",
+              },
+              {
+                display: "inline-block",
+                height: `${navbarRefHeight.current}px`,
+              },
+            ],
             {
-              height: "0vh",
-            },
+              duration: 150,
+              fill: "forwards",
+              iterations: 1,
+            }
+          );
+          setShowNavBarStatus(true);
+        }
+      } else if (this.oldScroll < this.scrollY) {
+        if (showNavBarStatus === true) {
+          navBar.animate(
+            [
+              {
+                height: `${navbarRefHeight.current}px`,
+              },
+              {
+                display: "none",
+                height: "0vh",
+              },
+            ],
             {
-              display: "inline-block",
-              height: "18vh",
-            },
-          ],
-          {
-            duration: 150,
-            fill: "forwards",
-            iterations: 1,
-          }
-        );
-        setShowNavBarStatus(true);
-      }
-    } else if (this.oldScroll < this.scrollY) {
-      if (showNavBarStatus === true) {
-        navBar.animate(
-          [
-            {
-              height: "18vh",
-            },
-            {
-              display: "none",
-              height: "0vh",
-            },
-          ],
-          {
-            duration: 150,
-            fill: "forwards",
-            iterations: 1,
-          }
-        );
-        setShowNavBarStatus(false);
+              duration: 150,
+              fill: "forwards",
+              iterations: 1,
+            }
+          );
+          setShowNavBarStatus(false);
+        }
       }
     }
 
@@ -92,7 +101,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      <NavBar changeRef={setNavbarRef} />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<Cart />} />

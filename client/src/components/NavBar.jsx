@@ -33,7 +33,7 @@ import { useLogoutMutation } from "../redux/user/userApiSlice";
 import { logout } from "../redux/auth/authSlice";
 import { toast } from "react-toastify";
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState(useLocation().pathname);
   const [showSignin, setSignin] = useState(false);
@@ -41,6 +41,9 @@ const NavBar = () => {
   const pathname = useLocation().pathname;
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const [logoutUser, { isLoading }] = useLogoutMutation();
+  const setRef = props.changeRef;
+
+  setRef(document.getElementById("nav-bar"));
 
   if (currentPage !== useLocation().pathname) {
     const navbarHeight = document.getElementById("nav-bar").offsetHeight;
