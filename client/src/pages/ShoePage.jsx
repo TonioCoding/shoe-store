@@ -146,20 +146,16 @@ const ShoePage = () => {
     <main className="w-full h-fit my-10 mt-28">
       <div className="flex flex-col lg:flex-row justify-center">
         <div className="flex flex-col gap-y-3 mx-6 lg:hidden">
-          <Typography>
-            {currentShoe !== null ? (
-              <Typography variant="h4" className="font-normal">
-                {currentShoe.brand} {currentShoe.model}
-              </Typography>
-            ) : null}
-          </Typography>
-          <Typography>
-            {currentShoe !== null ? (
-              <Typography variant="small" className="font-light">
-                {currentShoe.gender}&#39;s {currentShoe.typeOfShoe} Shoe
-              </Typography>
-            ) : null}
-          </Typography>
+          {currentShoe !== null ? (
+            <Typography variant="h4" className="font-normal">
+              {currentShoe.brand} {currentShoe.model}
+            </Typography>
+          ) : null}
+          {currentShoe !== null ? (
+            <Typography variant="small" className="font-light">
+              {currentShoe.gender}&#39;s {currentShoe.typeOfShoe} Shoe
+            </Typography>
+          ) : null}
           <Typography className="flex items-center my-2 mb-0 font-semibold text-lg">
             <MdOutlineAttachMoney />
             {currentShoe !== null ? currentShoe.price : null}
@@ -199,20 +195,16 @@ const ShoePage = () => {
         </div>
         <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] lg:h-[100vh] lg:overflow-y-auto lg:ml-5 lg:mt-0 mt-7 px-2 self-center">
           <div className="hidden lg:flex flex-col">
-            <Typography>
-              {currentShoe !== null ? (
-                <Typography variant="h4" className="font-normal">
-                  {currentShoe.brand} {currentShoe.model}
-                </Typography>
-              ) : null}
-            </Typography>
-            <Typography>
-              {currentShoe !== null ? (
-                <Typography variant="small" className="font-light">
-                  {currentShoe.gender}&#39;s {currentShoe.typeOfShoe} Shoe
-                </Typography>
-              ) : null}
-            </Typography>
+            {currentShoe !== null ? (
+              <Typography variant="h4" className="font-normal">
+                {currentShoe.brand} {currentShoe.model}
+              </Typography>
+            ) : null}
+            {currentShoe !== null ? (
+              <Typography variant="small" className="font-light">
+                {currentShoe.gender}&#39;s {currentShoe.typeOfShoe} Shoe
+              </Typography>
+            ) : null}
             <Typography className="flex items-center my-2 mb-0 font-semibold text-lg">
               <MdOutlineAttachMoney />
               {currentShoe !== null ? currentShoe.price : null}

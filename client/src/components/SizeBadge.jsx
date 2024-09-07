@@ -23,7 +23,7 @@ const SizeBadge = (props) => {
 };
 
 SizeBadge.propTypes = {
-  change: PropTypes.object,
+  change: PropTypes.func,
   size: PropTypes.number,
   currentSize: PropTypes.number,
 };
