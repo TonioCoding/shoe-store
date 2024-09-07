@@ -17,7 +17,7 @@ const ShoesPage = ({ brand }) => {
   const [showShoeFilters, setShowShoeFilters] = useState(null);
   const [showSortBy, setShowSortBy] = useState(null);
   const isFirstRender = useRef(true);
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState(new Set());
 
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
 
@@ -84,6 +84,22 @@ const ShoesPage = ({ brand }) => {
     "Price: High - Low",
     "Price: Low - High",
   ];
+
+  function addFilter(filterValue, state) {
+    setFilters((prev) => {
+      if (prev.has(filterValue) === false) {
+        let newSet = new Set(prev);
+        newSet.add(filterValue);
+        return newSet;
+      }
+
+      if (prev.has(filterValue) === true) {
+        let newSet = new Set(prev);
+        newSet.delete(filterValue);
+        return new Set(newSet);
+      }
+    });
+  }
 
   function determineFetchUrlBasedOnBrand(brand) {
     switch (brand) {
@@ -297,12 +313,36 @@ const ShoesPage = ({ brand }) => {
               : "flex-col transition-all duration-700 ease-in h-fit left-1 ml-5 top-[25%] z-10"
           }
         >
-          <ReusableAccordion value="Types" values={typesOfShoes} />
-          <ReusableAccordion value="Sizes" values={sizes} />
-          <ReusableAccordion value="Colors" values={colors} />
-          <ReusableAccordion value="Genders" values={genders} />
-          <ReusableAccordion value="Shop By Prices" values={priceRanges} />
-          <ReusableAccordion value="Shoe Height" values={shoeHeights} />
+          <ReusableAccordion
+            value="Types"
+            values={typesOfShoes}
+            addFilter={addFilter}
+          />
+          <ReusableAccordion
+            value="Sizes"
+            values={sizes}
+            addFilter={addFilter}
+          />
+          <ReusableAccordion
+            value="Colors"
+            values={colors}
+            addFilter={addFilter}
+          />
+          <ReusableAccordion
+            value="Genders"
+            values={genders}
+            addFilter={addFilter}
+          />
+          <ReusableAccordion
+            value="Shop By Prices"
+            values={priceRanges}
+            addFilter={addFilter}
+          />
+          <ReusableAccordion
+            value="Shoe Height"
+            values={shoeHeights}
+            addFilter={addFilter}
+          />
         </div>
 
         <div className="gap-x-5 flex flex-wrap justify-center w-full">

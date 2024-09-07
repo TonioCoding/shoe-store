@@ -13,6 +13,7 @@ const ReusableAccordion = (props) => {
   const [open, setOpen] = useState(0);
   const values = props.values;
   const headerValue = props.value;
+  const addFilter = props.addFilter;
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
   return (
@@ -34,7 +35,12 @@ const ReusableAccordion = (props) => {
               ? values.map((value, index) => {
                   return (
                     <div className="flex gap-x-2" key={index}>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        onClick={() => {
+                          addFilter(value);
+                        }}
+                      />
                       <Typography className="font-rt text-black text-[1.1vw]">
                         {value}
                       </Typography>
@@ -52,6 +58,7 @@ const ReusableAccordion = (props) => {
 ReusableAccordion.propTypes = {
   values: PropTypes.array,
   value: PropTypes.string,
+  addFilter: PropTypes.object,
 };
 
 export default ReusableAccordion;
