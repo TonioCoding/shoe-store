@@ -299,7 +299,7 @@ const ShoesPage = ({ brand }) => {
           <ReusableAccordion value="Types" values={typesOfShoes} />
           <ReusableAccordion value="Sizes" values={sizes} />
           <ReusableAccordion value="Colors" values={colors} />
-          <ReusableAccordion value="Gender" values={genders} />
+          <ReusableAccordion value="Genders" values={genders} />
           <ReusableAccordion value="Shop By Prices" values={priceRanges} />
           <ReusableAccordion value="Shoe Height" values={shoeHeights} />
         </div>
