@@ -41,10 +41,9 @@ const App = () => {
 
   window.onscroll = function () {
     const navBar = document.getElementById("nav-bar");
-    if (navbarRef.current !== null) {
+    if (navbarRef.current !== null || showNavBarStatus === true) {
       if (this.oldScroll > this.scrollY) {
         if (showNavBarStatus === false) {
-          console.log(navbarRef.current.offsetHeight);
           navBar.animate(
             [
               {
