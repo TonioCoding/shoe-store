@@ -33,35 +33,45 @@ const SignUpDisplay = (props) => {
                 <Input
                   type="text"
                   placeholder="Name"
-                  label="Name"
-                  autoSave="off"
-                  autoComplete="new-password"
-                  color="black"
-                  style={{ borderColor: "black" }}
-                  autoFocus={false}
+                  className="!border !border-black text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-black
+                  k placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                  labelProps={{
+                    className: "hidden",
+                  }}
+                  style={{
+                    color: "#330000",
+                  }}
+                  containerProps={{ className: "min-w-[100px]" }}
                 />
               </div>
               <div className="sign-in-input">
                 <Input
                   type="email"
-                  placeholder="*****@*****.com"
-                  label="Email"
-                  autoSave="off"
-                  autoComplete="new-password"
-                  color="black"
-                  style={{ borderColor: "black" }}
-                  autoFocus={false}
+                  placeholder="Email"
+                  className="!border !border-black text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-black
+                  k placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                  labelProps={{
+                    className: "hidden",
+                  }}
+                  style={{
+                    color: "#330000",
+                  }}
+                  containerProps={{ className: "min-w-[100px]" }}
                 />
               </div>
               <div className="sign-in-input">
                 <Input
-                  type="Password"
-                  placeholder="*****"
-                  label="Password"
-                  autoComplete="new-password"
-                  color="black"
-                  style={{ borderColor: "black" }}
-                  autoFocus={false}
+                  type="password"
+                  placeholder="Password"
+                  className="!border !border-black text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-black
+                  k placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                  labelProps={{
+                    className: "hidden",
+                  }}
+                  style={{
+                    color: "#330000",
+                  }}
+                  containerProps={{ className: "min-w-[100px]" }}
                 />
               </div>
             </form>
