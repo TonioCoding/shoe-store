@@ -71,22 +71,6 @@ const SignInDisplay = (props) => {
                   }}
                   containerProps={{ className: "min-w-[100px]" }}
                 />
-                {/* <Input
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                  labelProps={{
-                    className: "",
-                  }}
-                  type="email"
-                  placeholder="Email"
-                  label="Email"
-                  autoSave="off"
-                  autoComplete="new-password"
-                  color="black"
-                  style={{ borderColor: "black" }}
-                  autoFocus={false}
-                /> */}
               </div>
               <div className="sign-in-input">
                 <Input
@@ -102,21 +86,6 @@ const SignInDisplay = (props) => {
                   }}
                   containerProps={{ className: "min-w-[100px]" }}
                 />
-                {/* <Input
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                  labelProps={{
-                    className: "",
-                  }}
-                  type="Password"
-                  placeholder="*****"
-                  label="Password"
-                  autoComplete="new-password"
-                  color="black"
-                  style={{ borderColor: "black" }}
-                  autoFocus={false}
-                /> */}
               </div>
             </form>
           </DialogBody>
