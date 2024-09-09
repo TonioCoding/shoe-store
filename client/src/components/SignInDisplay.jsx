@@ -23,7 +23,6 @@ const SignInDisplay = (props) => {
   const [password, setPassword] = useState("");
   const [login, { isLoading }] = useLoginMutation();
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
-  
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -60,23 +59,55 @@ const SignInDisplay = (props) => {
             <form className="flex flex-col justify-center items-center">
               <div className="sign-in-input">
                 <Input
+                  type="text"
+                  placeholder="Email"
+                  className="!border !border-black text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-black
+                  k placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                  labelProps={{
+                    className: "hidden",
+                  }}
+                  style={{
+                    color: "#330000",
+                  }}
+                  containerProps={{ className: "min-w-[100px]" }}
+                />
+                {/* <Input
                   onChange={(e) => {
                     setEmail(e.target.value);
                   }}
+                  labelProps={{
+                    className: "",
+                  }}
                   type="email"
-                  placeholder="*****@*****.com"
+                  placeholder="Email"
                   label="Email"
                   autoSave="off"
                   autoComplete="new-password"
                   color="black"
                   style={{ borderColor: "black" }}
                   autoFocus={false}
-                />
+                /> */}
               </div>
               <div className="sign-in-input">
                 <Input
+                  type="text"
+                  placeholder="Password"
+                  className="!border !border-black text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-black
+                  k placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+                  labelProps={{
+                    className: "hidden",
+                  }}
+                  style={{
+                    color: "#330000",
+                  }}
+                  containerProps={{ className: "min-w-[100px]" }}
+                />
+                {/* <Input
                   onChange={(e) => {
                     setPassword(e.target.value);
+                  }}
+                  labelProps={{
+                    className: "",
                   }}
                   type="Password"
                   placeholder="*****"
@@ -85,7 +116,7 @@ const SignInDisplay = (props) => {
                   color="black"
                   style={{ borderColor: "black" }}
                   autoFocus={false}
-                />
+                /> */}
               </div>
             </form>
           </DialogBody>
