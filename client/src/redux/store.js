@@ -28,7 +28,7 @@ export const store = configureStore({
   devTools: true,
   // eslint-disable-next-line no-unused-vars
   middleware: (getDefaultMiddleware) => {
-    return [thunk];
+    return [thunk, apiSlice.middleware];
   },
 });
 

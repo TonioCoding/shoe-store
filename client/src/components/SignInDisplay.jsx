@@ -35,7 +35,7 @@ const SignInDisplay = (props) => {
       toast.warning("enter required credentials");
     } else {
       const res = await login({ email, password }).unwrap();
-      dispatch(setCredentials({ res }));
+      dispatch(setCredentials(res));
       toast.success("User logged in!");
     }
   };

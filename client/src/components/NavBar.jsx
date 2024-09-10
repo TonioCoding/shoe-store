@@ -57,9 +57,11 @@ const NavBar = (props) => {
     if (userInfo === null) {
       toast.warning("No user logged in!");
     } else {
-      logoutUser();
-      dispatch(logout());
-      toast.success("Logout sucess");
+      logoutUser()
+        .then(() => {
+          dispatch(logout());
+        })
+        .then(toast.success("Logout sucess"));
     }
   };
 
