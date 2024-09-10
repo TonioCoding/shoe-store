@@ -38,7 +38,7 @@ const SignInDisplay = (props) => {
       toast.warning("enter required credentials");
     } else {
       try {
-        const req = fetch("/users/auth", {
+        const req = fetch("/api/v1/users/auth", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -49,7 +49,6 @@ const SignInDisplay = (props) => {
         const res = (await req)
           .json()
           .then((data) => {
-            console.log(data);
             dispatch(setCredentials(data));
           })
           .then(toast.success("Logged in!"));
