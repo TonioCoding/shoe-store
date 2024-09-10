@@ -24,6 +24,8 @@ const SignInDisplay = (props) => {
   const [login, { isLoading }] = useLoginMutation();
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
 
+  console.log(email, password);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -36,9 +38,26 @@ const SignInDisplay = (props) => {
       toast.warning("enter required credentials");
     } else {
       try {
-        const res = await login({ email, password }).unwrap();
-        dispatch(setCredentials({ res }));
-        toast.success("User logged in!");
+        const req = fetch("api/v1/users/auth", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: { email: email, password: password },
+        });
+
+        const res = await (
+          await req
+        )
+          .json()
+          .then((data) => {
+            console.log(data)
+            dispatch(setCredentials(data));
+          })
+          .then(toast.success("Logged in!"));
+        /* const res = await login({ email, password }).unwrap();
+        dispatch(setCredentials({ res })); */
+        //toast.success("User logged in!");
       } catch (error) {
         toast.error(error);
       }
@@ -59,6 +78,7 @@ const SignInDisplay = (props) => {
             <form className="flex flex-col justify-center items-center">
               <div className="sign-in-input">
                 <Input
+                  onChange={(e) => setEmail(e.target.value)}
                   type="text"
                   placeholder="Email"
                   className="!border !border-black text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-black
@@ -74,7 +94,10 @@ const SignInDisplay = (props) => {
               </div>
               <div className="sign-in-input">
                 <Input
-                  type="text"
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  type="password"
                   placeholder="Password"
                   className="!border !border-black text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-black
                   k placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"

@@ -8,16 +8,39 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useRegisterMutation } from "../redux/user/userApiSlice";
+import { toast } from "react-toastify";
+import { setCredentials } from "../redux/auth/authSlice";
 
 const SignUpDisplay = (props) => {
   const state = props.state;
   const closeButton = props.buttonClose;
   const signinButton = props.buttonSignin;
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [register, { isLoading }] = useRegisterMutation();
 
-  const handleSignup = () => {};
+  const dispatch = useDispatch();
+
+  const handleSignup = async (e) => {
+    if (userInfo) {
+      toast.error("Log out first");
+    } else if (name === "" || email === "" || password === "") {
+      toast.warning("enter required credentials");
+    } else {
+      try {
+        const res = await register({ name, email, password }).unwrap();
+        dispatch(setCredentials({ res }));
+        toast.success("User logged in!");
+      } catch (error) {
+        toast.error(error);
+      }
+    }
+  };
 
   return (
     <div id="sign-up" className="bg-black z-30 rounded-lg">
