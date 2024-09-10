@@ -24,40 +24,19 @@ const SignInDisplay = (props) => {
   const [login, { isLoading }] = useLoginMutation();
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
 
-  console.log(email, password);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     if (userInfo) {
       toast.error("Log out first");
     } else if (email === "" || password === "") {
       toast.warning("enter required credentials");
     } else {
-      try {
-        const req = fetch("/api/v1/users/auth", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify({ email: email, password: password }),
-        });
-
-        const res = (await req)
-          .json()
-          .then((data) => {
-            dispatch(setCredentials(data));
-          })
-          .then(toast.success("Logged in!"));
-        /* const res = await login({ email, password }).unwrap();
-        dispatch(setCredentials({ res })); */
-        //toast.success("User logged in!");
-      } catch (error) {
-        toast.error(error);
-      }
+      const res = await login({ email, password }).unwrap();
+      dispatch(setCredentials({ res }));
+      toast.success("User logged in!");
     }
   };
 
