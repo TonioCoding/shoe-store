@@ -119,10 +119,10 @@ const App = () => {
         <Route path="/nike-page" element={<ShoesPage brand="Nike" />} />
         <Route path="/puma-page" element={<ShoesPage brand="Puma" />} />
         <Route path={"/shoes"} element={<ShoesPage />} />
+        <Route path="/saved-shoes" element={<SavedShoes />} />
         <Route path="/test" element={<Test />} />
         <Route path="" element={<PrivateRoute />}>
           <Route path="/account" element={<Account />} />
-          <Route path="/saved-shoes" element={<SavedShoes />} />
         </Route>
       </Routes>
       <Footer />
