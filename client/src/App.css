@@ -230,3 +230,10 @@ hr {
 #footer {
   position: sticky;
 }
+
+#member-title {
+  background-image: url("https://st.depositphotos.com/1309509/1676/i/450/depositphotos_16765491-stock-photo-gold-background.jpg");
+  background-clip: text;
+  background-position: center;
+  color: transparent;
+}
