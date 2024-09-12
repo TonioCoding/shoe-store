@@ -1,11 +1,19 @@
 import { Avatar, Typography } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
-import TabsDefault from "../components/test/AccountList";
+import AccountTabs from "../components/test/AccountTabs";
+import { useState } from "react";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
+  const [currentTab, setCurrentTab] = useState(null);
+  console.log(currentTab);
+
+  function setTab(tab) {
+    setCurrentTab(tab);
+  }
+
   return (
-    <main className="w-[100vw]">
+    <main className="w-[100vw] h-[50vw]">
       <div className="flex items-center gap-x-7 w-fit">
         <Avatar
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiVVpJWyBA-tdUT7Vxvh97xuf7mi994L4CVQ&s"
@@ -23,7 +31,7 @@ const AccountPage = () => {
             <Typography variant="h4" className="font-normal">
               Account Tabs
             </Typography>
-            <TabsDefault />
+            <AccountTabs setTab={setTab} />
           </div>
         </div>
       </div>
