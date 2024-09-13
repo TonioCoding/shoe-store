@@ -2,10 +2,11 @@ import { Avatar, Typography } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
 import AccountTabs from "../components/test/AccountTabs";
 import { useState } from "react";
+import { DefaultTable } from "../components/accountpage/OrdersTable";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
-  const [currentTab, setCurrentTab] = useState(null);
+  const [currentTab, setCurrentTab] = useState("orders");
 
   console.log(currentTab);
 
@@ -16,9 +17,13 @@ const AccountPage = () => {
   function accountTabsDisplay(tab) {
     switch (tab) {
       case "orders":
-        return <p>orders</p>;
+        return <DefaultTable />;
       case "inbox":
-        return <p>inbox</p>;
+        return (
+          <Typography variant="h5" className="font-normal font-lt">
+            There are currently no messages&#33;
+          </Typography>
+        );
       case "favorites":
         return <p>favorites</p>;
       case "settings":
@@ -33,10 +38,7 @@ const AccountPage = () => {
       <div className="flex flex-col gap-x-7 w-full">
         <div className="flex">
           <div className="flex gap-x-6 ml-5 my-5">
-            <Avatar
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiVVpJWyBA-tdUT7Vxvh97xuf7mi994L4CVQ&s"
-              size="xxl"
-            />
+            <Avatar src={userInfo.avatarUrl} size="xxl" />
             <div className="flex flex-col">
               <Typography variant="h4" className="font-lt">
                 {userInfo.name}
@@ -61,7 +63,9 @@ const AccountPage = () => {
           <AccountTabs setTab={setTab} />
         </div>
       </div>
-      <div className="w-full">{accountTabsDisplay(currentTab)}</div>
+      <div className="w-full flex justify-center my-20">
+        {accountTabsDisplay(currentTab)}
+      </div>
     </main>
   );
 };
