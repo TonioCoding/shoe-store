@@ -32,7 +32,7 @@ function AccountTabs(props) {
   return (
     <Tabs value={activeTab}>
       <TabsHeader
-        className="rounded-none border-b border-blue-gray-50 bg-transparent p-0"
+        className="rounded-none border-b border-blue-gray-100 bg-transparent p-0"
         indicatorProps={{
           className:
             "bg-transparent border-b-2 border-gray-900 shadow-none rounded-none",
@@ -40,6 +40,7 @@ function AccountTabs(props) {
       >
         {data.map(({ label, value }) => (
           <Tab
+            className="w-fit px-7"
             key={value}
             value={value}
             onClick={() => {
