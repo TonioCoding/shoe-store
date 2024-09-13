@@ -56,4 +56,14 @@ const createOrder = asyncHandler(async (req, res, next) => {
   }
 });
 
-export { createOrder };
+const getOrders = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const order = await Order.find({ accountId: id });
+  if (order) {
+    res.json(order).status(200);
+  } else {
+    res.json("Order does not exist").status(500);
+  }
+});
+
+export { createOrder, getOrders };
