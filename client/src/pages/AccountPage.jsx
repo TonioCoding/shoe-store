@@ -6,10 +6,26 @@ import { useState } from "react";
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const [currentTab, setCurrentTab] = useState(null);
+
   console.log(currentTab);
 
   function setTab(tab) {
     setCurrentTab(tab);
+  }
+
+  function accountTabsDisplay(tab) {
+    switch (tab) {
+      case "orders":
+        return <p>orders</p>;
+      case "inbox":
+        return <p>inbox</p>;
+      case "favorites":
+        return <p>favorites</p>;
+      case "settings":
+        return <p>settings</p>;
+      case "interests":
+        return <p>interests</p>;
+    }
   }
 
   return (
@@ -45,6 +61,7 @@ const AccountPage = () => {
           <AccountTabs setTab={setTab} />
         </div>
       </div>
+      <div className="w-full">{accountTabsDisplay(currentTab)}</div>
     </main>
   );
 };
