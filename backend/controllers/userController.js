@@ -115,4 +115,26 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, createUser, logoutUser, getUserInfo, updateUserProfile };
+const addToFavorites = asyncHandler(async (req, res) => {
+  const shoe = req.body.shoe;
+  const id = req.body.userId;
+
+  const user = await User.findOne({ _id: id });
+
+  if (user && shoe) {
+    user.favorites.push(shoe);
+    await user.save();
+    res.json("Shoe added to favorites").status(200);
+  } else {
+    res.json("Error saving shoe to favorites").status(500);
+  }
+});
+
+export {
+  authUser,
+  createUser,
+  logoutUser,
+  getUserInfo,
+  updateUserProfile,
+  addToFavorites,
+};

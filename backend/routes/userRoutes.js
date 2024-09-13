@@ -7,14 +7,16 @@ import {
   logoutUser,
   getUserInfo,
   updateUserProfile,
+  addToFavorites,
 } from "../controllers/userController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
 
-
 router.post("/auth", authUser);
 router.post("/", createUser);
 router.post("/logout", logoutUser);
+
+router.post("/fav", [protect, addToFavorites]);
 
 router
   .route("/profile")
