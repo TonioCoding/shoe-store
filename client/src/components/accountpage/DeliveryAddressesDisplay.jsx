@@ -1,6 +1,5 @@
-
-const DeliveryAddresses = () => {
+const DeliveryAddressesDisplay = () => {
   return <div>DeliveryAddresses</div>;
 };
 
-export default DeliveryAddresses;
+export default DeliveryAddressesDisplay;

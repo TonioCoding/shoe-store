@@ -2,6 +2,10 @@ import { Avatar, Typography } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
 import AccountTabs from "../components/accountpage/AccountTabs";
 import OrdersTable from "../components/accountpage/OrdersTable";
+import AccountDetailsDisplay from "../components/accountpage/AccountDetailsDisplay";
+import PaymentMethodsDisplay from "../components/accountpage/PaymentMethodsDisplay";
+import DeliveryAddressesDisplay from "../components/accountpage/DeliveryAddressesDisplay";
+import EmailCommunicationPreferenceDisplay from "../components/accountpage/EmailCommunicationPreferenceDisplay";
 import { useState } from "react";
 import { MdAccountBox } from "react-icons/md";
 
@@ -17,13 +21,13 @@ const AccountPage = () => {
   function accountSettingsDisplay(state) {
     switch (state) {
       case "Account Details":
-        return <p>re</p>;
+        return <AccountDetailsDisplay />;
       case "Payment Methods":
-        return <p>he</p>;
+        return <PaymentMethodsDisplay />;
       case "Delivery Addresses":
-        return <p>ere</p>;
+        return <DeliveryAddressesDisplay />;
       case "Email / Communication Preferences":
-        return <p>e</p>;
+        return <EmailCommunicationPreferenceDisplay />;
     }
   }
 
@@ -38,7 +42,17 @@ const AccountPage = () => {
           </Typography>
         );
       case "favorites":
-        return <p>favorites</p>;
+        return (
+          <div>
+            {userInfo.favorites.length > 0 ? (
+              userInfo.map((shoe, index) => {
+                return <div key={index}>{shoe}</div>;
+              })
+            ) : (
+              <Typography>Save shoes as favorites to view here&#33;</Typography>
+            )}
+          </div>
+        );
       case "settings":
         return (
           <div className="flex">
