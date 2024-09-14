@@ -7,7 +7,10 @@ import PaymentMethodsDisplay from "../components/accountpage/PaymentMethodsDispl
 import DeliveryAddressesDisplay from "../components/accountpage/DeliveryAddressesDisplay";
 import EmailCommunicationPreferenceDisplay from "../components/accountpage/EmailCommunicationPreferenceDisplay";
 import { useState } from "react";
-import { MdAccountBox } from "react-icons/md";
+import { MdAccountBox, MdOutlinePayment } from "react-icons/md";
+import { FaBox } from "react-icons/fa6";
+import { IoIosMail } from "react-icons/io";
+import { IconContext } from "react-icons";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -55,11 +58,11 @@ const AccountPage = () => {
         );
       case "settings":
         return (
-          <div className="flex">
-            <div className="">
-              <div className="border-2 border-green-500">
+          <div className="flex gap-x-20">
+            <IconContext.Provider value={{ size: "1.6vw" }}>
+              <div className="border-2 border-green-500 [&>*]:m-3 [&>*]:justify-between">
                 <div
-                  className="flex items-center gap-x-3 hover:cursor-pointer"
+                  className="flex items-center gap-x-3 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Account Details"
                   onClick={(e) => {
                     setSettingsTab(e.currentTarget.id);
@@ -69,37 +72,37 @@ const AccountPage = () => {
                   <MdAccountBox />
                 </div>
                 <div
-                  className="flex items-center gap-x-3 hover:cursor-pointer"
+                  className="flex items-center gap-x-3 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Payment Methods"
                   onClick={(e) => {
                     setSettingsTab(e.currentTarget.id);
                   }}
                 >
                   <Typography>Payment Methods</Typography>
-                  <MdAccountBox />
+                  <MdOutlinePayment />
                 </div>
                 <div
-                  className="flex items-center gap-x-3 hover:cursor-pointer"
+                  className="flex items-center gap-x-3 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Delivery Addresses"
                   onClick={(e) => {
                     setSettingsTab(e.currentTarget.id);
                   }}
                 >
                   <Typography>Delivery Addresses</Typography>
-                  <MdAccountBox />
+                  <FaBox />
                 </div>
                 <div
-                  className="flex items-center gap-x-3 hover:cursor-pointer"
+                  className="flex items-center gap-x-3 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Email / Communication Preferences"
                   onClick={(e) => {
                     setSettingsTab(e.currentTarget.id);
                   }}
                 >
                   <Typography>Email &#47; Communication Preferences</Typography>
-                  <MdAccountBox />
+                  <IoIosMail />
                 </div>
               </div>
-            </div>
+            </IconContext.Provider>
             <div className="">{accountSettingsDisplay(settingsTab)}</div>
           </div>
         );
