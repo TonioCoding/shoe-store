@@ -1,6 +1,6 @@
 import { Card, Typography } from "@material-tailwind/react";
 
-const TABLE_HEAD = ["Name", "Job", "Employed", ""];
+const TABLE_HEAD = ["Items", "Price", "Payment Method", "Status"];
 
 const TABLE_ROWS = [
   {
@@ -30,7 +30,7 @@ const TABLE_ROWS = [
   },
 ];
 
-export function DefaultTable() {
+function OrdersTable() {
   return (
     <Card className="h-full w-full overflow-scroll">
       <table className="w-full min-w-max table-auto text-left">
@@ -105,3 +105,5 @@ export function DefaultTable() {
     </Card>
   );
 }
+
+export default OrdersTable;

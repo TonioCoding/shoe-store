@@ -1,8 +1,8 @@
 import { Avatar, Typography } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
-import AccountTabs from "../components/test/AccountTabs";
+import AccountTabs from "../components/accountpage/AccountTabs";
+import OrdersTable from "../components/accountpage/OrdersTable";
 import { useState } from "react";
-import { DefaultTable } from "../components/accountpage/OrdersTable";
 import { MdAccountBox } from "react-icons/md";
 
 const AccountPage = () => {
@@ -30,7 +30,7 @@ const AccountPage = () => {
   function accountTabsDisplay(tab) {
     switch (tab) {
       case "orders":
-        return <DefaultTable />;
+        return <OrdersTable />;
       case "inbox":
         return (
           <Typography variant="h5" className="font-normal font-lt">
