@@ -1,7 +1,7 @@
 import { Avatar, Typography } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
 import AccountTabs from "../components/accountpage/AccountTabs";
-import OrdersTable from "../components/accountpage/OrdersTable";
+import OrdersTable from "../components/accountpage/OrdersDisplay";
 import AccountDetailsDisplay from "../components/accountpage/AccountDetailsDisplay";
 import PaymentMethodsDisplay from "../components/accountpage/PaymentMethodsDisplay";
 import DeliveryAddressesDisplay from "../components/accountpage/DeliveryAddressesDisplay";
