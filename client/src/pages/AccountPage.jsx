@@ -3,15 +3,28 @@ import { useSelector } from "react-redux";
 import AccountTabs from "../components/test/AccountTabs";
 import { useState } from "react";
 import { DefaultTable } from "../components/accountpage/OrdersTable";
+import { MdAccountBox } from "react-icons/md";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const [currentTab, setCurrentTab] = useState("orders");
-
-  console.log(currentTab);
+  const [settingsTab, setSettingsTab] = useState("Account Details");
 
   function setTab(tab) {
     setCurrentTab(tab);
+  }
+
+  function accountSettingsDisplay(state) {
+    switch (state) {
+      case "Account Details":
+        return <p>re</p>;
+      case "Payment Methods":
+        return <p>he</p>;
+      case "Delivery Addresses":
+        return <p>ere</p>;
+      case "Email / Communication Preferences":
+        return <p>e</p>;
+    }
   }
 
   function accountTabsDisplay(tab) {
@@ -27,7 +40,55 @@ const AccountPage = () => {
       case "favorites":
         return <p>favorites</p>;
       case "settings":
-        return <p>settings</p>;
+        return (
+          <div className="flex">
+            <div className="">
+              <div className="border-2 border-green-500">
+                <div
+                  className="flex items-center gap-x-3 hover:cursor-pointer"
+                  id="Account Details"
+                  onClick={(e) => {
+                    setSettingsTab(e.currentTarget.id);
+                  }}
+                >
+                  <Typography>Account Details</Typography>
+                  <MdAccountBox />
+                </div>
+                <div
+                  className="flex items-center gap-x-3 hover:cursor-pointer"
+                  id="Payment Methods"
+                  onClick={(e) => {
+                    setSettingsTab(e.currentTarget.id);
+                  }}
+                >
+                  <Typography>Payment Methods</Typography>
+                  <MdAccountBox />
+                </div>
+                <div
+                  className="flex items-center gap-x-3 hover:cursor-pointer"
+                  id="Delivery Addresses"
+                  onClick={(e) => {
+                    setSettingsTab(e.currentTarget.id);
+                  }}
+                >
+                  <Typography>Delivery Addresses</Typography>
+                  <MdAccountBox />
+                </div>
+                <div
+                  className="flex items-center gap-x-3 hover:cursor-pointer"
+                  id="Email / Communication Preferences"
+                  onClick={(e) => {
+                    setSettingsTab(e.currentTarget.id);
+                  }}
+                >
+                  <Typography>Email &#47; Communication Preferences</Typography>
+                  <MdAccountBox />
+                </div>
+              </div>
+            </div>
+            <div className="">{accountSettingsDisplay(settingsTab)}</div>
+          </div>
+        );
       case "interests":
         return <p>interests</p>;
     }
