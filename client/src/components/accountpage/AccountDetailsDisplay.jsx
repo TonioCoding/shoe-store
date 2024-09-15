@@ -22,13 +22,17 @@ const AccountDetailsDisplay = () => {
           <Typography className="font-semibold">Password</Typography>
           <Typography>*********</Typography>
         </div>
-        <Typography className="underline cursor-pointer">Edit</Typography>
+        <Typography className="underline cursor-pointer hover:text-gray-700">
+          Edit
+        </Typography>
       </div>
       <div className="flex items-center justify-between">
         <div className="flex flex-col">
           <Typography className="font-semibold">Phone Number</Typography>
         </div>
-        <Typography className="underline cursor-pointer">Add</Typography>
+        <Typography className="underline cursor-pointer hover:text-gray-700">
+          Add
+        </Typography>
       </div>
       <div className="flex flex-col">
         <Typography className="font-semibold">Location</Typography>

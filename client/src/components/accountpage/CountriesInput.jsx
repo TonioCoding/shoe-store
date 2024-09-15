@@ -1,4 +1,3 @@
-import React from "react";
 import { useCountries } from "use-react-countries";
 import {
   Input,
@@ -8,10 +7,11 @@ import {
   MenuItem,
   Button,
 } from "@material-tailwind/react";
+import { useState } from "react";
 
 function CountriesInput() {
   const { countries } = useCountries();
-  const [country, setCountry] = React.useState(0);
+  const [country, setCountry] = useState(0);
   const { name, flags } = countries[country];
 
   return (
@@ -27,7 +27,7 @@ function CountriesInput() {
             <img
               src={flags.svg}
               alt={name}
-              className="h-4 w-4 rounded-full object-cover"
+              className="w-8 h-6 rounded-full object-cover border-[1.3px] border-gray-500"
             />
           </Button>
         </MenuHandler>
@@ -43,7 +43,7 @@ function CountriesInput() {
                 <img
                   src={flags.svg}
                   alt={name}
-                  className="h-5 w-5 rounded-full object-cover"
+                  className="h-8 w-8 rounded-full object-cover"
                 />
                 {name}
               </MenuItem>
