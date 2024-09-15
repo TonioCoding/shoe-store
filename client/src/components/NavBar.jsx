@@ -22,8 +22,6 @@ import {
 } from "react-icons/si";
 import { IoHomeSharp } from "react-icons/io5";
 import { FaUser } from "react-icons/fa";
-import ImageWithShadow from "../components/Image";
-import LearnMoreButton from "./LearnMoreButton";
 import { GoHeartFill } from "react-icons/go";
 import { Link, useLocation } from "react-router-dom";
 import SignInDisplay from "./SignInDisplay";
