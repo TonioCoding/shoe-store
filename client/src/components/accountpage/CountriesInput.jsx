@@ -52,7 +52,7 @@ function CountriesInput() {
         </MenuList>
       </Menu>
       <Input
-        type="tel"
+        type="button"
         value={name}
         placeholder="United States"
         className="rounded-l-none !border-t-blue-gray-200 focus:!border-t-gray-900"
