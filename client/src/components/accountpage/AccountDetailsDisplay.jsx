@@ -4,10 +4,9 @@ import CountriesInput from "./CountriesInput";
 
 const AccountDetailsDisplay = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
-  console.log(userInfo);
 
   return (
-    <div className="w-fit flex flex-col gap-y-8">
+    <div className="w-[75%] flex flex-col gap-y-8">
       <Typography variant="h5" className="font-lt">
         Account Details
       </Typography>
