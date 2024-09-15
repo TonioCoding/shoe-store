@@ -40,9 +40,14 @@ const AccountPage = () => {
         return <OrdersTable />;
       case "inbox":
         return (
-          <Typography variant="h5" className="font-normal font-lt">
-            There are currently no messages&#33;
-          </Typography>
+          <div className="flex flex-col items-center justify-center gap-y-4">
+            <Typography variant="h5" className="font-normal font-lt">
+              No Messages
+            </Typography>
+            <Typography>
+              Messages and notifications from Shoe Store will show up here&#46;
+            </Typography>
+          </div>
         );
       case "favorites":
         return (
@@ -52,7 +57,9 @@ const AccountPage = () => {
                 return <div key={index}>{shoe}</div>;
               })
             ) : (
-              <Typography>Save shoes as favorites to view here&#33;</Typography>
+              <Typography>
+                Items added to your Favorites will be saved here.&#46;
+              </Typography>
             )}
           </div>
         );
