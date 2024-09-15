@@ -58,9 +58,9 @@ const AccountPage = () => {
         );
       case "settings":
         return (
-          <div className="flex gap-x-20">
+          <div className="flex-col md:flex-row flex gap-x-20 w-full justify-center">
             <IconContext.Provider value={{ size: "1.6vw" }}>
-              <div className="border-2 border-green-500 [&>*]:m-3 [&>*]:justify-between">
+              <div className="[&>*]:m-3 [&>*]:justify-between">
                 <div
                   className="flex items-center gap-x-3 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Account Details"
@@ -103,7 +103,7 @@ const AccountPage = () => {
                 </div>
               </div>
             </IconContext.Provider>
-            <div className="">{accountSettingsDisplay(settingsTab)}</div>
+            <div className="w-[25%]">{accountSettingsDisplay(settingsTab)}</div>
           </div>
         );
       case "interests":
@@ -112,7 +112,7 @@ const AccountPage = () => {
   }
 
   return (
-    <main className="w-[100vw] h-fit">
+    <main className="w-[100vw] h-[115vh]">
       <div className="flex flex-col gap-x-7 w-full">
         <div className="flex">
           <div className="flex gap-x-6 ml-5 my-5">
@@ -141,7 +141,7 @@ const AccountPage = () => {
           <AccountTabs setTab={setTab} />
         </div>
       </div>
-      <div className="w-full flex justify-center my-20">
+      <div className="w-full flex justify-center mt-16">
         {accountTabsDisplay(currentTab)}
       </div>
     </main>

@@ -7,7 +7,7 @@ const AccountDetailsDisplay = () => {
   console.log(userInfo);
 
   return (
-    <div className="w-full flex flex-col gap-y-8">
+    <div className="w-fit flex flex-col gap-y-8">
       <Typography variant="h5" className="font-lt">
         Account Details
       </Typography>
