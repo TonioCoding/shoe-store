@@ -57,15 +57,15 @@ const AccountPage = () => {
                 return <div key={index}>{shoe}</div>;
               })
             ) : (
-              <Typography>
-                Items added to your Favorites will be saved here.&#46;
+              <Typography className="font-lt" variant="h6">
+                Items added to your Favorites will be saved here&#46;
               </Typography>
             )}
           </div>
         );
       case "settings":
         return (
-          <div className="flex-col md:flex-row flex gap-x-20 w-full justify-center">
+          <div className="flex-col md:flex-row flex gap-x-[12%] w-full justify-start mx-5 ml-[4.2rem]">
             <IconContext.Provider value={{ size: "1.6vw" }}>
               <div className="[&>*]:m-3 [&>*]:justify-between">
                 <div
@@ -114,7 +114,12 @@ const AccountPage = () => {
           </div>
         );
       case "interests":
-        return <p>interests</p>;
+        return (
+          <Typography className="font-lt" variant="h6">
+            Add your interests to shop a collection of products that are based
+            on what you&#39;re into&#46;
+          </Typography>
+        );
     }
   }
 
@@ -148,7 +153,7 @@ const AccountPage = () => {
           <AccountTabs setTab={setTab} />
         </div>
       </div>
-      <div className="w-full flex justify-center mt-16">
+      <div className="w-full flex justify-center mt-9">
         {accountTabsDisplay(currentTab)}
       </div>
     </main>

@@ -33,11 +33,9 @@ const AccountDetailsDisplay = () => {
           Add
         </Typography>
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-y-2">
         <Typography className="font-semibold">Location</Typography>
-        <div className="">
-          <CountriesInput />
-        </div>
+        <CountriesInput />
       </div>
     </div>
   );
