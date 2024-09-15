@@ -62,7 +62,7 @@ const AccountPage = () => {
             <IconContext.Provider value={{ size: "1.6vw" }}>
               <div className="[&>*]:m-3 [&>*]:justify-between">
                 <div
-                  className="flex items-center gap-x-3 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
+                  className="flex items-center gap-x-4 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Account Details"
                   onClick={(e) => {
                     setSettingsTab(e.currentTarget.id);
@@ -72,7 +72,7 @@ const AccountPage = () => {
                   <MdAccountBox />
                 </div>
                 <div
-                  className="flex items-center gap-x-3 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
+                  className="flex items-center gap-x-4 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Payment Methods"
                   onClick={(e) => {
                     setSettingsTab(e.currentTarget.id);
@@ -82,7 +82,7 @@ const AccountPage = () => {
                   <MdOutlinePayment />
                 </div>
                 <div
-                  className="flex items-center gap-x-3 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
+                  className="flex items-center gap-x-4 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Delivery Addresses"
                   onClick={(e) => {
                     setSettingsTab(e.currentTarget.id);
@@ -92,7 +92,7 @@ const AccountPage = () => {
                   <FaBox />
                 </div>
                 <div
-                  className="flex items-center gap-x-3 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
+                  className="flex items-center gap-x-4 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Email / Communication Preferences"
                   onClick={(e) => {
                     setSettingsTab(e.currentTarget.id);
