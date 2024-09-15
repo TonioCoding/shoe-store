@@ -145,7 +145,10 @@ const NavBar = (props) => {
   const wordList = (
     <div className="flex items-center">
       <Link to={"/membership-page"}>
-        <span className="m-3 hover:underline lg:w-[2vw] text-black font-lt text-md cursor-pointer">
+        <span
+          className="m-3 hover:underline lg:w-[2vw] text-black font-lt text-lg cursor-pointer"
+          id="member-title"
+        >
           Membership
         </span>
       </Link>
