@@ -231,9 +231,16 @@ hr {
   position: sticky;
 }
 
+@keyframes goldAnimate {
+  75% {
+    background-position: center;
+  }
+}
+
 #member-title {
   background-image: url("https://st.depositphotos.com/1309509/1676/i/450/depositphotos_16765491-stock-photo-gold-background.jpg");
   background-clip: text;
-  background-position: center;
+  background-position: top left;
   color: transparent;
+  animation: goldAnimate 25s infinite;
 }
