@@ -189,6 +189,7 @@ hr {
 
 #navbar-sign-in-btn {
   visibility: hidden;
+  background: black !important;
 }
 
 @media (min-width: 430px) {

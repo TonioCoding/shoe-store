@@ -8,6 +8,7 @@ import {
   Button,
   IconButton,
   Radio,
+  Avatar,
 } from "@material-tailwind/react";
 import { HiShoppingCart } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
@@ -150,6 +151,11 @@ const NavBar = (props) => {
           Membership
         </span>
       </Link>
+      {userInfo !== null ? (
+        <Link to={"/account"}>
+          <Avatar size="sm" src={userInfo.avatarUrl} />
+        </Link>
+      ) : null}
     </div>
   );
 
@@ -254,29 +260,18 @@ const NavBar = (props) => {
           <div className="flex items-center gap-4">
             {/* Sign in button and Shopping cart container*/}
             <div className="flex justify-center items-center gap-x-1 w-full">
-              <div className="flex align-middle">
-                {userInfo ? (
-                  <div className="tooltip">
-                    <Radio
-                      name="color"
-                      color="green"
-                      defaultChecked
-                      onClick={handleLogout}
-                    />
-                    <span className="tooltiptext">Click to logout</span>
-                  </div>
-                ) : null}
-              </div>
               {openNav === false ? (
                 <Button
                   id="navbar-sign-in-btn"
                   variant="gradient"
                   size="sm"
                   className="hidden xs:inline-block mr-5 h-[10%] transition-all ease-in"
-                  color="red"
-                  onClick={signinHandleClick}
+                  color="black"
+                  onClick={userInfo ? handleLogout : signinHandleClick}
                 >
-                  <span className="font-lt">Sign in</span>
+                  <span className="font-lt">
+                    {userInfo ? "Log out" : "Sign in"}
+                  </span>
                 </Button>
               ) : null}
               <IconContext.Provider

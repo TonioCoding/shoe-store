@@ -13,21 +13,21 @@ export default withMT({
         offwhite: "#d4d4d4",
         main: "#3730a3",
       },
-      backgroundImage:{
+      backgroundImage: {
         /*
         'long-cards-1': "url('https://i.pinimg.com/originals/60/fe/6e/60fe6e7adc09d72bbf8290160f2b2b5b.jpg')",
         'long-cards-2': "url('https://i.pinimg.com/originals/60/fe/6e/60fe6e7adc09d72bbf8290160f2b2b5b.jpg')",
         'long-cards-3': "url('https://i.pinimg.com/originals/60/fe/6e/60fe6e7adc09d72bbf8290160f2b2b5b.jpg')",
         */
-      }
+      },
     },
     screens: {
-      "xs":"320px",
-      "sm": "640px",
-      "md": "768px",
-      "lg": "1024px",
-      "xl": "1280px",
-      "2xl": "1536px"
+      xs: "320px",
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
     },
   },
   plugins: [],
