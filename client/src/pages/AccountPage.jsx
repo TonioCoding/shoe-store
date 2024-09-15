@@ -11,6 +11,7 @@ import { MdAccountBox, MdOutlinePayment } from "react-icons/md";
 import { FaBox } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { IconContext } from "react-icons";
+import AddInterestCard from "../components/accountpage/AddInterestCard";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -115,10 +116,13 @@ const AccountPage = () => {
         );
       case "interests":
         return (
-          <Typography className="font-lt" variant="h6">
-            Add your interests to shop a collection of products that are based
-            on what you&#39;re into&#46;
-          </Typography>
+          <div className="flex flex-col justify-start">
+            <Typography className="font-lt" variant="h6">
+              Add your interests to shop a collection of products that are based
+              on what you&#39;re into&#46;
+            </Typography>
+            <AddInterestCard />
+          </div>
         );
     }
   }
@@ -128,7 +132,11 @@ const AccountPage = () => {
       <div className="flex flex-col gap-x-7 w-full">
         <div className="flex">
           <div className="flex gap-x-6 ml-5 my-5">
-            <Avatar src={userInfo.avatarUrl} size="xxl" className="hover:cursor-pointer" />
+            <Avatar
+              src={userInfo.avatarUrl}
+              size="xxl"
+              className="hover:cursor-pointer"
+            />
             <div className="flex flex-col">
               <Typography variant="h4" className="font-lt">
                 {userInfo.name}
