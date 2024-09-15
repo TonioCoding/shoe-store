@@ -1,5 +1,9 @@
+import { useSelector } from "react-redux";
+
 const CartPage = () => {
-  return <div>CartPage</div>;
+  const { userInfo } = useSelector((state) => state.persistedReducer.cart);
+  
+  return <main>CartPage</main>;
 };
 
 export default CartPage;
