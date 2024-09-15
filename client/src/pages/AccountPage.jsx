@@ -128,7 +128,7 @@ const AccountPage = () => {
       <div className="flex flex-col gap-x-7 w-full">
         <div className="flex">
           <div className="flex gap-x-6 ml-5 my-5">
-            <Avatar src={userInfo.avatarUrl} size="xxl" />
+            <Avatar src={userInfo.avatarUrl} size="xxl" className="hover:cursor-pointer" />
             <div className="flex flex-col">
               <Typography variant="h4" className="font-lt">
                 {userInfo.name}
