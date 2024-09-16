@@ -4,11 +4,11 @@ import { GoPlusCircle } from "react-icons/go";
 
 const AddInterestCard = () => {
   return (
-    <div className="hover:px-8 hover:py-16 hover:border-2 border-gray-400 transition-all ease-out duration-400 shadow-xl flex-col text-center justify-center bg-gray-300 inline-flex my-4 cursor-pointer gap-y-2 w-fit px-12 py-20">
+    <div className="hover:text-gray-600 border-gray-400 transition-all ease-out duration-400 shadow-xl flex-col text-center justify-center bg-gray-300 inline-flex my-4 cursor-pointer gap-y-2 w-fit px-12 py-20">
       <IconContext.Provider value={{ size: "1.7vw" }}>
         <GoPlusCircle className="self-center inline-block" />
       </IconContext.Provider>
-      <Typography className="font-rt font-thin inline-block" variant="h6">
+      <Typography className="font-rt font-thin inline-block " variant="h6">
         Add Interest
       </Typography>
     </div>
