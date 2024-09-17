@@ -1,11 +1,18 @@
+import {
+  baseballInterestImg,
+  basketballInterestImg,
+  soccerInterestImg,
+} from "../assets/imgs/interests-imgs";
+import InterestCard from "../components/accountpage/InterestCard";
 
 const Test = () => {
-  
   return (
-    <div>
-        
+    <div className="items-center flex h-[100vh] gap-x-7 ml-2">
+      <InterestCard img={basketballInterestImg} text="Basketball" />
+      <InterestCard img={baseballInterestImg} text="Baseball" />
+      <InterestCard img={soccerInterestImg} text="Soccer" />
     </div>
-  )
-}
+  );
+};
 
-export default Test
+export default Test;
