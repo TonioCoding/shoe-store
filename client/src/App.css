@@ -245,6 +245,7 @@ hr {
   color: transparent;
   animation: goldAnimate 25s infinite;
 }
+
 .interest-card {
   transition: all ease-in-out 500s;
 }
