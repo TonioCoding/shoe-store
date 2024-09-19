@@ -1,4 +1,4 @@
-import { Typography } from "@material-tailwind/react";
+import { Button, Typography } from "@material-tailwind/react";
 import { IconContext } from "react-icons";
 import { GoPlusCircle } from "react-icons/go";
 import {
@@ -8,30 +8,72 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 import { useState } from "react";
+import {
+  baseballInterestImg,
+  basketballInterestImg,
+  exerciseInterestImg,
+  fashionInterestImg,
+  footballInterestImg,
+  golfInterestImg,
+  runningInterestImg,
+  soccerInterestImg,
+  tennisInterestImg,
+} from "../../assets/imgs/interests-imgs";
+import { VscChromeClose } from "react-icons/vsc";
 
 const AddInterestCard = () => {
   const [openDialog, setOpenDialog] = useState(false);
 
   const interests = [
-    { interest: "Basketball", src: "" },
-    { interest: "Baseball", src: "" },
-    { interest: "Football", src: "" },
-    { interest: "Soccer", src: "" },
-    { interest: "Tennis", src: "" },
-    { interest: "Golf", src: "" },
-    { interest: "Running", src: "" },
-    { interest: "Exercise", src: "" },
-    { interest: "Fashion", src: "" },
+    { interest: "Basketball", src: basketballInterestImg },
+    { interest: "Baseball", src: baseballInterestImg },
+    { interest: "Football", src: footballInterestImg },
+    { interest: "Soccer", src: soccerInterestImg },
+    { interest: "Tennis", src: tennisInterestImg },
+    { interest: "Golf", src: golfInterestImg },
+    { interest: "Running", src: runningInterestImg },
+    { interest: "Exercise", src: exerciseInterestImg },
+    { interest: "Fashion", src: fashionInterestImg },
   ];
 
   return (
     <>
-      <Dialog open={openDialog}>
-        <DialogHeader>
-          <button onClick={() => setOpenDialog(false)}>exit</button>
+      <Dialog
+        open={openDialog}
+        className="h-[50vh] overflow-y-scroll overscroll-contain"
+      >
+        <DialogHeader className="m-0 p-0">
+          <div className="flex w-full justify-between border-b-[1px] border-gray-500 p-2">
+            <Typography>Select Your Interests</Typography>
+            <VscChromeClose
+              className="cursor-pointer"
+              onClick={() => setOpenDialog(false)}
+            />
+          </div>
         </DialogHeader>
-        <DialogBody></DialogBody>
-        <DialogFooter></DialogFooter>
+        <DialogBody className="flex flex-col scroll-auto gap-y-5">
+          {interests.map(({ interest, src }, index) => {
+            return (
+              <div className="flex justify-around" key={index}>
+                <div className="w-[25%] flex items-center gap-x-10">
+                  <img
+                    src={src}
+                    alt={interest}
+                    className="w-full object-cover"
+                  />
+                  <Typography>{interest}</Typography>
+                </div>
+                <input type="checkbox" />
+              </div>
+            );
+          })}
+        </DialogBody>
+        <DialogFooter>
+          <div className="flex">
+            <Button>Cancel</Button>
+            <Button>Save</Button>
+          </div>
+        </DialogFooter>
       </Dialog>
       <div
         onClick={() => setOpenDialog(true)}
