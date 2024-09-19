@@ -39,6 +39,7 @@ const AddInterestCard = () => {
   return (
     <>
       <Dialog
+        size="xs"
         open={openDialog}
         className="h-[50vh] overflow-y-scroll overscroll-contain"
       >
@@ -54,7 +55,10 @@ const AddInterestCard = () => {
         <DialogBody className="flex flex-col scroll-auto gap-y-5">
           {interests.map(({ interest, src }, index) => {
             return (
-              <div className="flex justify-around" key={index}>
+              <div
+                className="flex justify-around cursor-pointer border-b-[1px] border-gray-500 pb-5"
+                key={index}
+              >
                 <div className="w-[25%] flex items-center gap-x-10">
                   <img
                     src={src}
