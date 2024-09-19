@@ -41,7 +41,7 @@ const AddInterestCard = () => {
       <Dialog
         size="xs"
         open={openDialog}
-        className="h-[50vh] overflow-y-scroll overscroll-contain"
+        className="h-[50vh] overflow-y-scroll overscroll-contain rounded-lg"
       >
         <DialogHeader className="m-0 p-0">
           <div className="flex w-full justify-between border-b-[1px] border-gray-500 p-2">
