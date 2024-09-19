@@ -11,7 +11,7 @@ function InterestCard(props) {
     <div
       onMouseOver={() => setShowAddInterest(true)}
       onMouseLeave={() => setShowAddInterest(false)}
-      className="interest-card w-[15%] h-[35%] shadow-2xl flex-col text-center inline-flex relative cursor-pointer bg-black"
+      className="interest-card w-[11rem] h-[16rem] shadow-2xl flex-col text-center inline-flex relative cursor-pointer bg-black"
     >
       <img
         src={imgSrc}
@@ -37,7 +37,7 @@ function InterestCard(props) {
             : "hidden"
         }
       >
-        Add Interst
+        Add Interest
       </Typography>
     </div>
   );
