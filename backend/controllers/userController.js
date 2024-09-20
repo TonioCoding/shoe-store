@@ -130,6 +130,25 @@ const addToFavorites = asyncHandler(async (req, res) => {
   }
 });
 
+const addInterests = asyncHandler(async (req, res) => {
+  const interests = [...req.body.interests];
+  const id = req.body.userId;
+
+  const user = await User.findOne({ _id: id });
+  let interestToSave = [];
+  if (user) {
+    const userInterests = user.interests;
+    for (let interest of interests) {
+      interestToSave.push(interest);
+    }
+    user.interests = interestToSave;
+    user.save();
+    res.json(user).status(200);
+  } else {
+    res.status(500).json("User not found");
+  }
+});
+
 export {
   authUser,
   createUser,
@@ -137,4 +156,5 @@ export {
   getUserInfo,
   updateUserProfile,
   addToFavorites,
+  addInterests,
 };

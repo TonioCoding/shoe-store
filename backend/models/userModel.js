@@ -34,6 +34,10 @@ const userSchema = mongoose.Schema(
       type: Array,
       required: false,
     },
+    interests: {
+      type: Array,
+      required: false,
+    },
   },
   {
     timestamps: true,
