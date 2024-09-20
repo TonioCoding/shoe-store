@@ -27,7 +27,7 @@ function CountriesInput() {
             <img
               src={flags.svg}
               alt={name}
-              className="w-8 h-6 rounded-full object-cover border-[1.3px] border-gray-500"
+              className="w-8 h-6 rounded-full object-cover border border-gray-500"
             />
           </Button>
         </MenuHandler>
