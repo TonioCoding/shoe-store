@@ -41,9 +41,9 @@ const AddInterestCard = () => {
       <Dialog
         size="xs"
         open={openDialog}
-        className="h-[50vh] overflow-y-scroll overscroll-contain rounded-lg"
+        className="h-[55vh] overflow-y-scroll overscroll-contain rounded-lg "
       >
-        <DialogHeader className="m-0 p-0">
+        <DialogHeader className="m-0 p-0 sticky top-0 z-50 bg-white">
           <div className="flex w-full justify-between border-b-[1px] border-gray-500 p-2">
             <Typography variant="h6" className="font-thin text-black">
               Select Your Interests
@@ -54,14 +54,14 @@ const AddInterestCard = () => {
             />
           </div>
         </DialogHeader>
-        <DialogBody className="flex flex-col scroll-auto gap-y-5">
+        <DialogBody className="flex flex-col scroll-auto gap-y-5 p-0 mt-4">
           {interests.map(({ interest, src }, index) => {
             return (
               <div
-                className="flex justify-around cursor-pointer border-b-[1px] border-gray-500 pb-5"
+                className="flex justify-around cursor-pointer border-b-[1px] border-gray-500 pb-5 items-center gap-x-7"
                 key={index}
               >
-                <div className="w-[25%] flex items-center gap-x-10">
+                <div className="w-[25%] flex items-center gap-x-7">
                   <img
                     src={src}
                     alt={interest}
@@ -71,20 +71,17 @@ const AddInterestCard = () => {
                     {interest}
                   </Typography>
                 </div>
-                <input type="checkbox" />
+                <input type="checkbox" className="px-6 w-5 h-5" />
               </div>
             );
           })}
         </DialogBody>
-        <DialogFooter>
-          <div className="flex gap-x-5">
-            <Button
-              variant="outlined"
-              className="rounded-3xl text-black border-black hover:border-gray-600 hover:opacity-1"
-            >
+        <DialogFooter className="sticky bottom-1">
+          <div className="flex gap-x-5 sticky bottom-0">
+            <Button className="shadow-xl border bg-white rounded-3xl text-black border-black hover:border-gray-600 hover:opacity-1">
               Cancel
             </Button>
-            <Button className="bg-black rounded-3xl hover:opacity-[0.6]">
+            <Button className="bg-black rounded-3xl hover:bg-gray-300">
               Save
             </Button>
           </div>
