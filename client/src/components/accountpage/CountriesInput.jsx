@@ -22,12 +22,12 @@ function CountriesInput() {
             ripple={false}
             variant="text"
             color="blue-gray"
-            className="flex h-10 items-center gap-2 rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
+            className="flex min-w-fit h-10 items-center gap-2 rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
           >
             <img
               src={flags.svg}
               alt={name}
-              className="w-8 h-6 rounded-full object-cover border border-gray-500"
+              className="w-7 h-7 rounded-full object-cover border border-gray-500"
             />
           </Button>
         </MenuHandler>
