@@ -45,9 +45,11 @@ const AddInterestCard = () => {
       >
         <DialogHeader className="m-0 p-0">
           <div className="flex w-full justify-between border-b-[1px] border-gray-500 p-2">
-            <Typography>Select Your Interests</Typography>
+            <Typography variant="h6" className="font-thin text-black">
+              Select Your Interests
+            </Typography>
             <VscChromeClose
-              className="cursor-pointer"
+              className="cursor-pointer text-black"
               onClick={() => setOpenDialog(false)}
             />
           </div>
@@ -65,7 +67,9 @@ const AddInterestCard = () => {
                     alt={interest}
                     className="w-full object-cover"
                   />
-                  <Typography>{interest}</Typography>
+                  <Typography variant="h5" className="font-lt text-black">
+                    {interest}
+                  </Typography>
                 </div>
                 <input type="checkbox" />
               </div>
@@ -73,9 +77,16 @@ const AddInterestCard = () => {
           })}
         </DialogBody>
         <DialogFooter>
-          <div className="flex">
-            <Button>Cancel</Button>
-            <Button>Save</Button>
+          <div className="flex gap-x-5">
+            <Button
+              variant="outlined"
+              className="rounded-3xl text-black border-black hover:border-gray-600 hover:opacity-1"
+            >
+              Cancel
+            </Button>
+            <Button className="bg-black rounded-3xl hover:opacity-[0.6]">
+              Save
+            </Button>
           </div>
         </DialogFooter>
       </Dialog>
