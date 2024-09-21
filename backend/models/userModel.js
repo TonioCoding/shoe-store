@@ -38,6 +38,34 @@ const userSchema = mongoose.Schema(
       type: Array,
       required: false,
     },
+    phoneNumber: {
+      type: String,
+      required: false,
+    },
+    location: {
+      type: String,
+      required: false,
+    },
+    deliveryAddresses: {
+      type: Array,
+      required: false,
+    },
+    sendEmails: {
+      type: Boolean,
+      required: false,
+    },
+    paymentMethods: {
+      type: Array,
+      required: false,
+    },
+    inbox: {
+      type: Array,
+      required: false,
+    },
+    cart: {
+      type: Array,
+      required: false,
+    },
   },
   {
     timestamps: true,
