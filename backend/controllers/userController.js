@@ -2,6 +2,18 @@ import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import createToken from "../utils/createToken.js";
 
+const availableInterest = [
+  "Basketball",
+  "Baseball",
+  "Football",
+  "Soccer",
+  "Tennis",
+  "Golf",
+  "Running",
+  "Exercise",
+  "Fashion",
+];
+
 // @desc    auth(login) user and set token
 // route    POST /api/users/auth
 // access   Public
