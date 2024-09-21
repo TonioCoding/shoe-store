@@ -131,21 +131,36 @@ const addToFavorites = asyncHandler(async (req, res) => {
 });
 
 const addInterests = asyncHandler(async (req, res) => {
-  const interests = [...req.body.interests];
+  const interests = req.body.interests;
   const id = req.body.userId;
+
+  if (typeof interests === "string") {
+  }
 
   const user = await User.findOne({ _id: id });
   let interestToSave = [];
-  if (user) {
-    const userInterests = user.interests;
+
+  if (user && typeof interests !== "string") {
     for (let interest of interests) {
       interestToSave.push(interest);
     }
+
     user.interests = interestToSave;
     user.save();
     res.json(user).status(200);
-  } else {
+  } else if (!id) {
     res.status(500).json("User not found");
+  } else if (user && typeof interests === "string") {
+    let userCurrentInterests = [...user.interests];
+
+    if (userCurrentInterests.includes(interests) === true) {
+      res.status(400).json("Already have interest");
+    } else {
+      interestToSave.push(interests);
+      user.interests = [...user.interests, ...interestToSave];
+      user.save();
+      res.status(200).json(user);
+    }
   }
 });
 
