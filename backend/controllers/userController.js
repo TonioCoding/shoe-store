@@ -30,6 +30,8 @@ const authUser = asyncHandler(async (req, res) => {
       favorites: user.favorites,
       orderIds: user.orderIds,
       avatarUrl: user.avatarUrl,
+      interests: user.interests,
+      cart: user.cart,
     });
   } else {
     res.status(401);
@@ -65,6 +67,8 @@ const createUser = asyncHandler(async (req, res) => {
       favorites: user.favorites,
       orderIds: user.orderIds,
       avatarUrl: user.avatarUrl,
+      interests: user.interests,
+      cart: user.cart,
     });
   } else {
     res.status(400);
