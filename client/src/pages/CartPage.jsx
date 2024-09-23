@@ -21,8 +21,8 @@ const CartPage = () => {
   }
 
   return (
-    <main className="w-[100vw] flex flex-col justify-center">
-      <section className="flex justify-center my-4">
+    <main className="w-[100vw] flex flex-col justify-center mx-1">
+      <section className="flex flex-col md:flex-row justify-center my-4 gap-y-5">
         <div className="flex w-[35%]">
           <div className="w-full">
             <Typography variant="h5">Bag</Typography>
