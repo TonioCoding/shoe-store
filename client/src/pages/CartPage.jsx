@@ -27,14 +27,18 @@ const CartPage = () => {
       <section className="flex flex-col md:flex-row justify-center my-4 gap-y-5">
         <div className="flex w-[35%]">
           <div className="w-full">
-            <Typography variant="h5">Bag</Typography>
-            <Typography className="ml-2">
+            <Typography variant="h5" className="font-lt">
+              Bag
+            </Typography>
+            <Typography className="font-normal text-xs" variant="h6">
               There are no items in your bag&#46;
             </Typography>
           </div>
         </div>
         <div className="w-fit gap-y-2 flex flex-col">
-          <Typography variant="h5">Summary</Typography>
+          <Typography variant="h5" className="font-lt">
+            Summary
+          </Typography>
           <Accordion open={showPromo} onClick={() => handlePromo(showPromo)}>
             <AccordionHeader className="border-b-black">
               <IconContext.Provider value={{ size: "1.3vw" }}>
@@ -91,9 +95,11 @@ const CartPage = () => {
             <Progress value={50} color="green" />
             <Typography>&#36;50</Typography>
           </div>
-          <div className="flex flex-col gap-y-2 [&>*]:rounded-full">
-            <Button>Checkout</Button>
-            <Button>Paypal</Button>
+          <div className="flex flex-col gap-y-3 [&>*]:rounded-full [&>*]:w-full self-center">
+            <Button className="bg-gray-400 text-gray-900">Checkout</Button>
+            <Button className="bg-gray-400 border border-gray-700 text-gray-900">
+              Paypal
+            </Button>
           </div>
         </div>
       </section>
