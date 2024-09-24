@@ -43,7 +43,7 @@ const CartPage = () => {
             Summary
           </Typography>
           <Accordion open={showPromo} onClick={() => handlePromo(showPromo)}>
-            <AccordionHeader className="border-b-black">
+            <AccordionHeader className="border-b-gray-500">
               <IconContext.Provider value={{ size: "1.3vw" }}>
                 <div className="flex text-black items-center gap-x-3">
                   <Typography color="black">
@@ -85,12 +85,12 @@ const CartPage = () => {
             Estimated Tax
             <GoDash />
           </Typography>
-          <hr className="my-3" />
+          <hr className="my-3 opacity-[0.5]" />
           <Typography className="flex items-center justify-between">
             Total
             <GoDash />
           </Typography>
-          <hr className="my-3" />
+          <hr className="my-3 opacity-[0.5]" />
           <Typography>
             &#36;35&#46;00 to go to qualify for free shipping&#33;
           </Typography>
