@@ -9,6 +9,7 @@ import {
   IconButton,
   Radio,
   Avatar,
+  Drawer,
 } from "@material-tailwind/react";
 import { HiShoppingCart } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
@@ -372,6 +373,14 @@ const NavBar = (props) => {
           {wordList}
         </div>
       </Navbar>
+      <Drawer
+        open={searchInput}
+        className=""
+        placement="bottom"
+        overlay={false}
+      >
+        <Button>This is where the search results will be mapped out at</Button>
+      </Drawer>
     </header>
   );
 };
