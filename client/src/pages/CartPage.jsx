@@ -92,7 +92,7 @@ const CartPage = () => {
           </Typography>
           <hr className="my-3" />
           <Typography>
-            &#36;50&#46;00 to go qualify for free shipping&#33;
+            &#36;35&#46;00 to go to qualify for free shipping&#33;
           </Typography>
           <div className="flex items-center">
             <Progress value={50} color="green" />
