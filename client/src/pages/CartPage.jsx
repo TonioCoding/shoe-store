@@ -26,7 +26,7 @@ const CartPage = () => {
   }
 
   return (
-    <main className="w-[100vw] flex flex-col justify-center mx-1">
+    <main className="w-[100vw] items-center md:items-stretch gap-x-10 flex flex-col justify-center mx-1">
       <section className="flex flex-col md:flex-row justify-center my-4 gap-y-5">
         <div className="flex w-[35%]">
           <div className="w-full">
@@ -111,7 +111,7 @@ const CartPage = () => {
           </div>
         </div>
       </section>
-      <section className="my-4">
+      <section className="my-4 self-start flex flex-col">
         <div className="ml-10">
           <Typography variant="h5">Favorites</Typography>
           <Typography variant="h6" className="font-normal">
