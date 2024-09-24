@@ -12,15 +12,21 @@ import { FaBox } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import { IconContext } from "react-icons";
 import AddInterestCard from "../components/accountpage/AddInterestCard";
+import ShoeCard from "../components/ShoeCard";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
+  const { favorites } = useSelector(
+    (state) => state.persistedReducer.favorites
+  );
   const [currentTab, setCurrentTab] = useState("orders");
   const [settingsTab, setSettingsTab] = useState("Account Details");
 
   function setTab(tab) {
     setCurrentTab(tab);
   }
+
+  console.log(currentTab);
 
   function accountSettingsDisplay(state) {
     switch (state) {
@@ -52,11 +58,36 @@ const AccountPage = () => {
         );
       case "favorites":
         return (
-          <div>
-            {userInfo.favorites.length > 0 ? (
-              userInfo.map((shoe, index) => {
-                return <div key={index}>{shoe}</div>;
-              })
+          <div className="flex flex-wrap justify-center gap-x-5">
+            {currentTab === "favorites" ? (
+              favorites.map(
+                ({
+                  _id,
+                  name,
+                  model,
+                  price,
+                  onSale,
+                  imgUrls,
+                  brand,
+                  sizesNotInStock,
+                  colors,
+                }) => {
+                  return (
+                    <ShoeCard
+                      key={_id}
+                      id={_id}
+                      name={name}
+                      price={price}
+                      imgUrls={imgUrls}
+                      model={model}
+                      brand={brand}
+                      sizesNotInStock={sizesNotInStock}
+                      onSale={onSale}
+                      colors={colors}
+                    />
+                  );
+                }
+              )
             ) : (
               <Typography className="font-lt" variant="h6">
                 Items added to your Favorites will be saved here&#46;
@@ -128,7 +159,7 @@ const AccountPage = () => {
   }
 
   return (
-    <main className="w-[100vw] h-[115vh]">
+    <main className="w-[100vw] h-fit">
       <div className="flex flex-col gap-x-7 w-full">
         <div className="flex">
           <div className="flex gap-x-6 ml-5 my-5">
@@ -161,7 +192,7 @@ const AccountPage = () => {
           <AccountTabs setTab={setTab} />
         </div>
       </div>
-      <div className="w-full flex justify-center mt-9">
+      <div className="w-full flex justify-center my-9">
         {accountTabsDisplay(currentTab)}
       </div>
     </main>
