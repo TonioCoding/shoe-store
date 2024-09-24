@@ -13,10 +13,13 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { GoDash } from "react-icons/go";
 import { IconContext } from "react-icons/lib";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CartPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.cart);
   const [showPromo, setShowPromo] = useState(false);
+
+  const navigate = useNavigate();
 
   function handlePromo(state) {
     state === true ? setShowPromo(false) : setShowPromo(true);
@@ -96,7 +99,12 @@ const CartPage = () => {
             <Typography>&#36;50</Typography>
           </div>
           <div className="flex flex-col gap-y-3 [&>*]:rounded-full [&>*]:w-full self-center">
-            <Button className="bg-gray-400 text-gray-900">Checkout</Button>
+            <Button
+              className="bg-gray-400 text-gray-900"
+              onClick={() => navigate("/checkout")}
+            >
+              Checkout
+            </Button>
             <Button className="bg-gray-400 border border-gray-700 text-gray-900">
               Paypal
             </Button>

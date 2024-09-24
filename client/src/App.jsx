@@ -18,6 +18,7 @@ import MembershipPage from "./pages/MembershipPage.jsx";
 import { useEffect, useMemo, useRef, useState } from "react";
 import Footer from "./components/Footer.jsx";
 import ShoePage from "./pages/ShoePage.jsx";
+import CheckoutPage from "./pages/CheckoutPage.jsx";
 
 const App = () => {
   const [stateUpdate, setStateUpdate] = useState(0);
@@ -104,6 +105,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/sports-page" element={<SportsPage />} />
         <Route path="/brands-page" element={<BrandsPage />} />
         <Route path="/sales-page" element={<SalesPage />} />
