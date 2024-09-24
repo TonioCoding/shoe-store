@@ -41,6 +41,8 @@ const NavBar = (props) => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const [logoutUser, { isLoading }] = useLogoutMutation();
   const setRef = props.changeRef;
+  const [searchInput, setSearchInput] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   setRef(document.getElementById("nav-bar"));
 
@@ -50,6 +52,10 @@ const NavBar = (props) => {
   }
 
   const dispatch = useDispatch();
+
+  const handleSearchInput = (input) => {
+    setSearchInput(input);
+  };
 
   const handleLogout = async (e) => {
     e.preventDefault();
@@ -255,7 +261,7 @@ const NavBar = (props) => {
             </Typography>
           </Link>
           <div className="hidden sm:flex items-center">
-            <NavSearchBar />
+            <NavSearchBar handleSearchInput={handleSearchInput} />
           </div>
           <div className="flex items-center gap-4">
             {/* Sign in button and Shopping cart container*/}
