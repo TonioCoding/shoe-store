@@ -65,7 +65,7 @@ const ShoeCard = (props) => {
     >
       <img
         src={shoeImgUrls[0]}
-        className="object-scale-down border-2 border-gray-400 min-h-fit"
+        className="object-scale-down border border-gray-400 min-h-fit"
       />
       <div className="mx-4 my-4 flex flex-col items-start gap-y-3">
         {shoeOnSale === true ? (
@@ -85,7 +85,7 @@ const ShoeCard = (props) => {
                     <canvas
                       key={value}
                       style={{ backgroundColor: `${value}` }}
-                      className="rounded-[50%] border-2 border-gray-700"
+                      className="rounded-[50%] border border-gray-700"
                       width={"13vw"}
                       height={"13vh"}
                     />
