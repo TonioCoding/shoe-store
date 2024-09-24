@@ -4,10 +4,12 @@ import {
   AccordionBody,
   AccordionHeader,
   Button,
+  Input,
   Progress,
   Typography,
 } from "@material-tailwind/react";
 import { BsFillQuestionCircleFill } from "react-icons/bs";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { GoDash } from "react-icons/go";
 import { IconContext } from "react-icons/lib";
 import { useState } from "react";
@@ -31,28 +33,46 @@ const CartPage = () => {
             </Typography>
           </div>
         </div>
-        <div className="">
+        <div className="w-fit gap-y-2 flex flex-col">
           <Typography variant="h5">Summary</Typography>
           <Accordion open={showPromo} onClick={() => handlePromo(showPromo)}>
-            <AccordionHeader>
+            <AccordionHeader className="border-b-black">
               <IconContext.Provider value={{ size: "1.3vw" }}>
                 <div className="flex text-black items-center gap-x-3">
                   <Typography color="black">
                     Do you have a promo code&#63;
                   </Typography>
-                  <BsFillQuestionCircleFill />
+                  {showPromo ? <IoIosArrowUp /> : <IoIosArrowDown />}
                 </div>
               </IconContext.Provider>
             </AccordionHeader>
-            <AccordionBody>hey</AccordionBody>
+            <AccordionBody>
+              <div
+                className="flex items-center gap-x-6"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Input
+                  className="min-w-[15vw] !border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900"
+                  labelProps={{ className: "hidden" }}
+                />
+                <Button variant="outlined" className="min-w-fit text-gray-600">
+                  Apply
+                </Button>
+              </div>
+            </AccordionBody>
           </Accordion>
-          <Typography className="flex items-center justify-between">
-            Subtotal
-            <GoDash />
-          </Typography>
+          <IconContext.Provider value={{ size: "1.3vw" }}>
+            <Typography className="flex items-center justify-between">
+              <div className="flex items-center gap-x-2">
+                Subtotal
+                <BsFillQuestionCircleFill />
+              </div>
+              <GoDash />
+            </Typography>
+          </IconContext.Provider>
           <div className="flex justify-between gap-x-8">
-            <Typography>estimated shipping & handling</Typography>
-            <Typography>free</Typography>
+            <Typography>Estimated shipping &#38; handling</Typography>
+            <Typography>Free</Typography>
           </div>
           <Typography className="flex items-center justify-between">
             Estimated Tax
@@ -64,10 +84,12 @@ const CartPage = () => {
             <GoDash />
           </Typography>
           <hr className="my-3" />
-          <Typography>$50.00 to go qualify for free shipping!</Typography>
+          <Typography>
+            &#36;50&#46;00 to go qualify for free shipping&#33;
+          </Typography>
           <div className="flex items-center">
             <Progress value={50} color="green" />
-            <Typography>$50</Typography>
+            <Typography>&#36;50</Typography>
           </div>
           <div className="flex flex-col gap-y-2 [&>*]:rounded-full">
             <Button>Checkout</Button>
@@ -79,7 +101,7 @@ const CartPage = () => {
         <div className="ml-10">
           <Typography variant="h5">Favorites</Typography>
           <Typography variant="h6" className="font-normal">
-            There are no items saved to your favorites.
+            There are no items saved to your favorites&#46;
           </Typography>
         </div>
       </section>
