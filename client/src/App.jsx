@@ -40,11 +40,11 @@ const App = () => {
   };
 
   window.onscroll = function () {
-    const navBar = document.getElementById("nav-bar");
+    //const navBar = document.getElementById("nav-bar");
     if (navbarRef.current !== null || showNavBarStatus === true) {
       if (this.oldScroll > this.scrollY) {
         if (showNavBarStatus === false) {
-          navBar.animate(
+          navbarRef.current.animate(
             [
               {
                 height: "0vh",
@@ -64,7 +64,7 @@ const App = () => {
         }
       } else if (this.oldScroll < this.scrollY) {
         if (showNavBarStatus === true) {
-          navBar.animate(
+          navbarRef.current.animate(
             [
               {
                 height: `${navbarRefHeight.current}px`,
