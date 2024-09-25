@@ -59,7 +59,7 @@ const AccountPage = () => {
       case "favorites":
         return (
           <div className="flex flex-wrap justify-center gap-x-5">
-            {currentTab === "favorites" ? (
+            {favorites ? (
               favorites.map(
                 ({
                   _id,
