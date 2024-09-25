@@ -57,44 +57,42 @@ const AccountPage = () => {
           </div>
         );
       case "favorites":
-        return (
-          <div className="flex flex-wrap justify-center gap-x-5">
-            {favorites ? (
-              favorites.map(
-                ({
-                  _id,
-                  name,
-                  model,
-                  price,
-                  onSale,
-                  imgUrls,
-                  brand,
-                  sizesNotInStock,
-                  colors,
-                }) => {
-                  return (
-                    <ShoeCard
-                      key={_id}
-                      id={_id}
-                      name={name}
-                      price={price}
-                      imgUrls={imgUrls}
-                      model={model}
-                      brand={brand}
-                      sizesNotInStock={sizesNotInStock}
-                      onSale={onSale}
-                      colors={colors}
-                    />
-                  );
-                }
-              )
-            ) : (
-              <Typography className="font-lt" variant="h6">
-                Items added to your Favorites will be saved here&#46;
-              </Typography>
-            )}
-          </div>
-        );
+        if (favorites) {
+          return favorites.map(
+            ({
+              _id,
+              name,
+              model,
+              price,
+              onSale,
+              imgUrls,
+              brand,
+              sizesNotInStock,
+              colors,
+            }) => {
+              return (
+                <ShoeCard
+                  key={_id}
+                  id={_id}
+                  name={name}
+                  price={price}
+                  imgUrls={imgUrls}
+                  model={model}
+                  brand={brand}
+                  sizesNotInStock={sizesNotInStock}
+                  onSale={onSale}
+                  colors={colors}
+                />
+              );
+            }
+          );
+        } else {
+          return (
+            <Typography className="font-lt" variant="h6">
+              Items added to your Favorites will be saved here&#46;
+            </Typography>
+          );
+        }
       case "settings":
         return (
           <div className="flex-col md:flex-row flex gap-x-[12%] w-full justify-start mx-5 ml-[4.2rem]">
@@ -192,7 +190,7 @@ const AccountPage = () => {
           <AccountTabs setTab={setTab} />
         </div>
       </div>
-      <div className="w-full flex justify-center my-9">
+      <div className="w-full flex justify-center my-9 flex-wrap">
         {accountTabsDisplay(currentTab)}
       </div>
     </main>
