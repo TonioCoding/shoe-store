@@ -374,7 +374,7 @@ const NavBar = (props) => {
         </div>
       </Navbar>
       <Drawer
-        open={searchInput}
+        open={searchInput !== ""}
         className=""
         placement="bottom"
         overlay={false}
