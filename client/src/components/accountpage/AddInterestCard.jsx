@@ -20,9 +20,13 @@ import {
   tennisInterestImg,
 } from "../../assets/imgs/interests-imgs";
 import { VscChromeClose } from "react-icons/vsc";
+import { useSelector } from "react-redux";
 
 const AddInterestCard = () => {
   const [openDialog, setOpenDialog] = useState(false);
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
+
+  const [selectedInterests, setSelectedInterests] = useState([]);
 
   const interests = [
     { interest: "Basketball", src: basketballInterestImg },
@@ -35,6 +39,17 @@ const AddInterestCard = () => {
     { interest: "Exercise", src: exerciseInterestImg },
     { interest: "Fashion", src: fashionInterestImg },
   ];
+
+  console.log(userInfo);
+  console.log(selectedInterests);
+
+  /* async function addInterests() {
+    if (selectedInterests.length > 0) {
+      try {
+      } catch (error) {}
+    } else {
+    }
+  } */
 
   return (
     <>
@@ -71,7 +86,20 @@ const AddInterestCard = () => {
                     {interest}
                   </Typography>
                 </div>
-                <input type="checkbox" className="px-6 w-5 h-5" />
+                <input
+                  disabled={userInfo.interests.includes(interest)}
+                  type="checkbox"
+                  className="px-6 w-5 h-5"
+                  value={interest}
+                  onClick={(e) => {
+                    if (userInfo.interests.includes(interest) === false) {
+                      setSelectedInterests([
+                        ...selectedInterests,
+                        e.currentTarget.value,
+                      ]);
+                    }
+                  }}
+                />
               </div>
             );
           })}
