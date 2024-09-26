@@ -37,7 +37,7 @@ function InterestCard(props) {
             : "hidden"
         }
       >
-        Add Interest
+        Remove Interest
       </Typography>
     </div>
   );
