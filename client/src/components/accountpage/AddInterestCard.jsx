@@ -21,6 +21,7 @@ import {
 } from "../../assets/imgs/interests-imgs";
 import { VscChromeClose } from "react-icons/vsc";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 const AddInterestCard = () => {
   const [openDialog, setOpenDialog] = useState(false);
@@ -43,13 +44,15 @@ const AddInterestCard = () => {
   console.log(userInfo);
   console.log(selectedInterests);
 
-  /* async function addInterests() {
+  async function addInterests() {
     if (selectedInterests.length > 0) {
       try {
       } catch (error) {}
     } else {
+      setOpenDialog(false);
+      toast.error("There were no selected interest to save");
     }
-  } */
+  }
 
   function closeDialog() {
     setOpenDialog(false);
@@ -121,7 +124,10 @@ const AddInterestCard = () => {
             >
               Cancel
             </Button>
-            <Button className="bg-black rounded-3xl hover:bg-gray-300">
+            <Button
+              onClick={addInterests}
+              className="bg-black rounded-3xl hover:bg-gray-300"
+            >
               Save
             </Button>
           </div>
