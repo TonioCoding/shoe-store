@@ -51,6 +51,22 @@ const AddInterestCard = () => {
     }
   } */
 
+  function closeDialog() {
+    setOpenDialog(false);
+    setSelectedInterests([]);
+  }
+
+  function selectInterest(e, interest) {
+    if (selectedInterests.includes(interest)) {
+      let arrayWithRemovedInterest = selectedInterests.filter(
+        (element) => element !== interest
+      );
+      setSelectedInterests(arrayWithRemovedInterest);
+    } else if (userInfo.interests.includes(interest) === false) {
+      setSelectedInterests([...selectedInterests, e.currentTarget.value]);
+    }
+  }
+
   return (
     <>
       <Dialog
@@ -65,7 +81,7 @@ const AddInterestCard = () => {
             </Typography>
             <VscChromeClose
               className="cursor-pointer text-black"
-              onClick={() => setOpenDialog(false)}
+              onClick={closeDialog}
             />
           </div>
         </DialogHeader>
@@ -91,14 +107,7 @@ const AddInterestCard = () => {
                   type="checkbox"
                   className="px-6 w-5 h-5"
                   value={interest}
-                  onClick={(e) => {
-                    if (userInfo.interests.includes(interest) === false) {
-                      setSelectedInterests([
-                        ...selectedInterests,
-                        e.currentTarget.value,
-                      ]);
-                    }
-                  }}
+                  onClick={(e) => selectInterest(e, interest)}
                 />
               </div>
             );
