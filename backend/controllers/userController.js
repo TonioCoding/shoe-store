@@ -214,7 +214,6 @@ const deleteInterest = asyncHandler(async (req, res) => {
     interestsToSave = [...userCurrentInterests].filter(
       (element) => element !== interest
     );
-    console.log(interestsToSave);
     user.interests = interestsToSave;
     user.save();
     res.status(200).json(user);
