@@ -115,7 +115,10 @@ const AddInterestCard = () => {
         </DialogBody>
         <DialogFooter className="sticky bottom-1">
           <div className="flex gap-x-5 sticky bottom-0">
-            <Button className="shadow-xl border bg-white rounded-3xl text-black border-black hover:border-gray-600 hover:opacity-1">
+            <Button
+              onClick={closeDialog}
+              className="shadow-xl border bg-white rounded-3xl text-black border-black hover:border-gray-600 hover:opacity-1"
+            >
               Cancel
             </Button>
             <Button className="bg-black rounded-3xl hover:bg-gray-300">
