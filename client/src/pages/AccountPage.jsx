@@ -23,6 +23,11 @@ const AccountPage = () => {
   );
   const [currentTab, setCurrentTab] = useState("orders");
   const [settingsTab, setSettingsTab] = useState("Account Details");
+  const [paymentMethodsDialong, setPaymentMethodsDialog] = useState(false);
+  const [deliveryAddressesDialong, setDeliveryAddressesDialog] =
+    useState(false);
+  const [passwordDialong, setPasswordDialog] = useState(false);
+  const [phoneNumberDialong, setPhoneNumberDialog] = useState(false);
 
   function setTab(tab) {
     setCurrentTab(tab);
