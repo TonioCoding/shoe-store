@@ -8,6 +8,29 @@ import fashionInterestImg from "../../imgs/interests-imgs/ai-img-7.jpg";
 import baseballInterestImg from "../../imgs/interests-imgs/baseball-img-1.jpg";
 import runningInterestImg from "../../imgs/interests-imgs/ai-img-8.jpg";
 
+function interestNameToImage(interestName) {
+  switch (interestName) {
+    case "Basketball":
+      return basketballInterestImg;
+    case "Soccer":
+      return soccerInterestImg;
+    case "Football":
+      return footballInterestImg;
+    case "Tennis":
+      return tennisInterestImg;
+    case "Golf":
+      return golfInterestImg;
+    case "Exercise":
+      return exerciseInterestImg;
+    case "Fashion":
+      return fashionInterestImg;
+    case "Baseball":
+      return baseballInterestImg;
+    case "Running":
+      return runningInterestImg;
+  }
+}
+
 export {
   basketballInterestImg,
   soccerInterestImg,
@@ -18,4 +41,5 @@ export {
   fashionInterestImg,
   baseballInterestImg,
   runningInterestImg,
+  interestNameToImage,
 };

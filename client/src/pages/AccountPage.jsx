@@ -13,6 +13,8 @@ import { IoIosMail } from "react-icons/io";
 import { IconContext } from "react-icons";
 import AddInterestCard from "../components/accountpage/AddInterestCard";
 import ShoeCard from "../components/ShoeCard";
+import InterestCard from "../components/accountpage/InterestCard";
+import { interestNameToImage } from "../assets/imgs/interests-imgs";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -25,8 +27,6 @@ const AccountPage = () => {
   function setTab(tab) {
     setCurrentTab(tab);
   }
-
-  console.log(currentTab);
 
   function accountSettingsDisplay(state) {
     switch (state) {
@@ -145,12 +145,23 @@ const AccountPage = () => {
         );
       case "interests":
         return (
-          <div className="flex flex-col justify-start">
+          <div className="flex flex-col justify-start mx-2">
             <Typography className="font-lt" variant="h6">
               Add your interests to shop a collection of products that are based
               on what you&#39;re into&#46;
             </Typography>
-            <AddInterestCard />
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-2 justify-center">
+              <AddInterestCard />
+              {[...userInfo.interests].map((interest, index) => {
+                return (
+                  <InterestCard
+                    key={index}
+                    text={interest}
+                    img={interestNameToImage(interest)}
+                  />
+                );
+              })}
+            </div>
           </div>
         );
     }
