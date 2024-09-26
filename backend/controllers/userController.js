@@ -178,7 +178,7 @@ const addInterests = asyncHandler(async (req, res) => {
     for (let interest of interests) {
       if (
         [...userCurrentInterests].includes(interest) ||
-        availableInterests.includes(interests) === false
+        availableInterests.includes(interest) === false
       ) {
         continue;
       }

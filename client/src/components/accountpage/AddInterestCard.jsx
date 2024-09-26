@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Button, Typography } from "@material-tailwind/react";
 import { IconContext } from "react-icons";
 import { GoPlusCircle } from "react-icons/go";
@@ -7,7 +8,7 @@ import {
   DialogBody,
   DialogFooter,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   baseballInterestImg,
   basketballInterestImg,
@@ -20,14 +21,16 @@ import {
   tennisInterestImg,
 } from "../../assets/imgs/interests-imgs";
 import { VscChromeClose } from "react-icons/vsc";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { setCredentials } from "../../redux/auth/authSlice";
 
 const AddInterestCard = () => {
   const [openDialog, setOpenDialog] = useState(false);
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
-
   const [selectedInterests, setSelectedInterests] = useState([]);
+
+  const dispatch = useDispatch();
 
   const interests = [
     { interest: "Basketball", src: basketballInterestImg },
@@ -47,7 +50,28 @@ const AddInterestCard = () => {
   async function addInterests() {
     if (selectedInterests.length > 0) {
       try {
-      } catch (error) {}
+        const req = fetch("/api/v1/users/addInterests", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userInfo._id,
+            interests: [...selectedInterests],
+          }),
+        });
+        console.log(selectedInterests);
+        const res = (await req)
+          .json()
+          .then((data) => {
+            console.log(data);
+            dispatch(setCredentials(data));
+          })
+          .then(closeDialog())
+          .then(toast.success("Interest(s) added!"));
+      } catch (error) {
+        toast.error(error);
+      }
     } else {
       setOpenDialog(false);
       toast.error("There were no selected interest to save");
@@ -69,6 +93,10 @@ const AddInterestCard = () => {
       setSelectedInterests([...selectedInterests, e.currentTarget.value]);
     }
   }
+
+  useEffect(() => {
+    console.log(selectedInterests);
+  }, [selectedInterests]);
 
   return (
     <>
