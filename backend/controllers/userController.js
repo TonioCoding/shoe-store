@@ -2,7 +2,7 @@ import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import createToken from "../utils/createToken.js";
 
-const availableInterest = [
+const availableInterests = [
   "Basketball",
   "Baseball",
   "Football",
@@ -149,34 +149,44 @@ const addToFavorites = asyncHandler(async (req, res) => {
 const addInterests = asyncHandler(async (req, res) => {
   const interests = req.body.interests;
   const id = req.body.userId;
+  const user = await User.findOne({ _id: id });
+  const userCurrentInterests = user.interests;
+  let interestToAdd = [];
 
-  if (typeof interests === "string") {
+  if (!id) {
+    res.status(400).json("No id provided");
   }
 
-  const user = await User.findOne({ _id: id });
-  let interestToSave = [];
+  if (!user) {
+    res.status(500).json("No user found");
+  }
 
-  if (user && typeof interests !== "string") {
-    for (let interest of interests) {
-      interestToSave.push(interest);
-    }
-
-    user.interests = interestToSave;
-    user.save();
-    res.json(user).status(200);
-  } else if (!id) {
-    res.status(500).json("User not found");
-  } else if (user && typeof interests === "string") {
-    let userCurrentInterests = [...user.interests];
-
-    if (userCurrentInterests.includes(interests) === true) {
+  if (typeof interests === "string") {
+    if ([...userCurrentInterests].includes(interests)) {
       res.status(400).json("Already have interest");
-    } else {
-      interestToSave.push(interests);
-      user.interests = [...user.interests, ...interestToSave];
+      return;
+    }
+    if (availableInterests.includes(interests)) {
+      interestToAdd.push(interests);
+      user.interests = [...userCurrentInterests, ...interestToAdd];
       user.save();
       res.status(200).json(user);
+    } else {
+      res.json(400).json("Invalid Interest");
     }
+  } else if (typeof interests === "object") {
+    for (let interest of interests) {
+      if (
+        [...userCurrentInterests].includes(interest) ||
+        availableInterests.includes(interests) === false
+      ) {
+        continue;
+      }
+      interestToAdd.push(interest);
+    }
+    user.interests = [...userCurrentInterests, ...interestToAdd];
+    user.save();
+    res.status(200).json(user);
   }
 });
 
