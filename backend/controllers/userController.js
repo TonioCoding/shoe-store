@@ -190,6 +190,39 @@ const addInterests = asyncHandler(async (req, res) => {
   }
 });
 
+const deleteInterest = asyncHandler(async (req, res) => {
+  const interest = req.body.interest;
+  const id = req.body.userId;
+  const user = await User.findOne({ _id: id });
+  const userCurrentInterests = user.interests;
+  let interestsToSave;
+
+  if (!interest) {
+    res.status(400).json("No interest provided for deletion");
+  }
+  if (!id) {
+    res.status(400).json("No id provided");
+  }
+  if (!user) {
+    res.status(500).json("User not found");
+  }
+
+  if (
+    availableInterests.includes(interest) &&
+    [...userCurrentInterests].includes(interest)
+  ) {
+    interestsToSave = [...userCurrentInterests].filter(
+      (element) => element !== interest
+    );
+    console.log(interestsToSave);
+    user.interests = interestsToSave;
+    user.save();
+    res.status(200).json(user);
+  } else {
+    res.status(400).json("Invalid interest");
+  }
+});
+
 export {
   authUser,
   createUser,
@@ -198,4 +231,5 @@ export {
   updateUserProfile,
   addToFavorites,
   addInterests,
+  deleteInterest,
 };

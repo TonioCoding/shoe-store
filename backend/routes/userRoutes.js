@@ -9,6 +9,7 @@ import {
   updateUserProfile,
   addToFavorites,
   addInterests,
+  deleteInterest,
 } from "../controllers/userController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
@@ -17,6 +18,7 @@ router.post("/auth", authUser);
 router.post("/", createUser);
 router.post("/logout", logoutUser);
 router.post("/addInterests", addInterests);
+router.post("/deleteInterest", deleteInterest);
 
 router.post("/fav", [protect, addToFavorites]);
 
