@@ -44,9 +44,6 @@ const AddInterestCard = () => {
     { interest: "Fashion", src: fashionInterestImg },
   ];
 
-  console.log(userInfo);
-  console.log(selectedInterests);
-
   async function addInterests() {
     if (selectedInterests.length > 0) {
       try {
@@ -64,7 +61,6 @@ const AddInterestCard = () => {
         const res = (await req)
           .json()
           .then((data) => {
-            console.log(data);
             dispatch(setCredentials(data));
           })
           .then(closeDialog())

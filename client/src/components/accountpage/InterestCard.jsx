@@ -1,11 +1,37 @@
+/* eslint-disable no-unused-vars */
 import { PropTypes } from "prop-types";
 import { Typography } from "@material-tailwind/react";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCredentials } from "../../redux/auth/authSlice";
+import { toast } from "react-toastify";
 
 function InterestCard(props) {
   const imgSrc = props.img;
   const text = props.text;
   const [showAddInterest, setShowAddInterest] = useState(false);
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
+
+  const dispatch = useDispatch();
+
+  async function deleteInterest() {
+    try {
+      const req = fetch("/api/v1/users/deleteInterest", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userId: userInfo._id, interest: text }),
+      });
+
+      const res = (await req)
+        .json()
+        .then((data) => dispatch(setCredentials(data)))
+        .then(toast.success("Interest deleted"));
+    } catch (error) {
+      toast.error(error);
+    }
+  }
 
   return (
     <div
@@ -30,6 +56,7 @@ function InterestCard(props) {
         {text}
       </Typography>
       <Typography
+        onClick={deleteInterest}
         variant="h6"
         className={
           showAddInterest === true
