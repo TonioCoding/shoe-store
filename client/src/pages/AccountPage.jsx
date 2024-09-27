@@ -66,20 +66,20 @@ const AccountPage = () => {
       case "Account Details":
         return (
           <AccountDetailsDisplay
-            passwordDialong={handlePasswordDialog}
-            phoneNumberDialong={handlePhoneNumberDialog}
+            passwordDialog={handlePasswordDialog}
+            phoneNumberDialog={handlePhoneNumberDialog}
           />
         );
       case "Payment Methods":
         return (
           <PaymentMethodsDisplay
-            paymentMethodsDialong={handlePaymentMethodsDialog}
+            paymentMethodsDialog={handlePaymentMethodsDialog}
           />
         );
       case "Delivery Addresses":
         return (
           <DeliveryAddressesDisplay
-            deliveryAddressesDialong={handleDeliveryAddressesDialog}
+            deliveryAddressesDialog={handleDeliveryAddressesDialog}
           />
         );
       case "Email / Communication Preferences":

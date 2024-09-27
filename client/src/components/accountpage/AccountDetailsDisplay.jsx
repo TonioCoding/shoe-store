@@ -1,10 +1,12 @@
 import { Input, Typography } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
 import CountriesInput from "./CountriesInput";
+import { PropTypes } from "prop-types";
 
-const AccountDetailsDisplay = () => {
+const AccountDetailsDisplay = (props) => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
-
+  const handlePasswordDialog = props.passwordDialog;
+  const handlePhoneNumberDialog = props.phoneNumberDialog;
   return (
     <div className="w-[75%] flex flex-col gap-y-8">
       <Typography variant="h5" className="font-lt">
@@ -21,7 +23,10 @@ const AccountDetailsDisplay = () => {
           <Typography className="font-semibold">Password</Typography>
           <Typography>*********</Typography>
         </div>
-        <Typography className="underline cursor-pointer hover:text-gray-700">
+        <Typography
+          onClick={handlePasswordDialog}
+          className="underline cursor-pointer hover:text-gray-700"
+        >
           Edit
         </Typography>
       </div>
@@ -29,7 +34,10 @@ const AccountDetailsDisplay = () => {
         <div className="flex flex-col">
           <Typography className="font-semibold">Phone Number</Typography>
         </div>
-        <Typography className="underline cursor-pointer hover:text-gray-700">
+        <Typography
+          onClick={handlePhoneNumberDialog}
+          className="underline cursor-pointer hover:text-gray-700"
+        >
           Add
         </Typography>
       </div>
@@ -39,6 +47,10 @@ const AccountDetailsDisplay = () => {
       </div>
     </div>
   );
+};
+AccountDetailsDisplay.propTypes = {
+  passwordDialog: PropTypes.func,
+  phoneNumberDialog: PropTypes.func,
 };
 
 export default AccountDetailsDisplay;
