@@ -1,4 +1,11 @@
-import { Avatar, Typography } from "@material-tailwind/react";
+import {
+  Avatar,
+  Dialog,
+  DialogBody,
+  DialogFooter,
+  DialogHeader,
+  Typography,
+} from "@material-tailwind/react";
 import { useSelector } from "react-redux";
 import AccountTabs from "../components/accountpage/AccountTabs";
 import OrdersTable from "../components/accountpage/OrdersDisplay";
@@ -28,6 +35,27 @@ const AccountPage = () => {
     useState(false);
   const [passwordDialong, setPasswordDialog] = useState(false);
   const [phoneNumberDialong, setPhoneNumberDialog] = useState(false);
+
+  function handlePaymentMethodsDialog() {
+    paymentMethodsDialong === true
+      ? setPaymentMethodsDialog(false)
+      : setPaymentMethodsDialog(true);
+  }
+  function handleDeliveryAddressesDialog() {
+    deliveryAddressesDialong === true
+      ? setDeliveryAddressesDialog(false)
+      : setDeliveryAddressesDialog(true);
+  }
+  function handlePasswordDialog() {
+    passwordDialong === true
+      ? setPasswordDialog(false)
+      : setPasswordDialog(true);
+  }
+  function handlePhoneNumberDialog() {
+    phoneNumberDialong === true
+      ? setPhoneNumberDialog(false)
+      : setPhoneNumberDialog(true);
+  }
 
   function setTab(tab) {
     setCurrentTab(tab);
@@ -173,43 +201,65 @@ const AccountPage = () => {
   }
 
   return (
-    <main className="w-[100vw] h-fit">
-      <div className="flex flex-col gap-x-7 w-full">
-        <div className="flex">
-          <div className="flex gap-x-6 ml-5 my-5">
-            <Avatar
-              src={userInfo.avatarUrl}
-              size="xxl"
-              className="hover:cursor-pointer"
-            />
-            <div className="flex flex-col">
-              <Typography variant="h4" className="font-lt">
-                {userInfo.name}
-              </Typography>
-              <Typography variant="h6" className="font-normal">
-                {userInfo.email}
-              </Typography>
-              <Typography
-                variant="h6"
-                className="font-semibold text-base"
-                id="member-title"
-              >
-                Shoe Store Member
-              </Typography>
+    <>
+      <Dialog open={paymentMethodsDialong}>
+        <DialogHeader></DialogHeader>
+        <DialogBody></DialogBody>
+        <DialogFooter></DialogFooter>
+      </Dialog>
+      <Dialog open={deliveryAddressesDialong}>
+        <DialogHeader></DialogHeader>
+        <DialogBody></DialogBody>
+        <DialogFooter></DialogFooter>
+      </Dialog>
+      <Dialog open={passwordDialong}>
+        <DialogHeader></DialogHeader>
+        <DialogBody></DialogBody>
+        <DialogFooter></DialogFooter>
+      </Dialog>
+      <Dialog open={phoneNumberDialong}>
+        <DialogHeader></DialogHeader>
+        <DialogBody></DialogBody>
+        <DialogFooter></DialogFooter>
+      </Dialog>
+      <main className="w-[100vw] h-fit">
+        <div className="flex flex-col gap-x-7 w-full">
+          <div className="flex">
+            <div className="flex gap-x-6 ml-5 my-5">
+              <Avatar
+                src={userInfo.avatarUrl}
+                size="xxl"
+                className="hover:cursor-pointer"
+              />
+              <div className="flex flex-col">
+                <Typography variant="h4" className="font-lt">
+                  {userInfo.name}
+                </Typography>
+                <Typography variant="h6" className="font-normal">
+                  {userInfo.email}
+                </Typography>
+                <Typography
+                  variant="h6"
+                  className="font-semibold text-base"
+                  id="member-title"
+                >
+                  Shoe Store Member
+                </Typography>
+              </div>
             </div>
           </div>
+          <div className="w-full flex flex-col gap-y-3">
+            <Typography variant="h4" className="font-lt ml-7">
+              Profile
+            </Typography>
+            <AccountTabs setTab={setTab} />
+          </div>
         </div>
-        <div className="w-full flex flex-col gap-y-3">
-          <Typography variant="h4" className="font-lt ml-7">
-            Profile
-          </Typography>
-          <AccountTabs setTab={setTab} />
+        <div className="w-full flex justify-center my-9 flex-wrap">
+          {accountTabsDisplay(currentTab)}
         </div>
-      </div>
-      <div className="w-full flex justify-center my-9 flex-wrap">
-        {accountTabsDisplay(currentTab)}
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 
