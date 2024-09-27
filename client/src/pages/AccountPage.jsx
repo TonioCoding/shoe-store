@@ -5,7 +5,8 @@ import {
   DialogBody,
   DialogFooter,
   DialogHeader,
-  Progress,
+  Spinner,
+  Tooltip,
   Typography,
 } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
@@ -24,6 +25,7 @@ import AddInterestCard from "../components/accountpage/AddInterestCard";
 import ShoeCard from "../components/ShoeCard";
 import InterestCard from "../components/accountpage/InterestCard";
 import { interestNameToImage } from "../assets/imgs/interests-imgs";
+import { GrPowerReset } from "react-icons/gr";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -202,12 +204,22 @@ const AccountPage = () => {
                 <div
                   className={
                     showSaveContainer === true
-                      ? "flex flex-col items-center gap-y-2"
+                      ? "flex items-center gap-x-2"
                       : "hidden"
                   }
                 >
-                  <Button color="green">Save</Button>
-                  <Progress value={100} color="green" />
+                  <Button color="green" className="rounded-full text-xs">
+                    Save
+                  </Button>
+                  <div className="flex items-center gap-x-5">
+                    <Tooltip
+                      content="Reset Account Details Value"
+                      placement="bottom"
+                    >
+                      <GrPowerReset className="w-6 h-6 hover:cursor-pointer" />
+                    </Tooltip>
+                    <Spinner className="w-6 h-6" color="green" />
+                  </div>
                 </div>
               </div>
             </IconContext.Provider>
