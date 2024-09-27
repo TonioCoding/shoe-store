@@ -9,12 +9,14 @@ import {
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { PropTypes } from "prop-types";
 
-function CountriesInput() {
+function CountriesInput(props) {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const { countries } = useCountries();
   const [country, setCountry] = useState(0);
   const { name, flags } = countries[country];
+  const handleLocationState = props.handleLocationState;
 
   useEffect(() => {
     for (let i = 0; i < countries.length; i++) {
@@ -49,7 +51,10 @@ function CountriesInput() {
                 key={name}
                 value={name}
                 className="flex items-center gap-2"
-                onClick={() => setCountry(index)}
+                onClick={() => {
+                  setCountry(index);
+                  handleLocationState(name);
+                }}
               >
                 <img
                   src={flags.svg}
@@ -77,5 +82,9 @@ function CountriesInput() {
     </div>
   );
 }
+
+CountriesInput.propTypes = {
+  handleLocationState: PropTypes.func,
+};
 
 export default CountriesInput;

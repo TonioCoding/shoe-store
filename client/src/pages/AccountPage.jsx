@@ -1,9 +1,11 @@
 import {
   Avatar,
+  Button,
   Dialog,
   DialogBody,
   DialogFooter,
   DialogHeader,
+  Progress,
   Typography,
 } from "@material-tailwind/react";
 import { useSelector } from "react-redux";
@@ -13,7 +15,7 @@ import AccountDetailsDisplay from "../components/accountpage/AccountDetailsDispl
 import PaymentMethodsDisplay from "../components/accountpage/PaymentMethodsDisplay";
 import DeliveryAddressesDisplay from "../components/accountpage/DeliveryAddressesDisplay";
 import EmailCommunicationPreferenceDisplay from "../components/accountpage/EmailCommunicationPreferenceDisplay";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { MdAccountBox, MdOutlinePayment } from "react-icons/md";
 import { FaBox } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
@@ -37,9 +39,14 @@ const AccountPage = () => {
   const [phoneNumberDialong, setPhoneNumberDialog] = useState(false);
   const [email, setEmail] = useState(userInfo.email);
   const [location, setLocation] = useState(userInfo.location);
+  const [showSaveContainer, setShowSaveContainer] = useState(false);
 
   function handleEmail(text) {
     setEmail(text);
+  }
+
+  function handleLocation(location) {
+    setLocation(location);
   }
 
   function handlePaymentMethodsDialog() {
@@ -75,6 +82,7 @@ const AccountPage = () => {
             passwordDialog={handlePasswordDialog}
             phoneNumberDialog={handlePhoneNumberDialog}
             emailState={handleEmail}
+            locationState={handleLocation}
           />
         );
       case "Payment Methods":
@@ -191,6 +199,16 @@ const AccountPage = () => {
                   <Typography>Email &#47; Communication Preferences</Typography>
                   <IoIosMail />
                 </div>
+                <div
+                  className={
+                    showSaveContainer === true
+                      ? "flex flex-col items-center gap-y-2"
+                      : "hidden"
+                  }
+                >
+                  <Button color="green">Save</Button>
+                  <Progress value={100} color="green" />
+                </div>
               </div>
             </IconContext.Provider>
             <div className="w-[25%]">{accountSettingsDisplay(settingsTab)}</div>
@@ -219,6 +237,19 @@ const AccountPage = () => {
         );
     }
   }
+
+  useEffect(() => {
+    if (email !== userInfo.email || location !== userInfo.location) {
+      setShowSaveContainer(true);
+    } else {
+      setShowSaveContainer(false);
+    }
+
+    if (email === "") {
+      setEmail(userInfo.email);
+      setShowSaveContainer(false);
+    }
+  }, [email, location, userInfo]);
 
   return (
     <>

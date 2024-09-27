@@ -8,6 +8,7 @@ const AccountDetailsDisplay = (props) => {
   const handlePasswordDialog = props.passwordDialog;
   const handlePhoneNumberDialog = props.phoneNumberDialog;
   const handleEmail = props.emailState;
+  const handleLocation = props.locationState;
 
   return (
     <div className="w-[75%] flex flex-col gap-y-8">
@@ -45,7 +46,7 @@ const AccountDetailsDisplay = (props) => {
       </div>
       <div className="flex flex-col gap-y-2">
         <Typography className="font-semibold">Location</Typography>
-        <CountriesInput />
+        <CountriesInput handleLocationState={handleLocation} />
       </div>
     </div>
   );
@@ -54,6 +55,7 @@ AccountDetailsDisplay.propTypes = {
   passwordDialog: PropTypes.func,
   phoneNumberDialog: PropTypes.func,
   emailState: PropTypes.func,
+  locationState: PropTypes.func,
 };
 
 export default AccountDetailsDisplay;
