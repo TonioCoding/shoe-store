@@ -64,11 +64,24 @@ const AccountPage = () => {
   function accountSettingsDisplay(state) {
     switch (state) {
       case "Account Details":
-        return <AccountDetailsDisplay />;
+        return (
+          <AccountDetailsDisplay
+            passwordDialong={handlePasswordDialog}
+            phoneNumberDialong={handlePhoneNumberDialog}
+          />
+        );
       case "Payment Methods":
-        return <PaymentMethodsDisplay />;
+        return (
+          <PaymentMethodsDisplay
+            paymentMethodsDialong={handlePaymentMethodsDialog}
+          />
+        );
       case "Delivery Addresses":
-        return <DeliveryAddressesDisplay />;
+        return (
+          <DeliveryAddressesDisplay
+            deliveryAddressesDialong={handleDeliveryAddressesDialog}
+          />
+        );
       case "Email / Communication Preferences":
         return <EmailCommunicationPreferenceDisplay />;
     }
