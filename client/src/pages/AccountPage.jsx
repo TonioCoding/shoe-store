@@ -26,6 +26,7 @@ import ShoeCard from "../components/ShoeCard";
 import InterestCard from "../components/accountpage/InterestCard";
 import { interestNameToImage } from "../assets/imgs/interests-imgs";
 import { GrPowerReset } from "react-icons/gr";
+import PhoneNumberDialog from "../components/accountpage/PhoneNumberDialog";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -280,11 +281,10 @@ const AccountPage = () => {
         <DialogBody></DialogBody>
         <DialogFooter></DialogFooter>
       </Dialog>
-      <Dialog open={phoneNumberDialong}>
-        <DialogHeader></DialogHeader>
-        <DialogBody></DialogBody>
-        <DialogFooter></DialogFooter>
-      </Dialog>
+      <PhoneNumberDialog
+        open={phoneNumberDialong}
+        handleDialog={handlePhoneNumberDialog}
+      />
       <main className="w-[100vw] h-fit">
         <div className="flex flex-col gap-x-7 w-full">
           <div className="flex">
