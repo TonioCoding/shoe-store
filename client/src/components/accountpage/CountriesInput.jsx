@@ -19,7 +19,6 @@ function CountriesInput() {
   useEffect(() => {
     for (let i = 0; i < countries.length; i++) {
       let countryName = countries[i].name;
-      console.log(countryName);
       if (countryName === userInfo.location) {
         setCountry(i);
       }
