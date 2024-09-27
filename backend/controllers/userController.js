@@ -32,6 +32,7 @@ const authUser = asyncHandler(async (req, res) => {
       avatarUrl: user.avatarUrl,
       interests: user.interests,
       cart: user.cart,
+      location: user.location,
     });
   } else {
     res.status(401);
