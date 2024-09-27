@@ -45,6 +45,7 @@ const userSchema = mongoose.Schema(
     location: {
       type: String,
       required: false,
+      default: "United States",
     },
     deliveryAddresses: {
       type: Array,

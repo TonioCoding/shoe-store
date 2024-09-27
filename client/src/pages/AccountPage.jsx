@@ -35,6 +35,12 @@ const AccountPage = () => {
     useState(false);
   const [passwordDialong, setPasswordDialog] = useState(false);
   const [phoneNumberDialong, setPhoneNumberDialog] = useState(false);
+  const [email, setEmail] = useState(userInfo.email);
+  const [location, setLocation] = useState(userInfo.location);
+
+  function handleEmail(text) {
+    setEmail(text);
+  }
 
   function handlePaymentMethodsDialog() {
     paymentMethodsDialong === true
@@ -68,6 +74,7 @@ const AccountPage = () => {
           <AccountDetailsDisplay
             passwordDialog={handlePasswordDialog}
             phoneNumberDialog={handlePhoneNumberDialog}
+            emailState={handleEmail}
           />
         );
       case "Payment Methods":

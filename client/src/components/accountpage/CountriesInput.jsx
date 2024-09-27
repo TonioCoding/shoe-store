@@ -7,12 +7,24 @@ import {
   MenuItem,
   Button,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 function CountriesInput() {
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const { countries } = useCountries();
   const [country, setCountry] = useState(0);
   const { name, flags } = countries[country];
+
+  useEffect(() => {
+    for (let i = 0; i < countries.length; i++) {
+      let countryName = countries[i].name;
+      console.log(countryName);
+      if (countryName === userInfo.location) {
+        setCountry(i);
+      }
+    }
+  }, []);
 
   return (
     <div className="relative flex w-full max-w-[24rem]">

@@ -7,14 +7,16 @@ const AccountDetailsDisplay = (props) => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const handlePasswordDialog = props.passwordDialog;
   const handlePhoneNumberDialog = props.phoneNumberDialog;
+  const handleEmail = props.emailState;
+
   return (
     <div className="w-[75%] flex flex-col gap-y-8">
       <Typography variant="h5" className="font-lt">
         Account Details
       </Typography>
       <Input
-        label="Email*"
-        value={userInfo.email}
+        onChange={(e) => handleEmail(e.target.value)}
+        label={userInfo.email}
         color="black"
         style={{ color: "black" }}
       />
@@ -51,6 +53,7 @@ const AccountDetailsDisplay = (props) => {
 AccountDetailsDisplay.propTypes = {
   passwordDialog: PropTypes.func,
   phoneNumberDialog: PropTypes.func,
+  emailState: PropTypes.func,
 };
 
 export default AccountDetailsDisplay;
