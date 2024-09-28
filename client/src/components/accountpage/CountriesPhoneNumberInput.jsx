@@ -54,10 +54,11 @@ const CountriesPhoneNumberInput = () => {
       </Menu>
       <Input
         type="tel"
-        placeholder="Mobile Number"
-        className="rounded-l-none !border-t-blue-gray-200 focus:!border-t-gray-900"
+        label="Country/Region"
+        placeholder="e.g. 124"
+        className="rounded-l-none !border-t-blue-gray-200 focus:!border-t-gray-900 w-[65%]"
         labelProps={{
-          className: "before:content-none after:content-none",
+          className: "before:content-none after:content-none !text-black ml-2",
         }}
         containerProps={{
           className: "min-w-0",

@@ -9,6 +9,7 @@ import {
 import PropTypes from "prop-types";
 import { VscChromeClose } from "react-icons/vsc";
 import CountriesPhoneNumberInput from "./CountriesPhoneNumberInput";
+import { IconContext } from "react-icons";
 
 const PhoneNumberDialog = (props) => {
   const handleDialog = props.handleDialog;
@@ -23,18 +24,27 @@ const PhoneNumberDialog = (props) => {
         <Typography variant="h5" className="font-lt text-black">
           Verify your mobile phone number
         </Typography>
-        <VscChromeClose
-          onClick={handleDialog}
-          className="cursor-pointer text-black"
-        />
+        <IconContext.Provider value={{ size: "2.4vw" }}>
+          <VscChromeClose
+            onClick={handleDialog}
+            className="cursor-pointer text-gray-800 bg-gray-200 rounded-full p-1"
+          />
+        </IconContext.Provider>
       </DialogHeader>
-      <DialogBody className="flex flex-col gap-y-3">
+      <DialogBody className="flex flex-col gap-y-3 items-center">
         <Typography color="black">
           We&#39;ll send you a secure&#44; one&#8208;time verification code&#46;
         </Typography>
-        <div className="flex flex-col md:flex-row w-full gap-y-3 justify-center">
+        <div className="flex flex-col w-fit gap-y-3 justify-center ">
           <CountriesPhoneNumberInput />
-          <Input className="min-w-[1%]" />
+          <input
+            className="border border-gray-500 rounded-2xl focus:border-red-500 w-[75%] px-1"
+            placeholder="e.g. 243678769*"
+          />
+          {/* <Input
+            className="max-w-[25%] !border"
+            containerProps={{ className: "!border-0" }}
+          /> */}
         </div>
         <Typography className="text-xs text-gray-600">
           &#42; indicates a required field
@@ -50,8 +60,11 @@ const PhoneNumberDialog = (props) => {
       </DialogBody>
       <DialogFooter className="flex items-center justify-center">
         <Typography className="text-gray-600">
-          Read Shoe Store&#39; <span className="underline">Privacy Policy</span>
-          &#46; and <span className="underline">Terms of Use</span>&#46;
+          Read Shoe Store&#39;{" "}
+          <span className="underline hover:cursor-pointer">Privacy Policy</span>
+          &#46; and{" "}
+          <span className="underline hover:cursor-pointer">Terms of Use</span>
+          &#46;
         </Typography>
       </DialogFooter>
     </Dialog>
