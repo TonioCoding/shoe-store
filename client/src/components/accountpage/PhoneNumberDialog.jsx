@@ -1,29 +1,18 @@
 import {
-  Card,
   Dialog,
   DialogBody,
   DialogFooter,
   DialogHeader,
-  Input,
-  List,
-  ListItem,
   Typography,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
 import { VscChromeClose } from "react-icons/vsc";
 import CountriesPhoneNumberInput from "./CountriesPhoneNumberInput";
 import { IconContext } from "react-icons";
-import { useState } from "react";
-import { useCountries } from "use-react-countries";
 
 const PhoneNumberDialog = (props) => {
   const handleDialog = props.handleDialog;
   const open = props.open;
-  const [showCountries, setShowCountries] = useState(true);
-  const { countries } = useCountries();
-  const [country, setCountry] = useState(0);
-  //const { name, flags, countryCallingCode } = countries[country];
-  console.log(countries);
 
   return (
     <Dialog
@@ -48,29 +37,7 @@ const PhoneNumberDialog = (props) => {
         </Typography>
         <div className="relative flex flex-col w-fit gap-y-3 self-center">
           <CountriesPhoneNumberInput />
-          {showCountries === true ? (
-            <Card className="absolute top-12 border border-black w-fit h-[250%] overscroll-contain overflow-y-scroll">
-              <List className="max-w-fit">
-                {countries.map(({ name, flags, countryCallingCode }, index) => {
-                  return (
-                    <ListItem
-                      onClick={() => {
-                        setCountry(index);
-                        setShowCountries(false);
-                      }}
-                      key={index}
-                      className="inline-flex justify-between items-center gap-x-2 w-full text-center"
-                    >
-                      <img src={flags.svg} className="w-6 h-7" />
-                      <Typography>{name}</Typography>
-                      <Typography>{countryCallingCode}</Typography>
-                    </ListItem>
-                  );
-                })}
-              </List>
-            </Card>
-          ) : null}
-          <input
+            <input
             className="border border-gray-500 rounded-2xl focus:border-red-500 w-[75%] px-1"
             placeholder="e.g. 243678769*"
           />

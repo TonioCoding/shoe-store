@@ -1,57 +1,64 @@
 import {
   Button,
+  Card,
   Input,
-  Menu,
-  MenuHandler,
-  MenuItem,
-  MenuList,
+  List,
+  ListItem,
+  Typography,
 } from "@material-tailwind/react";
-import React from "react";
+import { useState } from "react";
 import { useCountries } from "use-react-countries";
 
 const CountriesPhoneNumberInput = () => {
   const { countries } = useCountries();
-  const [country, setCountry] = React.useState(0);
+  const [country, setCountry] = useState(0);
   const { name, flags, countryCallingCode } = countries[country];
+  const [showCountriesList, setShowCountriesList] = useState(false);
 
+  function handleCountriesList() {
+    showCountriesList === false
+      ? setShowCountriesList(true)
+      : setShowCountriesList(false);
+  }
   return (
     <div className="relative flex w-full">
-      <Menu placement="bottom-start" open={false}>
-        <MenuHandler>
-          <Button
-            ripple={false}
-            variant="text"
-            color="blue-gray"
-            className="flex h-10 items-center gap-2 rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
-          >
-            <img
-              src={flags.svg}
-              alt={name}
-              className="h-4 w-4 rounded-full object-cover"
-            />
-            {countryCallingCode}
-          </Button>
-        </MenuHandler>
-        <MenuList className="max-h-[20rem] max-w-[18rem]">
-          {countries.map(({ name, flags, countryCallingCode }, index) => {
-            return (
-              <MenuItem
-                key={name}
-                value={name}
-                className="flex items-center gap-2"
-                onClick={() => setCountry(index)}
-              >
-                <img
-                  src={flags.svg}
-                  alt={name}
-                  className="h-5 w-5 rounded-full object-cover"
-                />
-                {name} <span className="ml-auto">{countryCallingCode}</span>
-              </MenuItem>
-            );
-          })}
-        </MenuList>
-      </Menu>
+      <Button
+        onClick={handleCountriesList}
+        ripple={false}
+        variant="text"
+        color="blue-gray"
+        className="flex h-10 items-center gap-2 rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
+      >
+        <img
+          src={flags.svg}
+          alt={name}
+          className="h-4 w-4 rounded-full object-cover"
+        />
+        {countryCallingCode}
+      </Button>
+
+      {showCountriesList === true ? (
+        <Card className="absolute top-12 border border-black w-fit h-[250%] overscroll-contain overflow-y-scroll">
+          <List className="max-w-fit">
+            {countries.map(({ name, flags, countryCallingCode }, index) => {
+              return (
+                <ListItem
+                  onClick={() => {
+                    setCountry(index);
+                    setShowCountriesList(false);
+                  }}
+                  key={index}
+                  className="inline-flex justify-between items-center gap-x-2 w-full text-center"
+                >
+                  <img src={flags.svg} className="w-6 h-7" />
+                  <Typography>{name}</Typography>
+                  <Typography>{countryCallingCode}</Typography>
+                </ListItem>
+              );
+            })}
+          </List>
+        </Card>
+      ) : null}
       <Input
         type="tel"
         label="Country/Region"
