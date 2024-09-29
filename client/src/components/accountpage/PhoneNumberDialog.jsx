@@ -1,4 +1,5 @@
 import {
+  Button,
   Dialog,
   DialogBody,
   DialogFooter,
@@ -37,14 +38,10 @@ const PhoneNumberDialog = (props) => {
         </Typography>
         <div className="relative flex flex-col w-fit gap-y-3 self-center">
           <CountriesPhoneNumberInput />
-            <input
+          <input
             className="border border-gray-500 rounded-2xl focus:border-red-500 w-[75%] px-1"
             placeholder="e.g. 243678769*"
           />
-          {/* <Input
-            className="max-w-[25%] !border"
-            containerProps={{ className: "!border-0" }}
-          /> */}
         </div>
         <Typography className="text-xs text-gray-600">
           &#42; indicates a required field
@@ -58,7 +55,7 @@ const PhoneNumberDialog = (props) => {
           </Typography>
         </div>
       </DialogBody>
-      <DialogFooter className="flex items-center justify-center">
+      <DialogFooter className="flex flex-col items-center justify-center">
         <Typography className="text-gray-600">
           Read Shoe Store&#39;{" "}
           <span className="underline hover:cursor-pointer">Privacy Policy</span>
@@ -66,6 +63,9 @@ const PhoneNumberDialog = (props) => {
           <span className="underline hover:cursor-pointer">Terms of Use</span>
           &#46;
         </Typography>
+        <Button className="rounded-full self-end my-4 bg-gray-400 text-gray-700">
+          Send Code
+        </Button>
       </DialogFooter>
     </Dialog>
   );
