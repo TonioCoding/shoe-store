@@ -25,7 +25,7 @@ const PhoneNumberDialog = (props) => {
         <Typography variant="h5" className="font-lt text-black">
           Verify your mobile phone number
         </Typography>
-        <IconContext.Provider value={{ size: "2.4vw" }}>
+        <IconContext.Provider value={{ size: "2rem" }}>
           <VscChromeClose
             onClick={handleDialog}
             className="cursor-pointer text-gray-800 bg-gray-200 rounded-full p-1"
