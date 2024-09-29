@@ -16,7 +16,7 @@ const CountriesPhoneNumberInput = () => {
 
   return (
     <div className="relative flex w-full">
-      <Menu placement="bottom-start">
+      <Menu placement="bottom-start" open={false}>
         <MenuHandler>
           <Button
             ripple={false}
