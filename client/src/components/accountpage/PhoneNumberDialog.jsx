@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { VscChromeClose } from "react-icons/vsc";
 import CountriesPhoneNumberInput from "./CountriesPhoneNumberInput";
 import { IconContext } from "react-icons";
-
+// add functionality for inputs
 const PhoneNumberDialog = (props) => {
   const handleDialog = props.handleDialog;
   const open = props.open;
