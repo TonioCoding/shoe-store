@@ -14,18 +14,47 @@ const PasswordDialog = (props) => {
   const open = props.open;
   const handleDialog = props.handleDialog;
   return (
-    <Dialog open={open}>
+    <Dialog open={open} size="xs">
       <DialogHeader className="flex justify-between">
-        <Typography>Edit Password</Typography>
+        <Typography className="font-lt" variant="h5">
+          Edit Password
+        </Typography>
         <VscChromeClose
           onClick={handleDialog}
           className="cursor-pointer text-gray-800 bg-gray-200 rounded-full p-1"
         />
       </DialogHeader>
       <DialogBody className="flex flex-col gap-y-8">
-        <Input className="" label="Current Password*"></Input>
-        <Input className="" label="New Password*"></Input>
-        <Input className="" label="Confirm New Password*"></Input>
+        <Input
+          label="Current Password*"
+          type="password"
+          placeholder="Current Password*"
+          className="!border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+          labelProps={{
+            className: "hidden",
+          }}
+          containerProps={{ className: "min-w-[100px]" }}
+        />
+        <Input
+          label="New Password*"
+          type="password"
+          placeholder="New Password*"
+          className="!border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+          labelProps={{
+            className: "hidden",
+          }}
+          containerProps={{ className: "min-w-[100px]" }}
+        />
+        <Input
+          label="Confirm New Password*"
+          type="password"
+          placeholder="Confirm New Password*"
+          className="!border !border-gray-300 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+          labelProps={{
+            className: "hidden",
+          }}
+          containerProps={{ className: "min-w-[100px]" }}
+        />
       </DialogBody>
       <DialogFooter className="flex justify-end">
         <Button className="rounded-full self-end my-4 bg-gray-400 text-gray-700">
