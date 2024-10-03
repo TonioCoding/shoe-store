@@ -28,6 +28,7 @@ import { interestNameToImage } from "../assets/imgs/interests-imgs";
 import { GrPowerReset } from "react-icons/gr";
 import PhoneNumberDialog from "../components/accountpage/PhoneNumberDialog";
 import PasswordDialog from "../components/accountpage/PasswordDialog";
+import PaymentMethodsDialog from "../components/accountpage/PaymentMethodsDialog";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -36,11 +37,10 @@ const AccountPage = () => {
   );
   const [currentTab, setCurrentTab] = useState("orders");
   const [settingsTab, setSettingsTab] = useState("Account Details");
-  const [paymentMethodsDialong, setPaymentMethodsDialog] = useState(false);
-  const [deliveryAddressesDialong, setDeliveryAddressesDialog] =
-    useState(false);
-  const [passwordDialong, setPasswordDialog] = useState(false);
-  const [phoneNumberDialong, setPhoneNumberDialog] = useState(false);
+  const [paymentMethodsDialog, setPaymentMethodsDialog] = useState(false);
+  const [deliveryAddressesDialog, setDeliveryAddressesDialog] = useState(false);
+  const [passwordDialog, setPasswordDialog] = useState(false);
+  const [phoneNumberDialog, setPhoneNumberDialog] = useState(false);
   const [email, setEmail] = useState(userInfo.email);
   const [location, setLocation] = useState(userInfo.location);
   const [showSaveContainer, setShowSaveContainer] = useState(false);
@@ -54,22 +54,22 @@ const AccountPage = () => {
   }
 
   function handlePaymentMethodsDialog() {
-    paymentMethodsDialong === true
+    paymentMethodsDialog === true
       ? setPaymentMethodsDialog(false)
       : setPaymentMethodsDialog(true);
   }
   function handleDeliveryAddressesDialog() {
-    deliveryAddressesDialong === true
+    deliveryAddressesDialog === true
       ? setDeliveryAddressesDialog(false)
       : setDeliveryAddressesDialog(true);
   }
   function handlePasswordDialog() {
-    passwordDialong === true
+    passwordDialog === true
       ? setPasswordDialog(false)
       : setPasswordDialog(true);
   }
   function handlePhoneNumberDialog() {
-    phoneNumberDialong === true
+    phoneNumberDialog === true
       ? setPhoneNumberDialog(false)
       : setPhoneNumberDialog(true);
   }
@@ -267,22 +267,21 @@ const AccountPage = () => {
 
   return (
     <>
-      <Dialog open={paymentMethodsDialong}>
+      <Dialog open={deliveryAddressesDialog}>
         <DialogHeader></DialogHeader>
         <DialogBody></DialogBody>
         <DialogFooter></DialogFooter>
       </Dialog>
-      <Dialog open={deliveryAddressesDialong}>
-        <DialogHeader></DialogHeader>
-        <DialogBody></DialogBody>
-        <DialogFooter></DialogFooter>
-      </Dialog>
+      <PaymentMethodsDialog
+        open={paymentMethodsDialog}
+        handleDialog={handlePaymentMethodsDialog}
+      />
       <PasswordDialog
-        open={passwordDialong}
+        open={passwordDialog}
         handleDialog={handlePasswordDialog}
       />
       <PhoneNumberDialog
-        open={phoneNumberDialong}
+        open={phoneNumberDialog}
         handleDialog={handlePhoneNumberDialog}
       />
       <main className="w-[100vw] h-fit">
