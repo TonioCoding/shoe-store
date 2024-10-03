@@ -162,7 +162,7 @@ const AccountPage = () => {
         return (
           <div className="flex-col md:flex-row flex gap-x-[12%] w-full justify-start mx-5 ml-[4.2rem]">
             <IconContext.Provider value={{ size: "1.6vw" }}>
-              <div className="[&>*]:m-3 [&>*]:justify-between">
+              <div className="[&>*]:m-3">
                 <div
                   className="flex items-center gap-x-4 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
                   id="Account Details"
@@ -170,8 +170,8 @@ const AccountPage = () => {
                     setSettingsTab(e.currentTarget.id);
                   }}
                 >
-                  <Typography>Account Details</Typography>
                   <MdAccountBox />
+                  <Typography>Account Details</Typography>
                 </div>
                 <div
                   className="flex items-center gap-x-4 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
@@ -180,8 +180,8 @@ const AccountPage = () => {
                     setSettingsTab(e.currentTarget.id);
                   }}
                 >
-                  <Typography>Payment Methods</Typography>
                   <MdOutlinePayment />
+                  <Typography>Payment Methods</Typography>
                 </div>
                 <div
                   className="flex items-center gap-x-4 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
@@ -190,8 +190,8 @@ const AccountPage = () => {
                     setSettingsTab(e.currentTarget.id);
                   }}
                 >
-                  <Typography>Delivery Addresses</Typography>
                   <FaBox />
+                  <Typography>Delivery Addresses</Typography>
                 </div>
                 <div
                   className="flex items-center gap-x-4 hover:cursor-pointer hover:text-gray-600 transition-all ease-in duration-300"
@@ -200,8 +200,8 @@ const AccountPage = () => {
                     setSettingsTab(e.currentTarget.id);
                   }}
                 >
-                  <Typography>Email &#47; Communication Preferences</Typography>
                   <IoIosMail />
+                  <Typography>Email &#47; Communication Preferences</Typography>
                 </div>
                 <div
                   className={
