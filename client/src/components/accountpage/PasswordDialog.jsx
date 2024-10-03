@@ -9,6 +9,7 @@ import {
 } from "@material-tailwind/react";
 import { VscChromeClose } from "react-icons/vsc";
 import PropTypes from "prop-types";
+import { IconContext } from "react-icons";
 
 const PasswordDialog = (props) => {
   const open = props.open;
@@ -19,10 +20,12 @@ const PasswordDialog = (props) => {
         <Typography className="font-lt" variant="h5">
           Edit Password
         </Typography>
-        <VscChromeClose
-          onClick={handleDialog}
-          className="cursor-pointer text-gray-800 bg-gray-200 rounded-full p-1"
-        />
+        <IconContext.Provider value={{ size: "2rem" }}>
+          <VscChromeClose
+            onClick={handleDialog}
+            className="cursor-pointer text-gray-800 bg-gray-200 rounded-full p-1"
+          />
+        </IconContext.Provider>
       </DialogHeader>
       <DialogBody className="flex flex-col gap-y-8">
         <Input
