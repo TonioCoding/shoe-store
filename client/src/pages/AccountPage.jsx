@@ -27,6 +27,7 @@ import InterestCard from "../components/accountpage/InterestCard";
 import { interestNameToImage } from "../assets/imgs/interests-imgs";
 import { GrPowerReset } from "react-icons/gr";
 import PhoneNumberDialog from "../components/accountpage/PhoneNumberDialog";
+import PasswordDialog from "../components/accountpage/PasswordDialog";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -276,11 +277,10 @@ const AccountPage = () => {
         <DialogBody></DialogBody>
         <DialogFooter></DialogFooter>
       </Dialog>
-      <Dialog open={passwordDialong}>
-        <DialogHeader></DialogHeader>
-        <DialogBody></DialogBody>
-        <DialogFooter></DialogFooter>
-      </Dialog>
+      <PasswordDialog
+        open={passwordDialong}
+        handleDialog={handlePasswordDialog}
+      />
       <PhoneNumberDialog
         open={phoneNumberDialong}
         handleDialog={handlePhoneNumberDialog}
