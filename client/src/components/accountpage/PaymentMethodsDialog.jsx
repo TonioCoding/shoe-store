@@ -16,8 +16,12 @@ const PaymentMethodsDialog = (props) => {
   const open = props.open;
 
   return (
-    <Dialog open={open} size="xs">
-      <DialogHeader className="flex justify-between">
+    <Dialog
+      open={open}
+      size="xs"
+      className="h-fit overscroll-contain overflow-y-auto"
+    >
+      <DialogHeader className="flex justify-between relative">
         <Typography className="font-lt" variant="h5" color="black">
           Add Payment Method
         </Typography>
@@ -78,8 +82,8 @@ const PaymentMethodsDialog = (props) => {
           </div>
         </div>
       </DialogBody>
-      <DialogFooter>
-        <Button className="rounded-full self-end my-4 bg-gray-400 text-gray-700">
+      <DialogFooter className="p-0">
+        <Button className="rounded-full self-end my-4 bg-gray-400 text-gray-700 mr-5">
           Save
         </Button>
       </DialogFooter>
