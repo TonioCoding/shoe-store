@@ -1,10 +1,6 @@
 import {
   Avatar,
   Button,
-  Dialog,
-  DialogBody,
-  DialogFooter,
-  DialogHeader,
   Spinner,
   Tooltip,
   Typography,
@@ -29,6 +25,7 @@ import { GrPowerReset } from "react-icons/gr";
 import PhoneNumberDialog from "../components/accountpage/PhoneNumberDialog";
 import PasswordDialog from "../components/accountpage/PasswordDialog";
 import PaymentMethodsDialog from "../components/accountpage/PaymentMethodsDialog";
+import DeliveryAddressesDialog from "../components/accountpage/DeliveryAddressesDialog";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -267,11 +264,10 @@ const AccountPage = () => {
 
   return (
     <>
-      <Dialog open={deliveryAddressesDialog}>
-        <DialogHeader></DialogHeader>
-        <DialogBody></DialogBody>
-        <DialogFooter></DialogFooter>
-      </Dialog>
+      <DeliveryAddressesDialog
+        open={deliveryAddressesDialog}
+        handleDialog={handleDeliveryAddressesDialog}
+      />
       <PaymentMethodsDialog
         open={paymentMethodsDialog}
         handleDialog={handlePaymentMethodsDialog}
