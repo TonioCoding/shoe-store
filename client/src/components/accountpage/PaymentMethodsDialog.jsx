@@ -31,9 +31,16 @@ const PaymentMethodsDialog = (props) => {
       <DialogBody>
         <div className="flex flex-col gap-y-4 border p-4 border-gray-300">
           <Input
-            label="Current Password*"
-            type="password"
-            placeholder="Current Password*"
+            type="number"
+            placeholder="Card Number"
+            className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+            labelProps={{
+              className: "hidden",
+            }}
+            containerProps={{ className: "min-w-[100px]" }}
+          />
+          <Input
+            type="month"
             className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
             labelProps={{
               className: "hidden",
@@ -42,18 +49,8 @@ const PaymentMethodsDialog = (props) => {
           />
           <Input
             label="Current Password*"
-            type="password"
-            placeholder="Current Password*"
-            className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-            labelProps={{
-              className: "hidden",
-            }}
-            containerProps={{ className: "min-w-[100px]" }}
-          />
-          <Input
-            label="Current Password*"
-            type="password"
-            placeholder="Current Password*"
+            type="number"
+            placeholder="CVV"
             className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
             labelProps={{
               className: "hidden",
