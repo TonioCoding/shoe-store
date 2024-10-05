@@ -10,6 +10,11 @@ import {
   addToFavorites,
   addInterests,
   deleteInterest,
+  editLocation,
+  addPaymentMethod,
+  deletePhoneNumber,
+  addDeliveryAddress,
+  deleteDeliveryAddress,
 } from "../controllers/userController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
@@ -21,6 +26,14 @@ router.post("/addInterests", addInterests);
 router.post("/deleteInterest", deleteInterest);
 
 router.post("/fav", [protect, addToFavorites]);
+
+router.post("/addPaymentMethod", [protect, addPaymentMethod]);
+router.post("/deletePaymentMethod", [protect, deletePhoneNumber]);
+
+router.post("/addDeliveryAddress", [protect, addDeliveryAddress]);
+router.post("/deleteDeliveryAddress", [protect, deleteDeliveryAddress]);
+
+router.patch("/editLocation", [protect, editLocation]);
 
 router
   .route("/profile")

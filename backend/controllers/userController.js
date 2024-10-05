@@ -243,4 +243,11 @@ export {
   addToFavorites,
   addInterests,
   deleteInterest,
+  addPhoneNumber,
+  deletePhoneNumber,
+  editLocation,
+  addPaymentMethod,
+  deletePaymentMethod,
+  addDeliveryAddress,
+  deleteDeliveryAddress,
 };
