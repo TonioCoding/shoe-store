@@ -92,7 +92,7 @@ const userSchema = mongoose.Schema(
       type: Array,
       required: false,
     },
-    phoneNumber: {
+    phoneNumbers: {
       type: Array,
       required: false,
     },

@@ -15,6 +15,8 @@ import {
   deletePhoneNumber,
   addDeliveryAddress,
   deleteDeliveryAddress,
+  deletePaymentMethod,
+  addPhoneNumber,
 } from "../controllers/userController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
@@ -28,7 +30,10 @@ router.post("/deleteInterest", deleteInterest);
 router.post("/fav", [protect, addToFavorites]);
 
 router.post("/addPaymentMethod", [protect, addPaymentMethod]);
-router.post("/deletePaymentMethod", [protect, deletePhoneNumber]);
+router.post("/deletePaymentMethod", [protect, deletePaymentMethod]);
+
+router.post("/addPhoneNumber", [protect, addPhoneNumber]);
+router.post("/deletePhoneNumber", [protect, deletePhoneNumber]);
 
 router.post("/addDeliveryAddress", [protect, addDeliveryAddress]);
 router.post("/deleteDeliveryAddress", [protect, deleteDeliveryAddress]);
