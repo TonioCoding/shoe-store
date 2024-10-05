@@ -240,7 +240,26 @@ const addPhoneNumber = asyncHandler(async (req, res) => {
     res.status(500).json("No phone number provided");
   }
 });
-const deletePhoneNumber = asyncHandler(async (req, res) => {});
+
+const deletePhoneNumber = asyncHandler(async (req, res) => {
+  const id = req.body.userId;
+  const phoneNumber = req.body.phoneNumber;
+
+  const user = await User.findOne({ _id: id });
+
+  if (user && phoneNumber) {
+    let currentPhoneNumbers = [...user.phoneNumbers];
+    user.phoneNumbers = currentPhoneNumbers.filter(
+      (number) => number !== phoneNumber
+    );
+    user.save();
+    res.status(200).json(user);
+  } else if (!user) {
+    res.status(500).json("User not found");
+  } else if (!phoneNumber) {
+    res.status(500).json("No phone number provided");
+  }
+});
 
 const editLocation = asyncHandler(async (req, res) => {});
 
