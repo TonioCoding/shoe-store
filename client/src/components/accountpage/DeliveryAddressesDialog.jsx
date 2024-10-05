@@ -19,9 +19,9 @@ const DeliveryAddressesDialog = (props) => {
     <Dialog
       open={open}
       size="xs"
-      className="h-[65vh] overscroll-contain overflow-y-scroll"
+      className="h-[65vh] overscroll-contain overflow-y-scroll px-5"
     >
-      <DialogHeader>
+      <DialogHeader className="flex justify-between">
         <Typography className="font-lt" variant="h5" color="black">
           Add Address
         </Typography>
@@ -32,34 +32,26 @@ const DeliveryAddressesDialog = (props) => {
           />
         </IconContext.Provider>
       </DialogHeader>
-      <DialogBody>
-        <div className="w-full flex">
-          <Input
+      <DialogBody className="flex flex-col gap-y-5 items-center">
+        <div className="flex flex-col gap-y-4 items-center sm:flex-row gap-x-5 justify-center">
+          <input
             label="Current Password*"
-            type="number"
-            placeholder="CVV"
-            className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-            labelProps={{
-              className: "hidden",
-            }}
-            containerProps={{ className: "max-w-[20%]" }}
+            type="text"
+            placeholder="First Name*"
+            className="min-w-[150px] w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 placeholder:text-sm focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
-          <Input
+          <input
             label="Current Password*"
-            type="number"
-            placeholder="CVV"
-            className="w-[50%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-            labelProps={{
-              className: "hidden",
-            }}
-            containerProps={{ className: "min-w-[100px]" }}
+            type="text"
+            placeholder="Last Name*"
+            className="min-w-[150px] w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 placeholder:text-sm focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
         </div>
         <Input
           label="Current Password*"
-          type="number"
-          placeholder="CVV"
-          className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+          type="text"
+          placeholder="Street Address*"
+          className="self-center !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
           labelProps={{
             className: "hidden",
           }}
@@ -68,75 +60,59 @@ const DeliveryAddressesDialog = (props) => {
         <Input
           label="Current Password*"
           type="number"
-          placeholder="CVV"
+          placeholder="Apt, Suite, Building"
           className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
           labelProps={{
             className: "hidden",
           }}
           containerProps={{ className: "min-w-[100px]" }}
         />
-        <div className="">
-          <Input
+        <div className="flex flex-col gap-y-4 items-center sm:flex-row gap-x-5 justify-center">
+          <input
             label="Current Password*"
             type="number"
-            placeholder="CVV"
-            className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-            labelProps={{
-              className: "hidden",
-            }}
-            containerProps={{ className: "min-w-[100px]" }}
+            placeholder="City*"
+            className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
-          <Input
+          <input
             label="Current Password*"
             type="number"
-            placeholder="CVV"
-            className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-            labelProps={{
-              className: "hidden",
-            }}
-            containerProps={{ className: "min-w-[100px]" }}
+            placeholder="Zip*"
+            className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
         </div>
-        <div className="">
-          <Input
+        <div className="flex flex-col gap-y-4 items-center sm:flex-row gap-x-5 justify-center">
+          <input
             label="Current Password*"
             type="number"
-            placeholder="CVV"
-            className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-            labelProps={{
-              className: "hidden",
-            }}
-            containerProps={{ className: "min-w-[100px]" }}
+            placeholder="State*"
+            className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
-          <Input
+          <input
             label="Current Password*"
             type="number"
-            placeholder="CVV"
-            className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-            labelProps={{
-              className: "hidden",
-            }}
-            containerProps={{ className: "min-w-[100px]" }}
+            placeholder="Country/Region*"
+            className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
         </div>
         <Input
           label="Current Password*"
           type="number"
-          placeholder="CVV"
+          placeholder="Phone Number*"
           className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
           labelProps={{
             className: "hidden",
           }}
           containerProps={{ className: "min-w-[100px]" }}
         />
-        <div className="flex gap-x-3">
+        <div className="flex gap-x-3 self-start">
           <input type="checkbox" />
           <Typography className="font-rt text-black text-base">
-            Set as default payment method
+            Set as default shipping address
           </Typography>
         </div>
       </DialogBody>
-      <DialogFooter>
+      <DialogFooter className="p-0">
         <Button className="rounded-full self-end my-4 bg-gray-400 text-gray-700 mr-5">
           Save
         </Button>
