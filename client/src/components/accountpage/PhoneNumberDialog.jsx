@@ -39,7 +39,7 @@ const PhoneNumberDialog = (props) => {
         <div className="relative flex flex-col w-fit gap-y-3 self-center">
           <CountriesPhoneNumberInput />
           <input
-            className="border border-gray-500 rounded-2xl focus:border-red-500 w-[75%] px-1"
+            className="border border-gray-500 rounded-2xl focus:border-red-500 w-[75%] px-1 caret-black"
             placeholder="e.g. 243678769*"
           />
         </div>
