@@ -230,7 +230,12 @@ const addPhoneNumber = asyncHandler(async (req, res) => {
   const user = await User.findOne({ _id: id });
 
   if (user && phoneNumber) {
-    let currentPhoneNumbers = user.phoneNumbers;
+    let currentPhoneNumbers = [...user.phoneNumbers];
+    if (currentPhoneNumbers.includes(phoneNumber)) {
+      res.status(400).json("Already added number");
+      return;
+    }
+
     user.phoneNumbers = [...currentPhoneNumbers, phoneNumber];
     user.save();
     res.status(200).json(user);
