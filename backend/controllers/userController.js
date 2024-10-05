@@ -223,6 +223,17 @@ const deleteInterest = asyncHandler(async (req, res) => {
   }
 });
 
+const addPhoneNumber = asyncHandler(async (req, res) => {});
+const deletePhoneNumber = asyncHandler(async (req, res) => {});
+
+const editLocation = asyncHandler(async (req, res) => {});
+
+const addPaymentMethod = asyncHandler(async (req, res) => {});
+const deletePaymentMethod = asyncHandler(async (req, res) => {});
+
+const addDeliveryAddress = asyncHandler(async (req, res) => {});
+const deleteDeliveryAddress = asyncHandler(async (req, res) => {});
+
 export {
   authUser,
   createUser,
