@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import User from "../models/userModel.js";
 import createToken from "../utils/createToken.js";
+import mongoose from "mongoose";
 
 const availableInterests = [
   "Basketball",
@@ -283,8 +284,54 @@ const editLocation = asyncHandler(async (req, res) => {
   }
 });
 
-const addPaymentMethod = asyncHandler(async (req, res) => {});
-const deletePaymentMethod = asyncHandler(async (req, res) => {});
+const addPaymentMethod = asyncHandler(async (req, res) => {
+  const id = req.body.userId;
+  const paymentMethod = req.body.paymentMethod;
+
+  const user = await User.findOne({ _id: id });
+
+  if (user && paymentMethod) {
+    const currentPaymentMethods = [...user.paymentMethods];
+    currentPaymentMethods.push(paymentMethod);
+
+    user.paymentMethods = currentPaymentMethods;
+    user.save();
+
+    res.status(200).json(user);
+  } else if (!user) {
+    res.status(500).json("No user found");
+  } else if (!paymentMethod) {
+    res.status(400).json("No payment method provided");
+  }
+});
+
+const deletePaymentMethod = asyncHandler(async (req, res) => {
+  const id = req.body.userId;
+  const paymentMethodId = req.body.paymentMethodId;
+
+  const user = await User.findOne({ _id: id });
+
+  if (user && paymentMethodId) {
+    const currentPaymentMethods = [...user.paymentMethods];
+    let newPaymentMethods = [];
+    currentPaymentMethods.filter((paymentMethod) => {
+      const objectId = new mongoose.Types.ObjectId(paymentMethod._id);
+
+      if (objectId.toString() !== paymentMethodId) {
+        ans.push(paymentMethod);
+      }
+    });
+
+    user.paymentMethods = newPaymentMethods;
+    user.save();
+
+    res.status(200).json(user);
+  } else if (!user) {
+    res.status(500).json("No user found");
+  } else if (!paymentMethodId) {
+    res.status(400).json("No payment method id provided");
+  }
+});
 
 const addDeliveryAddress = asyncHandler(async (req, res) => {});
 const deleteDeliveryAddress = asyncHandler(async (req, res) => {});
