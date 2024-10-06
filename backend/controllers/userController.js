@@ -333,8 +333,53 @@ const deletePaymentMethod = asyncHandler(async (req, res) => {
   }
 });
 
-const addDeliveryAddress = asyncHandler(async (req, res) => {});
-const deleteDeliveryAddress = asyncHandler(async (req, res) => {});
+const addDeliveryAddress = asyncHandler(async (req, res) => {
+  const id = req.body.userId;
+  const deliveryAddress = req.body.deliveryAddress;
+  const user = await User.findOne({ _id: id });
+
+  if (user && deliveryAddress) {
+    const currentDeliveryAddresses = [...user.deliveryAddresses];
+    currentDeliveryAddresses.push(deliveryAddress);
+
+    user.deliveryAddresses = currentDeliveryAddresses;
+    user.save();
+
+    res.status(200).json(user);
+  } else if (!user) {
+    res.status(500).json("No user found");
+  } else if (!deliveryAddress) {
+    res.status(400).json("No address provided");
+  }
+});
+
+const deleteDeliveryAddress = asyncHandler(async (req, res) => {
+  const id = req.body.userId;
+  const deliveryAddresId = req.body.deliveryAddressId;
+
+  const user = await User.findOne({ _id: id });
+
+  if (user && deliveryAddresId) {
+    const currentDeliveryAddresses = [...user.deliveryAddresses];
+    let newAddresses = [];
+    currentDeliveryAddresses.filter((address) => {
+      const objectId = new mongoose.Types.ObjectId(address._id);
+
+      if (objectId.toString() !== deliveryAddresId) {
+        newAddresses.push(address);
+      }
+    });
+
+    user.deliveryAddresses = newAddresses;
+    user.save();
+
+    res.status(200).json(user);
+  } else if (!user) {
+    res.status(500).json("No user found");
+  } else if (!deliveryAddresId) {
+    res.status(400).json("No payment address id provided");
+  }
+});
 
 export {
   authUser,
