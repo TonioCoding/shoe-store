@@ -266,7 +266,22 @@ const deletePhoneNumber = asyncHandler(async (req, res) => {
   }
 });
 
-const editLocation = asyncHandler(async (req, res) => {});
+const editLocation = asyncHandler(async (req, res) => {
+  const id = req.body.userId;
+  const location = req.body.location;
+
+  const user = await User.findOne({ _id: id });
+
+  if (user && location) {
+    user.location = location;
+    user.save();
+    res.status(200).json(user);
+  } else if (!user) {
+    res.status(500).json("User not found");
+  } else if (!location) {
+    res.status(400).json("Location not provided");
+  }
+});
 
 const addPaymentMethod = asyncHandler(async (req, res) => {});
 const deletePaymentMethod = asyncHandler(async (req, res) => {});
