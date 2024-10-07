@@ -41,6 +41,14 @@ const AccountPage = () => {
   const [email, setEmail] = useState(userInfo.email);
   const [location, setLocation] = useState(userInfo.location);
   const [showSaveContainer, setShowSaveContainer] = useState(false);
+  //declare all api calls below
+  async function changeEmailandLocation() {}
+
+  async function changePassword() {}
+
+  async function addPaymentMethod() {}
+
+  async function addDeliveryAddress() {}
 
   function handleEmail(text) {
     setEmail(text);
