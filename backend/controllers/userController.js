@@ -128,6 +128,9 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       name: updatedUser.name,
       email: updatedUser.email,
       location: updatedUser.location,
+      avatarUrl: updatedUser.avatarUrl,
+      favorites: updatedUser.favorites,
+      interests: updatedUser.interests,
     });
   } else {
     res.status(404);
@@ -241,7 +244,15 @@ const addPhoneNumber = asyncHandler(async (req, res) => {
 
     user.phoneNumbers = [...currentPhoneNumbers, phoneNumber];
     user.save();
-    res.status(200).json(user);
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      location: user.location,
+      avatarUrl: user.avatarUrl,
+      favorites: user.favorites,
+      interests: user.interests,
+    });
   } else if (!user) {
     res.status(500).json("User not found");
   } else if (!phoneNumber) {
@@ -261,7 +272,15 @@ const deletePhoneNumber = asyncHandler(async (req, res) => {
       (number) => number !== phoneNumber
     );
     user.save();
-    res.status(200).json(user);
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      location: user.location,
+      avatarUrl: user.avatarUrl,
+      favorites: user.favorites,
+      interests: user.interests,
+    });
   } else if (!user) {
     res.status(500).json("User not found");
   } else if (!phoneNumber) {
@@ -278,7 +297,15 @@ const editLocation = asyncHandler(async (req, res) => {
   if (user && location) {
     user.location = location;
     user.save();
-    res.status(200).json(user);
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      location: user.location,
+      avatarUrl: user.avatarUrl,
+      favorites: user.favorites,
+      interests: user.interests,
+    });
   } else if (!user) {
     res.status(500).json("User not found");
   } else if (!location) {
@@ -299,7 +326,15 @@ const addPaymentMethod = asyncHandler(async (req, res) => {
     user.paymentMethods = currentPaymentMethods;
     user.save();
 
-    res.status(200).json(user);
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      location: user.location,
+      avatarUrl: user.avatarUrl,
+      favorites: user.favorites,
+      interests: user.interests,
+    });
   } else if (!user) {
     res.status(500).json("No user found");
   } else if (!paymentMethod) {
@@ -327,7 +362,15 @@ const deletePaymentMethod = asyncHandler(async (req, res) => {
     user.paymentMethods = newPaymentMethods;
     user.save();
 
-    res.status(200).json(user);
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      location: user.location,
+      avatarUrl: user.avatarUrl,
+      favorites: user.favorites,
+      interests: user.interests,
+    });
   } else if (!user) {
     res.status(500).json("No user found");
   } else if (!paymentMethodId) {
@@ -347,7 +390,15 @@ const addDeliveryAddress = asyncHandler(async (req, res) => {
     user.deliveryAddresses = currentDeliveryAddresses;
     user.save();
 
-    res.status(200).json(user);
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      location: user.location,
+      avatarUrl: user.avatarUrl,
+      favorites: user.favorites,
+      interests: user.interests,
+    });
   } else if (!user) {
     res.status(500).json("No user found");
   } else if (!deliveryAddress) {
@@ -375,7 +426,15 @@ const deleteDeliveryAddress = asyncHandler(async (req, res) => {
     user.deliveryAddresses = newAddresses;
     user.save();
 
-    res.status(200).json(user);
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      location: user.location,
+      avatarUrl: user.avatarUrl,
+      favorites: user.favorites,
+      interests: user.interests,
+    });
   } else if (!user) {
     res.status(500).json("No user found");
   } else if (!deliveryAddresId) {
