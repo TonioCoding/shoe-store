@@ -17,6 +17,7 @@ import {
   deleteDeliveryAddress,
   deletePaymentMethod,
   addPhoneNumber,
+  validatePassword,
 } from "../controllers/userController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
@@ -39,6 +40,8 @@ router.post("/addDeliveryAddress", [protect, addDeliveryAddress]);
 router.post("/deleteDeliveryAddress", [protect, deleteDeliveryAddress]);
 
 router.patch("/editLocation", [protect, editLocation]);
+
+router.get("/validatePassword", [protect, validatePassword]);
 
 router
   .route("/profile")

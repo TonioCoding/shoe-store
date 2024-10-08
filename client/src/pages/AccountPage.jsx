@@ -103,7 +103,28 @@ const AccountPage = () => {
     }
   }
 
-  async function changePassword() {}
+  async function changePassword(newPassword) {
+    if (newPassword) {
+      try {
+        const req = fetch("/api/v1/users/profile", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ password: newPassword }),
+        });
+
+        const res = (await req)
+          .json()
+          .then((data) => dispatch(setCredentials(data)))
+          .then(toast.success("Password updated"));
+      } catch (error) {
+        toast.error(error);
+      }
+    } else {
+      toast.error("No password was given to submit");
+    }
+  }
 
   async function addPaymentMethod() {}
 
@@ -347,6 +368,7 @@ const AccountPage = () => {
       <PasswordDialog
         open={passwordDialog}
         handleDialog={handlePasswordDialog}
+        changePassword={changePassword}
       />
       <PhoneNumberDialog
         open={phoneNumberDialog}

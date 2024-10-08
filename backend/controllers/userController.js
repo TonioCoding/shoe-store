@@ -442,6 +442,15 @@ const deleteDeliveryAddress = asyncHandler(async (req, res) => {
   }
 });
 
+const validatePassword = asyncHandler(async (req, res) => {
+  const user = await User.findOne({ _id: req.body.userId });
+  if (user && (await user.matchPassword(req.body.password))) {
+    res.status(201).json(true);
+  } else {
+    res.status(401).json(false);
+  }
+});
+
 export {
   authUser,
   createUser,
@@ -458,4 +467,5 @@ export {
   deletePaymentMethod,
   addDeliveryAddress,
   deleteDeliveryAddress,
+  validatePassword,
 };
