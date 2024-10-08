@@ -5,7 +5,7 @@ import {
   Tooltip,
   Typography,
 } from "@material-tailwind/react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AccountTabs from "../components/accountpage/AccountTabs";
 import OrdersTable from "../components/accountpage/OrdersDisplay";
 import AccountDetailsDisplay from "../components/accountpage/AccountDetailsDisplay";
@@ -26,6 +26,8 @@ import PhoneNumberDialog from "../components/accountpage/PhoneNumberDialog";
 import PasswordDialog from "../components/accountpage/PasswordDialog";
 import PaymentMethodsDialog from "../components/accountpage/PaymentMethodsDialog";
 import DeliveryAddressesDialog from "../components/accountpage/DeliveryAddressesDialog";
+import { toast } from "react-toastify";
+import { setCredentials } from "../redux/auth/authSlice";
 
 const AccountPage = () => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -41,8 +43,65 @@ const AccountPage = () => {
   const [email, setEmail] = useState(userInfo.email);
   const [location, setLocation] = useState(userInfo.location);
   const [showSaveContainer, setShowSaveContainer] = useState(false);
-  //declare all api calls below
-  async function changeEmailandLocation() {}
+
+  const dispatch = useDispatch();
+
+  async function changeEmailandLocation() {
+    if (email === userInfo.email && location === userInfo.location) {
+      toast.error("No changes to save!");
+    } else if (email !== userInfo.email && location === userInfo.location) {
+      try {
+        const req = fetch("/api/v1/users/profile", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: email }),
+        });
+
+        const res = (await req)
+          .json()
+          .then((data) => dispatch(setCredentials(data)))
+          .then(toast.success("Email updated"));
+      } catch (error) {
+        toast.error(error);
+      }
+    } else if (location !== userInfo.location && email === userInfo.email) {
+      try {
+        const req = fetch("/api/v1/users/profile", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ location: location }),
+        });
+
+        const res = (await req)
+          .json()
+          .then((data) => dispatch(setCredentials(data)))
+          .then(toast.success("Location updated"));
+      } catch (error) {
+        toast.error(error);
+      }
+    } else if (location !== userInfo.location && email !== userInfo.email) {
+      try {
+        const req = fetch("/api/v1/users/profile", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email: email, location: location }),
+        });
+
+        const res = (await req)
+          .json()
+          .then((data) => dispatch(setCredentials(data)))
+          .then(toast.success("Email updated"));
+      } catch (error) {
+        toast.error(error);
+      }
+    }
+  }
 
   async function changePassword() {}
 
@@ -88,6 +147,7 @@ const AccountPage = () => {
       case "Account Details":
         return (
           <AccountDetailsDisplay
+            changeEmailandLocation={changeEmailandLocation}
             passwordDialog={handlePasswordDialog}
             phoneNumberDialog={handlePhoneNumberDialog}
             emailState={handleEmail}
@@ -215,7 +275,11 @@ const AccountPage = () => {
                       : "hidden"
                   }
                 >
-                  <Button color="green" className="rounded-full text-xs">
+                  <Button
+                    color="green"
+                    className="rounded-full text-xs"
+                    onClick={changeEmailandLocation}
+                  >
                     Save
                   </Button>
                   <div className="flex items-center gap-x-5">

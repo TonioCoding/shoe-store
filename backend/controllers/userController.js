@@ -115,6 +115,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
   if (user) {
     user.name = req.body.name || user.name;
     user.email = req.body.email || user.email;
+    user.location = req.body.location || user.location;
 
     if (req.body.password) {
       user.password = req.body.password;
@@ -126,6 +127,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       _id: updatedUser._id,
       name: updatedUser.name,
       email: updatedUser.email,
+      location: updatedUser.location,
     });
   } else {
     res.status(404);
