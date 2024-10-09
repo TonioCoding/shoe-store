@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   Button,
   Dialog,
@@ -10,10 +11,12 @@ import {
 import { VscChromeClose } from "react-icons/vsc";
 import PropTypes from "prop-types";
 import { IconContext } from "react-icons";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
+import { useSelector } from "react-redux";
 
 const PasswordDialog = (props) => {
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const open = props.open;
   const handleDialog = props.handleDialog;
   const changePassword = props.changePassword;
@@ -22,6 +25,9 @@ const PasswordDialog = (props) => {
     newPassword: null,
     confirmPassword: null,
   });
+  const saveButtonClassName = useRef();
+  const [, updatedState] = useState();
+  const forceUpdate = useCallback(() => updatedState({}), []);
 
   function handleCurrentPassowrd(password) {
     setPasswords({ ...passwords, currentPassword: password });
@@ -62,9 +68,54 @@ const PasswordDialog = (props) => {
     }
   }
 
+  async function submitPassword(password) {
+    if (
+      passwords.newPassword === null ||
+      passwords.currentPassword === null ||
+      passwords.confirmPassword === null ||
+      passwords.newPassword === "" ||
+      passwords.currentPassword === "" ||
+      passwords.confirmPassword === ""
+    ) {
+      handleDialog();
+      toast.error("Please fill out all required fields");
+    } else if (
+      (await validatePassword(passwords.currentPassword)) === true &&
+      passwords.newPassword === passwords.confirmPassword
+    ) {
+      try {
+        await changePassword(password);
+      } catch (error) {
+        handleDialog();
+        toast.error(error);
+      }
+    }
+  }
+
   useEffect(() => {
     console.log(passwords);
-  }, [passwords]);
+    if (
+      passwords.currentPassword === "" ||
+      passwords.currentPassword === null
+    ) {
+      saveButtonClassName.current =
+        "rounded-full self-end my-4 bg-gray-400 text-gray-700";
+    } else if (passwords.newPassword === "" || passwords.newPassword === null) {
+      saveButtonClassName.current =
+        "rounded-full self-end my-4 bg-gray-400 text-gray-700";
+    } else if (
+      passwords.confirmPassword === "" ||
+      passwords.confirmPassword === null
+    ) {
+      saveButtonClassName.current =
+        "rounded-full self-end my-4 bg-gray-400 text-gray-700";
+    } else {
+      saveButtonClassName.current =
+        "rounded-full self-end my-4 bg-black text-white";
+    }
+    forceUpdate();
+  }, [passwords, forceUpdate]);
+
   return (
     <Dialog open={open} size="xs">
       <DialogHeader className="flex justify-between">
@@ -121,27 +172,9 @@ const PasswordDialog = (props) => {
         <Button
           form="password-form"
           onClick={() => {
-            if (
-              !passwords.newPassword ||
-              !passwords.currentPassword ||
-              !passwords.confirmPassword
-            ) {
-              toast.error("Please fill out all required fields");
-            } else {
-              if (
-                validatePassword(passwords.currentPassword) === true &&
-                passwords.newPassword === passwords.confirmPassword
-              )
-                changePassword(passwords.confirmPassword);
-            }
+            submitPassword(passwords.confirmPassword);
           }}
-          className={
-            passwords.confirmPassword &&
-            passwords.currentPassword &&
-            passwords.newPassword
-              ? "rounded-full self-end my-4 bg-black text-white"
-              : "rounded-full self-end my-4 bg-gray-400 text-gray-700"
-          }
+          className={saveButtonClassName.current}
         >
           Save
         </Button>
