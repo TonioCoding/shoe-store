@@ -170,8 +170,10 @@ const PasswordDialog = (props) => {
       </DialogBody>
       <DialogFooter className="flex justify-end">
         <Button
+          type="submit"
           form="password-form"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             submitPassword(passwords.confirmPassword);
           }}
           className={saveButtonClassName.current}
