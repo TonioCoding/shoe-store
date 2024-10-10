@@ -24,17 +24,32 @@ const authUser = asyncHandler(async (req, res) => {
 
   if (user && (await user.matchPassword(password))) {
     createToken(res, user._id);
-    res.status(201).json({
-      _id: user._id,
-      name: user.name,
-      email: user.email,
-      favorites: user.favorites,
-      orderIds: user.orderIds,
-      avatarUrl: user.avatarUrl,
-      interests: user.interests,
-      cart: user.cart,
-      location: user.location,
-    });
+    if (user.phoneNumber) {
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        favorites: user.favorites,
+        orderIds: user.orderIds,
+        avatarUrl: user.avatarUrl,
+        interests: user.interests,
+        cart: user.cart,
+        location: user.location,
+        phoneNumber: user.phoneNumber,
+      });
+    } else {
+      res.status(201).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        favorites: user.favorites,
+        orderIds: user.orderIds,
+        avatarUrl: user.avatarUrl,
+        interests: user.interests,
+        cart: user.cart,
+        location: user.location,
+      });
+    }
   } else {
     res.status(401);
     throw new Error("Invalid email or password");
@@ -255,9 +270,9 @@ const addPhoneNumber = asyncHandler(async (req, res) => {
       phoneNumber: user.phoneNumber,
     });
   } else if (!user) {
-    res.status(500).json("User not found");
+    res.status(500).send("User not found");
   } else if (!phoneNumber) {
-    res.status(500).json("No phone number provided");
+    res.status(400).send("No phone number provided");
   }
 });
 

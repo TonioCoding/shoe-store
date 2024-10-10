@@ -11,12 +11,13 @@ import PropTypes from "prop-types";
 import { VscChromeClose } from "react-icons/vsc";
 import CountriesPhoneNumberInput from "./CountriesPhoneNumberInput";
 import { IconContext } from "react-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCredentials } from "../../redux/auth/authSlice";
 
 const PhoneNumberDialog = (props) => {
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const handleDialog = props.handleDialog;
   const open = props.open;
   const [phoneNumber, setPhoneNumber] = useState(null);
@@ -38,13 +39,19 @@ const PhoneNumberDialog = (props) => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            phoneNumber: `+${countryCallingCode} ${phoneNumber}`,
+            userId: userInfo._id,
+            phoneNumber: `${countryCallingCode} ${phoneNumber}`,
           }),
         });
 
         const res = (await req)
           .json()
           .then((data) => dispatch(setCredentials(data)))
+          .then(() => {
+            setUserAgreement(false);
+            setCountryCallingCode(null);
+            setPhoneNumber(null);
+          })
           .then(handleDialog())
           .then(toast.success("Phone Number added"));
       } catch (error) {
@@ -55,6 +62,14 @@ const PhoneNumberDialog = (props) => {
       toast.error("No phone number or country code was provided to submit");
     }
   }
+
+  useEffect(() => {
+    if (open === false) {
+      setUserAgreement(false);
+      setCountryCallingCode(null);
+      setPhoneNumber(null);
+    }
+  }, [open]);
 
   return (
     <Dialog
