@@ -8,12 +8,47 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
+import { useState } from "react";
 import { IconContext } from "react-icons";
 import { VscChromeClose } from "react-icons/vsc";
+import { toast } from "react-toastify";
 
 const PaymentMethodsDialog = (props) => {
   const handleDialog = props.handleDialog;
   const open = props.open;
+
+  const [paymentMethod, setPaymentMethod] = useState({
+    cardNumber: null,
+    expirationDate: null,
+    cvv: null,
+  });
+
+  async function addPaymentMethod() {
+    if (
+      paymentMethod.cardNumber !== null ||
+      paymentMethod.expirationDate !== null ||
+      paymentMethod.ccv !== null
+    ) {
+      try {
+        const req = fetch("/api/v1/users/profile", {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(paymentMethod),
+        });
+
+        const res = (await req)
+          .json()
+          .then(toast.success("Payment Method added"))
+          .then(handleDialog());
+      } catch (error) {
+        toast.error(error);
+      }
+    } else {
+      toast.error("Please provide all fields");
+    }
+  }
 
   return (
     <Dialog
@@ -35,6 +70,12 @@ const PaymentMethodsDialog = (props) => {
       <DialogBody>
         <div className="flex flex-col gap-y-4 border p-4 border-gray-300">
           <Input
+            onChange={(e) => {
+              setPaymentMethod((prev) => ({
+                ...prev,
+                cardNumber: e.target.value,
+              }));
+            }}
             type="number"
             placeholder="Card Number"
             className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
@@ -44,6 +85,12 @@ const PaymentMethodsDialog = (props) => {
             containerProps={{ className: "min-w-[100px]" }}
           />
           <Input
+            onChange={(e) => {
+              setPaymentMethod((prev) => ({
+                ...prev,
+                expirationDate: e.target.value,
+              }));
+            }}
             type="month"
             className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
             labelProps={{
@@ -52,7 +99,12 @@ const PaymentMethodsDialog = (props) => {
             containerProps={{ className: "min-w-[100px]" }}
           />
           <Input
-            label="Current Password*"
+            onChange={(e) => {
+              setPaymentMethod((prev) => ({
+                ...prev,
+                cvv: e.target.value,
+              }));
+            }}
             type="number"
             placeholder="CVV"
             className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
@@ -83,7 +135,10 @@ const PaymentMethodsDialog = (props) => {
         </div>
       </DialogBody>
       <DialogFooter className="p-0">
-        <Button className="rounded-full self-end my-4 bg-gray-400 text-gray-700 mr-5">
+        <Button
+          className="rounded-full self-end my-4 bg-gray-400 text-gray-700 mr-5"
+          onClick={addPaymentMethod}
+        >
           Save
         </Button>
       </DialogFooter>
