@@ -35,14 +35,29 @@ const AccountDetailsDisplay = (props) => {
       </div>
       <div className="flex items-center justify-between">
         <div className="flex flex-col">
-          <Typography className="font-semibold">Phone Number</Typography>
+          {userInfo.phoneNumber === "" ? (
+            <Typography className="font-semibold">Phone Number</Typography>
+          ) : (
+            <Typography className="font-semibold">
+              {userInfo.phoneNumber}
+            </Typography>
+          )}
         </div>
-        <Typography
-          onClick={handlePhoneNumberDialog}
-          className="underline cursor-pointer hover:text-gray-700"
-        >
-          Add
-        </Typography>
+        {userInfo.phoneNumber === "" ? (
+          <Typography
+            onClick={handlePhoneNumberDialog}
+            className="underline cursor-pointer hover:text-gray-700"
+          >
+            Add
+          </Typography>
+        ) : (
+          <Typography
+            onClick={handlePhoneNumberDialog}
+            className="underline cursor-pointer hover:text-gray-700"
+          >
+            Edit
+          </Typography>
+        )}
       </div>
       <div className="flex flex-col gap-y-2">
         <Typography className="font-semibold">Location</Typography>
