@@ -42,26 +42,20 @@ const PasswordDialog = (props) => {
   }
 
   async function validatePassword(password) {
-    let isValidated;
-
     if (!password) {
       toast.error("No password was provided to validate");
     } else {
       try {
         const req = fetch("/api/v1/users/validatePassword", {
-          method: "GET",
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ userId: userInfo._id, password: password }),
-        });
+        }).catch((err) => console.log(err));
 
-        const res = (await req).json().then((data) => (isValidated = data));
-        if (isValidated === true) {
-          return true;
-        } else {
-          return false;
-        }
+        const res = (await req).json();
+        return res;
       } catch (error) {
         toast.error(error);
       }
@@ -69,6 +63,11 @@ const PasswordDialog = (props) => {
   }
 
   async function submitPassword(password) {
+    console.log(passwords.currentPassword);
+    const validateCurrentPassword = await validatePassword(
+      passwords.currentPassword
+    );
+
     if (
       passwords.newPassword === null ||
       passwords.currentPassword === null ||
@@ -80,11 +79,13 @@ const PasswordDialog = (props) => {
       handleDialog();
       toast.error("Please fill out all required fields");
     } else if (
-      (await validatePassword(passwords.currentPassword)) === true &&
+      validateCurrentPassword === true &&
       passwords.newPassword === passwords.confirmPassword
     ) {
       try {
         await changePassword(password);
+        handleDialog();
+        toast.success("Password changed");
       } catch (error) {
         handleDialog();
         toast.error(error);
@@ -93,7 +94,6 @@ const PasswordDialog = (props) => {
   }
 
   useEffect(() => {
-    console.log(passwords);
     if (
       passwords.currentPassword === "" ||
       passwords.currentPassword === null

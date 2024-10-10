@@ -41,7 +41,7 @@ router.post("/deleteDeliveryAddress", [protect, deleteDeliveryAddress]);
 
 router.patch("/editLocation", [protect, editLocation]);
 
-router.get("/validatePassword", [protect, validatePassword]);
+router.post("/validatePassword", [protect, validatePassword]);
 
 router
   .route("/profile")
