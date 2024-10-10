@@ -309,7 +309,9 @@ const AccountPage = () => {
                       content="Reset Account Details Value"
                       placement="bottom"
                     >
-                      <GrPowerReset className="w-6 h-6 hover:cursor-pointer" />
+                      <div id="reset-button">
+                        <GrPowerReset className="w-6 h-6 hover:cursor-pointer" />
+                      </div>
                     </Tooltip>
                     <Spinner className="w-6 h-6" color="green" />
                   </div>

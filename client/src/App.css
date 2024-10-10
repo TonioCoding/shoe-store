@@ -259,3 +259,19 @@ hr {
   -webkit-appearance: none;
   margin: 0;
 }
+
+@keyframes resetButtonAnimate {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+#reset-button {
+  animation-name: resetButtonAnimate;
+  animation-duration: 3700ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
