@@ -71,6 +71,7 @@ const PhoneNumberDialog = (props) => {
         <div className="relative flex flex-col w-fit gap-y-3 self-center">
           <CountriesPhoneNumberInput />
           <input
+            id="phone-number-input"
             type="number"
             onChange={(e) => setPhoneNumber(e.target.value)}
             className="border border-gray-500 rounded-2xl focus:border-red-500 w-[75%] px-1 caret-black text-black p-1 mx-1 font-rt "

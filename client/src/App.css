@@ -253,3 +253,9 @@ hr {
 .interest-card:hover img {
   opacity: 0.5;
 }
+
+#phone-number-input::-webkit-inner-spin-button,
+#phone-number-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
