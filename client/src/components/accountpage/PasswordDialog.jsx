@@ -63,10 +63,14 @@ const PasswordDialog = (props) => {
   }
 
   async function submitPassword(password) {
-    console.log(passwords.currentPassword);
     const validateCurrentPassword = await validatePassword(
       passwords.currentPassword
     );
+
+    if (validateCurrentPassword === false) {
+      handleDialog();
+      toast.error("Incorect current password");
+    }
 
     if (
       passwords.newPassword === null ||
@@ -85,7 +89,6 @@ const PasswordDialog = (props) => {
       try {
         await changePassword(password);
         handleDialog();
-        toast.success("Password changed");
       } catch (error) {
         handleDialog();
         toast.error(error);
