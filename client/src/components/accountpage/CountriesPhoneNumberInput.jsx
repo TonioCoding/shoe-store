@@ -9,14 +9,17 @@ import {
 import { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useCountries } from "use-react-countries";
+import PropTypes from "prop-types";
 
-const CountriesPhoneNumberInput = () => {
+const CountriesPhoneNumberInput = (props) => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
+  const handleCountryCallingCode = props.handleCountryCallingCode;
 
   const { countries } = useCountries();
   const [country, setCountry] = useState(0);
   const { name, flags, countryCallingCode } = countries[country];
   const [showCountriesList, setShowCountriesList] = useState(false);
+  console.log(countryCallingCode);
   const countriesRef = useRef(
     <Card className="absolute top-12 border border-gray-400 w-fit h-[50vh] overscroll-contain overflow-y-scroll">
       <List className="max-w-fit">
@@ -55,6 +58,10 @@ const CountriesPhoneNumberInput = () => {
     }
   }, []);
 
+  useEffect(() => {
+    handleCountryCallingCode(countryCallingCode);
+  }, [countryCallingCode, handleCountryCallingCode]);
+
   return (
     <div className="relative flex w-full">
       <Button
@@ -91,6 +98,10 @@ const CountriesPhoneNumberInput = () => {
       />
     </div>
   );
+};
+
+CountriesPhoneNumberInput.propTypes = {
+  handleCountryCallingCode: PropTypes.func,
 };
 
 export default CountriesPhoneNumberInput;

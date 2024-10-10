@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
   Button,
   Dialog,
@@ -20,17 +21,25 @@ const PhoneNumberDialog = (props) => {
   const open = props.open;
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [userAgreement, setUserAgreement] = useState(false);
+  const [countryCallingCode, setCountryCallingCode] = useState(null);
+
   const dispatch = useDispatch();
 
+  function handleCountryCallingCode(code) {
+    setCountryCallingCode(code);
+  }
+
   async function addPhoneNumber() {
-    if (phoneNumber !== null) {
+    if (phoneNumber !== null && countryCallingCode !== null) {
       try {
         const req = fetch("/api/v1/users/addPhoneNumber", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ phoneNumber: phoneNumber }),
+          body: JSON.stringify({
+            phoneNumber: `+${countryCallingCode} ${phoneNumber}`,
+          }),
         });
 
         const res = (await req)
@@ -43,10 +52,10 @@ const PhoneNumberDialog = (props) => {
       }
     } else {
       handleDialog();
-      toast.error("No phone number was provided to add");
+      toast.error("No phone number or country code was provided to submit");
     }
   }
-  console.log(phoneNumber);
+
   return (
     <Dialog
       open={open}
@@ -69,8 +78,11 @@ const PhoneNumberDialog = (props) => {
           We&#39;ll send you a secure&#44; one&#8208;time verification code&#46;
         </Typography>
         <div className="relative flex flex-col w-fit gap-y-3 self-center">
-          <CountriesPhoneNumberInput />
+          <CountriesPhoneNumberInput
+            handleCountryCallingCode={handleCountryCallingCode}
+          />
           <input
+            maxLength={16}
             id="phone-number-input"
             type="number"
             onChange={(e) => setPhoneNumber(e.target.value)}
