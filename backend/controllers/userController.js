@@ -236,13 +236,13 @@ const addPhoneNumber = asyncHandler(async (req, res) => {
   const user = await User.findOne({ _id: id });
 
   if (user && phoneNumber) {
-    let currentPhoneNumbers = [...user.phoneNumbers];
+    /*  let currentPhoneNumbers = [...user.phoneNumbers];
     if (currentPhoneNumbers.includes(phoneNumber)) {
       res.status(400).json("Already added number");
       return;
-    }
+    } */
 
-    user.phoneNumbers = [...currentPhoneNumbers, phoneNumber];
+    user.phoneNumber = phoneNumber;
     user.save();
     res.status(200).json({
       _id: user._id,
@@ -262,15 +262,10 @@ const addPhoneNumber = asyncHandler(async (req, res) => {
 
 const deletePhoneNumber = asyncHandler(async (req, res) => {
   const id = req.body.userId;
-  const phoneNumber = req.body.phoneNumber;
-
   const user = await User.findOne({ _id: id });
 
-  if (user && phoneNumber) {
-    let currentPhoneNumbers = [...user.phoneNumbers];
-    user.phoneNumbers = currentPhoneNumbers.filter(
-      (number) => number !== phoneNumber
-    );
+  if (user) {
+    user.phoneNumber = "";
     user.save();
     res.status(200).json({
       _id: user._id,
@@ -283,8 +278,6 @@ const deletePhoneNumber = asyncHandler(async (req, res) => {
     });
   } else if (!user) {
     res.status(500).json("User not found");
-  } else if (!phoneNumber) {
-    res.status(500).json("No phone number provided");
   }
 });
 
