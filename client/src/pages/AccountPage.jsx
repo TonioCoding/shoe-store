@@ -131,8 +131,6 @@ const AccountPage = () => {
 
   async function addDeliveryAddress() {}
 
-  async function addPhoneNumber() {}
-
   function handleEmail(text) {
     setEmail(text);
   }
