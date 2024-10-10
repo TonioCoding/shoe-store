@@ -15,9 +15,6 @@ const availableInterests = [
   "Fashion",
 ];
 
-// @desc    auth(login) user and set token
-// route    POST /api/users/auth
-// access   Public
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   const user = await User.findOne({ email });
@@ -56,9 +53,6 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
-// desc     creates user
-// route    POST /api/users
-// access   public
 const createUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
@@ -86,6 +80,7 @@ const createUser = asyncHandler(async (req, res) => {
       avatarUrl: user.avatarUrl,
       interests: user.interests,
       cart: user.cart,
+      phoneNumber: user.phoneNumber,
     });
   } else {
     res.status(400);
@@ -93,9 +88,6 @@ const createUser = asyncHandler(async (req, res) => {
   }
 });
 
-// desc     logouts out user
-// route    POST /api/users/logout
-// access   Public
 const logoutUser = asyncHandler(async (req, res) => {
   res.cookie("jwt", "", {
     httpOnly: true,
@@ -105,9 +97,6 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "User logged out" });
 });
 
-// desc     Get user
-// route    POST /api/users/get
-// access   Private
 const getUserInfo = asyncHandler(async (req, res) => {
   const user = {
     _id: req.user._id,
@@ -116,14 +105,12 @@ const getUserInfo = asyncHandler(async (req, res) => {
     favorites: user.favorites,
     orderIds: user.orderIds,
     avatarUrl: user.avatarUrl,
+    phoneNumber: user.phoneNumber,
   };
 
   res.status(200).json(user);
 });
 
-// desc     updates user info
-// route    PUT /api/users/profile
-// access   Private
 const updateUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findById(req.user._id);
 
@@ -146,6 +133,7 @@ const updateUserProfile = asyncHandler(async (req, res) => {
       avatarUrl: updatedUser.avatarUrl,
       favorites: updatedUser.favorites,
       interests: updatedUser.interests,
+      phoneNumber: updatedUser.phoneNumber,
     });
   } else {
     res.status(404);
@@ -192,7 +180,16 @@ const addInterests = asyncHandler(async (req, res) => {
       interestToAdd.push(interests);
       user.interests = [...userCurrentInterests, ...interestToAdd];
       user.save();
-      res.status(200).json(user);
+      res.status(200).json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        location: user.location,
+        avatarUrl: user.avatarUrl,
+        favorites: user.favorites,
+        interests: user.interests,
+        phoneNumber: user.phoneNumber,
+      });
     } else {
       res.json(400).json("Invalid Interest");
     }
@@ -208,7 +205,16 @@ const addInterests = asyncHandler(async (req, res) => {
     }
     user.interests = [...userCurrentInterests, ...interestToAdd];
     user.save();
-    res.status(200).json(user);
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      location: user.location,
+      avatarUrl: user.avatarUrl,
+      favorites: user.favorites,
+      interests: user.interests,
+      phoneNumber: user.phoneNumber,
+    });
   }
 });
 
@@ -238,7 +244,16 @@ const deleteInterest = asyncHandler(async (req, res) => {
     );
     user.interests = interestsToSave;
     user.save();
-    res.status(200).json(user);
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      location: user.location,
+      avatarUrl: user.avatarUrl,
+      favorites: user.favorites,
+      interests: user.interests,
+      phoneNumber: user.phoneNumber,
+    });
   } else {
     res.status(400).json("Invalid interest");
   }
@@ -291,6 +306,7 @@ const deletePhoneNumber = asyncHandler(async (req, res) => {
       avatarUrl: user.avatarUrl,
       favorites: user.favorites,
       interests: user.interests,
+      phoneNumber: user.phoneNumber,
     });
   } else if (!user) {
     res.status(500).json("User not found");
@@ -314,6 +330,7 @@ const editLocation = asyncHandler(async (req, res) => {
       avatarUrl: user.avatarUrl,
       favorites: user.favorites,
       interests: user.interests,
+      phoneNumber: user.phoneNumber,
     });
   } else if (!user) {
     res.status(500).json("User not found");
@@ -343,6 +360,7 @@ const addPaymentMethod = asyncHandler(async (req, res) => {
       avatarUrl: user.avatarUrl,
       favorites: user.favorites,
       interests: user.interests,
+      phoneNumber: user.phoneNumber,
     });
   } else if (!user) {
     res.status(500).json("No user found");
@@ -379,6 +397,7 @@ const deletePaymentMethod = asyncHandler(async (req, res) => {
       avatarUrl: user.avatarUrl,
       favorites: user.favorites,
       interests: user.interests,
+      phoneNumber: user.phoneNumber,
     });
   } else if (!user) {
     res.status(500).json("No user found");
@@ -407,6 +426,7 @@ const addDeliveryAddress = asyncHandler(async (req, res) => {
       avatarUrl: user.avatarUrl,
       favorites: user.favorites,
       interests: user.interests,
+      phoneNumber: user.phoneNumber,
     });
   } else if (!user) {
     res.status(500).json("No user found");
@@ -443,6 +463,7 @@ const deleteDeliveryAddress = asyncHandler(async (req, res) => {
       avatarUrl: user.avatarUrl,
       favorites: user.favorites,
       interests: user.interests,
+      phoneNumber: user.phoneNumber,
     });
   } else if (!user) {
     res.status(500).json("No user found");

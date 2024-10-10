@@ -94,6 +94,7 @@ const userSchema = mongoose.Schema(
     },
     phoneNumber: {
       type: String,
+      default: "",
       required: false,
     },
     location: {
