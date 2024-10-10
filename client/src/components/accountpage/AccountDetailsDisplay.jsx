@@ -38,7 +38,7 @@ const AccountDetailsDisplay = (props) => {
           {userInfo.phoneNumber === "" ? (
             <Typography className="font-semibold">Phone Number</Typography>
           ) : (
-            <Typography className="font-semibold">
+            <Typography className="font-normal font-rt">
               {userInfo.phoneNumber}
             </Typography>
           )}
