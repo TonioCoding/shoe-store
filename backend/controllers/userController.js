@@ -252,6 +252,7 @@ const addPhoneNumber = asyncHandler(async (req, res) => {
       avatarUrl: user.avatarUrl,
       favorites: user.favorites,
       interests: user.interests,
+      phoneNumber: user.phoneNumber,
     });
   } else if (!user) {
     res.status(500).json("User not found");
