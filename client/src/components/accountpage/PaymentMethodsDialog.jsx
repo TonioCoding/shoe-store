@@ -58,8 +58,10 @@ const PaymentMethodsDialog = (props) => {
 
     if (openBillingAddress === false) {
       setOpenBillingAddress(true);
+      handleDialog();
     } else {
       setOpenBillingAddress(false);
+      handleDialog();
     }
   }
 
@@ -80,7 +82,7 @@ const PaymentMethodsDialog = (props) => {
         className={
           openBillingAddress === false
             ? "h-fit overscroll-contain overflow-y-auto"
-            : "hidden"
+            : "opacity-0"
         }
       >
         <DialogHeader className="flex justify-between relative">

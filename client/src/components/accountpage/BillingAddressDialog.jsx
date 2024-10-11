@@ -19,7 +19,7 @@ const BillingAddressDialog = (props) => {
   const addBillingAddress = props.addBillingAddress;
   const [billingAddress, setBillingAddress] = useState({
     firstName: null,
-    lasttName: null,
+    lastName: null,
     streetAddress: null,
     typeOfBuilding: null,
     city: null,
@@ -27,6 +27,10 @@ const BillingAddressDialog = (props) => {
     state: null,
     countryRegion: null,
   });
+
+  function setBillingAddressProp(prop, value) {
+    setBillingAddress((prev) => ({ ...prev, [prop]: value }));
+  }
 
   return (
     <Dialog
@@ -48,20 +52,22 @@ const BillingAddressDialog = (props) => {
       <DialogBody className="flex flex-col gap-y-5 items-center">
         <div className="flex flex-col gap-y-4 items-center sm:flex-row gap-x-5 justify-center">
           <input
-            label="Current Password*"
+            onChange={(e) => setBillingAddressProp("firstName", e.target.value)}
             type="text"
             placeholder="First Name*"
             className="min-w-[150px] w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 placeholder:text-sm focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
           <input
-            label="Current Password*"
+            onChange={(e) => setBillingAddressProp("lastName", e.target.value)}
             type="text"
             placeholder="Last Name*"
             className="min-w-[150px] w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 placeholder:text-sm focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
         </div>
         <Input
-          label="Current Password*"
+          onChange={(e) =>
+            setBillingAddressProp("streetAddress", e.target.value)
+          }
           type="text"
           placeholder="Street Address*"
           className="self-center !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
@@ -71,8 +77,10 @@ const BillingAddressDialog = (props) => {
           containerProps={{ className: "min-w-[100px]" }}
         />
         <Input
-          label="Current Password*"
-          type="number"
+          onChange={(e) =>
+            setBillingAddressProp("typeOfBuilding", e.target.value)
+          }
+          type="text"
           placeholder="Apt, Suite, Building"
           className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
           labelProps={{
@@ -82,13 +90,13 @@ const BillingAddressDialog = (props) => {
         />
         <div className="flex flex-col gap-y-4 items-center sm:flex-row gap-x-5 justify-center">
           <input
-            label="Current Password*"
-            type="number"
+            onChange={(e) => setBillingAddressProp("city", e.target.value)}
+            type="text"
             placeholder="City*"
             className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
           <input
-            label="Current Password*"
+            onChange={(e) => setBillingAddressProp("zip", e.target.value)}
             type="number"
             placeholder="Zip*"
             className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
@@ -96,23 +104,19 @@ const BillingAddressDialog = (props) => {
         </div>
         <div className="flex flex-col gap-y-4 items-center sm:flex-row gap-x-5 justify-center">
           <input
-            label="Current Password*"
-            type="number"
+            onChange={(e) => setBillingAddressProp("state", e.target.value)}
+            type="text"
             placeholder="State*"
             className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
           <input
-            label="Current Password*"
-            type="number"
+            onChange={(e) =>
+              setBillingAddressProp("countryRegion", e.target.value)
+            }
+            type="text"
             placeholder="Country/Region*"
             className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
-        </div>
-        <div className="flex gap-x-3 self-start">
-          <input type="checkbox" />
-          <Typography className="font-rt text-black text-base">
-            Set as default shipping address
-          </Typography>
         </div>
       </DialogBody>
       <DialogFooter className="p-0">
