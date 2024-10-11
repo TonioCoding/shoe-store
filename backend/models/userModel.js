@@ -1,6 +1,41 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
+const billingAddressesSchema = new mongoose.Schema({
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
+  streetAddress: {
+    type: String,
+    required: true,
+  },
+  typeOfBuilding: {
+    type: String,
+    required: false,
+  },
+  city: {
+    type: String,
+    required: true,
+  },
+  zip: {
+    type: Number,
+    required: true,
+  },
+  state: {
+    type: String,
+    required: true,
+  },
+  countryRegion: {
+    type: String,
+    required: true,
+  },
+});
+
 const paymentMethodsSchema = new mongoose.Schema({
   cardNumber: {
     type: Number,
@@ -14,6 +49,7 @@ const paymentMethodsSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  billingAddress: billingAddressesSchema,
 });
 
 const deliveryAddressesSchema = new mongoose.Schema({
