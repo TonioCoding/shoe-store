@@ -10,10 +10,24 @@ import {
 import { IconContext } from "react-icons";
 import { VscChromeClose } from "react-icons/vsc";
 import PropTypes from "prop-types";
+import { useState } from "react";
+import { toast } from "react-toastify";
 
 const BillingAddressDialog = (props) => {
   const open = props.open;
   const handleDialog = props.handleDialog;
+  const addBillingAddress = props.addBillingAddress;
+  const [billingAddress, setBillingAddress] = useState({
+    firstName: null,
+    lasttName: null,
+    streetAddress: null,
+    typeOfBuilding: null,
+    city: null,
+    zip: null,
+    state: null,
+    countryRegion: null,
+  });
+
   return (
     <Dialog
       open={open}
@@ -94,16 +108,6 @@ const BillingAddressDialog = (props) => {
             className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
         </div>
-        {/* <Input
-          label="Current Password*"
-          type="number"
-          placeholder="Phone Number*"
-          className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
-          labelProps={{
-            className: "hidden",
-          }}
-          containerProps={{ className: "min-w-[100px]" }}
-        /> */}
         <div className="flex gap-x-3 self-start">
           <input type="checkbox" />
           <Typography className="font-rt text-black text-base">
@@ -112,7 +116,24 @@ const BillingAddressDialog = (props) => {
         </div>
       </DialogBody>
       <DialogFooter className="p-0">
-        <Button className="rounded-full self-end my-4 bg-gray-400 text-gray-700 mr-5">
+        <Button
+          className="rounded-full self-end my-4 bg-gray-400 text-gray-700 mr-5"
+          onClick={() => {
+            if (
+              !billingAddress.city ||
+              !billingAddress.firstName ||
+              !billingAddress.lasttName ||
+              !billingAddress.zip ||
+              !billingAddress.countryRegion ||
+              !billingAddress.state ||
+              !billingAddress.streetAddress
+            ) {
+              toast.error("Please Provide all required fields");
+            } else {
+              addBillingAddress(billingAddress);
+            }
+          }}
+        >
           Save
         </Button>
       </DialogFooter>
@@ -123,6 +144,7 @@ const BillingAddressDialog = (props) => {
 BillingAddressDialog.propTypes = {
   open: PropTypes.bool,
   handleDialog: PropTypes.func,
+  addBillingAddress: PropTypes.func,
 };
 
 export default BillingAddressDialog;

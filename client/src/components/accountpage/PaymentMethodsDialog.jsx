@@ -58,11 +58,13 @@ const PaymentMethodsDialog = (props) => {
 
     if (openBillingAddress === false) {
       setOpenBillingAddress(true);
-      handleDialog();
     } else {
       setOpenBillingAddress(false);
-      handleDialog();
     }
+  }
+
+  function addBillingAddress(address) {
+    setBillingAddress(address);
   }
 
   return (
@@ -70,11 +72,16 @@ const PaymentMethodsDialog = (props) => {
       <BillingAddressDialog
         open={openBillingAddress}
         handleDialog={handleBillingAddressDialog}
+        addBillingAddress={addBillingAddress}
       />
       <Dialog
         open={open}
         size="xs"
-        className="h-fit overscroll-contain overflow-y-auto"
+        className={
+          openBillingAddress === false
+            ? "h-fit overscroll-contain overflow-y-auto"
+            : "hidden"
+        }
       >
         <DialogHeader className="flex justify-between relative">
           <Typography className="font-lt" variant="h5" color="black">
