@@ -82,7 +82,7 @@ const PaymentMethodsDialog = (props) => {
         className={
           openBillingAddress === false
             ? "h-fit overscroll-contain overflow-y-auto"
-            : "opacity-0"
+            : "hidden"
         }
       >
         <DialogHeader className="flex justify-between relative">
