@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { IconContext } from "react-icons";
 import { VscChromeClose } from "react-icons/vsc";
 import { toast } from "react-toastify";
@@ -17,8 +17,7 @@ import BillingAddressDialog from "./BillingAddressDialog";
 const PaymentMethodsDialog = (props) => {
   const handleDialog = props.handleDialog;
   const open = props.open;
-
-  const [paymentMethod, setPaymentMethod] = useState({
+  const paymentMethod = useRef({
     cardNumber: null,
     expirationDate: null,
     cvv: null,
@@ -58,15 +57,20 @@ const PaymentMethodsDialog = (props) => {
 
     if (openBillingAddress === false) {
       setOpenBillingAddress(true);
-      handleDialog();
     } else {
       setOpenBillingAddress(false);
-      handleDialog();
     }
+    handleDialog();
   }
 
   function addBillingAddress(address) {
     setBillingAddress(address);
+  }
+
+  function clearPaymentMethodRef() {
+    paymentMethod.current.cardNumber = null;
+    paymentMethod.current.expirationDate = null;
+    paymentMethod.current.cvv = null;
   }
 
   return (
@@ -91,7 +95,10 @@ const PaymentMethodsDialog = (props) => {
           </Typography>
           <IconContext.Provider value={{ size: "2rem" }}>
             <VscChromeClose
-              onClick={handleDialog}
+              onClick={() => {
+                clearPaymentMethodRef();
+                handleDialog();
+              }}
               className="cursor-pointer text-gray-800 bg-gray-200 rounded-full p-1"
             />
           </IconContext.Provider>
@@ -100,11 +107,9 @@ const PaymentMethodsDialog = (props) => {
           <div className="flex flex-col gap-y-4 border p-4 border-gray-300">
             <Input
               onChange={(e) => {
-                setPaymentMethod((prev) => ({
-                  ...prev,
-                  cardNumber: e.target.value,
-                }));
+                paymentMethod.current.cardNumber = e.target.value;
               }}
+              value={paymentMethod.current.cardNumber || null}
               type="number"
               placeholder="Card Number"
               className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
@@ -115,11 +120,9 @@ const PaymentMethodsDialog = (props) => {
             />
             <Input
               onChange={(e) => {
-                setPaymentMethod((prev) => ({
-                  ...prev,
-                  expirationDate: e.target.value,
-                }));
+                paymentMethod.current.expirationDate = e.target.value;
               }}
+              value={paymentMethod.current.expirationDate || null}
               type="month"
               className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
               labelProps={{
@@ -129,11 +132,9 @@ const PaymentMethodsDialog = (props) => {
             />
             <Input
               onChange={(e) => {
-                setPaymentMethod((prev) => ({
-                  ...prev,
-                  cvv: e.target.value,
-                }));
+                paymentMethod.current.cvv = e.target.value;
               }}
+              value={paymentMethod.current.cvv || null}
               type="number"
               placeholder="CVV"
               className="!border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
