@@ -154,9 +154,18 @@ const PaymentMethodsDialog = (props) => {
           </Button>
           <div className="flex flex-col my-8 ml-10">
             <div className="flex gap-x-3">
-              <input type="checkbox" />
-              <Typography className="font-rt text-black text-base">
-                Billing address same as default shipping
+              <input
+                type="checkbox"
+                disabled={billingAddress === null ? true : false}
+              />
+              <Typography
+                className={
+                  billingAddress === null
+                    ? "font-rt text-gray-400 text-base"
+                    : "font-rt text-black text-base"
+                }
+              >
+                Billing address same as default shipping address
               </Typography>
             </div>
             <div className="flex gap-x-3">
