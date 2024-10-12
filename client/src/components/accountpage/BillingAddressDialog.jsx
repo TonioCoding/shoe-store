@@ -45,7 +45,6 @@ const BillingAddressDialog = (props) => {
     }
     return isEmptyProp;
   }
-
   return (
     <Dialog
       open={open}
@@ -153,6 +152,7 @@ const BillingAddressDialog = (props) => {
               handleDialog();
             } else {
               addBillingAddress(billingAddress);
+              handleDialog();
             }
           }}
         >
