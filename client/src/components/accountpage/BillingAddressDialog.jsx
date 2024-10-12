@@ -152,6 +152,16 @@ const BillingAddressDialog = (props) => {
               handleDialog();
             } else {
               addBillingAddress(billingAddress);
+              setBillingAddress({
+                firstName: null,
+                lastName: null,
+                streetAddress: null,
+                typeOfBuilding: null,
+                city: null,
+                zip: null,
+                state: null,
+                countryRegion: null,
+              });
               handleDialog();
             }
           }}

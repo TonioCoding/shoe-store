@@ -101,6 +101,10 @@ const PaymentMethodsDialog = (props) => {
   useEffect(() => {
     updateState(paymentMethod.current);
   }, []);
+
+  useEffect(() => {
+    if (open === false) setBillingAddress(null);
+  }, [open]);
   return (
     <>
       <BillingAddressDialog
