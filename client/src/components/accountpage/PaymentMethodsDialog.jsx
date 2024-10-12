@@ -92,7 +92,9 @@ const PaymentMethodsDialog = (props) => {
   function handleDisableButton() {
     if (state.state) {
       let values = Object.values(state.state);
-      return values.includes(null || "");
+      if (values.includes(null) === true) return true;
+      if (values.includes("") === true) return true;
+      return false;
     }
   }
 

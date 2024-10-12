@@ -59,7 +59,10 @@ const BillingAddressDialog = (props) => {
         <IconContext.Provider value={{ size: "2rem" }}>
           <VscChromeClose
             className="cursor-pointer text-gray-800 bg-gray-200 rounded-full p-1"
-            onClick={handleDialog}
+            onClick={() => {
+              addBillingAddress(null);
+              handleDialog();
+            }}
           />
         </IconContext.Provider>
       </DialogHeader>
