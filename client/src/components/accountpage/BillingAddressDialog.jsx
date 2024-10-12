@@ -45,6 +45,7 @@ const BillingAddressDialog = (props) => {
     }
     return isEmptyProp;
   }
+
   return (
     <Dialog
       open={open}
@@ -112,7 +113,9 @@ const BillingAddressDialog = (props) => {
             className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
           <input
-            onChange={(e) => setBillingAddressProp("zip", e.target.value)}
+            onChange={(e) =>
+              setBillingAddressProp("zip", parseInt(e.target.value))
+            }
             type="number"
             placeholder="Zip*"
             className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"

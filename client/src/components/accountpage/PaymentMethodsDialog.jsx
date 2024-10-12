@@ -13,10 +13,12 @@ import { IconContext } from "react-icons";
 import { VscChromeClose } from "react-icons/vsc";
 import { toast } from "react-toastify";
 import BillingAddressDialog from "./BillingAddressDialog";
+import { useSelector } from "react-redux";
 
 const PaymentMethodsDialog = (props) => {
   const handleDialog = props.handleDialog;
   const open = props.open;
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const paymentMethod = useRef({
     cardNumber: null,
     expirationDate: null,
@@ -41,24 +43,37 @@ const PaymentMethodsDialog = (props) => {
   }
 
   async function addPaymentMethod() {
+    if (billingAddress === null) {
+      handleDialog();
+      toast.error("Billing address is required to submit a payment method");
+    }
+
     if (
       paymentMethod.cardNumber !== null ||
       paymentMethod.expirationDate !== null ||
       paymentMethod.ccv !== null
     ) {
       try {
-        const req = fetch("/api/v1/users/profile", {
-          method: "PUT",
+        const req = fetch("/api/v1/users/addPaymentMethod", {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(paymentMethod),
+          body: JSON.stringify({
+            userId: userInfo._id,
+            paymentMethod: {
+              ...paymentMethod.current,
+              billingAddress: billingAddress,
+            },
+          }),
         });
 
         const res = (await req)
           .json()
+          .then(clearPaymentMethodRef())
           .then(toast.success("Payment Method added"))
-          .then(handleDialog());
+          .then(handleDialog())
+          .catch((err) => toast.error(err));
       } catch (error) {
         toast.error(error);
       }
@@ -151,7 +166,7 @@ const PaymentMethodsDialog = (props) => {
             <Input
               onChange={(e) => {
                 updateState(paymentMethod.current);
-                paymentMethod.current.cardNumber = e.target.value;
+                paymentMethod.current.cardNumber = parseInt(e.target.value);
               }}
               value={paymentMethod.current.cardNumber || null}
               type="number"
@@ -178,7 +193,7 @@ const PaymentMethodsDialog = (props) => {
             <Input
               onChange={(e) => {
                 updateState(paymentMethod.current);
-                paymentMethod.current.cvv = e.target.value;
+                paymentMethod.current.cvv = parseInt(e.target.value);
               }}
               value={paymentMethod.current.cvv || null}
               type="number"
