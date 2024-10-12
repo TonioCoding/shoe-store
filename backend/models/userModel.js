@@ -17,6 +17,7 @@ const billingAddressesSchema = new mongoose.Schema({
   typeOfBuilding: {
     type: String,
     required: false,
+    default: null,
   },
   city: {
     type: String,
@@ -49,7 +50,7 @@ const paymentMethodsSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  billingAddress: billingAddressesSchema,
+  billingAddress: { type: billingAddressesSchema, required: true },
 });
 
 const deliveryAddressesSchema = new mongoose.Schema({

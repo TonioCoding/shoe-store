@@ -345,6 +345,11 @@ const addPaymentMethod = asyncHandler(async (req, res) => {
 
   const user = await User.findOne({ _id: id });
 
+  if (!paymentMethod.billingAddress) {
+    res.status(400).json("No billingAddress provided");
+    return;
+  }
+
   if (user && paymentMethod) {
     const currentPaymentMethods = [...user.paymentMethods];
     currentPaymentMethods.push(paymentMethod);
