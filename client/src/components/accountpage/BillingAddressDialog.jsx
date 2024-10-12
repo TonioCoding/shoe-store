@@ -11,7 +11,6 @@ import { IconContext } from "react-icons";
 import { VscChromeClose } from "react-icons/vsc";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import { toast } from "react-toastify";
 
 const BillingAddressDialog = (props) => {
   const open = props.open;
@@ -30,6 +29,21 @@ const BillingAddressDialog = (props) => {
 
   function setBillingAddressProp(prop, value) {
     setBillingAddress((prev) => ({ ...prev, [prop]: value }));
+  }
+
+  function handleDisableButton() {
+    let isEmptyProp = false;
+    let values = Object.values(billingAddress);
+    for (let value of values) {
+      if (value === null || value === "") {
+        isEmptyProp = true;
+        continue;
+      } else if (value.length > 0) {
+        isEmptyProp = false;
+        break;
+      }
+    }
+    return isEmptyProp;
   }
 
   return (
@@ -121,18 +135,19 @@ const BillingAddressDialog = (props) => {
       </DialogBody>
       <DialogFooter className="p-0">
         <Button
+          disabled={handleDisableButton() === true ? true : false}
           className="rounded-full self-end my-4 bg-gray-400 text-gray-700 mr-5"
           onClick={() => {
             if (
               !billingAddress.city ||
               !billingAddress.firstName ||
-              !billingAddress.lasttName ||
+              !billingAddress.lastName ||
               !billingAddress.zip ||
               !billingAddress.countryRegion ||
               !billingAddress.state ||
               !billingAddress.streetAddress
             ) {
-              toast.error("Please Provide all required fields");
+              handleDialog();
             } else {
               addBillingAddress(billingAddress);
             }
