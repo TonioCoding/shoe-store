@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
-import { useRef, useState } from "react";
+import { useEffect, useReducer, useRef, useState } from "react";
 import { IconContext } from "react-icons";
 import { VscChromeClose } from "react-icons/vsc";
 import { toast } from "react-toastify";
@@ -24,6 +24,21 @@ const PaymentMethodsDialog = (props) => {
   });
   const [billingAddress, setBillingAddress] = useState(null);
   const [openBillingAddress, setOpenBillingAddress] = useState(false);
+
+  function reducerFunction(state, action) {
+    switch (action.type) {
+      case "UPDATE":
+        return (state = action);
+      default:
+        return state;
+    }
+  }
+
+  const [state, dispatch] = useReducer(reducerFunction, paymentMethod.current);
+
+  function updateState(state) {
+    dispatch({ type: "UPDATE", state });
+  }
 
   async function addPaymentMethod() {
     if (
@@ -48,6 +63,7 @@ const PaymentMethodsDialog = (props) => {
         toast.error(error);
       }
     } else {
+      handleDialog();
       toast.error("Please provide all fields");
     }
   }
@@ -73,6 +89,16 @@ const PaymentMethodsDialog = (props) => {
     paymentMethod.current.cvv = null;
   }
 
+  function handleDisableButton() {
+    if (state.state) {
+      let values = Object.values(state.state);
+      return values.includes(null || "");
+    }
+  }
+
+  useEffect(() => {
+    updateState(paymentMethod.current);
+  }, []);
   return (
     <>
       <BillingAddressDialog
@@ -107,6 +133,7 @@ const PaymentMethodsDialog = (props) => {
           <div className="flex flex-col gap-y-4 border p-4 border-gray-300">
             <Input
               onChange={(e) => {
+                updateState(paymentMethod.current);
                 paymentMethod.current.cardNumber = e.target.value;
               }}
               value={paymentMethod.current.cardNumber || null}
@@ -120,6 +147,7 @@ const PaymentMethodsDialog = (props) => {
             />
             <Input
               onChange={(e) => {
+                updateState(paymentMethod.current);
                 paymentMethod.current.expirationDate = e.target.value;
               }}
               value={paymentMethod.current.expirationDate || null}
@@ -132,6 +160,7 @@ const PaymentMethodsDialog = (props) => {
             />
             <Input
               onChange={(e) => {
+                updateState(paymentMethod.current);
                 paymentMethod.current.cvv = e.target.value;
               }}
               value={paymentMethod.current.cvv || null}
@@ -169,8 +198,17 @@ const PaymentMethodsDialog = (props) => {
               </Typography>
             </div>
             <div className="flex gap-x-3">
-              <input type="checkbox" />
-              <Typography className="font-rt text-black text-base">
+              <input
+                type="checkbox"
+                disabled={handleDisableButton() === true ? true : false}
+              />
+              <Typography
+                className={
+                  handleDisableButton() === false
+                    ? "font-rt text-black text-base"
+                    : "font-rt text-gray-500 text-base"
+                }
+              >
                 Set as default payment method
               </Typography>
             </div>
