@@ -98,6 +98,16 @@ const PaymentMethodsDialog = (props) => {
     }
   }
 
+  function handleDisableSaveButton() {
+    if (state.state) {
+      let values = Object.values(state.state);
+      if (values.includes(null) === true || billingAddress === null)
+        return true;
+      if (values.includes("") === true || billingAddress === null) return true;
+      return false;
+    }
+  }
+
   useEffect(() => {
     updateState(paymentMethod.current);
   }, []);
@@ -105,6 +115,7 @@ const PaymentMethodsDialog = (props) => {
   useEffect(() => {
     if (open === false) setBillingAddress(null);
   }, [open]);
+
   return (
     <>
       <BillingAddressDialog
@@ -222,6 +233,7 @@ const PaymentMethodsDialog = (props) => {
         </DialogBody>
         <DialogFooter className="p-0">
           <Button
+            disabled={handleDisableSaveButton() === true ? true : false}
             className="rounded-full self-end my-4 bg-gray-400 text-gray-700 mr-5"
             onClick={addPaymentMethod}
           >
