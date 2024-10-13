@@ -377,7 +377,7 @@ const AccountPage = () => {
         open={phoneNumberDialog}
         handleDialog={handlePhoneNumberDialog}
       />
-      <main className="w-[100vw] h-fit">
+      <main className="w-[100vw] min-h-fit h-[120vh]">
         <div className="flex flex-col gap-x-7 w-full">
           <div className="flex">
             <div className="flex gap-x-6 ml-5 my-5">
