@@ -424,7 +424,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
       </Navbar>
       <Drawer
         open={searchInput !== ""}
-        className=""
+        className="border border-t-gray-500"
         placement="bottom"
         overlay={false}
       >
