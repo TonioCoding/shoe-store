@@ -438,6 +438,7 @@ const addDeliveryAddress = asyncHandler(async (req, res) => {
   } else if (!deliveryAddress) {
     res.status(400).json("No address provided");
   }
+  return;
 });
 
 const deleteDeliveryAddress = asyncHandler(async (req, res) => {

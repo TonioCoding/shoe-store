@@ -10,7 +10,7 @@ import {
 import { VscChromeClose } from "react-icons/vsc";
 import PropTypes from "prop-types";
 import { IconContext } from "react-icons";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -67,11 +67,9 @@ const DeliveryAddressesDialog = (props) => {
           },
           body: JSON.stringify({
             userId: userInfo._id,
-            deliveryAddress: {
-              deliveryAddress,
-            },
+            deliveryAddress: deliveryAddress,
           }),
-        });
+        }).catch((err) => console.log(err));
 
         const res = (await req)
           .json()
@@ -86,9 +84,6 @@ const DeliveryAddressesDialog = (props) => {
       toast.error("Please provide all fields");
     }
   }
-  useEffect(() => {
-    console.log(deliveryAddress);
-  }, [deliveryAddress]);
 
   return (
     <Dialog
@@ -182,7 +177,7 @@ const DeliveryAddressesDialog = (props) => {
         </div>
         <Input
           onChange={(e) =>
-            setDeliveryAddressProp("phoneNumber", e.target.value)
+            setDeliveryAddressProp("phoneNumber", parseInt(e.target.value))
           }
           label="Current Password*"
           type="number"
