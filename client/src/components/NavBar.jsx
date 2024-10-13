@@ -119,18 +119,6 @@ const NavBar = forwardRef(function NavBar(props, ref) {
     }
   };
 
-  function disableScroll() {
-    let scrollTop = window.scrollY || document.documentElement.scrollTop;
-    let scrollLeft = window.scrollX || document.documentElement.scrollLeft;
-
-    window.onscroll = function () {
-      window.scrollTo(scrollLeft, scrollTop);
-    };
-    if (showSignin === true) {
-      disableScroll();
-    }
-  }
-
   const signinHandleClick = () => {
     setSignin(true);
     setSignup(false);
