@@ -74,6 +74,19 @@ const DeliveryAddressesDialog = (props) => {
         const res = (await req)
           .json()
           .then(toast.success("Delivery address added"))
+          .then(
+            setDeliveryAddress({
+              firstName: null,
+              lastName: null,
+              streetAddress: null,
+              typeOfBuilding: null,
+              city: null,
+              zip: null,
+              state: null,
+              countryRegion: null,
+              phoneNumber: null,
+            })
+          )
           .then(handleDialog())
           .catch((err) => toast.error(err));
       } catch (error) {
@@ -97,7 +110,20 @@ const DeliveryAddressesDialog = (props) => {
         </Typography>
         <IconContext.Provider value={{ size: "2rem" }}>
           <VscChromeClose
-            onClick={handleDialog}
+            onClick={() => {
+              setDeliveryAddress({
+                firstName: null,
+                lastName: null,
+                streetAddress: null,
+                typeOfBuilding: null,
+                city: null,
+                zip: null,
+                state: null,
+                countryRegion: null,
+                phoneNumber: null,
+              });
+              handleDialog();
+            }}
             className="cursor-pointer text-gray-800 bg-gray-200 rounded-full p-1"
           />
         </IconContext.Provider>
