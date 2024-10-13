@@ -151,6 +151,7 @@ const DeliveryAddressesDialog = (props) => {
             className="min-w-[150px] placeholder:text-sm w-[35%] !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10 rounded-md pl-3 p-1"
           />
           <input
+            id="remove-input-arrows"
             onChange={(e) =>
               setDeliveryAddressProp("zip", parseInt(e.target.value))
             }
@@ -176,6 +177,7 @@ const DeliveryAddressesDialog = (props) => {
           />
         </div>
         <Input
+          id="remove-input-arrows"
           onChange={(e) =>
             setDeliveryAddressProp("phoneNumber", parseInt(e.target.value))
           }

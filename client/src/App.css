@@ -260,6 +260,12 @@ hr {
   margin: 0;
 }
 
+#remove-input-arrows::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 @keyframes resetButtonAnimate {
   from {
     -webkit-transform: rotate(0deg);
