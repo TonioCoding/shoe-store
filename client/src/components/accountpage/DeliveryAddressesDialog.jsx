@@ -10,7 +10,7 @@ import {
 import { VscChromeClose } from "react-icons/vsc";
 import PropTypes from "prop-types";
 import { IconContext } from "react-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -86,6 +86,9 @@ const DeliveryAddressesDialog = (props) => {
       toast.error("Please provide all fields");
     }
   }
+  useEffect(() => {
+    console.log(deliveryAddress);
+  }, [deliveryAddress]);
 
   return (
     <Dialog
@@ -193,6 +196,7 @@ const DeliveryAddressesDialog = (props) => {
       </DialogBody>
       <DialogFooter className="p-0">
         <Button
+          onClick={addDeliveryAddress}
           className="rounded-full self-end my-4 bg-gray-400 text-gray-700 mr-5"
           disabled={handleDisableButton() == true ? true : false}
         >
