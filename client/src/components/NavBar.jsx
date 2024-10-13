@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import { forwardRef, useEffect, useRef, useState } from "react";
 import {
   Navbar,
   Collapse,
@@ -32,8 +30,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLogoutMutation } from "../redux/user/userApiSlice";
 import { logout } from "../redux/auth/authSlice";
 import { toast } from "react-toastify";
+import PropTypes from "prop-types";
 
-const NavBar = (props) => {
+const NavBar = forwardRef(function NavBar(props, ref) {
   const [openNav, setOpenNav] = useState(false);
   const [currentPage, setCurrentPage] = useState(useLocation().pathname);
   const [showSignin, setSignin] = useState(false);
@@ -45,12 +44,61 @@ const NavBar = (props) => {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
-  setRef(document.getElementById("nav-bar"));
+  //setRef(document.getElementById("nav-bar"));
 
   if (currentPage !== useLocation().pathname) {
     const navbarHeight = document.getElementById("nav-bar").offsetHeight;
     document.body.style.paddingTop = `${navbarHeight}px`;
   }
+
+  useEffect(() => {
+    if (ref) {
+      console.log(ref);
+      ref.current.style.backgroundColor = "red";
+      let oldScroll = 0;
+
+      window.onscroll = function () {
+        if (oldScroll > this.scrollY) {
+          console.log("hey");
+          ref.current.animate(
+            [
+              {
+                height: "0vh",
+              },
+              {
+                display: "inline-block",
+                height: `230px`,
+              },
+            ],
+            {
+              duration: 150,
+              fill: "forwards",
+              iterations: 1,
+            }
+          );
+        } else if (oldScroll < this.scrollY) {
+          console.log("bye");
+          ref.current.animate(
+            [
+              {
+                height: `230px`,
+              },
+              {
+                display: "none",
+                height: "0vh",
+              },
+            ],
+            {
+              duration: 150,
+              fill: "forwards",
+              iterations: 1,
+            }
+          );
+        }
+        oldScroll = this.scrollY;
+      };
+    }
+  }, [ref]);
 
   const dispatch = useDispatch();
 
@@ -249,6 +297,7 @@ const NavBar = (props) => {
         />
       ) : null}
       <Navbar
+        ref={ref}
         id="nav-bar"
         className="fixed top-0 z-40 h-fit max-w-full rounded-none px-4 py-2 lg:px-8 shadow-3xl bg-gray-100 border-b-2 border-b-gray-800 overflow-y-hidden inline-block"
       >
@@ -383,6 +432,10 @@ const NavBar = (props) => {
       </Drawer>
     </header>
   );
+});
+
+NavBar.propTypes = {
+  setRef: PropTypes.func,
 };
 
 export default NavBar;
