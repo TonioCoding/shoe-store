@@ -1,11 +1,10 @@
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import {
   Navbar,
   Collapse,
   Typography,
   Button,
   IconButton,
-  Radio,
   Avatar,
   Drawer,
 } from "@material-tailwind/react";
@@ -40,11 +39,9 @@ const NavBar = forwardRef(function NavBar(props, ref) {
   const pathname = useLocation().pathname;
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const [logoutUser, { isLoading }] = useLogoutMutation();
-  const setRef = props.changeRef;
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-
-  //setRef(document.getElementById("nav-bar"));
+  const navbarRefHeight = props.navbarRefHeight;
 
   if (currentPage !== useLocation().pathname) {
     const navbarHeight = document.getElementById("nav-bar").offsetHeight;
@@ -53,13 +50,11 @@ const NavBar = forwardRef(function NavBar(props, ref) {
 
   useEffect(() => {
     if (ref) {
-      console.log(ref);
-      ref.current.style.backgroundColor = "red";
       let oldScroll = 0;
+      let alreadyShowing;
 
       window.onscroll = function () {
-        if (oldScroll > this.scrollY) {
-          console.log("hey");
+        if (oldScroll > this.scrollY && alreadyShowing !== true) {
           ref.current.animate(
             [
               {
@@ -67,7 +62,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
               },
               {
                 display: "inline-block",
-                height: `230px`,
+                height: `${navbarRefHeight}px`,
               },
             ],
             {
@@ -76,16 +71,17 @@ const NavBar = forwardRef(function NavBar(props, ref) {
               iterations: 1,
             }
           );
-        } else if (oldScroll < this.scrollY) {
-          console.log("bye");
+          alreadyShowing = true;
+        } else if (oldScroll < this.scrollY && alreadyShowing !== false) {
           ref.current.animate(
             [
               {
-                height: `230px`,
+                height: `${navbarRefHeight}px`,
               },
               {
-                display: "none",
-                height: "0vh",
+                height: "0px",
+                paddingTop: "0px",
+                paddingBottom: "0px",
               },
             ],
             {
@@ -94,11 +90,15 @@ const NavBar = forwardRef(function NavBar(props, ref) {
               iterations: 1,
             }
           );
+          alreadyShowing = false;
         }
         oldScroll = this.scrollY;
       };
+      {
+        document.body.style.paddingTop = `${navbarRefHeight}px`;
+      }
     }
-  }, [ref]);
+  }, [ref, navbarRefHeight]);
 
   const dispatch = useDispatch();
 
@@ -436,6 +436,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
 
 NavBar.propTypes = {
   setRef: PropTypes.func,
+  navbarRefHeight: PropTypes.number,
 };
 
 export default NavBar;
