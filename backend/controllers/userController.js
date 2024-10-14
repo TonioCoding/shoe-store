@@ -494,7 +494,7 @@ const confirmCommunicationPreferences = asyncHandler(async (req, res) => {
     user.save();
     res.status(201).json(true);
   } else {
-    res.status(401).json("No user id was provided");
+    res.status(401).send("No user id was provided");
   }
   return;
 });
@@ -510,9 +510,9 @@ const retrieveUserProp = asyncHandler(async (req, res) => {
     }
     res.status(200).json(user[prop]);
   } else if (!user) {
-    res.status(400).json("No user provided");
+    res.status(400).send("No user provided");
   } else if (!prop) {
-    res.status(400).json("No prop provided");
+    res.status(400).send("No prop provided");
   }
   return;
 });
