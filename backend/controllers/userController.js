@@ -505,7 +505,7 @@ const retrieveUserProp = asyncHandler(async (req, res) => {
 
   if (user && prop) {
     if (user[prop] === undefined) {
-      res.status(400).json("Property doesn't exist");
+      res.status(400).send("Property doesn't exist");
       return;
     }
     res.status(200).json(user[prop]);
