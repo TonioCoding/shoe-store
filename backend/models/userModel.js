@@ -1,6 +1,25 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 
+const inboxMessageSchema = new mongoose.Schema({
+  date: {
+    type: String,
+    required: true,
+  },
+  message: {
+    type: String,
+    required: true,
+  },
+  sender: {
+    type: String,
+    required: true,
+  },
+  messageImg: {
+    type: String,
+    required: true,
+  },
+});
+
 const billingAddressesSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -145,10 +164,7 @@ const userSchema = mongoose.Schema(
       required: false,
     },
     paymentMethods: [paymentMethodsSchema],
-    inbox: {
-      type: Array,
-      required: false,
-    },
+    inbox: [inboxMessageSchema],
     cart: {
       type: Array,
       required: false,
