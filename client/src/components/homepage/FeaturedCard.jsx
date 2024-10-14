@@ -7,7 +7,7 @@ const FeaturedCard = (props) => {
         <img
           src={props.imgUrl}
           alt="card-img"
-          className="w-full object-cover object-center border-gray-900 border-2"
+          className="w-full object-cover object-center border-gray-900 border"
         />
       </div>
       <h1 className="font-lt text-center text-xl my-1">{props.heading}</h1>
