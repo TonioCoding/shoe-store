@@ -487,6 +487,18 @@ const validatePassword = asyncHandler(async (req, res) => {
   }
 });
 
+const confirmCommunicationPreferences = asyncHandler(async (req, res) => {
+  const user = await User.findOne({ _id: req.body.userId });
+  if (user) {
+    user.sendEmails = true;
+    user.save();
+    res.status(201).json(true);
+  } else {
+    res.status(401).json("No user id was provided");
+  }
+  return;
+});
+
 export {
   authUser,
   createUser,
@@ -504,4 +516,5 @@ export {
   addDeliveryAddress,
   deleteDeliveryAddress,
   validatePassword,
+  confirmCommunicationPreferences,
 };

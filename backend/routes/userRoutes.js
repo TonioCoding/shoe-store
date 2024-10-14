@@ -18,6 +18,7 @@ import {
   deletePaymentMethod,
   addPhoneNumber,
   validatePassword,
+  confirmCommunicationPreferences,
 } from "../controllers/userController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
@@ -40,6 +41,11 @@ router.post("/addDeliveryAddress", [protect, addDeliveryAddress]);
 router.post("/deleteDeliveryAddress", [protect, deleteDeliveryAddress]);
 
 router.patch("/editLocation", [protect, editLocation]);
+
+router.post("/confirmCommunicationPreferences", [
+  protect,
+  confirmCommunicationPreferences,
+]);
 
 router.post("/validatePassword", [protect, validatePassword]);
 
