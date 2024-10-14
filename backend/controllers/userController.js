@@ -499,6 +499,24 @@ const confirmCommunicationPreferences = asyncHandler(async (req, res) => {
   return;
 });
 
+const retrieveUserProp = asyncHandler(async (req, res) => {
+  const user = await User.findOne({ _id: req.body.userId });
+  const prop = req.body.prop;
+
+  if (user && prop) {
+    if (user[prop] === undefined) {
+      res.status(400).json("Property doesn't exist");
+      return;
+    }
+    res.status(200).json(user[prop]);
+  } else if (!user) {
+    res.status(400).json("No user provided");
+  } else if (!prop) {
+    res.status(400).json("No prop provided");
+  }
+  return;
+});
+
 export {
   authUser,
   createUser,
@@ -517,4 +535,5 @@ export {
   deleteDeliveryAddress,
   validatePassword,
   confirmCommunicationPreferences,
+  retrieveUserProp,
 };

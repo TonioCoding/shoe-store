@@ -19,6 +19,7 @@ import {
   addPhoneNumber,
   validatePassword,
   confirmCommunicationPreferences,
+  retrieveUserProp,
 } from "../controllers/userController.js";
 
 import { protect } from "../middleware/authMiddleware.js";
@@ -46,6 +47,8 @@ router.post("/confirmCommunicationPreferences", [
   protect,
   confirmCommunicationPreferences,
 ]);
+
+router.post("/retrieveUserProp", [protect, retrieveUserProp]);
 
 router.post("/validatePassword", [protect, validatePassword]);
 
