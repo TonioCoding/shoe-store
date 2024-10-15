@@ -227,6 +227,26 @@ const NavBar = forwardRef(function NavBar(props, ref) {
     </IconContext.Provider>
   );
 
+  useEffect(() => {
+    async function getSearchResults() {
+      try {
+        const req = fetch(
+          `http://localhost:9000/api/v1/shoe/get-shoes/input/${searchInput}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const res = (await req).json().then((data) => setSearchResults(data));
+      } catch (error) {
+        toast.error(error);
+      }
+    }
+    if (searchInput !== "") getSearchResults();
+  }, [searchInput]);
+
   return (
     <header className="max-w-full">
       {showSignup === true ? (
