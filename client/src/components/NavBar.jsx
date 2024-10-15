@@ -30,6 +30,8 @@ import { useLogoutMutation } from "../redux/user/userApiSlice";
 import { logout } from "../redux/auth/authSlice";
 import { toast } from "react-toastify";
 import PropTypes from "prop-types";
+import SearchResultsShoeCard from "./SearchResultsShoeCard";
+import { MdArrowDropDown } from "react-icons/md";
 
 const NavBar = forwardRef(function NavBar(props, ref) {
   const [openNav, setOpenNav] = useState(false);
@@ -432,11 +434,39 @@ const NavBar = forwardRef(function NavBar(props, ref) {
       </Navbar>
       <Drawer
         open={searchInput !== ""}
-        className="border border-t-gray-500"
+        className="border border-t-gray-700  overscroll-contain overflow-y-auto pl-5 bg-gray-200"
         placement="bottom"
         overlay={false}
       >
-        <Button>This is where the search results will be mapped out at</Button>
+        {searchResults.length > 0 ? (
+          <div>
+            <IconContext.Provider value={{ size: "2rem" }}>
+              <Typography
+                className="font-lt mt-1 flex items-center"
+                variant="h5"
+              >
+                Search Results
+                <MdArrowDropDown />
+              </Typography>
+            </IconContext.Provider>
+            <div className="grid grid-cols-6">
+              {searchResults.map(
+                ({ _id, model, name, imgUrls, price }, index) => {
+                  return (
+                    <SearchResultsShoeCard
+                      key={index}
+                      id={_id}
+                      name={name}
+                      model={model}
+                      imgUrls={imgUrls}
+                      price={price}
+                    />
+                  );
+                }
+              )}
+            </div>
+          </div>
+        ) : null}
       </Drawer>
     </header>
   );
