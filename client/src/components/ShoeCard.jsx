@@ -65,7 +65,7 @@ const ShoeCard = (props) => {
     >
       <img
         src={shoeImgUrls[0]}
-        className="object-scale-down border border-gray-400 min-h-fit hover:shadow-lg"
+        className="object-scale-down border border-gray-400 min-h-fit hover:shadow-lg transition-all duration-500 ease-in-out"
       />
       <div className="mx-4 my-4 flex flex-col items-start gap-y-3">
         {shoeOnSale === true ? (
