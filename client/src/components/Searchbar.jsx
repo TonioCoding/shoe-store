@@ -2,12 +2,22 @@
 import { Input } from "@material-tailwind/react";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { PropTypes } from "prop-types";
+import { useEffect } from "react";
 
 const NavSearchBar = (props) => {
   const handleSearchInput = props.handleSearchInput;
+  const searchInput = props.searchInput;
+
+  useEffect(() => {
+    if (searchInput === "") {
+      document.getElementById("search-bar").value = null;
+    }
+  }, [searchInput]);
+
   return (
     <div className="flex justify-center w-full">
       <Input
+        id="search-bar"
         onChange={(e) => handleSearchInput(e.target.value)}
         type="text"
         placeholder="Search"
@@ -32,6 +42,7 @@ const NavSearchBar = (props) => {
 
 NavSearchBar.propTypes = {
   handleSearchInput: PropTypes.func,
+  searchInput: PropTypes.string,
 };
 
 export default NavSearchBar;

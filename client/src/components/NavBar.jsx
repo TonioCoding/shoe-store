@@ -32,6 +32,7 @@ import { toast } from "react-toastify";
 import PropTypes from "prop-types";
 import SearchResultsShoeCard from "./SearchResultsShoeCard";
 import { MdArrowDropDown } from "react-icons/md";
+import { VscChromeClose } from "react-icons/vsc";
 
 const NavBar = forwardRef(function NavBar(props, ref) {
   const [openNav, setOpenNav] = useState(false);
@@ -321,7 +322,10 @@ const NavBar = forwardRef(function NavBar(props, ref) {
             </Typography>
           </Link>
           <div className="hidden sm:flex items-center">
-            <NavSearchBar handleSearchInput={handleSearchInput} />
+            <NavSearchBar
+              handleSearchInput={handleSearchInput}
+              searchInput={searchInput}
+            />
           </div>
           <div className="flex items-center gap-4">
             {/* Sign in button and Shopping cart container*/}
@@ -438,33 +442,37 @@ const NavBar = forwardRef(function NavBar(props, ref) {
         placement="bottom"
         overlay={false}
       >
+        <IconContext.Provider value={{ size: "1.5rem" }}>
+          <Typography
+            className="font-lt mt-1 flex items-center gap-x-4"
+            variant="h5"
+          >
+            Search Results
+            <MdArrowDropDown />
+            <VscChromeClose
+              className="bg-black text-white rounded-full p-1 transition-all ease-in duration-200 hover:bg-red-500"
+              onClick={() => {
+                setSearchInput("");
+              }}
+            />
+          </Typography>
+        </IconContext.Provider>
         {searchResults.length > 0 ? (
-          <div>
-            <IconContext.Provider value={{ size: "2rem" }}>
-              <Typography
-                className="font-lt mt-1 flex items-center"
-                variant="h5"
-              >
-                Search Results
-                <MdArrowDropDown />
-              </Typography>
-            </IconContext.Provider>
-            <div className="grid grid-cols-6">
-              {searchResults.map(
-                ({ _id, model, name, imgUrls, price }, index) => {
-                  return (
-                    <SearchResultsShoeCard
-                      key={index}
-                      id={_id}
-                      name={name}
-                      model={model}
-                      imgUrls={imgUrls}
-                      price={price}
-                    />
-                  );
-                }
-              )}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 pl-5">
+            {searchResults.map(
+              ({ _id, model, name, imgUrls, price }, index) => {
+                return (
+                  <SearchResultsShoeCard
+                    key={index}
+                    id={_id}
+                    name={name}
+                    model={model}
+                    imgUrls={imgUrls}
+                    price={price}
+                  />
+                );
+              }
+            )}
           </div>
         ) : null}
       </Drawer>
