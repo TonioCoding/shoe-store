@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cart: [],
+  total: 0,
 };
 
 const cartSlice = createSlice({
@@ -13,6 +14,15 @@ const cartSlice = createSlice({
     },
     clearCart: (state) => {
       state.cart = [];
+    },
+    cartTotal: (state) => {
+      if (state.cart.length > 0) {
+        let startingTotal = 0;
+
+        state.total = state.cart.reduce((total, currentValue) => {
+          return total + currentValue.price;
+        }, startingTotal);
+      }
     },
   },
 });
