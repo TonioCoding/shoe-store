@@ -33,6 +33,7 @@ const ShoePage = () => {
   const dispatch = useDispatch();
   const [cartHasProduct, setCartHasProduct] = useState(false);
   const [favoritesHasProduct, setFavoritesHasProduct] = useState(false);
+
   function handleSize(size) {
     setShoeSize(size);
   }
