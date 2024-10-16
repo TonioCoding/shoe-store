@@ -13,10 +13,11 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import SizeBadge from "../components/SizeBadge";
 import { IconContext } from "react-icons/lib";
 import { useNavigate } from "react-router-dom";
-//import { useDispatch } from "react-redux";
-//import { addItemToCart} from "../redux/cart/cartSlice.js";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemToCart, removeItemFromCart } from "../redux/cart/cartSlice.js";
 
 const ShoePage = () => {
+  const { cart } = useSelector((state) => state.persistedReducer.cart);
   const url = new URL(location.href);
   const urlId = url.searchParams.get("id");
   const [currentShoe, setCurrentShoe] = useState(null);
@@ -25,7 +26,8 @@ const ShoePage = () => {
   const [showReview, setShowReview] = useState(false);
   const [recommendedShoes, setRecommendedShoes] = useState(null);
   const [shoeSize, setShoeSize] = useState(null);
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const [cartHasProduct, setCartHasProduct] = useState(false);
 
   function handleSize(size) {
     setShoeSize(size);
@@ -94,7 +96,7 @@ const ShoePage = () => {
 
     getShoe();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [cartHasProduct, cart]);
 
   useEffect(() => {
     function getRandomElements(arr) {
@@ -141,6 +143,19 @@ const ShoePage = () => {
 
     recommendShoes();
   }, [currentShoe]);
+
+  useEffect(() => {
+    function cartHasCurrentShoe() {
+      if (currentShoe) {
+        for (let product of cart) {
+          if (product._id === currentShoe._id) {
+            setCartHasProduct(true);
+          }
+        }
+      }
+    }
+    cartHasCurrentShoe();
+  }, [cart, currentShoe]);
 
   return (
     <main className="w-full h-fit my-10 mt-28">
@@ -271,13 +286,35 @@ const ShoePage = () => {
           </div>
           <div className="flex flex-col gap-y-3 mt-4 items-center">
             <Button
-              onClick={() => {
-                // if (currentShoe) dispatch(addItemToCart());
-                toast.success("Added Shoe to cart");
+              onClick={(e) => {
+                e.preventDefault();
+                cartHasProduct === false
+                  ? toast.success("Added product to cart")
+                  : toast.success("Removed product from cart");
               }}
               className="rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]"
             >
-              <Typography className="text-[1.2em]">Add To Cart</Typography>
+              {cartHasProduct === true ? (
+                <Typography
+                  className="text-[1.2em]"
+                  onClick={() => {
+                    dispatch(removeItemFromCart(currentShoe));
+                    setCartHasProduct(false);
+                  }}
+                >
+                  Remove From cart
+                </Typography>
+              ) : (
+                <Typography
+                  className="text-[1.2em]"
+                  onClick={() => {
+                    dispatch(addItemToCart(currentShoe));
+                    setCartHasProduct(true);
+                  }}
+                >
+                  Add To Cart
+                </Typography>
+              )}
             </Button>
             <IconContext.Provider value={{ size: "1.5em" }}>
               <Button
