@@ -450,7 +450,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
       >
         <IconContext.Provider value={{ size: "1.5rem" }}>
           <Typography
-            className="font-lt mt-1 flex items-center gap-x-4"
+            className="font-lt mt-1 flex items-center gap-x-4 mb-5"
             variant="h5"
           >
             Search Results
