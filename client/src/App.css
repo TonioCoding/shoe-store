@@ -217,7 +217,7 @@ hr {
 
 #page-title span {
   transition: all;
-  transition-duration: 1s;
+  transition-duration: 370ms;
   transition-timing-function: ease-in;
 }
 
