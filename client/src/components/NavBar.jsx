@@ -7,6 +7,7 @@ import {
   IconButton,
   Avatar,
   Drawer,
+  Spinner,
 } from "@material-tailwind/react";
 import { HiShoppingCart } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
@@ -45,6 +46,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const navbarRefHeight = props.navbarRefHeight;
+  const [searchLoading, setSearchLoading] = useState(false);
 
   if (currentPage !== useLocation().pathname) {
     const navbarHeight = document.getElementById("nav-bar").offsetHeight;
@@ -241,10 +243,14 @@ const NavBar = forwardRef(function NavBar(props, ref) {
               "Content-Type": "application/json",
             },
           }
-        );
-        const res = (await req).json().then((data) => setSearchResults(data));
+        ).then(setSearchLoading(true));
+        const res = (await req)
+          .json()
+          .then((data) => setSearchResults(data))
+          .then(setSearchLoading(false));
       } catch (error) {
         toast.error(error);
+        setSearchLoading(false);
       }
     }
     if (searchInput !== "") getSearchResults();
@@ -455,6 +461,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
                 setSearchInput("");
               }}
             />
+            {searchLoading === true ? <Spinner /> : null}
           </Typography>
         </IconContext.Provider>
         {searchResults.length > 0 ? (
