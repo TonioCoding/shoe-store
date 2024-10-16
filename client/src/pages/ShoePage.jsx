@@ -15,9 +15,13 @@ import { IconContext } from "react-icons/lib";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "../redux/cart/cartSlice.js";
+import { addItem } from "../redux/favorites/favoritesSlice.js";
 
 const ShoePage = () => {
   const { cart } = useSelector((state) => state.persistedReducer.cart);
+  const { favorites } = useSelector(
+    (state) => state.persistedReducer.favorites
+  );
   const url = new URL(location.href);
   const urlId = url.searchParams.get("id");
   const [currentShoe, setCurrentShoe] = useState(null);
@@ -28,7 +32,7 @@ const ShoePage = () => {
   const [shoeSize, setShoeSize] = useState(null);
   const dispatch = useDispatch();
   const [cartHasProduct, setCartHasProduct] = useState(false);
-
+  const [favoritesHasProduct, setFavoritesHasProduct] = useState(false);
   function handleSize(size) {
     setShoeSize(size);
   }
@@ -154,8 +158,20 @@ const ShoePage = () => {
         }
       }
     }
+
+    function favoritesHasCurrentShoe() {
+      if (currentShoe) {
+        for (let product of favorites) {
+          if (product._id === currentShoe._id) {
+            setFavoritesHasProduct(true);
+          }
+        }
+      }
+    }
+
+    favoritesHasCurrentShoe();
     cartHasCurrentShoe();
-  }, [cart, currentShoe]);
+  }, [cart, currentShoe, favorites]);
 
   return (
     <main className="w-full h-fit my-10 mt-28">
@@ -318,13 +334,25 @@ const ShoePage = () => {
             </Button>
             <IconContext.Provider value={{ size: "1.5em" }}>
               <Button
+                onClick={() => {
+                  if (favoritesHasProduct === false) {
+                    dispatch(addItem(currentShoe));
+                    toast.success("Added item to favorites");
+                  } else {
+                    toast.warning("This product is already favorited");
+                  }
+                }}
                 className="flex items-center justify-center gap-x-2 rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer transition-all duration-300 ease-in-out hover:border-black lg:min-w-fit w-[75%]"
                 color="white"
               >
                 <Typography className="text-[1.2em] text-black">
-                  Favorite
+                  {favoritesHasProduct === true ? "Favorited" : "Favorite"}
                 </Typography>
-                <TiHeartFullOutline className="txt-lg" />
+                <TiHeartFullOutline
+                  className={
+                    favoritesHasProduct === true ? "text-red-500" : "text-black"
+                  }
+                />
               </Button>
             </IconContext.Provider>
           </div>
