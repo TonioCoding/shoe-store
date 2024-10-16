@@ -260,44 +260,93 @@ const ShoePage = () => {
                 size={7.5}
                 currentSize={shoeSize}
                 change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
               />
               <SizeBadge size={8} currentSize={shoeSize} change={handleSize} />
               <SizeBadge
                 size={8.5}
                 currentSize={shoeSize}
                 change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
               />
               <SizeBadge size={9} currentSize={shoeSize} change={handleSize} />
               <SizeBadge
                 size={9.5}
                 currentSize={shoeSize}
                 change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
               />
               <SizeBadge size={10} currentSize={shoeSize} change={handleSize} />
               <SizeBadge
                 size={10.5}
                 currentSize={shoeSize}
                 change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
               />
-              <SizeBadge size={11} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={11}
+                currentSize={shoeSize}
+                change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
+              />
               <SizeBadge
                 size={11.5}
                 currentSize={shoeSize}
                 change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
               />
-              <SizeBadge size={12} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={12}
+                currentSize={shoeSize}
+                change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
+              />
               <SizeBadge
                 size={12.5}
                 currentSize={shoeSize}
                 change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
               />
-              <SizeBadge size={13} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={13}
+                currentSize={shoeSize}
+                change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
+              />
               <SizeBadge
                 size={13.5}
                 currentSize={shoeSize}
                 change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
               />
-              <SizeBadge size={14} currentSize={shoeSize} change={handleSize} />
+              <SizeBadge
+                size={14}
+                currentSize={shoeSize}
+                change={handleSize}
+                sizesNotInStock={
+                  currentShoe ? currentShoe.sizesNotInStock : null
+                }
+              />
             </div>
           </div>
           <div className="flex flex-col gap-y-3 mt-4 items-center">
