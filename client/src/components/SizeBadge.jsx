@@ -9,10 +9,10 @@ const SizeBadge = (props) => {
   const sizesNotInStock = props.sizesNotInStock;
   const [sizeInStock, setSizeInStock] = useState(true);
   let className =
-    "size-badge py-2 px-5 my-1 min-w-[25vw] lg:min-w-[10vw] max-w-[10vw] border border-gray-400 inline-flex items-center justify-center rounded-md hover:border-black transition-all duration-200 ease-in-out hover:cursor-pointer";
+    "size-badge py-2 px-5 my-1 h-[65px] min-w-[25vw] lg:min-w-[10vw] max-w-[10vw] border border-gray-400 inline-flex items-center justify-center rounded-md hover:border-black transition-all duration-200 ease-in-out hover:cursor-pointer";
   if (currentSize === size) {
     className =
-      "size-badge py-2 px-5 my-1 min-w-[25vw] lg:min-w-[10vw] max-w-[10vw] border border-black inline-flex items-center justify-center rounded-md hover:border-black transition-all duration-200 ease-in-out hover:cursor-pointer";
+      "size-badge py-2 px-5 my-1 h-[65px] min-w-[25vw] lg:min-w-[10vw] max-w-[10vw] border border-black inline-flex items-center justify-center rounded-md hover:border-black transition-all duration-200 ease-in-out hover:cursor-pointer";
   }
 
   useEffect(() => {
