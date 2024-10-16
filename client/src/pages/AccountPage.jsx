@@ -210,37 +210,33 @@ const AccountPage = () => {
         );
       case "favorites":
         if (favorites) {
-          return (
-            <div className="flex flex-wrap justify-start ml-[15%]">
-              {favorites.map(
-                ({
-                  _id,
-                  name,
-                  model,
-                  price,
-                  onSale,
-                  imgUrls,
-                  brand,
-                  sizesNotInStock,
-                  colors,
-                }) => {
-                  return (
-                    <ShoeCard
-                      key={_id}
-                      id={_id}
-                      name={name}
-                      price={price}
-                      imgUrls={imgUrls}
-                      model={model}
-                      brand={brand}
-                      sizesNotInStock={sizesNotInStock}
-                      onSale={onSale}
-                      colors={colors}
-                    />
-                  );
-                }
-              )}
-            </div>
+          return favorites.map(
+            ({
+              _id,
+              name,
+              model,
+              price,
+              onSale,
+              imgUrls,
+              brand,
+              sizesNotInStock,
+              colors,
+            }) => {
+              return (
+                <ShoeCard
+                  key={_id}
+                  id={_id}
+                  name={name}
+                  price={price}
+                  imgUrls={imgUrls}
+                  model={model}
+                  brand={brand}
+                  sizesNotInStock={sizesNotInStock}
+                  onSale={onSale}
+                  colors={colors}
+                />
+              );
+            }
           );
         } else {
           return (
