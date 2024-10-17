@@ -466,7 +466,7 @@ const ShoePage = () => {
             <AccordionBody>
               <div className="flex flex-col gap-x-3 mb-3">
                 <div className="flex flex-col mb-5">
-                  <div className="flex gap-x-4 mb-2">
+                  <div className="flex gap-x-4 mb-1">
                     <div className="flex items-center text-black">
                       <MdStarBorder />
                       <MdStarBorder />
