@@ -453,15 +453,29 @@ const ShoePage = () => {
               </Typography>
             </AccordionHeader>
             <AccordionBody>
-              <div className="flex items-center gap-x-3 mb-3">
-                <div className="flex text-lg text-black">
-                  <MdStar />
-                  <MdStar />
-                  <MdStar />
-                  <MdStar />
-                  <MdStar />
-                </div>
-                <Typography className="text-lg text-black">5 Stars</Typography>
+              <div className="flex flex-col gap-x-3 mb-3">
+                {shoeReviews.map(
+                  (
+                    { userName, starRating, subject, date, reviewText },
+                    index
+                  ) => {
+                    return (
+                      <div key={index}>
+                        <Typography>{subject}</Typography>
+                        <div className="flex justify-between gap-x-5 w-full">
+                          <MdStar />
+                          <Typography>
+                            {userName} &#45; {date}{" "}
+                          </Typography>
+                        </div>
+                        <Typography>{reviewText}</Typography>
+                      </div>
+                    );
+                  }
+                )}
+                <Typography className="font-rt font-medium text-black underline hover:cursor-pointer">
+                  More
+                </Typography>
               </div>
               <Typography
                 className="underline font-normal hover:text-gray-600 cursor-pointer"
