@@ -7,7 +7,7 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-import { MdOutlineAttachMoney, MdStar } from "react-icons/md";
+import { MdOutlineAttachMoney, MdStar, MdStarBorder } from "react-icons/md";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import SizeBadge from "../components/SizeBadge";
@@ -448,45 +448,72 @@ const ShoePage = () => {
             }}
           >
             <AccordionHeader>
-              <Typography variant="h5" color="black" className="font-normal">
+              <Typography
+                variant="h5"
+                color="black"
+                className="font-normal flex justify-between w-full"
+              >
                 Reviews &#40;{shoeReviews.length}&#41;
+                <div className="flex">
+                  <MdStarBorder />
+                  <MdStarBorder />
+                  <MdStarBorder />
+                  <MdStarBorder />
+                  <MdStarBorder />
+                </div>
               </Typography>
             </AccordionHeader>
             <AccordionBody>
               <div className="flex flex-col gap-x-3 mb-3">
+                <div className="flex flex-col mb-5">
+                  <div className="flex gap-x-4 mb-2">
+                    <div className="flex items-center text-black">
+                      <MdStarBorder />
+                      <MdStarBorder />
+                      <MdStarBorder />
+                      <MdStarBorder />
+                      <MdStarBorder />
+                    </div>
+                    <Typography className="text-black">0 Stars</Typography>
+                  </div>
+                  <Typography
+                    className="underline font-normal hover:text-gray-600 cursor-pointer"
+                    color="black"
+                    variant="h6"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                  >
+                    Write a review
+                  </Typography>
+                </div>
                 {shoeReviews.map(
                   (
                     { userName, starRating, subject, date, reviewText },
                     index
                   ) => {
                     return (
-                      <div key={index}>
-                        <Typography>{subject}</Typography>
-                        <div className="flex justify-between gap-x-5 w-full">
-                          <MdStar />
+                      <div key={index} className="my-5">
+                        <Typography className="text-black font-bold mb-1">
+                          {subject}
+                        </Typography>
+                        <div className="flex justify-between gap-x-5 w-full mb-1">
+                          <MdStar className="text-black" />
                           <Typography>
                             {userName} &#45; {date}{" "}
                           </Typography>
                         </div>
-                        <Typography>{reviewText}</Typography>
+                        <Typography className="text-black font-rt">
+                          {reviewText}
+                        </Typography>
                       </div>
                     );
                   }
                 )}
-                <Typography className="font-rt font-medium text-black underline hover:cursor-pointer">
-                  More
+                <Typography className="font-rt font-medium text-black underline hover:cursor-pointer transition-all duration-300 hover:text-gray-600">
+                  More Reviews
                 </Typography>
               </div>
-              <Typography
-                className="underline font-normal hover:text-gray-600 cursor-pointer"
-                color="black"
-                variant="h6"
-                onClick={(e) => {
-                  e.stopPropagation();
-                }}
-              >
-                Write a review
-              </Typography>
             </AccordionBody>
           </Accordion>
         </div>
