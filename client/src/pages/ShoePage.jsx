@@ -209,7 +209,7 @@ const ShoePage = () => {
                       onClick={() => setCurrentImage(img)}
                       key={index}
                       src={img}
-                      className="shoe-image w-[5vw] border-2 border-gray-400 object-cover mb-3 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-500 transition-all ease-in-out duration-300"
+                      className="shoe-image w-[5vw] border border-gray-500 object-cover mb-3 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-600 transition-all ease-in-out duration-300"
                     />
                   );
                 })
@@ -218,7 +218,7 @@ const ShoePage = () => {
           <div className="relative w-full lg:w-[60vh] h-fit">
             <img
               src={currentShoe !== null ? currentImage : null}
-              className="w-full h-full object-scale-down border-2 border-t-0 lg:border-t-2 border-gray-400 lg:rounded-lg"
+              className="w-full h-full object-scale-down border border-t-0 lg:border-t-2 border-gray-500 lg:rounded-lg"
             />
             <div className="flex items-center gap-x-2 text-[2.4rem] absolute right-10 bottom-10">
               <IoIosArrowBack
@@ -495,7 +495,7 @@ const ShoePage = () => {
                       window.location.reload();
                     }}
                     src={shoe.imgUrls[0]}
-                    className="w-[25vw] object-scale-down border-2 border-gray-400 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-500 transition-all ease-in-out duration-300"
+                    className="w-[25vw] object-scale-down border border-gray-500 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-600 transition-all ease-in-out duration-300"
                   />
                 );
               })
