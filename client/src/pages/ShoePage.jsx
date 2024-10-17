@@ -33,6 +33,7 @@ const ShoePage = () => {
   const dispatch = useDispatch();
   const [cartHasProduct, setCartHasProduct] = useState(false);
   const [favoritesHasProduct, setFavoritesHasProduct] = useState(false);
+  const [shoeReviews, setShoeReviews] = useState([]);
 
   function handleSize(size) {
     setShoeSize(size);
@@ -173,6 +174,12 @@ const ShoePage = () => {
     favoritesHasCurrentShoe();
     cartHasCurrentShoe();
   }, [cart, currentShoe, favorites]);
+
+  useEffect(() => {
+    if (currentShoe) {
+      setShoeReviews(currentShoe.reviews);
+    }
+  }, [currentShoe]);
 
   return (
     <main className="w-full h-fit my-10 mt-28">
@@ -442,7 +449,7 @@ const ShoePage = () => {
           >
             <AccordionHeader>
               <Typography variant="h5" color="black" className="font-normal">
-                Reviews &#40;12&#41;
+                Reviews &#40;{shoeReviews.length}&#41;
               </Typography>
             </AccordionHeader>
             <AccordionBody>
