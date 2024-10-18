@@ -98,6 +98,16 @@ const ShoePage = () => {
         stars.push(<MdStarOutline className={remaingStarsClassName} />);
       }
       return <div className="flex">{stars.map((element) => element)}</div>;
+    } else if (rating === 0) {
+      return (
+        <div className="flex text-black">
+          <MdStarOutline />
+          <MdStarOutline />
+          <MdStarOutline />
+          <MdStarOutline />
+          <MdStarOutline />
+        </div>
+      );
     } else {
       return (
         <div className="flex text-black">
@@ -124,6 +134,8 @@ const ShoePage = () => {
 
       averageRating = sumOfReviews / amountOfReviews;
       return Math.ceil(averageRating);
+    } else {
+      return 0;
     }
   }
 
