@@ -19,7 +19,7 @@ const ShoesPage = ({ brand }) => {
   const [sortBy, setSortBy] = useState(null);
   const isFirstRender = useRef(true);
   const [filters, setFilters] = useState(new Set());
-  
+
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
 
   const genders = ["Male", "Female", "Unisex"];
@@ -360,6 +360,7 @@ const ShoesPage = ({ brand }) => {
                   brand,
                   sizesNotInStock,
                   colors,
+                  gender,
                 }) => {
                   return (
                     <ShoeCard
@@ -373,6 +374,7 @@ const ShoesPage = ({ brand }) => {
                       sizesNotInStock={sizesNotInStock}
                       onSale={onSale}
                       colors={colors}
+                      gender={gender}
                     />
                   );
                 }

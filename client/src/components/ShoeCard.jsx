@@ -15,6 +15,7 @@ const ShoeCard = (props) => {
   const shoeSizesNotInStock = props.sizesNotInStock;
   const shoeOnSale = props.onSale;
   const shoeId = props.id;
+  const shoeGender = props.gender;
   let shoeColorHexCodes = [];
   const navigate = useNavigate();
 
@@ -67,7 +68,7 @@ const ShoeCard = (props) => {
         src={shoeImgUrls[0]}
         className="object-scale-down border border-gray-400 min-h-fit hover:shadow-lg transition-all duration-500 ease-in-out"
       />
-      <div className="mx-4 my-4 flex flex-col items-start gap-y-3">
+      <div className="mx-4 my-4 flex flex-col items-start gap-y-2">
         {shoeOnSale === true ? (
           <Typography className="text-green-500 font-rt text-[1.1rem] flex items-center gap-x-1">
             Sale
@@ -77,7 +78,10 @@ const ShoeCard = (props) => {
         <Typography className="font-lt text-[1.05rem] text-wrap">
           {shoeModel} {shoeName}
         </Typography>
-        <div className="flex flex-col gap-y-3">
+        <Typography className="font-rt text-gray-600 text-sm">
+          {shoeGender === "Unisex" ? shoeGender : `${shoeGender}'s Shoe`}
+        </Typography>
+        <div className="flex flex-col my-1">
           <div className="flex gap-x-2">
             {shoeColorHexCodes.length > 0
               ? shoeColorHexCodes.map((value) => {
@@ -112,5 +116,6 @@ ShoeCard.propTypes = {
   name: PropTypes.string,
   model: PropTypes.string,
   imgUrls: PropTypes.array,
+  gender: PropTypes.string,
 };
 export default ShoeCard;
