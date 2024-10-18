@@ -3,6 +3,7 @@ import {
   DialogBody,
   DialogFooter,
   DialogHeader,
+  Radio,
   Typography,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
@@ -129,6 +130,70 @@ const WriteReviewDialog = (props) => {
             </Typography>
           </div>
           <hr className="my-10 border-gray-500" />
+          <div className="flex flex-col gap-y-7">
+            <div>
+              <Typography className="text-gray-800 items-center">
+                How did this product fit&#63;{" "}
+                <span className="text-red-600">&#42;</span>
+              </Typography>
+              <div>
+                <div className="flex flex-col">
+                  <Radio
+                    name="type"
+                    label="Runs small"
+                    className="border-gray-600"
+                  />
+                  <Radio
+                    name="type"
+                    label="True to Size"
+                    className="border-gray-600"
+                  />
+                  <Radio
+                    name="type"
+                    label="Runs Big"
+                    className="border-gray-600"
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <Typography className="text-gray-800 items-center">
+                How comfortable was this product&#63;{" "}
+                <span className="text-red-600">&#42;</span>
+              </Typography>
+              <div>
+                <div className="flex flex-col">
+                  <Radio
+                    name="type"
+                    label="Uncomfortable"
+                    className="border-gray-600"
+                  />
+                  <Radio
+                    name="type"
+                    label="Average"
+                    className="border-gray-600"
+                  />
+                  <Radio
+                    name="type"
+                    label="Very Comfortable"
+                    className="border-gray-600"
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <Typography className="text-gray-800 items-center">
+                Would you recommend this product&#63;{" "}
+                <span className="text-red-600">&#42;</span>
+              </Typography>
+              <div>
+                <div className="flex flex-col">
+                  <Radio name="type" label="Yes" className="border-gray-600" />
+                  <Radio name="type" label="No" className="border-gray-600" />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </DialogBody>
       <DialogFooter></DialogFooter>
