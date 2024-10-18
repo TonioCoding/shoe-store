@@ -73,7 +73,7 @@ const WriteReviewDialog = (props) => {
           </Typography>
         </div>
         <div className="my-3 gap-y-6">
-          <Typography className="text-gray-800">
+          <Typography className="text-gray-800 items-center">
             Overall rating <span className="text-red-600">&#42;</span>
           </Typography>
           <div className="flex text-black [&>*]:hover:cursor-pointer">
@@ -87,12 +87,12 @@ const WriteReviewDialog = (props) => {
           </div>
           <hr className="my-10 border-gray-500" />
           <div className="flex flex-col gap-y-2">
-            <Typography className="text-gray-800">
+            <Typography className="text-gray-800 items-center">
               Your Review <span className="text-red-600">&#42;</span>
             </Typography>
             <Input
               type="text"
-              className="!border h-[20vh] !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+              className="!border  !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
               labelProps={{
                 className: "hidden",
               }}
