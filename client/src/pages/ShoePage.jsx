@@ -548,7 +548,7 @@ const ShoePage = () => {
                         </Typography>
                         <div className="flex justify-between gap-x-5 w-full mb-1">
                           {determineShoeReviewRating(starRating)}
-                          <Typography>
+                          <Typography className="mx-1">
                             {userName} &#45; {date}{" "}
                           </Typography>
                         </div>
