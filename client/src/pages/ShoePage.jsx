@@ -244,7 +244,11 @@ const ShoePage = () => {
 
   return (
     <>
-      <WriteReviewDialog open={dialog} handleDialog={handleDialog} />
+      <WriteReviewDialog
+        open={dialog}
+        handleDialog={handleDialog}
+        currentShoe={currentShoe}
+      />
       <main className="w-full h-fit my-10 mt-28">
         <div className="flex flex-col lg:flex-row justify-center">
           <div className="flex flex-col gap-y-3 mx-6 lg:hidden">
