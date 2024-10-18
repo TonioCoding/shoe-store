@@ -538,7 +538,7 @@ const ShoePage = () => {
                     </Typography>
                   </div>
                   <Typography
-                    className="underline font-normal hover:text-gray-600 cursor-pointer"
+                    className="underline font-semibold hover:text-gray-600 cursor-pointer"
                     color="black"
                     variant="h6"
                     onClick={(e) => {
