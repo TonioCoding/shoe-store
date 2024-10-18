@@ -23,6 +23,7 @@ const ShoePage = () => {
   const { favorites } = useSelector(
     (state) => state.persistedReducer.favorites
   );
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const url = new URL(location.href);
   const urlId = url.searchParams.get("id");
   const [currentShoe, setCurrentShoe] = useState(null);
@@ -42,6 +43,11 @@ const ShoePage = () => {
   }
 
   function handleDialog() {
+    if (!userInfo) {
+      toast.warning("You must be logged in to submit a review");
+      return;
+    }
+
     dialog === false ? setDialog(true) : setDialog(false);
   }
 

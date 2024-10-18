@@ -1,4 +1,5 @@
 import {
+  Button,
   Dialog,
   DialogBody,
   DialogFooter,
@@ -11,8 +12,10 @@ import { useEffect, useRef } from "react";
 import { IconContext } from "react-icons";
 import { MdStarBorder } from "react-icons/md";
 import { VscChromeClose } from "react-icons/vsc";
+import { useSelector } from "react-redux";
 
 const WriteReviewDialog = (props) => {
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const open = props.open;
   const handleDialog = props.handleDialog;
   const currentShoe = props.currentShoe;
@@ -37,7 +40,7 @@ const WriteReviewDialog = (props) => {
     <Dialog
       size="md"
       open={open}
-      className="p-7 h-[75vh] !overscroll-contain !overflow-y-scroll"
+      className="p-4 h-[75vh] !overscroll-contain !overflow-y-scroll"
     >
       <DialogHeader className="flex flex-col w-full">
         <IconContext.Provider value={{ size: "2rem" }}>
@@ -196,7 +199,11 @@ const WriteReviewDialog = (props) => {
           </div>
         </div>
       </DialogBody>
-      <DialogFooter></DialogFooter>
+      <DialogFooter>
+        <Button className="w-full rounded-full bg-black text-sm font-rt">
+          Submit
+        </Button>
+      </DialogFooter>
     </Dialog>
   );
 };
