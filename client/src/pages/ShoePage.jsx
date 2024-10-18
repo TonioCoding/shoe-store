@@ -111,7 +111,21 @@ const ShoePage = () => {
     }
   }
 
-  function determineAverageShoeReviewRating() {}
+  function determineAverageShoeReviewRating(reviews) {
+    let averageRating = 0;
+    let copyOfReviews = [...reviews];
+
+    if (copyOfReviews.length > 0) {
+      let sumOfReviews = copyOfReviews.reduce(
+        (sum, review) => (sum += review.starRating),
+        0
+      );
+      let amountOfReviews = copyOfReviews.length;
+
+      averageRating = sumOfReviews / amountOfReviews;
+      return Math.ceil(averageRating);
+    }
+  }
 
   useEffect(() => {
     async function getShoe() {
@@ -489,11 +503,9 @@ const ShoePage = () => {
               >
                 Reviews &#40;{shoeReviews.length}&#41;
                 <div className="flex">
-                  <MdStarBorder />
-                  <MdStarBorder />
-                  <MdStarBorder />
-                  <MdStarBorder />
-                  <MdStarBorder />
+                  {determineShoeReviewRating(
+                    determineAverageShoeReviewRating(shoeReviews)
+                  )}
                 </div>
               </Typography>
             </AccordionHeader>
@@ -502,13 +514,16 @@ const ShoePage = () => {
                 <div className="flex flex-col mb-5">
                   <div className="flex gap-x-4 mb-1">
                     <div className="flex items-center text-black">
-                      <MdStarBorder />
-                      <MdStarBorder />
-                      <MdStarBorder />
-                      <MdStarBorder />
-                      <MdStarBorder />
+                      {determineShoeReviewRating(
+                        determineAverageShoeReviewRating(shoeReviews)
+                      )}
                     </div>
-                    <Typography className="text-black">0 Stars</Typography>
+                    <Typography className="text-black">
+                      {shoeReviews
+                        ? determineAverageShoeReviewRating(shoeReviews)
+                        : null}{" "}
+                      Stars
+                    </Typography>
                   </div>
                   <Typography
                     className="underline font-normal hover:text-gray-600 cursor-pointer"
