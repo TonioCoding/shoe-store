@@ -7,7 +7,12 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-import { MdOutlineAttachMoney, MdStar, MdStarBorder } from "react-icons/md";
+import {
+  MdOutlineAttachMoney,
+  MdStar,
+  MdStarBorder,
+  MdStarOutline,
+} from "react-icons/md";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import SizeBadge from "../components/SizeBadge";
@@ -78,6 +83,35 @@ const ShoePage = () => {
       });
     }
   }
+
+  function determineShoeReviewRating(rating) {
+    let remaingStars = 5 - rating;
+    let stars = [];
+    const filledStarsClassName = "text-black";
+    const remaingStarsClassName = "text-black";
+
+    if (remaingStars > 0) {
+      for (let i = 0; i < rating; i++) {
+        stars.push(<MdStar className={filledStarsClassName} />);
+      }
+      for (let i = 0; i < remaingStars; i++) {
+        stars.push(<MdStarOutline className={remaingStarsClassName} />);
+      }
+      return <div className="flex">{stars.map((element) => element)}</div>;
+    } else {
+      return (
+        <div className="flex text-black">
+          <MdStar />
+          <MdStar />
+          <MdStar />
+          <MdStar />
+          <MdStar />
+        </div>
+      );
+    }
+  }
+
+  function determineAverageShoeReviewRating() {}
 
   useEffect(() => {
     async function getShoe() {
@@ -498,7 +532,7 @@ const ShoePage = () => {
                           {subject}
                         </Typography>
                         <div className="flex justify-between gap-x-5 w-full mb-1">
-                          <MdStar className="text-black" />
+                          {determineShoeReviewRating(starRating)}
                           <Typography>
                             {userName} &#45; {date}{" "}
                           </Typography>
