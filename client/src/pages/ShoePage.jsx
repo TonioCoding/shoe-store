@@ -7,12 +7,7 @@ import {
   Button,
   Typography,
 } from "@material-tailwind/react";
-import {
-  MdOutlineAttachMoney,
-  MdStar,
-  MdStarBorder,
-  MdStarOutline,
-} from "react-icons/md";
+import { MdOutlineAttachMoney, MdStar, MdStarOutline } from "react-icons/md";
 import { TiHeartFullOutline } from "react-icons/ti";
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import SizeBadge from "../components/SizeBadge";
@@ -21,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemToCart, removeItemFromCart } from "../redux/cart/cartSlice.js";
 import { addItem } from "../redux/favorites/favoritesSlice.js";
+import WriteReviewDialog from "../components/WriteReviewDialog.jsx";
 
 const ShoePage = () => {
   const { cart } = useSelector((state) => state.persistedReducer.cart);
@@ -39,9 +35,14 @@ const ShoePage = () => {
   const [cartHasProduct, setCartHasProduct] = useState(false);
   const [favoritesHasProduct, setFavoritesHasProduct] = useState(false);
   const [shoeReviews, setShoeReviews] = useState([]);
+  const [dialog, setDialog] = useState(false);
 
   function handleSize(size) {
     setShoeSize(size);
+  }
+
+  function handleDialog() {
+    dialog === false ? setDialog(true) : setDialog(false);
   }
 
   const navigate = useNavigate();
@@ -242,58 +243,11 @@ const ShoePage = () => {
   }, [currentShoe]);
 
   return (
-    <main className="w-full h-fit my-10 mt-28">
-      <div className="flex flex-col lg:flex-row justify-center">
-        <div className="flex flex-col gap-y-3 mx-6 lg:hidden">
-          {currentShoe !== null ? (
-            <Typography variant="h4" className="font-normal">
-              {currentShoe.brand} {currentShoe.model}
-            </Typography>
-          ) : null}
-          {currentShoe !== null ? (
-            <Typography variant="small" className="font-light">
-              {currentShoe.gender}&#39;s {currentShoe.typeOfShoe} Shoe
-            </Typography>
-          ) : null}
-          <Typography className="flex items-center my-2 mb-0 font-semibold text-lg">
-            <MdOutlineAttachMoney />
-            {currentShoe !== null ? currentShoe.price : null}
-          </Typography>
-        </div>
-        <div className="flex flex-col lg:flex-row gap-x-5 lg:justify-end w-fit">
-          <div className="hidden lg:flex flex-row lg:flex-col overscroll-contain overflow-y-auto gap-x-3">
-            {currentShoe !== null
-              ? currentShoe.imgUrls.map((img, index) => {
-                  return (
-                    <img
-                      onClick={() => setCurrentImage(img)}
-                      key={index}
-                      src={img}
-                      className="shoe-image w-[5vw] border border-gray-500 object-cover mb-3 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-600 transition-all ease-in-out duration-300"
-                    />
-                  );
-                })
-              : null}
-          </div>
-          <div className="relative w-full lg:w-[60vh] h-fit">
-            <img
-              src={currentShoe !== null ? currentImage : null}
-              className="w-full h-full object-scale-down border border-t-0 lg:border-t-2 border-gray-500 lg:rounded-lg"
-            />
-            <div className="flex items-center gap-x-2 text-[2.4rem] absolute right-10 bottom-10">
-              <IoIosArrowBack
-                className="text-black bg-gray-300 rounded-full p-2 cursor-pointer"
-                onClick={previousImage}
-              />
-              <IoIosArrowForward
-                className="text-black bg-gray-300 rounded-full p-2 cursor-pointer"
-                onClick={nextImage}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] lg:h-[100vh] lg:overflow-y-auto lg:ml-5 lg:mt-0 mt-7 px-2 self-center">
-          <div className="hidden lg:flex flex-col">
+    <>
+      <WriteReviewDialog open={dialog} handleDialog={handleDialog} />
+      <main className="w-full h-fit my-10 mt-28">
+        <div className="flex flex-col lg:flex-row justify-center">
+          <div className="flex flex-col gap-y-3 mx-6 lg:hidden">
             {currentShoe !== null ? (
               <Typography variant="h4" className="font-normal">
                 {currentShoe.brand} {currentShoe.model}
@@ -309,312 +263,381 @@ const ShoePage = () => {
               {currentShoe !== null ? currentShoe.price : null}
             </Typography>
           </div>
-          <div className="flex flex-col w-full lg:w-fit self-center">
-            <div className="flex items-center justify-between gap-x-10 my-3 mx-10 lg:mx-0">
-              <Typography color="black" variant="h6">
-                Select size
-              </Typography>
-              <Typography
-                color="gray"
-                variant="h6"
-                className="hover:cursor-pointer hover:underline"
-              >
-                Size Guide
-              </Typography>
-            </div>
-            <div className="w-fit self-center flex flex-wrap flex-row lg:grid grid-cols-2 place-items-center gap-x-4 gap-y-1 justify-center">
-              <SizeBadge size={7} currentSize={shoeSize} change={handleSize} />
-              <SizeBadge
-                size={7.5}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge size={8} currentSize={shoeSize} change={handleSize} />
-              <SizeBadge
-                size={8.5}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge size={9} currentSize={shoeSize} change={handleSize} />
-              <SizeBadge
-                size={9.5}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge size={10} currentSize={shoeSize} change={handleSize} />
-              <SizeBadge
-                size={10.5}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge
-                size={11}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge
-                size={11.5}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge
-                size={12}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge
-                size={12.5}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge
-                size={13}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge
-                size={13.5}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-              <SizeBadge
-                size={14}
-                currentSize={shoeSize}
-                change={handleSize}
-                sizesNotInStock={
-                  currentShoe ? currentShoe.sizesNotInStock : null
-                }
-              />
-            </div>
-          </div>
-          <div className="flex flex-col gap-y-3 mt-4 items-center">
-            <Button
-              onClick={(e) => {
-                e.preventDefault();
-                cartHasProduct === false
-                  ? toast.success("Added product to cart")
-                  : toast.success("Removed product from cart");
-              }}
-              className="rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]"
-            >
-              {cartHasProduct === true ? (
-                <Typography
-                  className="text-[1.2em]"
-                  onClick={() => {
-                    dispatch(removeItemFromCart(currentShoe));
-                    setCartHasProduct(false);
-                  }}
-                >
-                  Remove From cart
-                </Typography>
-              ) : (
-                <Typography
-                  className="text-[1.2em]"
-                  onClick={() => {
-                    dispatch(addItemToCart(currentShoe));
-                    setCartHasProduct(true);
-                  }}
-                >
-                  Add To Cart
-                </Typography>
-              )}
-            </Button>
-            <IconContext.Provider value={{ size: "1.5em" }}>
-              <Button
-                onClick={() => {
-                  if (favoritesHasProduct === false) {
-                    dispatch(addItem(currentShoe));
-                    toast.success("Added item to favorites");
-                  } else {
-                    toast.warning("This product is already favorited");
-                  }
-                }}
-                className="flex items-center justify-center gap-x-2 rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer transition-all duration-300 ease-in-out hover:border-black lg:min-w-fit w-[75%]"
-                color="white"
-              >
-                <Typography className="text-[1.2em] text-black">
-                  {favoritesHasProduct === true ? "Favorited" : "Favorite"}
-                </Typography>
-                <TiHeartFullOutline
-                  className={
-                    favoritesHasProduct === true ? "text-red-500" : "text-black"
-                  }
-                />
-              </Button>
-            </IconContext.Provider>
-          </div>
-          <div className="flex flex-col">
-            <div className="flex flex-col gap-y-1 mt-4 mb-7">
-              <Typography className="font-semibold" variant="h6">
-                Shipping
-              </Typography>
-              <Typography className="font-normal" variant="h6">
-                You&#39;ll see our shipping options at checkout&#46;
-              </Typography>
-            </div>
-            <Typography className="inline-block">
-              The radiance lives on in the Nike Air Force 1 &#39;07&#44; the
-              b-ball OG that puts a fresh spin on what you know best&#58;
-              durably stitched overlays&#44; clean finishes and the perfect
-              amount of flash to make you shine&#46;
-            </Typography>
-          </div>
-          <Typography
-            className="mt-3 underline font-semibold hover:text-gray-600 cursor-pointer"
-            color="black"
-            variant="h6"
-          >
-            View Product details
-          </Typography>
-          <Accordion
-            className="mb-10"
-            open={showReview}
-            onClick={() => {
-              if (showReview === false) {
-                setShowReview(true);
-              } else {
-                setShowReview(false);
-              }
-            }}
-          >
-            <AccordionHeader>
-              <Typography
-                variant="h5"
-                color="black"
-                className="font-normal flex justify-between w-full"
-              >
-                Reviews &#40;{shoeReviews.length}&#41;
-                <div className="flex">
-                  {determineShoeReviewRating(
-                    determineAverageShoeReviewRating(shoeReviews)
-                  )}
-                </div>
-              </Typography>
-            </AccordionHeader>
-            <AccordionBody>
-              <div className="flex flex-col gap-x-3 mb-3">
-                <div className="flex flex-col mb-5">
-                  <div className="flex gap-x-4 mb-1">
-                    <div className="flex items-center text-black">
-                      {determineShoeReviewRating(
-                        determineAverageShoeReviewRating(shoeReviews)
-                      )}
-                    </div>
-                    <Typography className="text-black">
-                      {shoeReviews
-                        ? determineAverageShoeReviewRating(shoeReviews)
-                        : null}{" "}
-                      Stars
-                    </Typography>
-                  </div>
-                  <Typography
-                    className="underline font-semibold hover:text-gray-600 cursor-pointer"
-                    color="black"
-                    variant="h6"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                    }}
-                  >
-                    Write a review
-                  </Typography>
-                </div>
-                {shoeReviews.map(
-                  (
-                    { userName, starRating, subject, date, reviewText },
-                    index
-                  ) => {
+          <div className="flex flex-col lg:flex-row gap-x-5 lg:justify-end w-fit">
+            <div className="hidden lg:flex flex-row lg:flex-col overscroll-contain overflow-y-auto gap-x-3">
+              {currentShoe !== null
+                ? currentShoe.imgUrls.map((img, index) => {
                     return (
-                      <div key={index} className="my-5">
-                        <Typography className="text-black font-bold mb-1">
-                          {subject}
-                        </Typography>
-                        <div className="flex justify-between gap-x-5 w-full mb-1">
-                          {determineShoeReviewRating(starRating)}
-                          <Typography className="mx-1">
-                            {userName} &#45; {date}{" "}
-                          </Typography>
-                        </div>
-                        <Typography className="text-black font-rt">
-                          {reviewText}
-                        </Typography>
-                      </div>
+                      <img
+                        onClick={() => setCurrentImage(img)}
+                        key={index}
+                        src={img}
+                        className="shoe-image w-[5vw] border border-gray-500 object-cover mb-3 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-600 transition-all ease-in-out duration-300"
+                      />
                     );
-                  }
-                )}
-                <Typography className="font-rt font-medium text-black underline hover:cursor-pointer transition-all duration-300 hover:text-gray-600">
-                  More Reviews
+                  })
+                : null}
+            </div>
+            <div className="relative w-full lg:w-[60vh] h-fit">
+              <img
+                src={currentShoe !== null ? currentImage : null}
+                className="w-full h-full object-scale-down border border-t-0 lg:border-t-2 border-gray-500 lg:rounded-lg"
+              />
+              <div className="flex items-center gap-x-2 text-[2.4rem] absolute right-10 bottom-10">
+                <IoIosArrowBack
+                  className="text-black bg-gray-300 rounded-full p-2 cursor-pointer"
+                  onClick={previousImage}
+                />
+                <IoIosArrowForward
+                  className="text-black bg-gray-300 rounded-full p-2 cursor-pointer"
+                  onClick={nextImage}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex flex-col gap-y-2 w-full lg:max-w-[35%] lg:h-[100vh] lg:overflow-y-auto lg:ml-5 lg:mt-0 mt-7 px-2 self-center">
+            <div className="hidden lg:flex flex-col">
+              {currentShoe !== null ? (
+                <Typography variant="h4" className="font-normal">
+                  {currentShoe.brand} {currentShoe.model}
+                </Typography>
+              ) : null}
+              {currentShoe !== null ? (
+                <Typography variant="small" className="font-light">
+                  {currentShoe.gender}&#39;s {currentShoe.typeOfShoe} Shoe
+                </Typography>
+              ) : null}
+              <Typography className="flex items-center my-2 mb-0 font-semibold text-lg">
+                <MdOutlineAttachMoney />
+                {currentShoe !== null ? currentShoe.price : null}
+              </Typography>
+            </div>
+            <div className="flex flex-col w-full lg:w-fit self-center">
+              <div className="flex items-center justify-between gap-x-10 my-3 mx-10 lg:mx-0">
+                <Typography color="black" variant="h6">
+                  Select size
+                </Typography>
+                <Typography
+                  color="gray"
+                  variant="h6"
+                  className="hover:cursor-pointer hover:underline"
+                >
+                  Size Guide
                 </Typography>
               </div>
-            </AccordionBody>
-          </Accordion>
-        </div>
-      </div>
-      <div className="flex flex-col">
-        <Typography variant="h4" className="font-thin ml-6">
-          You may also like
-        </Typography>
-        <div
-          id="recommended-shoes"
-          className="flex gap-x-3 scroll-smooth overflow-x-auto my-4 mx-3"
-        >
-          {recommendedShoes !== null
-            ? recommendedShoes.map((shoe, index) => {
-                return (
-                  <img
-                    key={index}
+              <div className="w-fit self-center flex flex-wrap flex-row lg:grid grid-cols-2 place-items-center gap-x-4 gap-y-1 justify-center">
+                <SizeBadge
+                  size={7}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                />
+                <SizeBadge
+                  size={7.5}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={8}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                />
+                <SizeBadge
+                  size={8.5}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={9}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                />
+                <SizeBadge
+                  size={9.5}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={10}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                />
+                <SizeBadge
+                  size={10.5}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={11}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={11.5}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={12}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={12.5}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={13}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={13.5}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+                <SizeBadge
+                  size={14}
+                  currentSize={shoeSize}
+                  change={handleSize}
+                  sizesNotInStock={
+                    currentShoe ? currentShoe.sizesNotInStock : null
+                  }
+                />
+              </div>
+            </div>
+            <div className="flex flex-col gap-y-3 mt-4 items-center">
+              <Button
+                onClick={(e) => {
+                  e.preventDefault();
+                  cartHasProduct === false
+                    ? toast.success("Added product to cart")
+                    : toast.success("Removed product from cart");
+                }}
+                className="rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]"
+              >
+                {cartHasProduct === true ? (
+                  <Typography
+                    className="text-[1.2em]"
                     onClick={() => {
-                      navigate(`/shoe-page/?id=${shoe._id}`);
-                      window.location.reload();
+                      dispatch(removeItemFromCart(currentShoe));
+                      setCartHasProduct(false);
                     }}
-                    src={shoe.imgUrls[0]}
-                    className="w-[25vw] object-scale-down border border-gray-500 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-600 transition-all ease-in-out duration-300"
+                  >
+                    Remove From cart
+                  </Typography>
+                ) : (
+                  <Typography
+                    className="text-[1.2em]"
+                    onClick={() => {
+                      dispatch(addItemToCart(currentShoe));
+                      setCartHasProduct(true);
+                    }}
+                  >
+                    Add To Cart
+                  </Typography>
+                )}
+              </Button>
+              <IconContext.Provider value={{ size: "1.5em" }}>
+                <Button
+                  onClick={() => {
+                    if (favoritesHasProduct === false) {
+                      dispatch(addItem(currentShoe));
+                      toast.success("Added item to favorites");
+                    } else {
+                      toast.warning("This product is already favorited");
+                    }
+                  }}
+                  className="flex items-center justify-center gap-x-2 rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer transition-all duration-300 ease-in-out hover:border-black lg:min-w-fit w-[75%]"
+                  color="white"
+                >
+                  <Typography className="text-[1.2em] text-black">
+                    {favoritesHasProduct === true ? "Favorited" : "Favorite"}
+                  </Typography>
+                  <TiHeartFullOutline
+                    className={
+                      favoritesHasProduct === true
+                        ? "text-red-500"
+                        : "text-black"
+                    }
                   />
-                );
-              })
-            : null}
+                </Button>
+              </IconContext.Provider>
+            </div>
+            <div className="flex flex-col">
+              <div className="flex flex-col gap-y-1 mt-4 mb-7">
+                <Typography className="font-semibold" variant="h6">
+                  Shipping
+                </Typography>
+                <Typography className="font-normal" variant="h6">
+                  You&#39;ll see our shipping options at checkout&#46;
+                </Typography>
+              </div>
+              <Typography className="inline-block">
+                The radiance lives on in the Nike Air Force 1 &#39;07&#44; the
+                b-ball OG that puts a fresh spin on what you know best&#58;
+                durably stitched overlays&#44; clean finishes and the perfect
+                amount of flash to make you shine&#46;
+              </Typography>
+            </div>
+            <Typography
+              className="mt-3 underline font-semibold hover:text-gray-600 cursor-pointer"
+              color="black"
+              variant="h6"
+            >
+              View Product details
+            </Typography>
+            <Accordion
+              className="mb-10"
+              open={showReview}
+              onClick={() => {
+                if (showReview === false) {
+                  setShowReview(true);
+                } else {
+                  setShowReview(false);
+                }
+              }}
+            >
+              <AccordionHeader>
+                <Typography
+                  variant="h5"
+                  color="black"
+                  className="font-normal flex justify-between w-full"
+                >
+                  Reviews &#40;{shoeReviews.length}&#41;
+                  <div className="flex">
+                    {determineShoeReviewRating(
+                      determineAverageShoeReviewRating(shoeReviews)
+                    )}
+                  </div>
+                </Typography>
+              </AccordionHeader>
+              <AccordionBody>
+                <div className="flex flex-col gap-x-3 mb-3">
+                  <div className="flex flex-col mb-5">
+                    <div className="flex gap-x-4 mb-1">
+                      <div className="flex items-center text-black">
+                        {determineShoeReviewRating(
+                          determineAverageShoeReviewRating(shoeReviews)
+                        )}
+                      </div>
+                      <Typography className="text-black">
+                        {shoeReviews
+                          ? determineAverageShoeReviewRating(shoeReviews)
+                          : null}{" "}
+                        Stars
+                      </Typography>
+                    </div>
+                    <Typography
+                      className="underline font-semibold hover:text-gray-600 cursor-pointer"
+                      color="black"
+                      variant="h6"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDialog();
+                      }}
+                    >
+                      Write a review
+                    </Typography>
+                  </div>
+                  {shoeReviews.map(
+                    (
+                      { userName, starRating, subject, date, reviewText },
+                      index
+                    ) => {
+                      return (
+                        <div key={index} className="my-5">
+                          <Typography className="text-black font-bold mb-1">
+                            {subject}
+                          </Typography>
+                          <div className="flex justify-between gap-x-5 w-full mb-1">
+                            {determineShoeReviewRating(starRating)}
+                            <Typography className="mx-1">
+                              {userName} &#45; {date}{" "}
+                            </Typography>
+                          </div>
+                          <Typography className="text-black font-rt">
+                            {reviewText}
+                          </Typography>
+                        </div>
+                      );
+                    }
+                  )}
+                  <Typography className="font-rt font-medium text-black underline hover:cursor-pointer transition-all duration-300 hover:text-gray-600">
+                    More Reviews
+                  </Typography>
+                </div>
+              </AccordionBody>
+            </Accordion>
+          </div>
         </div>
-        <div className="flex my-5 ml-5 gap-x-5 text-[2.4rem]">
-          <IoIosArrowBack
-            className="bg-gray-300 p-1 rounded-full cursor-pointer"
-            onClick={scrollLeft}
-          />
-          <IoIosArrowForward
-            className="bg-gray-300 p-1 rounded-full cursor-pointer"
-            onClick={scrollRight}
-          />
+        <div className="flex flex-col">
+          <Typography variant="h4" className="font-thin ml-6">
+            You may also like
+          </Typography>
+          <div
+            id="recommended-shoes"
+            className="flex gap-x-3 scroll-smooth overflow-x-auto my-4 mx-3"
+          >
+            {recommendedShoes !== null
+              ? recommendedShoes.map((shoe, index) => {
+                  return (
+                    <img
+                      key={index}
+                      onClick={() => {
+                        navigate(`/shoe-page/?id=${shoe._id}`);
+                        window.location.reload();
+                      }}
+                      src={shoe.imgUrls[0]}
+                      className="w-[25vw] object-scale-down border border-gray-500 rounded-lg cursor-pointer hover:shadow-xl hover:border-gray-600 transition-all ease-in-out duration-300"
+                    />
+                  );
+                })
+              : null}
+          </div>
+          <div className="flex my-5 ml-5 gap-x-5 text-[2.4rem]">
+            <IoIosArrowBack
+              className="bg-gray-300 p-1 rounded-full cursor-pointer"
+              onClick={scrollLeft}
+            />
+            <IoIosArrowForward
+              className="bg-gray-300 p-1 rounded-full cursor-pointer"
+              onClick={scrollRight}
+            />
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 
