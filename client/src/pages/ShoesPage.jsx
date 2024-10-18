@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable react/prop-types */
-import { Button, Typography } from "@material-tailwind/react";
+import { Typography } from "@material-tailwind/react";
 import ShoeCard from "../components/ShoeCard";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
@@ -19,6 +19,7 @@ const ShoesPage = ({ brand }) => {
   const [sortBy, setSortBy] = useState(null);
   const isFirstRender = useRef(true);
   const [filters, setFilters] = useState(new Set());
+  const [amountOfShoes, setAmountOfShoes] = useState(null);
 
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
 
@@ -250,6 +251,10 @@ const ShoesPage = ({ brand }) => {
     retrieveShoes();
   }, [currentBrand]);
 
+  useEffect(() => {
+    if (shoeData) setAmountOfShoes(shoeData.length);
+  }, [shoeData]);
+
   return (
     <main className="bg-white h-full">
       <div
@@ -261,7 +266,7 @@ const ShoesPage = ({ brand }) => {
             {brand} &#47; Shoes
           </Typography>
           <Typography className="font-lt text-2xl">
-            {brand} Adult Shoes &#40;90&#41;
+            {brand} Adult Shoes &#40;{shoeData ? amountOfShoes : 0}&#41;
           </Typography>
         </div>
         <div className="flex items-center gap-x-10">
