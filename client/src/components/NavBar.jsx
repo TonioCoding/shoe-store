@@ -353,16 +353,18 @@ const NavBar = forwardRef(function NavBar(props, ref) {
                 </Button>
               ) : null}
               <IconContext.Provider
-                value={{ size: "3vw", className: "navbar-icon" }}
+                value={{ size: "2vw", className: "navbar-icon" }}
               >
                 <Link to={"/cart"} className="mt-3">
                   <Badge
+                    withBorder
+                    containerProps={{ className: "" }}
                     invisible={cart && cart.length > 0 ? false : true}
-                    className="bg-[#ff2e27e6] hidden lg:inline-block text-xs items-center"
+                    className="bg-[#ff2e27e6] hidden lg:flex lg:justify-center"
                     placement="top-end"
                     content={cart ? cart.length : null}
                   >
-                    <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible hover:text-green-500" />
+                    <HiShoppingCart className="text-black m-1 cursor-pointer invisible lg:visible hover:text-green-500" />
                   </Badge>
                 </Link>
               </IconContext.Provider>
