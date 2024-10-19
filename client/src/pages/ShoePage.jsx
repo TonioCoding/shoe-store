@@ -454,7 +454,7 @@ const ShoePage = () => {
                     ? toast.success("Added product to cart")
                     : toast.success("Removed product from cart");
                 }}
-                className="rounded-3xl border-[1px] border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]"
+                className="bg-black rounded-3xl border border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]"
               >
                 {cartHasProduct === true ? (
                   <Typography
@@ -470,7 +470,7 @@ const ShoePage = () => {
                   <Typography
                     className="text-[1.2em]"
                     onClick={() => {
-                      dispatch(addItemToCart(currentShoe));
+                      dispatch(addItemToCart({ ...currentShoe, shoeSize }));
                       setCartHasProduct(true);
                     }}
                   >
