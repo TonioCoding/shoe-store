@@ -27,6 +27,8 @@ const cartSlice = createSlice({
         state.total = state.cart.reduce((total, currentValue) => {
           return total + currentValue.price;
         }, startingTotal);
+      } else if (state.cart.length === 0) {
+        state.total = 0;
       }
     },
   },

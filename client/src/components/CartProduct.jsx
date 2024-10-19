@@ -60,7 +60,7 @@ const CartProduct = (props) => {
         </div>
       </div>
       <IconContext.Provider value={{ size: "1.2vw" }}>
-        <div className="absolute flex items-center gap-x-6 -bottom-[40%]">
+        <div className="absolute flex items-center gap-x-6 -bottom-[40%] md:-bottom-[50%]">
           <div className="flex items-center justify-between gap-x-4 text-base border border-gray-400 rounded-full py-2 px-3">
             <BsTrash3 className="hover:text-red-500 transition-all ease-in duration-400" />
             <Typography className="font-lt text-base">1</Typography>

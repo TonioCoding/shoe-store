@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Accordion,
   AccordionBody,
@@ -15,14 +15,21 @@ import { IconContext } from "react-icons/lib";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CartProduct from "../components/CartProduct";
+import { cartTotal } from "../redux/cart/cartSlice";
+import { PiCurrencyDollar } from "react-icons/pi";
 
 const CartPage = () => {
   //const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const { cart } = useSelector((state) => state.persistedReducer.cart);
+  const { total } = useSelector((state) => state.persistedReducer.cart);
 
   const [showPromo, setShowPromo] = useState(false);
+  console.log(cart);
+  console.log(total);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  dispatch(cartTotal());
 
   function handlePromo(state) {
     state === true ? setShowPromo(false) : setShowPromo(true);
@@ -32,11 +39,11 @@ const CartPage = () => {
     <main className="w-[100vw] items-center md:items-stretch gap-x-10 flex flex-col justify-center mx-1">
       <section className="flex flex-col md:flex-row justify-center my-4 gap-y-5">
         <div className="flex flex-col w-[35%] mr-6">
-          <div className="w-full my-3">
-            <Typography variant="h5" className="font-lt">
+          <div className="w-full my-3 mb-6">
+            <Typography variant="h4" className="font-lt">
               Bag
             </Typography>
-            <Typography className="font-normal text-xs" variant="h6">
+            <Typography className="font-normal text-sm">
               There are no items in your bag&#46;
             </Typography>
           </div>
@@ -75,7 +82,7 @@ const CartPage = () => {
           </div>
         </div>
         <div className="w-fit gap-y-2 flex flex-col">
-          <Typography variant="h5" className="font-lt">
+          <Typography variant="h4" className="font-lt">
             Summary
           </Typography>
           <Accordion open={showPromo} onClick={() => handlePromo(showPromo)}>
@@ -110,7 +117,14 @@ const CartPage = () => {
                 Subtotal
                 <BsFillQuestionCircleFill />
               </div>
-              <GoDash />
+              {total ? (
+                <Typography className="flex items-center">
+                  <PiCurrencyDollar />
+                  {total}
+                </Typography>
+              ) : (
+                <GoDash />
+              )}
             </Typography>
           </IconContext.Provider>
           <div className="flex justify-between gap-x-8">
@@ -124,14 +138,25 @@ const CartPage = () => {
           <hr className="my-3 opacity-[0.5]" />
           <Typography className="flex items-center justify-between">
             Total
-            <GoDash />
+            {total ? (
+              <Typography className="flex items-center">
+                <PiCurrencyDollar />
+                {total}
+              </Typography>
+            ) : (
+              <GoDash />
+            )}
           </Typography>
           <hr className="my-3 opacity-[0.5]" />
-          <Typography>
-            &#36;35&#46;00 to go to qualify for free shipping&#33;
-          </Typography>
-          <div className="flex items-center">
-            <Progress value={50} color="green" />
+          {total >= 50 ? (
+            <Typography>Free shipping applied&#33;</Typography>
+          ) : (
+            <Typography>
+              &#36;{50 - total}&#46;00 to go to qualify for free shipping&#33;
+            </Typography>
+          )}
+          <div className="flex items-center gap-x-2">
+            <Progress value={total / 0.5} color="green" label="Total" />
             <Typography>&#36;50</Typography>
           </div>
           <div className="flex flex-col gap-y-3 [&>*]:rounded-full [&>*]:w-full self-center">
