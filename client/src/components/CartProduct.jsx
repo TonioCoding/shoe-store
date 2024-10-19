@@ -77,7 +77,9 @@ const CartProduct = (props) => {
               }}
               className="hover:text-red-500 transition-all ease-in duration-400"
             />
-            <Typography className="font-lt text-base">1</Typography>
+            <Typography className="font-lt text-base">
+              {props.quantity}
+            </Typography>
             <FaPlus className="hover:text-green-500 transition-all ease-in duration-400" />
           </div>
           <div className="border border-gray-400 rounded-full py-2 px-2">
@@ -100,6 +102,7 @@ CartProduct.propTypes = {
   colors: PropTypes.string,
   _id: PropTypes.string,
   index: PropTypes.number,
+  quantity: PropTypes.number,
 };
 
 export default CartProduct;

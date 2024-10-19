@@ -471,7 +471,13 @@ const ShoePage = () => {
                     className="text-[1.2em]"
                     onClick={() => {
                       if (shoeSize !== null) {
-                        dispatch(addItemToCart({ ...currentShoe, shoeSize }));
+                        dispatch(
+                          addItemToCart({
+                            ...currentShoe,
+                            shoeSize: shoeSize,
+                            quantity: 1,
+                          })
+                        );
                         setCartHasProduct(true);
                       } else {
                         toast.error("Select a shoe size before adding to cart");

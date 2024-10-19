@@ -58,6 +58,7 @@ const CartPage = () => {
                   shoeSize,
                   colors,
                   _id,
+                  quantity,
                 },
                 index
               ) => {
@@ -74,6 +75,7 @@ const CartPage = () => {
                     colors={colors}
                     _id={_id}
                     index={index}
+                    quantity={quantity}
                   />
                 );
               }
