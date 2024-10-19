@@ -357,7 +357,8 @@ const NavBar = forwardRef(function NavBar(props, ref) {
               >
                 <Link to={"/cart"} className="mt-3">
                   <Badge
-                    className="bg-[#ff2e27e6] hidden lg:inline-block"
+                    invisible={cart && cart.length > 0 ? false : true}
+                    className="bg-[#ff2e27e6] hidden lg:inline-block text-xs items-center"
                     placement="top-end"
                     content={cart ? cart.length : null}
                   >
