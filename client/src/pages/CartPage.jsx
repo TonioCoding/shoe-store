@@ -14,9 +14,12 @@ import { GoDash } from "react-icons/go";
 import { IconContext } from "react-icons/lib";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CartProduct from "../components/CartProduct";
 
 const CartPage = () => {
-  const { userInfo } = useSelector((state) => state.persistedReducer.cart);
+  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
+  const { cart } = useSelector((state) => state.persistedReducer.cart);
+
   const [showPromo, setShowPromo] = useState(false);
 
   const navigate = useNavigate();
@@ -28,14 +31,45 @@ const CartPage = () => {
   return (
     <main className="w-[100vw] items-center md:items-stretch gap-x-10 flex flex-col justify-center mx-1">
       <section className="flex flex-col md:flex-row justify-center my-4 gap-y-5">
-        <div className="flex w-[35%]">
-          <div className="w-full">
+        <div className="flex flex-col w-[35%] mr-6">
+          <div className="w-full my-3">
             <Typography variant="h5" className="font-lt">
               Bag
             </Typography>
             <Typography className="font-normal text-xs" variant="h6">
               There are no items in your bag&#46;
             </Typography>
+          </div>
+          <div className="flex flex-col">
+            {[...cart].map(
+              (
+                {
+                  name,
+                  brand,
+                  model,
+                  imgUrls,
+                  gender,
+                  price,
+                  shoeSize,
+                  colors,
+                },
+                index
+              ) => {
+                return (
+                  <CartProduct
+                    key={index}
+                    name={name}
+                    brand={brand}
+                    model={model}
+                    imgUrls={imgUrls}
+                    gender={gender}
+                    price={price}
+                    shoeSize={shoeSize}
+                    colors={colors}
+                  />
+                );
+              }
+            )}
           </div>
         </div>
         <div className="w-fit gap-y-2 flex flex-col">

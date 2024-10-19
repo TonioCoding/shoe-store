@@ -281,3 +281,16 @@ hr {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
+.border-fade {
+  /* border: 4px solid; */
+  border-image: linear-gradient(
+      90deg,
+      rgba(64, 66, 67, 0.9),
+      rgba(60, 74, 83, 0)
+    )
+    1;
+/*   border-left: none;
+  border-top: none;
+  border-right: none; */
+}
