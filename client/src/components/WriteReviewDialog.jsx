@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import PropTypes from "prop-types";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IconContext } from "react-icons";
 import { MdStarBorder } from "react-icons/md";
 import { VscChromeClose } from "react-icons/vsc";
@@ -20,9 +20,11 @@ const WriteReviewDialog = (props) => {
   const handleDialog = props.handleDialog;
   const currentShoe = props.currentShoe;
   const currentShoeProps = useRef(null);
-
-  console.log(currentShoe);
-  console.log(currentShoeProps.current);
+  const [question, setQuestion] = useState({
+    firstQuestion: null,
+    secondQuestion: null,
+    thirdQuestion: null,
+  });
 
   useEffect(() => {
     if (currentShoe) {
@@ -142,17 +144,17 @@ const WriteReviewDialog = (props) => {
               <div>
                 <div className="flex flex-col">
                   <Radio
-                    name="type"
+                    name="question-1"
                     label="Runs small"
                     className="border-gray-600"
                   />
                   <Radio
-                    name="type"
+                    name="question-1"
                     label="True to Size"
                     className="border-gray-600"
                   />
                   <Radio
-                    name="type"
+                    name="question-1"
                     label="Runs Big"
                     className="border-gray-600"
                   />
@@ -167,17 +169,17 @@ const WriteReviewDialog = (props) => {
               <div>
                 <div className="flex flex-col">
                   <Radio
-                    name="type"
+                    name="question-2"
                     label="Uncomfortable"
                     className="border-gray-600"
                   />
                   <Radio
-                    name="type"
+                    name="question-2"
                     label="Average"
                     className="border-gray-600"
                   />
                   <Radio
-                    name="type"
+                    name="question-2"
                     label="Very Comfortable"
                     className="border-gray-600"
                   />
@@ -191,8 +193,16 @@ const WriteReviewDialog = (props) => {
               </Typography>
               <div>
                 <div className="flex flex-col">
-                  <Radio name="type" label="Yes" className="border-gray-600" />
-                  <Radio name="type" label="No" className="border-gray-600" />
+                  <Radio
+                    name="question-3"
+                    label="Yes"
+                    className="border-gray-600"
+                  />
+                  <Radio
+                    name="question-3"
+                    label="No"
+                    className="border-gray-600"
+                  />
                 </div>
               </div>
             </div>
