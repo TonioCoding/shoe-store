@@ -5,10 +5,16 @@ import { BsTrash3 } from "react-icons/bs";
 import { FaPlus } from "react-icons/fa6";
 import { GoHeartFill } from "react-icons/go";
 import { PiCurrencyDollar } from "react-icons/pi";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { removeItemFromCart } from "../redux/cart/cartSlice";
 
 const CartProduct = (props) => {
+  const { cart } = useSelector((state) => state.persistedReducer.cart);
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   return (
     <div
       onClick={() => navigate(`/shoe-page/?id=${props._id}`)}
@@ -62,7 +68,15 @@ const CartProduct = (props) => {
       <IconContext.Provider value={{ size: "1rem" }}>
         <div className="absolute flex items-center gap-x-6 -bottom-[40%] md:-bottom-[50%]">
           <div className="flex items-center justify-between gap-x-4 text-base border border-gray-400 rounded-full py-2 px-3">
-            <BsTrash3 className="hover:text-red-500 transition-all ease-in duration-400" />
+            <BsTrash3
+              onClick={(e) => {
+                e.stopPropagation();
+                if (cart) {
+                  dispatch(removeItemFromCart(cart[props.index]));
+                }
+              }}
+              className="hover:text-red-500 transition-all ease-in duration-400"
+            />
             <Typography className="font-lt text-base">1</Typography>
             <FaPlus className="hover:text-green-500 transition-all ease-in duration-400" />
           </div>
@@ -85,6 +99,7 @@ CartProduct.propTypes = {
   shoeSize: PropTypes.number,
   colors: PropTypes.string,
   _id: PropTypes.string,
+  index: PropTypes.number,
 };
 
 export default CartProduct;

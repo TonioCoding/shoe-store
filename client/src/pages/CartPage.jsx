@@ -24,8 +24,6 @@ const CartPage = () => {
   const { total } = useSelector((state) => state.persistedReducer.cart);
 
   const [showPromo, setShowPromo] = useState(false);
-  console.log(cart);
-  console.log(total);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -75,6 +73,7 @@ const CartPage = () => {
                     shoeSize={shoeSize}
                     colors={colors}
                     _id={_id}
+                    index={index}
                   />
                 );
               }
