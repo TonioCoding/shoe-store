@@ -8,12 +8,32 @@ import { PiCurrencyDollar } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removeItemFromCart } from "../redux/cart/cartSlice";
+import { useEffect, useState } from "react";
 
 const CartProduct = (props) => {
+  const { favorites } = useSelector(
+    (state) => state.persistedReducer.favorites
+  );
   const { cart } = useSelector((state) => state.persistedReducer.cart);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [favoritesHasProduct, setFavoritesHasProduct] = useState(false);
+
+  useEffect(() => {
+    function favoritesHasProduct() {
+      if (props._id) {
+        for (let product of favorites) {
+          if (product._id === props._id) {
+            setFavoritesHasProduct(true);
+          }
+        }
+      }
+    }
+
+    favoritesHasProduct();
+  }, [favorites, props, cart]);
 
   return (
     <div
@@ -83,7 +103,13 @@ const CartProduct = (props) => {
             <FaPlus className="hover:text-green-500 transition-all ease-in duration-400" />
           </div>
           <div className="border border-gray-400 rounded-full py-2 px-2">
-            <GoHeartFill className="hover:text-red-500 transition-all ease-in duration-400" />
+            <GoHeartFill
+              className={
+                favoritesHasProduct === true
+                  ? "text-red-500 cursor-not-allowed"
+                  : "hover:text-red-500 transition-all ease-in duration-400"
+              }
+            />
           </div>
         </div>
       </IconContext.Provider>

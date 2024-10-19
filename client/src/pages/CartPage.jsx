@@ -41,9 +41,16 @@ const CartPage = () => {
             <Typography variant="h4" className="font-lt">
               Bag
             </Typography>
-            <Typography className="font-normal text-sm">
-              There are no items in your bag&#46;
-            </Typography>
+            {cart && cart.length < 0 ? (
+              <Typography className="font-normal text-sm">
+                There are no items in your bag&#46;
+              </Typography>
+            ) : (
+              <Typography className="font-normal text-sm">
+                There are <span className="text-red-500">{cart.length}</span>{" "}
+                items in your bag&#46;
+              </Typography>
+            )}
           </div>
           <div className="flex flex-col gap-y-[7rem] overscroll-contain overflow-y-scroll h-[55vh] px-5">
             {[...cart].map(
