@@ -8,6 +8,7 @@ import {
   Avatar,
   Drawer,
   Spinner,
+  Badge,
 } from "@material-tailwind/react";
 import { HiShoppingCart } from "react-icons/hi";
 import NavSearchBar from "./Searchbar";
@@ -42,6 +43,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
   const [showSignup, setSignup] = useState(false);
   const pathname = useLocation().pathname;
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
+  const { cart } = useSelector((state) => state.persistedReducer.cart);
   const [logoutUser, { isLoading }] = useLogoutMutation();
   const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -353,8 +355,14 @@ const NavBar = forwardRef(function NavBar(props, ref) {
               <IconContext.Provider
                 value={{ size: "3vw", className: "navbar-icon" }}
               >
-                <Link to={"/cart"}>
-                  <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible hover:text-green-500" />
+                <Link to={"/cart"} className="mt-3">
+                  <Badge
+                    className="bg-[#ff2e27e6] hidden lg:inline-block"
+                    placement="top-end"
+                    content={cart ? cart.length : null}
+                  >
+                    <HiShoppingCart className="text-black m-1 cursor-pointer lg:w-[2vw] invisible lg:visible hover:text-green-500" />
+                  </Badge>
                 </Link>
               </IconContext.Provider>
             </div>
