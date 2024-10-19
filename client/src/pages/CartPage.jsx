@@ -39,7 +39,7 @@ const CartPage = () => {
     <main className="w-[100vw] items-center md:items-stretch gap-x-10 flex flex-col justify-center mx-1">
       <section className="flex flex-col md:flex-row justify-center my-4 gap-y-5 items-center md:items-start">
         <div className="flex flex-col w-fit md:w-[45%] mr-6">
-          <div className="w-full my-3 mb-6">
+          <div className="w-full my-3 mb-6 ml-2 md:ml-0">
             <Typography variant="h4" className="font-lt">
               Bag
             </Typography>

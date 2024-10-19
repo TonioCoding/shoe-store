@@ -51,7 +51,7 @@ const CartProduct = (props) => {
       <div className="">
         <div className="place-self-end m-1 mx-2">
           <Typography
-            className="flex items-center gap-x-1 font-rt"
+            className="flex items-center gap-x-1 font-rt text-[1.1rem] font-normal"
             variant="h6"
           >
             <PiCurrencyDollar />
@@ -59,7 +59,7 @@ const CartProduct = (props) => {
           </Typography>
         </div>
       </div>
-      <IconContext.Provider value={{ size: "1.2vw" }}>
+      <IconContext.Provider value={{ size: "1rem" }}>
         <div className="absolute flex items-center gap-x-6 -bottom-[40%] md:-bottom-[50%]">
           <div className="flex items-center justify-between gap-x-4 text-base border border-gray-400 rounded-full py-2 px-3">
             <BsTrash3 className="hover:text-red-500 transition-all ease-in duration-400" />
