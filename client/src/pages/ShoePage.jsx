@@ -519,6 +519,28 @@ const ShoePage = () => {
                 durably stitched overlays&#44; clean finishes and the perfect
                 amount of flash to make you shine&#46;
               </Typography>
+              <Typography className="my-5">
+                Colors Shown&#58;{" "}
+                {currentShoe
+                  ? [...currentShoe.colors].map((text, index) => {
+                      if (index !== currentShoe.colors.length - 1) {
+                        return (
+                          <span className="font-lt text-sm" key={index}>
+                            {" "}
+                            {text}&#47;
+                          </span>
+                        );
+                      } else {
+                        return (
+                          <span className="font-lt text-sm" key={index}>
+                            {" "}
+                            {text}
+                          </span>
+                        );
+                      }
+                    })
+                  : null}
+              </Typography>
             </div>
             <Typography
               className="mt-3 underline font-semibold hover:text-gray-600 cursor-pointer"
