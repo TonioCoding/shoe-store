@@ -542,13 +542,6 @@ const ShoePage = () => {
                   : null}
               </Typography>
             </div>
-            <Typography
-              className="mt-3 underline font-semibold hover:text-gray-600 cursor-pointer"
-              color="black"
-              variant="h6"
-            >
-              View Product details
-            </Typography>
             <Accordion
               className="mb-10"
               open={showReview}
