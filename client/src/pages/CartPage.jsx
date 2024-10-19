@@ -37,7 +37,7 @@ const CartPage = () => {
 
   return (
     <main className="w-[100vw] items-center md:items-stretch gap-x-10 flex flex-col justify-center mx-1">
-      <section className="flex flex-col md:flex-row justify-center my-4 gap-y-5">
+      <section className="flex flex-col md:flex-row justify-center my-4 gap-y-5 items-center md:items-start">
         <div className="flex flex-col w-[35%] mr-6">
           <div className="w-full my-3 mb-6">
             <Typography variant="h4" className="font-lt">
