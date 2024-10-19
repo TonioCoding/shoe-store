@@ -221,6 +221,7 @@ const AccountPage = () => {
               brand,
               sizesNotInStock,
               colors,
+              gender,
             }) => {
               return (
                 <ShoeCard
@@ -234,6 +235,7 @@ const AccountPage = () => {
                   sizesNotInStock={sizesNotInStock}
                   onSale={onSale}
                   colors={colors}
+                  gender={gender}
                 />
               );
             }
