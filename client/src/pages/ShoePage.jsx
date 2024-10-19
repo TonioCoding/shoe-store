@@ -470,8 +470,12 @@ const ShoePage = () => {
                   <Typography
                     className="text-[1.2em]"
                     onClick={() => {
-                      dispatch(addItemToCart({ ...currentShoe, shoeSize }));
-                      setCartHasProduct(true);
+                      if (shoeSize !== null) {
+                        dispatch(addItemToCart({ ...currentShoe, shoeSize }));
+                        setCartHasProduct(true);
+                      } else {
+                        toast.error("Select a shoe size before adding to cart");
+                      }
                     }}
                   >
                     Add To Cart

@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 import CartProduct from "../components/CartProduct";
 
 const CartPage = () => {
-  const { userInfo } = useSelector((state) => state.persistedReducer.auth);
+  //const { userInfo } = useSelector((state) => state.persistedReducer.auth);
   const { cart } = useSelector((state) => state.persistedReducer.cart);
 
   const [showPromo, setShowPromo] = useState(false);
@@ -40,7 +40,7 @@ const CartPage = () => {
               There are no items in your bag&#46;
             </Typography>
           </div>
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-y-[7rem] overscroll-contain overflow-y-scroll h-[55vh] px-5">
             {[...cart].map(
               (
                 {
@@ -52,6 +52,7 @@ const CartPage = () => {
                   price,
                   shoeSize,
                   colors,
+                  _id,
                 },
                 index
               ) => {
@@ -66,6 +67,7 @@ const CartPage = () => {
                     price={price}
                     shoeSize={shoeSize}
                     colors={colors}
+                    _id={_id}
                   />
                 );
               }
