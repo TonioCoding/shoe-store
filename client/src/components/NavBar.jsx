@@ -360,7 +360,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
                     withBorder
                     containerProps={{ className: "" }}
                     invisible={cart && cart.length > 0 ? false : true}
-                    className="bg-[#ff2e27e6] hidden lg:flex lg:justify-center"
+                    className="bg-[#ff2e27e6] hidden lg:flex lg:justify-center hover:bg-black transition-all duration-300 ease-out"
                     placement="top-end"
                     content={cart ? cart.length : null}
                   >
