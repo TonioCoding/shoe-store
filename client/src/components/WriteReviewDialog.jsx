@@ -66,10 +66,10 @@ const WriteReviewDialog = (props) => {
       <DialogBody>
         <div className="flex items-center gap-x-4">
           <img
-            className="w-[5vw]"
+            className="w-[3rem] lg:w-[5vw]"
             src={currentShoeProps.current ? currentShoeProps.current.img : null}
           />
-          <Typography className="text-gray-800">
+          <Typography className="text-gray-800 font-rt text-sm">
             {currentShoeProps.current ? currentShoeProps.current.brand : null}{" "}
             {currentShoeProps.current ? currentShoeProps.current.model : null}{" "}
             {currentShoeProps.current ? currentShoeProps.current.name : null}{" "}
