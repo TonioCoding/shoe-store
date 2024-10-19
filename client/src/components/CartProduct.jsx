@@ -1,12 +1,17 @@
 import { Typography } from "@material-tailwind/react";
 import PropTypes from "prop-types";
+import { IconContext } from "react-icons";
+import { BsTrash3 } from "react-icons/bs";
+import { FaPlus } from "react-icons/fa6";
+import { GoHeartFill } from "react-icons/go";
+import { PiCurrencyDollar } from "react-icons/pi";
 
 const CartProduct = (props) => {
   return (
-    <div>
-      <div className="w-full flex bg-gray-200 border-fade shadow-2xl">
+    <div className="flex relative justify-between bg-gray-200 border-fade shadow-lg border border-gray-100 hover:cursor-pointer">
+      <div className="w-full flex">
         <img src={props.imgUrls[0]} className="w-[25%] border" />
-        <div className="mx-2">
+        <div className="m-2">
           <Typography className="">
             {props.brand} {props.model} &#34;{props.name}&#34;
           </Typography>
@@ -38,7 +43,29 @@ const CartProduct = (props) => {
           </div>
         </div>
       </div>
-      <div className=""></div>
+      <div className="">
+        <div className="place-self-end m-1 mx-2">
+          <Typography
+            className="flex items-center gap-x-1 font-rt"
+            variant="h6"
+          >
+            <PiCurrencyDollar />
+            {props.price}
+          </Typography>
+        </div>
+      </div>
+      <IconContext.Provider value={{ size: "1.2vw" }}>
+        <div className="absolute flex items-center gap-x-6 -bottom-[40%]">
+          <div className="flex items-center justify-between gap-x-4 text-base border border-gray-400 rounded-full py-2 px-3">
+            <BsTrash3 />
+            <Typography className="font-lt text-base">1</Typography>
+            <FaPlus />
+          </div>
+          <div className="border border-gray-400 rounded-full py-2 px-2">
+            <GoHeartFill />
+          </div>
+        </div>
+      </IconContext.Provider>
     </div>
   );
 };
