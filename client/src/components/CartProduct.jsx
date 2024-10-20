@@ -2,7 +2,7 @@ import { Typography } from "@material-tailwind/react";
 import PropTypes from "prop-types";
 import { IconContext } from "react-icons";
 import { BsTrash3 } from "react-icons/bs";
-import { FaPlus } from "react-icons/fa6";
+import { FaMinus, FaPlus } from "react-icons/fa6";
 import { GoHeartFill } from "react-icons/go";
 import { PiCurrencyDollar } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,6 +20,15 @@ const CartProduct = (props) => {
   const dispatch = useDispatch();
 
   const [favoritesHasProduct, setFavoritesHasProduct] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+
+  function decrementQuantity() {
+    setQuantity((prev) => (prev -= 1));
+  }
+
+  function incrementQuantity() {
+    if (quantity < 9) setQuantity((prev) => (prev += 1));
+  }
 
   useEffect(() => {
     function favoritesHasProduct() {
@@ -88,20 +97,37 @@ const CartProduct = (props) => {
       </div>
       <IconContext.Provider value={{ size: "1rem" }}>
         <div className="absolute flex items-center gap-x-6 -bottom-[60%] md:-bottom-[50%]">
-          <div className="flex items-center justify-between gap-x-4 text-base border border-gray-400 rounded-full py-2 px-3">
-            <BsTrash3
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center justify-between gap-x-4 text-base border border-gray-400 rounded-full py-2 px-3"
+          >
+            {quantity > 1 ? (
+              <FaMinus
+                onClick={(e) => {
+                  e.stopPropagation();
+                  decrementQuantity();
+                }}
+                className="hover:text-red-500 transition-all ease-in duration-400"
+              />
+            ) : (
+              <BsTrash3
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (cart) {
+                    dispatch(removeItemFromCart(cart[props.index]));
+                  }
+                }}
+                className="hover:text-red-500 transition-all ease-in duration-400"
+              />
+            )}
+            <Typography className="font-lt text-base">{quantity}</Typography>
+            <FaPlus
               onClick={(e) => {
                 e.stopPropagation();
-                if (cart) {
-                  dispatch(removeItemFromCart(cart[props.index]));
-                }
+                incrementQuantity();
               }}
-              className="hover:text-red-500 transition-all ease-in duration-400"
+              className="hover:text-green-500 transition-all ease-in duration-400"
             />
-            <Typography className="font-lt text-base">
-              {props.quantity}
-            </Typography>
-            <FaPlus className="hover:text-green-500 transition-all ease-in duration-400" />
           </div>
           <div className="border border-gray-400 rounded-full py-2 px-2">
             <GoHeartFill
