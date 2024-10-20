@@ -44,7 +44,8 @@ const CartProduct = (props) => {
         <img src={props.imgUrls[0]} className="w-[25%] border" />
         <div className="m-2">
           <Typography className="">
-            {props.brand} {props.model} &#34;{props.name}&#34;
+            {props.brand} {props.model}{" "}
+            {props.name ? <>&#34;{props.name}&#34;</> : null}
           </Typography>
           <Typography className="text-gray-700 text-sm">{`${props.gender}'s`}</Typography>
           <Typography className="text-gray-700">
@@ -86,7 +87,7 @@ const CartProduct = (props) => {
         </div>
       </div>
       <IconContext.Provider value={{ size: "1rem" }}>
-        <div className="absolute flex items-center gap-x-6 -bottom-[40%] md:-bottom-[50%]">
+        <div className="absolute flex items-center gap-x-6 -bottom-[60%] md:-bottom-[50%]">
           <div className="flex items-center justify-between gap-x-4 text-base border border-gray-400 rounded-full py-2 px-3">
             <BsTrash3
               onClick={(e) => {
