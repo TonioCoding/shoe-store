@@ -96,7 +96,10 @@ const CartProduct = (props) => {
         </div>
       </div>
       <IconContext.Provider value={{ size: "1rem" }}>
-        <div className="absolute flex items-center gap-x-6 -bottom-[60%] md:-bottom-[50%]">
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="absolute flex items-center gap-x-6 -bottom-[60%] md:-bottom-[50%]"
+        >
           <div
             onClick={(e) => e.stopPropagation()}
             className="flex items-center justify-between gap-x-4 text-base border border-gray-400 rounded-full py-2 px-3"
@@ -129,7 +132,10 @@ const CartProduct = (props) => {
               className="hover:text-green-500 transition-all ease-in duration-400"
             />
           </div>
-          <div className="border border-gray-400 rounded-full py-2 px-2">
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="border border-gray-400 rounded-full py-2 px-2"
+          >
             <GoHeartFill
               className={
                 favoritesHasProduct === true
