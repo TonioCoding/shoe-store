@@ -392,7 +392,10 @@ const AccountPage = () => {
                 <Typography variant="h4" className="font-lt">
                   {userInfo.name}
                 </Typography>
-                <Typography variant="h6" className="font-normal">
+                <Typography
+                  variant="h6"
+                  className="font-normal text-xs mb-2 text-gray-600"
+                >
                   {userInfo.email}
                 </Typography>
                 <Typography
