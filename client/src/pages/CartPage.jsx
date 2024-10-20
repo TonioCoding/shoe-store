@@ -52,7 +52,7 @@ const CartPage = () => {
               </Typography>
             )}
           </div>
-          <div className="flex flex-col gap-y-[7rem] overscroll-contain overflow-y-scroll h-[55vh] md:px-2">
+          <div className="flex flex-col gap-y-[8rem] overscroll-contain overflow-y-scroll h-[55vh] md:px-2">
             {[...cart].map(
               (
                 {
