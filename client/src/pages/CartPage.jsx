@@ -119,8 +119,8 @@ const CartPage = () => {
               </div>
             </AccordionBody>
           </Accordion>
-          <IconContext.Provider value={{ size: "1.3vw" }}>
-            <Typography className="flex items-center justify-between">
+          <IconContext.Provider value={{ size: "1rem" }}>
+            <div className="flex items-center justify-between">
               <div className="flex items-center gap-x-2">
                 Subtotal
                 <BsFillQuestionCircleFill />
@@ -133,28 +133,32 @@ const CartPage = () => {
               ) : (
                 <GoDash />
               )}
-            </Typography>
+            </div>
           </IconContext.Provider>
           <div className="flex justify-between gap-x-8">
             <Typography>Estimated shipping &#38; handling</Typography>
             <Typography>Free</Typography>
           </div>
-          <Typography className="flex items-center justify-between">
-            Estimated Tax
-            <GoDash />
-          </Typography>
-          <hr className="my-3 opacity-[0.5]" />
-          <Typography className="flex items-center justify-between">
-            Total
-            {total ? (
-              <Typography className="flex items-center">
-                <PiCurrencyDollar />
-                {total}
-              </Typography>
-            ) : (
+          <IconContext.Provider value={{ size: "1rem" }}>
+            <Typography className="flex items-center justify-between">
+              Estimated Tax
               <GoDash />
-            )}
-          </Typography>
+            </Typography>
+          </IconContext.Provider>
+          <hr className="my-3 opacity-[0.5]" />
+          <IconContext.Provider value={{ size: "1rem" }}>
+            <Typography className="flex items-center justify-between">
+              Total
+              {total ? (
+                <Typography className="flex items-center">
+                  <PiCurrencyDollar />
+                  {total}
+                </Typography>
+              ) : (
+                <GoDash />
+              )}
+            </Typography>
+          </IconContext.Provider>
           <hr className="my-3 opacity-[0.5]" />
           {total >= 50 ? (
             <Typography>Free shipping applied&#33;</Typography>
@@ -167,15 +171,12 @@ const CartPage = () => {
             <Progress value={total / 0.5} color="green" label="Total" />
             <Typography>&#36;50</Typography>
           </div>
-          <div className="flex flex-col gap-y-3 [&>*]:rounded-full [&>*]:w-full self-center">
+          <div className="flex flex-col gap-y-3 [&>*]:rounded-full [&>*]:w-full self-center mt-5">
             <Button
-              className="bg-gray-400 text-gray-900"
+              className="bg-black text-white"
               onClick={() => navigate("/checkout")}
             >
               Checkout
-            </Button>
-            <Button className="bg-gray-400 border border-gray-700 text-gray-900">
-              Paypal
             </Button>
           </div>
         </div>
