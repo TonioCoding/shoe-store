@@ -173,7 +173,9 @@ const CartPage = () => {
           </div>
           <div className="flex flex-col gap-y-3 [&>*]:rounded-full [&>*]:w-full self-center mt-5">
             <Button
-              className="bg-black text-white"
+              className={`bg-${
+                cart.length > 0 ? "green-500" : "black"
+              } text-white`}
               onClick={() => navigate("/checkout")}
             >
               Checkout
