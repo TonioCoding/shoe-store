@@ -91,7 +91,7 @@ const CartProduct = (props) => {
             variant="h6"
           >
             <PiCurrencyDollar />
-            {props.price}
+            {props.price * quantity}
           </Typography>
         </div>
       </div>
