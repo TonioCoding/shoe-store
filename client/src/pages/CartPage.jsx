@@ -168,7 +168,12 @@ const CartPage = () => {
             </Typography>
           )}
           <div className="flex items-center gap-x-2">
-            <Progress value={total / 0.5} color="green" label="Total" />
+            <Progress
+              value={total / 0.5}
+              color="green"
+              label="Total"
+              className="border border-gray-400"
+            />
             <Typography>&#36;50</Typography>
           </div>
           <div className="flex flex-col gap-y-3 [&>*]:rounded-full [&>*]:w-full self-center mt-5">
