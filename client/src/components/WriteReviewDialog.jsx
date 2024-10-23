@@ -10,7 +10,7 @@ import {
 import PropTypes from "prop-types";
 import { useEffect, useRef, useState } from "react";
 import { IconContext } from "react-icons";
-import { MdStarBorder } from "react-icons/md";
+import { MdStar, MdStarBorder, MdStarOutline } from "react-icons/md";
 import { VscChromeClose } from "react-icons/vsc";
 import { useSelector } from "react-redux";
 
@@ -25,6 +25,88 @@ const WriteReviewDialog = (props) => {
     secondQuestion: null,
     thirdQuestion: null,
   });
+  const [starDynaimcReview, setStarDynamicReview] = useState(0);
+
+  function determineShoeReviewRating(rating) {
+    let remainingStars = 5 - rating;
+    let stars = [];
+    const filledStarsClassName = "text-black";
+    const remaingStarsClassName = "text-black";
+
+    if (remainingStars >= 0) {
+      for (let i = 1; i <= rating; i++) {
+        stars.push(
+          <MdStar
+            id={`${i}`}
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+            onClick={(e) => setStarDynamicReview(e.currentTarget.id)}
+            className={filledStarsClassName}
+          />
+        );
+      }
+      for (let i = stars.length; i < 5; i++) {
+        if (i > 5) return;
+        stars.push(
+          <MdStarOutline
+            id={`${i + 1}`}
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+            className={remaingStarsClassName}
+          />
+        );
+      }
+      return <div className="flex">{stars.map((element) => element)}</div>;
+    } else if (rating === 0) {
+      return (
+        <div className="flex text-black">
+          <MdStarOutline
+            id="1"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+          <MdStarOutline
+            id="2"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+          <MdStarOutline
+            id="3"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+          <MdStarOutline
+            id="4"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+          <MdStarOutline
+            id="5"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+        </div>
+      );
+    } else {
+      return (
+        <div className="flex text-black">
+          <MdStarOutline
+            id="1"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+          <MdStarOutline
+            id="2"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+          <MdStarOutline
+            id="3"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+          <MdStarOutline
+            id="4"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+          <MdStarOutline
+            id="5"
+            onMouseOver={(e) => setStarDynamicReview(e.currentTarget.id)}
+          />
+        </div>
+      );
+    }
+  }
 
   useEffect(() => {
     if (currentShoe) {
@@ -38,6 +120,7 @@ const WriteReviewDialog = (props) => {
       };
     }
   }, [currentShoe]);
+
   return (
     <Dialog
       size="md"
@@ -81,13 +164,12 @@ const WriteReviewDialog = (props) => {
           <Typography className="text-gray-800 items-center">
             Overall rating <span className="text-red-600">&#42;</span>
           </Typography>
-          <div className="flex text-black [&>*]:hover:cursor-pointer">
+          <div
+            className="flex text-black [&>*]:hover:cursor-pointer"
+            onMouseLeave={() => setStarDynamicReview(0)}
+          >
             <IconContext.Provider value={{ size: "3vw" }}>
-              <MdStarBorder />
-              <MdStarBorder />
-              <MdStarBorder />
-              <MdStarBorder />
-              <MdStarBorder />
+              {determineShoeReviewRating(starDynaimcReview)}
             </IconContext.Provider>
           </div>
           <hr className="my-10 border-gray-500" />
