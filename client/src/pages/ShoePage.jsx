@@ -37,7 +37,7 @@ const ShoePage = () => {
   const [favoritesHasProduct, setFavoritesHasProduct] = useState(false);
   const [shoeReviews, setShoeReviews] = useState([]);
   const [dialog, setDialog] = useState(false);
-
+  console.log(shoeReviews);
   function handleSize(size) {
     setShoeSize(size);
   }
@@ -613,7 +613,14 @@ const ShoePage = () => {
                   </div>
                   {shoeReviews.map(
                     (
-                      { userName, starRating, subject, date, reviewText },
+                      {
+                        userName,
+                        starRating,
+                        subject,
+                        date,
+                        reviewText,
+                        userId,
+                      },
                       index
                     ) => {
                       return (
@@ -630,6 +637,11 @@ const ShoePage = () => {
                           <Typography className="text-black font-rt">
                             {reviewText}
                           </Typography>
+                          {userInfo._id === userId ? (
+                            <Typography className="text-red-400 underline text-sm font-rt hover:cursor-pointer">
+                              Delete
+                            </Typography>
+                          ) : null}
                         </div>
                       );
                     }
