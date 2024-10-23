@@ -10,9 +10,11 @@ import {
 import PropTypes from "prop-types";
 import { useEffect, useRef, useState } from "react";
 import { IconContext } from "react-icons";
-import { MdStar, MdStarBorder, MdStarOutline } from "react-icons/md";
+import { MdStar, MdStarOutline } from "react-icons/md";
 import { VscChromeClose } from "react-icons/vsc";
 import { useSelector } from "react-redux";
+import moment from "moment";
+import { toast } from "react-toastify";
 
 const WriteReviewDialog = (props) => {
   const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -25,7 +27,60 @@ const WriteReviewDialog = (props) => {
     secondQuestion: null,
     thirdQuestion: null,
   });
+  const [reviewSubject, setReviewSubject] = useState("");
+  const [reviewText, setReviewText] = useState("");
   const [starDynaimcReview, setStarDynamicReview] = useState(0);
+
+  console.log(reviewSubject, reviewText, starDynaimcReview, question);
+
+  async function addReview() {
+    if (!userInfo) {
+      return;
+    } else {
+      if (
+        !question.firstQuestion ||
+        !question.secondQuestion ||
+        !question.thirdQuestion
+      ) {
+        handleDialog();
+        toast.error("Mandatory answers for questions were not provided");
+        return;
+      }
+
+      if (
+        reviewSubject !== "" &&
+        reviewText !== "" &&
+        starDynaimcReview !== 0
+      ) {
+        try {
+          const req = fetch("http://localhost:9000/api/v1/shoe/addReview", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              shoeId: currentShoe._id,
+              review: {
+                userId: userInfo._id,
+                subject: reviewSubject,
+                userName: `${userInfo.firstName} ${userInfo.lastName}`,
+                reviewText: reviewText,
+                starRating: starDynaimcReview,
+                data: moment().format("l"),
+              },
+            }),
+          });
+
+          const res = (await req)
+            .json()
+            .then(handleDialog())
+            .then(toast.success("Review added"));
+        } catch (error) {
+          toast.error(error);
+        }
+      }
+    }
+  }
 
   function determineShoeReviewRating(rating) {
     let remainingStars = 5 - rating;
@@ -229,16 +284,40 @@ const WriteReviewDialog = (props) => {
               <div>
                 <div className="flex flex-col">
                   <Radio
+                    id="Runs Small"
+                    onClick={(e) => {
+                      const value = e.currentTarget.id;
+                      setQuestion((prev) => ({
+                        ...prev,
+                        firstQuestion: value,
+                      }));
+                    }}
                     name="question-1"
                     label="Runs small"
                     className="border-gray-600"
                   />
                   <Radio
+                    id="True to Size"
+                    onClick={(e) => {
+                      const value = e.currentTarget.id;
+                      setQuestion((prev) => ({
+                        ...prev,
+                        firstQuestion: value,
+                      }));
+                    }}
                     name="question-1"
                     label="True to Size"
                     className="border-gray-600"
                   />
                   <Radio
+                    id="Runs Big"
+                    onClick={(e) => {
+                      const value = e.currentTarget.id;
+                      setQuestion((prev) => ({
+                        ...prev,
+                        firstQuestion: value,
+                      }));
+                    }}
                     name="question-1"
                     label="Runs Big"
                     className="border-gray-600"
@@ -254,16 +333,40 @@ const WriteReviewDialog = (props) => {
               <div>
                 <div className="flex flex-col">
                   <Radio
+                    id="Uncomfortable"
+                    onClick={(e) => {
+                      const value = e.currentTarget.id;
+                      setQuestion((prev) => ({
+                        ...prev,
+                        secondQuestion: value,
+                      }));
+                    }}
                     name="question-2"
                     label="Uncomfortable"
                     className="border-gray-600"
                   />
                   <Radio
+                    id="Average"
+                    onClick={(e) => {
+                      const value = e.currentTarget.id;
+                      setQuestion((prev) => ({
+                        ...prev,
+                        secondQuestion: value,
+                      }));
+                    }}
                     name="question-2"
                     label="Average"
                     className="border-gray-600"
                   />
                   <Radio
+                    id="Very Comfortable"
+                    onClick={(e) => {
+                      const value = e.currentTarget.id;
+                      setQuestion((prev) => ({
+                        ...prev,
+                        secondQuestion: value,
+                      }));
+                    }}
                     name="question-2"
                     label="Very Comfortable"
                     className="border-gray-600"
@@ -279,11 +382,27 @@ const WriteReviewDialog = (props) => {
               <div>
                 <div className="flex flex-col">
                   <Radio
+                    id="Yes"
+                    onClick={(e) => {
+                      const value = e.currentTarget.id;
+                      setQuestion((prev) => ({
+                        ...prev,
+                        thirdQuestion: value,
+                      }));
+                    }}
                     name="question-3"
                     label="Yes"
                     className="border-gray-600"
                   />
                   <Radio
+                    id="No"
+                    onClick={(e) => {
+                      const value = e.currentTarget.id;
+                      setQuestion((prev) => ({
+                        ...prev,
+                        thirdQuestion: value,
+                      }));
+                    }}
                     name="question-3"
                     label="No"
                     className="border-gray-600"
