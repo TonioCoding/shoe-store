@@ -31,7 +31,13 @@ const WriteReviewDialog = (props) => {
   const [reviewText, setReviewText] = useState("");
   const [starDynaimcReview, setStarDynamicReview] = useState(0);
 
-  console.log(reviewSubject, reviewText, starDynaimcReview, question);
+  function handleReviewSubject(subject) {
+    setReviewSubject(subject);
+  }
+
+  function handleReviewText(text) {
+    setReviewText(text);
+  }
 
   async function addReview() {
     if (!userInfo) {
@@ -235,7 +241,10 @@ const WriteReviewDialog = (props) => {
             <Typography className="text-gray-800 items-center">
               Your Review <span className="text-red-600">&#42;</span>
             </Typography>
-            <textarea className="rounded-lg px-2 focus:border-0 focus:outline-none !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"></textarea>
+            <textarea
+              onChange={(e) => handleReviewText(e.target.value)}
+              className="rounded-lg px-2 focus:border-0 focus:outline-none !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+            ></textarea>
             <Typography className="text-xs font-rt text-gray-500 flex items-center gap-x-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +266,10 @@ const WriteReviewDialog = (props) => {
             <Typography className="text-gray-800 items-center">
               Review Subject&#47;Title
             </Typography>
-            <input className="px-2 w-full h-[7vh] rounded-lg focus:border-0 focus:outline-none !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10" />
+            <input
+              onChange={(e) => handleReviewSubject(e.target.value)}
+              className="px-2 w-full h-[7vh] rounded-lg focus:border-0 focus:outline-none !border !border-gray-500 bg-white text-gray-900 shadow-lg shadow-gray-900/5 ring-4 ring-transparent placeholder:text-gray-500 placeholder:opacity-100 focus:!border-gray-900 focus:!border-t-gray-900 focus:ring-gray-900/10"
+            />
             <Typography className="text-xs font-rt text-gray-500 flex items-center gap-x-1">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -414,7 +426,10 @@ const WriteReviewDialog = (props) => {
         </div>
       </DialogBody>
       <DialogFooter>
-        <Button className="w-full rounded-full bg-black text-sm font-rt">
+        <Button
+          onClick={addReview}
+          className="w-full rounded-full bg-black text-sm font-rt"
+        >
           Submit
         </Button>
       </DialogFooter>
