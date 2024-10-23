@@ -49,7 +49,7 @@ const WriteReviewDialog = (props) => {
         !question.thirdQuestion
       ) {
         handleDialog();
-        toast.error("Mandatory answers for questions were not provided");
+        toast.error("Please complete question form");
         return;
       }
 
