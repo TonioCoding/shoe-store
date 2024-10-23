@@ -69,10 +69,10 @@ const WriteReviewDialog = (props) => {
               review: {
                 userId: userInfo._id,
                 subject: reviewSubject,
-                userName: `${userInfo.firstName} ${userInfo.lastName}`,
+                userName: userInfo.name,
                 reviewText: reviewText,
                 starRating: starDynaimcReview,
-                data: moment().format("l"),
+                date: moment().format("l"),
               },
             }),
           });
