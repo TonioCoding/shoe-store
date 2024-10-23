@@ -161,7 +161,7 @@ const AddInterestCard = () => {
         onClick={() => setOpenDialog(true)}
         className="hover:text-gray-600 border-gray-400 transition-all ease-out duration-400 shadow-xl flex-col text-center justify-center bg-gray-300 inline-flex my-4 cursor-pointer gap-y-2 w-[11rem] h-[16rem] px-12 py-20"
       >
-        <IconContext.Provider value={{ size: "1.7vw" }}>
+        <IconContext.Provider value={{ size: "1.5rem" }}>
           <GoPlusCircle className="self-center inline-block" />
         </IconContext.Provider>
         <Typography className="font-rt font-thin inline-block " variant="h6">
