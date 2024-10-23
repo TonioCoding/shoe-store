@@ -54,7 +54,13 @@ const WriteReviewDialog = (props) => {
           />
         );
       }
-      return <div className="flex">{stars.map((element) => element)}</div>;
+      return (
+        <div className="flex">
+          {stars.map((element, index) => (
+            <div key={index}>{element}</div>
+          ))}
+        </div>
+      );
     } else if (rating === 0) {
       return (
         <div className="flex text-black">
@@ -164,10 +170,7 @@ const WriteReviewDialog = (props) => {
           <Typography className="text-gray-800 items-center">
             Overall rating <span className="text-red-600">&#42;</span>
           </Typography>
-          <div
-            className="flex text-black [&>*]:hover:cursor-pointer"
-            onMouseLeave={() => setStarDynamicReview(0)}
-          >
+          <div className="flex text-black [&>*]:hover:cursor-pointer">
             <IconContext.Provider value={{ size: "3vw" }}>
               {determineShoeReviewRating(starDynaimcReview)}
             </IconContext.Provider>

@@ -104,7 +104,13 @@ const ShoePage = () => {
       for (let i = 0; i < remaingStars; i++) {
         stars.push(<MdStarOutline className={remaingStarsClassName} />);
       }
-      return <div className="flex">{stars.map((element) => element)}</div>;
+      return (
+        <div className="flex">
+          {stars.map((element, index) => (
+            <div key={index}>{element}</div>
+          ))}
+        </div>
+      );
     } else if (rating === 0) {
       return (
         <div className="flex text-black">
