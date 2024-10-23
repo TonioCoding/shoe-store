@@ -165,10 +165,12 @@ const addInterests = asyncHandler(async (req, res) => {
 
   if (!id) {
     res.status(400).json("No id provided");
+    return;
   }
 
   if (!user) {
     res.status(500).json("No user found");
+    return;
   }
 
   if (typeof interests === "string") {
