@@ -343,7 +343,11 @@ const NavBar = forwardRef(function NavBar(props, ref) {
               ) : null}
               {userInfo !== null ? (
                 <Link to={"/account"}>
-                  <Avatar size="sm" src={userInfo.avatarUrl} />
+                  <Avatar
+                    size="sm"
+                    src={userInfo.avatarUrl}
+                    className="border-2 border-gray-400"
+                  />
                 </Link>
               ) : null}
             </div>
