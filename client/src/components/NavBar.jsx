@@ -22,7 +22,6 @@ import {
   SiPuma,
 } from "react-icons/si";
 import { IoHomeSharp } from "react-icons/io5";
-import { FaUser } from "react-icons/fa";
 import { GoHeartFill } from "react-icons/go";
 import { Link, useLocation } from "react-router-dom";
 import SignInDisplay from "./SignInDisplay";
@@ -170,10 +169,10 @@ const NavBar = forwardRef(function NavBar(props, ref) {
   const iconList = (
     <IconContext.Provider
       value={{
-        size: "1.3rem",
+        size: "1.4rem",
       }}
     >
-      <div className="flex justify-between items-center gap-x-2 [&>*]:h-[1.5rem]">
+      <div className="flex justify-between items-center gap-x-3 [&>*]:h-[1.5rem]">
         <Link to={"/"}>
           <IoHomeSharp className="text-black cursor-pointer" />
         </Link>
@@ -199,44 +198,26 @@ const NavBar = forwardRef(function NavBar(props, ref) {
     </IconContext.Provider>
   );
 
-  const wordList = (
-    <div className="flex items-center">
-      <Link to={"/membership-page"}>
-        <span
-          className="m-3 hover:underline lg:w-[2vw] text-black font-lt text-lg cursor-pointer"
-          id="member-title"
-        >
-          Membership
-        </span>
-      </Link>
-      {userInfo !== null ? (
-        <Link to={"/account"}>
-          <Avatar size="sm" src={userInfo.avatarUrl} />
-        </Link>
-      ) : null}
-    </div>
-  );
-
   const brandIconList = (
-    <IconContext.Provider value={{ size: "2vw", className: "brand-icon" }}>
-      <div className="flex justify-between">
+    <IconContext.Provider value={{ size: "1.7rem", className: "brand-icon" }}>
+      <div className="flex justify-between gap-x-5">
         <Link to={"/adidas-page"}>
-          <SiAdidas className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiAdidas className="text-black cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/jordan-page"}>
-          <SiJordan className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiJordan className="text-black cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/newbalance-page"}>
-          <SiNewbalance className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiNewbalance className="text-black cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/nike-page"}>
-          <SiNike className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiNike className="text-black cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/reebok-page"}>
-          <SiReebok className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiReebok className="text-black cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
         <Link to={"/puma-page"}>
-          <SiPuma className="text-black m-3 cursor-pointer transition-all duration-200 ease-in-out" />
+          <SiPuma className="text-black cursor-pointer transition-all duration-200 ease-in-out" />
         </Link>
       </div>
     </IconContext.Provider>
@@ -360,22 +341,11 @@ const NavBar = forwardRef(function NavBar(props, ref) {
                   </span>
                 </Button>
               ) : null}
-              <IconContext.Provider
-                value={{ size: "2vw", className: "navbar-icon" }}
-              >
-                <Link to={"/cart"} className="mt-3">
-                  <Badge
-                    withBorder
-                    containerProps={{ className: "" }}
-                    invisible={cart && cart.length > 0 ? false : true}
-                    className="bg-[#ff2e27e6] hidden lg:flex lg:justify-center hover:bg-black transition-all duration-300 ease-out"
-                    placement="top-end"
-                    content={cart ? cart.length : null}
-                  >
-                    <HiShoppingCart className="text-black m-1 cursor-pointer invisible lg:visible hover:text-green-500" />
-                  </Badge>
+              {userInfo !== null ? (
+                <Link to={"/account"}>
+                  <Avatar size="sm" src={userInfo.avatarUrl} />
                 </Link>
-              </IconContext.Provider>
+              ) : null}
             </div>
             {/* Sign in button and Shopping cart container*/}
             <IconButton
@@ -455,10 +425,9 @@ const NavBar = forwardRef(function NavBar(props, ref) {
           </div>
         </Collapse>
         {<hr className="h-px my-1 bg-black border-0 dark:bg-gray-700" />}
-        <div className="hidden lg:flex justify-between w-full">
-          {iconList}
+        <div className="hidden lg:flex justify-between w-full my-5">
           {brandIconList}
-          {wordList}
+          {iconList}
         </div>
       </Navbar>
       <Drawer
