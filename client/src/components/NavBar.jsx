@@ -476,7 +476,10 @@ const NavBar = forwardRef(function NavBar(props, ref) {
           </Typography>
         </IconContext.Provider>
         {searchResults.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 pl-5">
+          <div
+            id="search-results-container"
+            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 place-items-center pt-5 rounded-2xl"
+          >
             {searchResults.map(
               ({ _id, model, name, imgUrls, price }, index) => {
                 return (

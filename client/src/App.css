@@ -294,3 +294,7 @@ hr {
   border-top: none;
   border-right: none; */
 }
+
+#search-results-container {
+  background: radial-gradient(white, rgb(129, 129, 129));
+}
