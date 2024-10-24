@@ -346,7 +346,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
                   <Avatar
                     size="sm"
                     src={userInfo.avatarUrl}
-                    className="border-2 border-gray-400"
+                    className="border-2 border-gray-400 hover:border-gray-600 transition-all ease-in-out duration-500"
                   />
                 </Link>
               ) : null}
