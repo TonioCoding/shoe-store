@@ -37,7 +37,7 @@ const ShoePage = () => {
   const [favoritesHasProduct, setFavoritesHasProduct] = useState(false);
   const [shoeReviews, setShoeReviews] = useState([]);
   const [dialog, setDialog] = useState(false);
-  console.log(shoeReviews);
+
   function handleSize(size) {
     setShoeSize(size);
   }
