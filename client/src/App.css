@@ -296,5 +296,5 @@ hr {
 }
 
 #search-results-container {
-  background: radial-gradient(white, rgb(129, 129, 129));
+  background: radial-gradient(80rem at center, white, rgb(129, 129, 129));
 }
