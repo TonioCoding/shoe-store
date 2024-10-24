@@ -453,15 +453,7 @@ const ShoePage = () => {
               </div>
             </div>
             <div className="flex flex-col gap-y-3 mt-4 items-center">
-              <Button
-                onClick={(e) => {
-                  e.preventDefault();
-                  cartHasProduct === false
-                    ? toast.success("Added product to cart")
-                    : toast.success("Removed product from cart");
-                }}
-                className="bg-black rounded-3xl border border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]"
-              >
+              <Button className="bg-black rounded-3xl border border-gray-500 hover:cursor-pointer hover:bg-gray-800 transition-all duration-300 ease-in-out lg:min-w-fit w-[75%]">
                 {cartHasProduct === true ? (
                   <Typography
                     className="text-[1.2em]"
@@ -485,6 +477,7 @@ const ShoePage = () => {
                           })
                         );
                         setCartHasProduct(true);
+                        toast.success("Added product to cart");
                       } else {
                         toast.error("Select a shoe size before adding to cart");
                       }
