@@ -428,8 +428,8 @@ const NavBar = forwardRef(function NavBar(props, ref) {
             </Button>
           </div>
         </Collapse>
-        {<hr className="h-px my-1 bg-black border-0 dark:bg-gray-700" />}
-        <div className="hidden lg:flex justify-between w-full my-5">
+        {<hr className="h-px my-2 bg-black border-0 dark:bg-gray-700" />}
+        <div className="hidden lg:flex justify-between w-full ">
           {brandIconList}
           {iconList}
         </div>
