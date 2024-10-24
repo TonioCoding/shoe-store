@@ -170,22 +170,30 @@ const NavBar = forwardRef(function NavBar(props, ref) {
   const iconList = (
     <IconContext.Provider
       value={{
-        size: "2vw",
-        className: "nav-bar-icon",
+        size: "1.3rem",
       }}
     >
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-x-2 [&>*]:h-[1.5rem]">
         <Link to={"/"}>
-          <IoHomeSharp className="text-black cursor-pointer lg:w-[1.5vw] mx-2 mr-3 navbar-icon" />
-        </Link>
-        <Link to={"/account"}>
-          <FaUser className="text-black cursor-pointer lg:w-[1.3vw] mx-2 navbar-icon" />
+          <IoHomeSharp className="text-black cursor-pointer" />
         </Link>
         <Link to={"/saved-shoes"}>
           <GoHeartFill
             id="saved-shoes-icon"
-            className="text-black cursor-pointer lg:w-[1.3vw] mx-2 navbar-icon"
+            className="text-black cursor-pointer"
           />
+        </Link>
+        <Link to={"/cart"}>
+          <Badge
+            withBorder
+            containerProps={{ className: "" }}
+            invisible={cart && cart.length > 0 ? false : true}
+            className="bg-[#ff2e27e6] hidden lg:flex lg:justify-center hover:bg-black transition-all duration-300 ease-out"
+            placement="top-end"
+            content={cart ? cart.length : null}
+          >
+            <HiShoppingCart className="text-black cursor-pointer invisible lg:visible hover:text-green-500" />
+          </Badge>
         </Link>
       </div>
     </IconContext.Provider>
