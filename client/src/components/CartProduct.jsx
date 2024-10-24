@@ -98,7 +98,7 @@ const CartProduct = (props) => {
       <IconContext.Provider value={{ size: "1rem" }}>
         <div
           onClick={(e) => e.stopPropagation()}
-          className="absolute flex items-center gap-x-6 -bottom-[60%] md:-bottom-[50%]"
+          className="absolute flex items-center gap-x-6 -bottom-[60%] md:-bottom-[5rem]"
         >
           <div
             onClick={(e) => e.stopPropagation()}
