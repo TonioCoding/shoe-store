@@ -191,7 +191,7 @@ const NavBar = forwardRef(function NavBar(props, ref) {
             placement="top-end"
             content={cart ? cart.length : null}
           >
-            <HiShoppingCart className="text-black cursor-pointer invisible lg:visible hover:text-green-500" />
+            <HiShoppingCart className="text-black cursor-pointer invisible lg:visible hover:text-green-500 ease-in-out duration-500" />
           </Badge>
         </Link>
       </div>
