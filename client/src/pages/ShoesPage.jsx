@@ -19,6 +19,17 @@ const ShoesPage = ({ brand }) => {
   const [sortBy, setSortBy] = useState(null);
   const isFirstRender = useRef(true);
   const [filters, setFilters] = useState(new Set());
+  const [shoeFilter, setShoeFilter] = useState({
+    typeOfShoe: [],
+    sizesNotInStock: [],
+    colors: [],
+    gender: [],
+    price: [],
+    shoeHeight: [],
+  });
+
+  console.log(shoeFilter);
+
   const [amountOfShoes, setAmountOfShoes] = useState(null);
 
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
@@ -36,11 +47,11 @@ const ShoesPage = ({ brand }) => {
   ];
 
   const priceRanges = [
-    "$0 - 25",
-    "$25 - 50",
-    "$50 - 100",
-    "$100 - 125",
-    "$125 - 150",
+    [0, 25],
+    [25, 50],
+    [50, 100],
+    [100, 125],
+    [125, 150],
   ];
 
   const sizes = [
@@ -87,21 +98,26 @@ const ShoesPage = ({ brand }) => {
     "Price: Low - High",
   ];
 
-  function addFilter(filterValue, state) {
-    setFilters((prev) => {
-      if (prev.has(filterValue) === false) {
-        let newSet = new Set(prev);
-        newSet.add(filterValue);
-        return newSet;
-      }
-
-      if (prev.has(filterValue) === true) {
-        let newSet = new Set(prev);
-        newSet.delete(filterValue);
-        return new Set(newSet);
-      }
-    });
+  function addFilter(filterValue, shoeProp) {
+    if ([...shoeFilter[shoeProp]].includes(filterValue) === false) {
+      setShoeFilter((prev) => ({
+        ...prev,
+        [shoeProp]: [...shoeFilter[shoeProp], filterValue],
+      }));
+    } else {
+      //remove it state
+      setShoeFilter((prev) => ({
+        ...prev,
+        [shoeProp]: [...shoeFilter[shoeProp]].filter(
+          (element) => element !== filterValue
+        ),
+      }));
+    }
   }
+
+  useEffect(() => {
+    console.log(shoeFilter);
+  }, [shoeFilter]);
 
   function determineFetchUrlBasedOnBrand(brand) {
     switch (brand) {
@@ -321,37 +337,42 @@ const ShoesPage = ({ brand }) => {
           }
         >
           <ReusableAccordion
+            shoeProp="typeOfShoe"
             value="Types"
             values={typesOfShoes}
             addFilter={addFilter}
           />
           <ReusableAccordion
+            shoeProp="sizesNotInStock"
             value="Sizes"
             values={sizes}
             addFilter={addFilter}
           />
           <ReusableAccordion
+            shoeProp="colors"
             value="Colors"
             values={colors}
             addFilter={addFilter}
           />
           <ReusableAccordion
+            shoeProp="gender"
             value="Genders"
             values={genders}
             addFilter={addFilter}
           />
           <ReusableAccordion
+            shoeProp="price"
             value="Shop By Prices"
             values={priceRanges}
             addFilter={addFilter}
           />
           <ReusableAccordion
+            shoeProp="shoeHeight"
             value="Shoe Height"
             values={shoeHeights}
             addFilter={addFilter}
           />
         </div>
-
         <div className="gap-x-5 flex flex-wrap justify-center w-full">
           {shoeData
             ? shoeData.map(
