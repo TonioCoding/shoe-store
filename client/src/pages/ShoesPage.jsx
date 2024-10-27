@@ -12,13 +12,12 @@ import { IconContext } from "react-icons/lib";
 import ReusableAccordion from "../components/ReusableAccordion";
 
 const ShoesPage = ({ brand }) => {
-  const [shoeData, setShoeData] = useState(null);
+  const [shoeData, setShoeData] = useState([]);
   const [currentBrand, setCurrentBrand] = useState(brand);
   const [showShoeFilters, setShowShoeFilters] = useState(null);
   const [showSortBy, setShowSortBy] = useState(null);
   const [sortBy, setSortBy] = useState(null);
   const isFirstRender = useRef(true);
-  const [filters, setFilters] = useState(new Set());
   const [shoeFilter, setShoeFilter] = useState({
     typeOfShoe: [],
     sizesNotInStock: [],
@@ -28,13 +27,11 @@ const ShoesPage = ({ brand }) => {
     shoeHeight: [],
   });
 
-  console.log(shoeFilter);
-
   const [amountOfShoes, setAmountOfShoes] = useState(null);
 
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
 
-  const genders = ["Male", "Female", "Unisex"];
+  const genders = ["Men", "Women", "Unisex"];
 
   const typesOfShoes = [
     "Basketball",
@@ -105,7 +102,6 @@ const ShoesPage = ({ brand }) => {
         [shoeProp]: [...shoeFilter[shoeProp], filterValue],
       }));
     } else {
-      //remove it state
       setShoeFilter((prev) => ({
         ...prev,
         [shoeProp]: [...shoeFilter[shoeProp]].filter(
@@ -116,8 +112,34 @@ const ShoesPage = ({ brand }) => {
   }
 
   useEffect(() => {
-    console.log(shoeFilter);
-  }, [shoeFilter]);
+    let filters = {};
+    for (let filter in shoeFilter) {
+      let validShoeFilters;
+
+      validShoeFilters = [...shoeFilter[filter]].filter(
+        (element) => element.length > 0
+      );
+      if (validShoeFilters.length > 0) {
+        filters[filter] = [...shoeFilter[filter]];
+      }
+    }
+    async function retrieveShoeViaFilters() {
+      try {
+        const req = fetch("http://localhost:9000/api/v1/shoe/filteredShoes", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ filters: filters, brand: currentBrand }),
+        });
+
+        const res = (await req).json().then((data) => setShoeData(data));
+      } catch (error) {
+        toast.error(error);
+      }
+    }
+    retrieveShoeViaFilters();
+  }, [shoeFilter, currentBrand]);
 
   function determineFetchUrlBasedOnBrand(brand) {
     switch (brand) {
@@ -374,7 +396,7 @@ const ShoesPage = ({ brand }) => {
           />
         </div>
         <div className="gap-x-5 flex flex-wrap justify-center w-full">
-          {shoeData
+          {shoeData.length > 0
             ? shoeData.map(
                 ({
                   _id,
