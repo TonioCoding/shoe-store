@@ -18,15 +18,17 @@ const ShoesPage = ({ brand }) => {
   const [showSortBy, setShowSortBy] = useState(null);
   const [sortBy, setSortBy] = useState(null);
   const isFirstRender = useRef(true);
-  const [shoeFilter, setShoeFilter] = useState({
+  const filtersObj = {
     typeOfShoe: [],
     sizesNotInStock: [],
     colors: [],
     gender: [],
     price: [],
     shoeHeight: [],
-  });
+  };
 
+  const [shoeFilter, setShoeFilter] = useState(filtersObj);
+  console.log(shoeFilter);
   const [amountOfShoes, setAmountOfShoes] = useState(null);
 
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
@@ -124,18 +126,24 @@ const ShoesPage = ({ brand }) => {
       }
     }
     async function retrieveShoeViaFilters() {
-      try {
-        const req = fetch("http://localhost:9000/api/v1/shoe/filteredShoes", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ filters: filters, brand: currentBrand }),
-        });
+      if (Object.values(shoeFilter).length > 0) {
+        try {
+          const req = fetch("http://localhost:9000/api/v1/shoe/filteredShoes", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ filters: filters, brand: currentBrand }),
+          });
 
-        const res = (await req).json().then((data) => setShoeData(data));
-      } catch (error) {
-        toast.error(error);
+          const res = (await req).json().then((data) => {
+            if (data.length > 0) {
+              setShoeData(data);
+            }
+          });
+        } catch (error) {
+          toast.error(error);
+        }
       }
     }
     retrieveShoeViaFilters();
