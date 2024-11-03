@@ -26,8 +26,8 @@ const ShoesPage = ({ brand }) => {
     price: [],
     shoeHeight: [],
   };
-
   const [shoeFilter, setShoeFilter] = useState(filtersObj);
+  console.log(shoeFilter, shoeData);
   console.log(shoeFilter);
   const [amountOfShoes, setAmountOfShoes] = useState(null);
 
@@ -98,18 +98,44 @@ const ShoesPage = ({ brand }) => {
   ];
 
   function addFilter(filterValue, shoeProp) {
-    if ([...shoeFilter[shoeProp]].includes(filterValue) === false) {
-      setShoeFilter((prev) => ({
-        ...prev,
-        [shoeProp]: [...shoeFilter[shoeProp], filterValue],
-      }));
+    const holdingArr = [];
+
+    if (typeof filterValue === "object") {
+      // and if statement to add, and the following else statement should remove the filter value from the array
+      let filterValuesMap = new Map();
+
+      for (let i = 0; i < shoeFilter[shoeProp].length; i++) {
+        filterValuesMap.set(`${i}`, shoeFilter[shoeProp][i]);
+      }
+
+      console.log(filterValuesMap.values().next());
+
+      if (!filterValuesMap.get(filterValue)) {
+        setShoeFilter((prev) => ({
+          ...prev,
+          [shoeProp]: [...shoeFilter[shoeProp], filterValue],
+        }));
+      } else {
+        console.log("hey");
+      }
     } else {
-      setShoeFilter((prev) => ({
-        ...prev,
-        [shoeProp]: [...shoeFilter[shoeProp]].filter(
-          (element) => element !== filterValue
-        ),
-      }));
+      if (
+        [...shoeFilter[shoeProp]].includes(filterValue) === false &&
+        shoeFilter[shoeProp] !== null &&
+        typeof filterValue !== "object"
+      ) {
+        setShoeFilter((prev) => ({
+          ...prev,
+          [shoeProp]: [...shoeFilter[shoeProp], filterValue],
+        }));
+      } else {
+        setShoeFilter((prev) => ({
+          ...prev,
+          [shoeProp]: [...shoeFilter[shoeProp]].filter(
+            (element) => element !== filterValue
+          ),
+        }));
+      }
     }
   }
 
