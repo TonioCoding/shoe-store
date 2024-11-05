@@ -107,13 +107,9 @@ const ShoesPage = ({ brand }) => {
     const holdingArr = [];
 
     if (typeof filterValue === "object") {
-      // and if statement to add, and the following else statement should remove the filter value from the array
       let filterValuesMap = new Map();
       let currentValueIndex;
-      console.log(shoeFilter);
-      // first set all current values into a set
-      // each set is mapped with the corresponding index of the value in the nested array
-      console.log(shoeFilter[shoeProp].length);
+
       for (let i = 0; i < shoeFilter[shoeProp].length; i++) {
         if (
           shoeFilter[shoeProp][i][0] == filterValue[0] &&
@@ -123,10 +119,6 @@ const ShoesPage = ({ brand }) => {
         }
         filterValuesMap.set(`${i}`, shoeFilter[shoeProp][i]);
       }
-      console.log(currentValueIndex);
-      //console.log(filterValuesMap.values().next());
-      console.log(filterValuesMap.keys().next());
-      console.log(filterValuesMap.get([filterValue[0], filterValue[1]]));
 
       if (currentValueIndex !== undefined) {
         setShoeFilter((prev) => ({
@@ -135,13 +127,11 @@ const ShoesPage = ({ brand }) => {
             (element, index) => index !== currentValueIndex
           ),
         }));
-        console.log("deleted");
       } else {
         setShoeFilter((prev) => ({
           ...prev,
           [shoeProp]: [...shoeFilter[shoeProp], filterValue],
         }));
-        console.log("added");
       }
     } else {
       if (
