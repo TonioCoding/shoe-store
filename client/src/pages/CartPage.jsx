@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import CartProduct from "../components/CartProduct";
 import { cartTotal } from "../redux/cart/cartSlice";
 import { PiCurrencyDollar } from "react-icons/pi";
+import { toast } from "react-toastify";
 
 const CartPage = () => {
   //const { userInfo } = useSelector((state) => state.persistedReducer.auth);
@@ -181,7 +182,11 @@ const CartPage = () => {
               className={`bg-${
                 cart.length > 0 ? "green-500" : "black"
               } text-white`}
-              onClick={() => navigate("/checkout")}
+              onClick={() =>
+                cart.length > 0
+                  ? navigate("/checkout")
+                  : toast.warning("Cart is currently empty")
+              }
             >
               Checkout
             </Button>
