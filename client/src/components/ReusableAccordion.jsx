@@ -42,7 +42,7 @@ const ReusableAccordion = (props) => {
                           addFilter(value, shoeProp);
                         }}
                       />
-                      <Typography className="font-rt text-black text-[1.1vw]">
+                      <Typography className="font-rt text-black text-[.8rem]">
                         {shoeProp !== "price"
                           ? value
                           : `$${value[0]} - ${value[1]}`}
