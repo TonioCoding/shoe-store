@@ -406,7 +406,7 @@ const ShoesPage = ({ brand }) => {
         </div>
       </div>
       <div
-        className="px-5 flex justify-center py-10"
+        className="px-5 flex justify-center py-10 min-h-[100vh]"
         id="shoe-page-main-section"
       >
         <div
