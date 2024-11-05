@@ -3,7 +3,7 @@
 /* eslint-disable react/prop-types */
 import { Typography } from "@material-tailwind/react";
 import ShoeCard from "../components/ShoeCard";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { toast } from "react-toastify";
 import { element, PropTypes } from "prop-types";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
@@ -341,6 +341,28 @@ const ShoesPage = ({ brand }) => {
   useEffect(() => {
     if (shoeData) setAmountOfShoes(shoeData.length);
   }, [shoeData]);
+
+  const sortShoes = useMemo(() => {
+    function highestToLowest(arr) {
+      return arr.sort((a, b) => b.price - a.price);
+    }
+
+    function lowestToHighest(arr) {
+      return arr.sort((a, b) => a.price - b.price);
+    }
+
+    switch (sortBy) {
+      case "Featured":
+        console.log("featured");
+        break;
+      case "Price: High - Low":
+        setShoeData(highestToLowest(shoeData));
+        break;
+      case "Price: Low - High":
+        setShoeData(lowestToHighest(shoeData));
+        break;
+    }
+  }, [shoeData, sortBy]);
 
   return (
     <main className="bg-white h-full">
