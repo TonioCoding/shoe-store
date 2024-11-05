@@ -361,6 +361,8 @@ const ShoesPage = ({ brand }) => {
       case "Price: Low - High":
         setShoeData(lowestToHighest(shoeData));
         break;
+      case "Newest":
+        break;
     }
   }, [shoeData, sortBy]);
 
