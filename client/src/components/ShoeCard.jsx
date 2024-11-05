@@ -61,7 +61,7 @@ const ShoeCard = (props) => {
 
   return (
     <div
-      className="w-[25%] cursor-pointer my-3 mb-[5rem] mx-2"
+      className="w-[20rem] cursor-pointer my-3 mb-[5rem] mx-2"
       onClick={() => navigate(`/shoe-page/?id=${shoeId}`)}
     >
       <img

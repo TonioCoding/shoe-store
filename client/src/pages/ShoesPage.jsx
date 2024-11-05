@@ -14,7 +14,7 @@ import ReusableAccordion from "../components/ReusableAccordion";
 const ShoesPage = ({ brand }) => {
   const [shoeData, setShoeData] = useState([]);
   const [currentBrand, setCurrentBrand] = useState(brand);
-  const [showShoeFilters, setShowShoeFilters] = useState(null);
+  const [showShoeFilters, setShowShoeFilters] = useState(false);
   const [showSortBy, setShowSortBy] = useState(null);
   const [sortBy, setSortBy] = useState(null);
   const isFirstRender = useRef(true);
@@ -432,15 +432,15 @@ const ShoesPage = ({ brand }) => {
         </div>
       </div>
       <div
-        className="px-5 flex justify-center py-10 min-h-[100vh]"
+        className="flex flex-col md:flex-row justify-center py-10"
         id="shoe-page-main-section"
       >
         <div
           id="filters-container"
           className={
-            showShoeFilters === null || false
-              ? "hidden flex-col transition-all duration-700 ease-in h-fit left-1 ml-5 top-[25%] z-10"
-              : "flex-col transition-all duration-700 ease-in h-fit left-1 ml-5 top-[25%] z-10"
+            showShoeFilters === false
+              ? "hidden"
+              : "flex flex-row transition-all duration-700 ease-in md:left-1 md:top-[25%] z-10 min-w-full md:min-w-fit px-5"
           }
         >
           <ReusableAccordion
