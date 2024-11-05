@@ -5,7 +5,7 @@ import { Typography } from "@material-tailwind/react";
 import ShoeCard from "../components/ShoeCard";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "react-toastify";
-import { PropTypes } from "prop-types";
+import { element, PropTypes } from "prop-types";
 import { TbAdjustmentsHorizontal } from "react-icons/tb";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { IconContext } from "react-icons/lib";
@@ -26,9 +26,15 @@ const ShoesPage = ({ brand }) => {
     price: [],
     shoeHeight: [],
   };
-  const [shoeFilter, setShoeFilter] = useState(filtersObj);
-  console.log(shoeFilter, shoeData);
-  console.log(shoeFilter);
+  const [shoeFilter, setShoeFilter] = useState({
+    typeOfShoe: [],
+    sizesNotInStock: [],
+    colors: [],
+    gender: [],
+    price: [],
+    shoeHeight: [],
+  });
+
   const [amountOfShoes, setAmountOfShoes] = useState(null);
 
   const brands = ["Nike", "Adidas", "Jordan", "Reebok", "Puma", "New Balance"];
@@ -103,20 +109,39 @@ const ShoesPage = ({ brand }) => {
     if (typeof filterValue === "object") {
       // and if statement to add, and the following else statement should remove the filter value from the array
       let filterValuesMap = new Map();
-
+      let currentValueIndex;
+      console.log(shoeFilter);
+      // first set all current values into a set
+      // each set is mapped with the corresponding index of the value in the nested array
+      console.log(shoeFilter[shoeProp].length);
       for (let i = 0; i < shoeFilter[shoeProp].length; i++) {
+        if (
+          shoeFilter[shoeProp][i][0] == filterValue[0] &&
+          shoeFilter[shoeProp][i][1] == filterValue[1]
+        ) {
+          currentValueIndex = i;
+        }
         filterValuesMap.set(`${i}`, shoeFilter[shoeProp][i]);
       }
+      console.log(currentValueIndex);
+      //console.log(filterValuesMap.values().next());
+      console.log(filterValuesMap.keys().next());
+      console.log(filterValuesMap.get([filterValue[0], filterValue[1]]));
 
-      console.log(filterValuesMap.values().next());
-
-      if (!filterValuesMap.get(filterValue)) {
+      if (currentValueIndex !== undefined) {
+        setShoeFilter((prev) => ({
+          ...prev,
+          [shoeProp]: [...shoeFilter[shoeProp]].filter(
+            (element, index) => index !== currentValueIndex
+          ),
+        }));
+        console.log("deleted");
+      } else {
         setShoeFilter((prev) => ({
           ...prev,
           [shoeProp]: [...shoeFilter[shoeProp], filterValue],
         }));
-      } else {
-        console.log("hey");
+        console.log("added");
       }
     } else {
       if (
