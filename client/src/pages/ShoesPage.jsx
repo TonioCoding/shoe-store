@@ -351,9 +351,20 @@ const ShoesPage = ({ brand }) => {
       return arr.sort((a, b) => a.price - b.price);
     }
 
+    function newestShoes(arr) {
+      return arr.sort((a, b) => {
+        let aDate = new Date(a.createdAt);
+        let bDate = new Date(b.createdAt);
+
+        return bDate.getTime() - aDate.getTime();
+      });
+    }
+
     switch (sortBy) {
       case "Featured":
-        console.log("featured");
+        toast.warning(
+          "No featured products are available right now, try again later"
+        );
         break;
       case "Price: High - Low":
         setShoeData(highestToLowest(shoeData));
@@ -362,6 +373,7 @@ const ShoesPage = ({ brand }) => {
         setShoeData(lowestToHighest(shoeData));
         break;
       case "Newest":
+        setShoeData(newestShoes(shoeData));
         break;
     }
   }, [shoeData, sortBy]);
