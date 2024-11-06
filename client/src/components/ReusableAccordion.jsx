@@ -19,7 +19,10 @@ const ReusableAccordion = (props) => {
 
   return (
     <Accordion open={open === 1}>
-      <AccordionHeader onClick={() => handleOpen(1)}>
+      <AccordionHeader
+        onClick={() => handleOpen(1)}
+        className="border-b-gray-600"
+      >
         <IconContext.Provider value={{ size: "1rem", color: "black" }}>
           <div className="flex items-center justify-between w-full">
             <Typography className="font-lt text-black text-lg">

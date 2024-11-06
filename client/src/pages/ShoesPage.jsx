@@ -381,10 +381,10 @@ const ShoesPage = ({ brand }) => {
   return (
     <main className="bg-white h-full">
       <div
-        className="flex flex-col md:flex-row items-center justify-between max-w-full sticky top-0 bg-white border-b-2 border-gray-300 z-20 md:px-5 py-5 md:py-0"
+        className="flex flex-col md:flex-row items-center justify-between max-w-full relative md:sticky top-0 bg-white border-b-2 border-gray-300 z-20 px-3 py-2 md:py-0"
         id="shoe-page-header"
       >
-        <div className="flex flex-col items-start gap-y-1 py-5">
+        <div className="flex flex-col items-start gap-y-1 py-10">
           <Typography className="font-rt md:text-sm  text-base">
             {brand} &#47; Shoes
           </Typography>
@@ -392,7 +392,7 @@ const ShoesPage = ({ brand }) => {
             {brand} Adult Shoes &#40;{shoeData ? amountOfShoes : 0}&#41;
           </Typography>
         </div>
-        <div className="flex items-center gap-x-10">
+        <div className="flex items-center justify-between gap-x-10 w-full md:w-fit">
           <IconContext.Provider value={{ size: "1.5rem" }}>
             <div
               className="flex items-center gap-x-2 cursor-pointer"
@@ -432,7 +432,7 @@ const ShoesPage = ({ brand }) => {
         </div>
       </div>
       <div
-        className="flex flex-col md:flex-row justify-center py-10"
+        className="flex flex-col md:flex-row justify-center"
         id="shoe-page-main-section"
       >
         <div
@@ -440,7 +440,7 @@ const ShoesPage = ({ brand }) => {
           className={
             showShoeFilters === false
               ? "hidden"
-              : "flex flex-row transition-all duration-700 ease-in md:left-1 md:top-[25%] z-10 min-w-full md:min-w-fit px-5"
+              : "flex flex-row transition-all duration-700 ease-in md:left-1 md:top-[25%] z-10 min-w-full md:min-w-fit px-5 py-[1rem]"
           }
         >
           <ReusableAccordion
