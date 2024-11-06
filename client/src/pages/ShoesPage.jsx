@@ -440,7 +440,7 @@ const ShoesPage = ({ brand }) => {
           className={
             showShoeFilters === false
               ? "hidden"
-              : "flex flex-row transition-all duration-700 ease-in md:left-1 md:top-[25%] z-10 min-w-full md:min-w-fit px-5 py-[1rem]"
+              : "flex flex-row transition-all duration-700 ease-in md:left-1 md:top-[25%] z-10 min-w-full md:min-w-fit px-5 py-[5rem]"
           }
         >
           <ReusableAccordion
@@ -480,7 +480,11 @@ const ShoesPage = ({ brand }) => {
             addFilter={addFilter}
           />
         </div>
-        <div className="gap-x-5 flex flex-wrap justify-center w-full">
+        <div
+          className="w-full md:w-[75%] grid grid-cols-[repeat(2,_minmax(0,1fr))] md:grid-cols-[repeat(3,_minmax(200px,1fr))] [&>*]:m-0 items-center gap-[1rem] p-[1rem] justify-center [&>*]:max-w-full"
+          //className="gap-x-5 flex flex-wrap justify-center w-full"
+          id="shoes-container"
+        >
           {shoeData.length > 0
             ? shoeData.map(
                 ({

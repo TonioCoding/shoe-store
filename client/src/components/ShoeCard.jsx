@@ -61,12 +61,12 @@ const ShoeCard = (props) => {
 
   return (
     <div
-      className="w-[20rem] cursor-pointer my-3 mb-[5rem] mx-2"
+      className="max-w-full min-w-[2rem] cursor-pointer my-3 mb-[5rem] mx-2 place-self-center"
       onClick={() => navigate(`/shoe-page/?id=${shoeId}`)}
     >
       <img
         src={shoeImgUrls[0]}
-        className="object-scale-down border border-gray-400 min-h-fit hover:shadow-lg transition-all duration-500 ease-in-out"
+        className="object-contain  border border-gray-400 min-h-fit hover:shadow-lg transition-all duration-500 ease-in-out"
       />
       <div className="mx-4 my-4 flex flex-col items-start gap-y-2">
         {shoeOnSale === true ? (
@@ -75,7 +75,7 @@ const ShoeCard = (props) => {
             <FaTags className="text-sm" />
           </Typography>
         ) : null}
-        <Typography className="font-lt text-[1.05rem] text-wrap">
+        <Typography className="font-lt text-[1rem] text-wrap">
           {shoeModel} {shoeName}
         </Typography>
         <Typography className="font-rt text-gray-600 text-sm">
@@ -98,7 +98,7 @@ const ShoeCard = (props) => {
               : null}
           </div>
         </div>
-        <Typography className="font-rt flex items-center text-[1.2rem]">
+        <Typography className="font-rt flex items-center text-[1rem]">
           <PiCurrencyDollar />
           {shoePrice}
         </Typography>
