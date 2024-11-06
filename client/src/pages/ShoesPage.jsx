@@ -381,11 +381,11 @@ const ShoesPage = ({ brand }) => {
   return (
     <main className="bg-white h-full">
       <div
-        className="flex items-center justify-between mx-10 max-w-full sticky top-0 bg-white border-b-2 border-gray-300 z-20"
+        className="flex flex-col md:flex-row items-center justify-between max-w-full sticky top-0 bg-white border-b-2 border-gray-300 z-20 md:px-5 py-5 md:py-0"
         id="shoe-page-header"
       >
         <div className="flex flex-col items-start gap-y-1 py-5">
-          <Typography className="font-rt text-sm">
+          <Typography className="font-rt md:text-sm  text-base">
             {brand} &#47; Shoes
           </Typography>
           <Typography className="font-lt text-2xl">
@@ -393,7 +393,7 @@ const ShoesPage = ({ brand }) => {
           </Typography>
         </div>
         <div className="flex items-center gap-x-10">
-          <IconContext.Provider value={{ size: "3vh" }}>
+          <IconContext.Provider value={{ size: "1.5rem" }}>
             <div
               className="flex items-center gap-x-2 cursor-pointer"
               onClick={setShowFiltersContainerState}
@@ -402,7 +402,7 @@ const ShoesPage = ({ brand }) => {
               <TbAdjustmentsHorizontal />
             </div>
           </IconContext.Provider>
-          <IconContext.Provider value={{ size: "3vh" }}>
+          <IconContext.Provider value={{ size: "1.5rem" }}>
             <div
               className="flex items-center gap-x-2 cursor-pointer"
               onClick={setShowSortByState}
